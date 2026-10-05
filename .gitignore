@@ -6,6 +6,7 @@
 node_modules
 dist
 build
+out
 *.log
 .DS_Store
 *.pem
@@ -21,3 +22,5 @@ DEUDAFIX*
 Ciclona/
 _clones/
 app-web-nextjs/belentani7.github.io/
+.vercel
+.env*.local

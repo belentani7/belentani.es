@@ -5,12 +5,12 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
   experimental: {
     optimizePackageImports: ['@react-three/fiber', '@react-three/drei', 'gsap', 'lucide-react'],
-  },
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    remotePatterns: [{ protocol: 'https', hostname: '**.github.io' }],
   },
   headers: async () => [
     { source: '/:path*', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }] },

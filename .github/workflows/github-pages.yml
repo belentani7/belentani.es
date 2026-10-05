@@ -35,6 +35,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Configure for GitHub Pages
+        run: |
+          cp next.config.github-pages.mjs next.config.mjs
+
       - name: Build
         run: pnpm build
         env:
