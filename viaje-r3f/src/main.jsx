@@ -5,6 +5,7 @@ import { useProgress } from "@react-three/drei";
 import { Scene } from "./Scene.jsx";
 import { STATIONS, N, PLANETS, state, stationT } from "./journey.js";
 import { start as startAudio, stop as stopAudio } from "./audio.js";
+import { LoreCodex } from "./LoreCodex.jsx";
 import "./styles.css";
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (reduce) { state.auto = false; state.target = state.vel = 0; state.reduce = true; }
@@ -24,6 +25,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [quality, setQuality] = useState(innerWidth < 760 ? 0 : 2);
   const [sound, setSound] = useState(false);
+  const [codex, setCodex] = useState(false);
   const toggleSound = async () => {
     if (sound) { stopAudio(); setSound(false); }
     else { try { await startAudio(); setSound(true); } catch { setSound(false); } }
@@ -119,6 +121,7 @@ function App() {
       <div className="ctl glass">
         <button aria-pressed={auto} onClick={() => { state.auto = !state.auto; setAuto(state.auto); }}>AUTO</button>
         <button onClick={() => (state.target = 0.0035)}>WARP ›</button>
+        <button aria-pressed={codex} onClick={() => setCodex(true)} title="Abrir códice del lore">⌬ LORE</button>
         <button aria-pressed={sound} onClick={toggleSound} title="La Deuda">{sound ? "♪ ON" : "♪ OFF"}</button>
       </div>
 
@@ -132,6 +135,8 @@ function App() {
           <button type="button" onClick={() => jumpStation(1)} aria-label="Siguiente estación">SIGUIENTE →</button>
         </div>
       </section>
+
+      {codex && <LoreCodex onClose={() => setCodex(false)} />}
 
       {world && (
         <aside className="world glass" ref={panel} role="dialog" aria-modal="true" aria-label={world.id} onKeyDown={trap}>
