@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import '@/styles/redglass.css';
+
+@theme {
+  --color-void: #030008;
+  --color-voidElevated: #0a0205;
+  --color-ink: #f2e8ef;
+  --color-mute: #9a8a96;
+  --color-red: #ff073a;
+  --color-redDim: #7a0e1e;
+  --color-blood: #8a0303;
+  --color-gold: #d4af37;
+  --color-goldDim: #8a6d1f;
+  --color-cyan: #4de8e0;
+  --color-green: #39ff8a;
+  --font-display: var(--font-orbitron), "Share Tech Mono", ui-monospace, monospace;
+  --font-body: var(--font-rajdhani), "Share Tech Mono", system-ui, sans-serif;
+  --font-mono: var(--font-share-tech-mono), ui-monospace, Consolas, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--color-void); color: var(--color-ink); font-family: var(--font-body); overflow-x: hidden; min-height: 100vh; }
+::selection { background: var(--color-red); color: #000; }
+a { color: var(--color-red); text-decoration: none; }
+button { font-family: var(--font-mono); cursor: pointer; }
+input, select, textarea { font-family: var(--font-mono); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0a0205; }
+::-webkit-scrollbar-thumb { background: var(--color-redDim); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

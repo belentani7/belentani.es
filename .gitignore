@@ -1,0 +1,23 @@
+# Belentani Unified Hub
+.env
+.env.local
+.env.production
+.next
+node_modules
+dist
+build
+*.log
+.DS_Store
+*.pem
+*.key
+id_rsa*
+.npmrc
+*credential*
+DEUDAFIX*
+*.env.example
+!.env.example
+
+# Reference material - embedded git repos
+Ciclona/
+_clones/
+app-web-nextjs/belentani7.github.io/

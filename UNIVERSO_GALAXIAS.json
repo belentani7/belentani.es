@@ -1,0 +1,165 @@
+{
+  "universo": "BELENTANI — COSMOS UNIFICADO",
+  "version": "2026-10-02",
+  "frecuencia_firma": "432 Hz",
+  "lenguaje_visual": "Red Glass · Obsidian · Oro Viejo",
+  "arquetipo": "Soberano Melancólico / Guardián Poético",
+  "eje_geografico": "São Paulo ↔ Barcelona",
+  "regla_de_oro": "El Lore manda. Música, 3D, código y herramientas son satélites del mito.",
+  "pilares": {
+    "lore": {
+      "resumen": "Un narcisista se dirige a sus hermanos (código rojo). Giro: él es el verdadero antihéroe — nació sin voz, aprendió a cantar, entendió el daño, eligió reformarse sin negar el beso. Alguien le debe una deuda impagable. Cierre: vete tranquilo, pero recuérdame.",
+      "simbolos": [
+        "Espejo en el desierto con marco ovalado de oro viejo",
+        "Plumas blancas y libro santo vs plumas negras y libro oscuro",
+        "Cadena y candado entreabierto",
+        "La Llave (imagen poética abstracta, sin nombres de entidades)",
+        "Crucifijo de piedra blanca y su reflejo invertido"
+      ],
+      "estaciones": [
+        { "id": "genesis", "titulo": "Génesis", "tag": "Espejo en la arena", "lore": "Antes del nombre hubo un cuerpo sin voz. Código rojo, hermanos: empieza el disco." },
+        { "id": "invitacion", "titulo": "La Invitación", "tag": "Sexto piso · Ascensor", "lore": "La luz del sexto piso. Subir es entrar en una noche sin mapa." },
+        { "id": "exceso", "titulo": "El Exceso", "tag": "Candlelight · Polilla", "lore": "Cera, deseo y el silencio después del ruido." },
+        { "id": "traicion", "titulo": "La Traición", "tag": "Pedro besa a Judas", "lore": "Pedro besa a Judas. El antihéroe se nombra y asume el pacto." },
+        { "id": "deuda", "titulo": "La Deuda", "tag": "Deuda impagable · La Llave", "lore": "Dar hasta besar lo sucio. Quien recibe no puede devolver y destruye para no deber." },
+        { "id": "redencion", "titulo": "La Redención", "tag": "Vete tranquilo pero recuérdame", "lore": "El horizonte no borra la noche: la nombra y la trasciende." }
+      ]
+    },
+    "biblia_musica": {
+      "titulo": "La Biblia de la Música · Gospels of the Night",
+      "fuente": "Documents/02_MUSICA/Belentani/.../00_LA_BIBLIA_DE_LA_MUSICA__desktop.md",
+      "genealogia": "Denniz PoP (SweMix/Cheiron 1992) → Max Martin (Melodic Math) → Andreas Carlsson (BSB, NSYNC) → Lady Gaga & The Weeknd → Belentani (Dark Pop Litúrgico)",
+      "principios_tecnicos": [
+        "Melodic Math: Sílabas, acentos y notas ajustados como una ecuación matemática antes de fijar la letra.",
+        "Regla de la Octava: Verso en registro grave-hablado; coro explota una octava arriba.",
+        "Motivo Firma: 5 ♭6 5 4 ♭3 2 1 presente en verso, coro y puente.",
+        "Tonalidad Canónica: F# menor (Judas, La Deuda) y C menor para texturas dance.",
+        "Frecuencia y Master: 432 Hz afinación de firma, −14 LUFS para streaming.",
+        "Fonética: Plosivas para golpear, sibilantes para susurrar, abiertas para liberar."
+      ]
+    },
+    "biblia_desarrollo": {
+      "titulo": "Biblia de Términos y Arquitectura Software",
+      "fuente": "Desktop/belentani.es/app-web-nextjs/belentani7.github.io/biblia.js",
+      "version": "3.0",
+      "estandares": [
+        "PRD / TRD / ADR: Qué, Cómo y Por Qué formalmente documentados.",
+        "TDD & BDD: Test y especificación antes de la implementación de código.",
+        "Idempotencia & Compatibilidad hacia atrás: Repetibilidad sin efectos secundarios.",
+        "SLO, SLI & Error Budget: Medición objetiva de fiabilidad.",
+        "Arquitectura Zero-Trust: Separación estricta de secretos y datos personales."
+      ]
+    },
+    "mente_ia": {
+      "contexto_gemini": {
+        "origen": "Memoria Gemini + Google Workspace Masterclass",
+        "rol": "Pensamiento de sistemas, arquitectura de alto nivel y diseño cognitivo de mapas de universo."
+      },
+      "qwen_oracle": {
+        "origen": "chat-Perfil Musical Belentani (2).txt + Qwen Generative HTML",
+        "rol": "Análisis forense de audio y voz, ingeniería de prompt directa, Melodic Math aplicada."
+      }
+    },
+    "boveda_g_drive": {
+      "archivos_canónicos": [
+        "LA DEUDA.docx — La génesis lírica de la deuda impagable",
+        "SOBERANIA.docx — Filosofía de autonomía y dignidad personal",
+        "GOD IS AI.docx — El cruce entre lo divino, lo tecnológico y lo sagrado",
+        "relato_base.md — Estructura narrativa del protagonista",
+        "AUDITORIA_DISCO_G_2026-10-01.md — Inventario verificado de recursos y stems de audio"
+      ]
+    },
+    "instagram_estetica": {
+      "cuenta": "@belentani_",
+      "estetica": "Rick Owens / Mugler, silueta soberana melancólica, luz de alto contraste, obsidian, oro y violeta",
+      "regla_fotografia": "Sin estética superhéroe ni fitness; presencia densa, pelo rizado oscuro, desierto posguerra y espejo."
+    },
+    "red_mundos": [
+      {
+        "id": "judas-experience-web",
+        "nombre": "The Judas Experience",
+        "tipo": "Experiencia 3D",
+        "url": "https://belentani7.github.io/judas-experience-web/",
+        "descripcion": "Planeta, diamante y llave dorada. Traición y recorrido cinemático Three.js."
+      },
+      {
+        "id": "judas-experience-unificado",
+        "nombre": "Judas Cósmico Unificado",
+        "tipo": "Motor 3D & Códice",
+        "url": "https://belentani7.github.io/judas-experience-unificado/",
+        "descripcion": "La obra reunida: reliquia, códice, motor 3D y firma sonora."
+      },
+      {
+        "id": "omega-immersive-portal",
+        "nombre": "Omega Immersive Portal",
+        "tipo": "Portal 3D OMEGA",
+        "url": "https://belentani7.github.io/belentani-omega-immersive-portal/",
+        "descripcion": "Entrada inmersiva al sistema estelar del artefacto OMEGA."
+      },
+      {
+        "id": "belentani-judas-era-omega",
+        "nombre": "Judas Era · Omega Core",
+        "tipo": "Experiencia Inmersiva",
+        "url": "https://belentani7.github.io/belentani-judas-era-omega/",
+        "descripcion": "La noche litúrgica del dark pop. Sonido y arquitectura visual."
+      },
+      {
+        "id": "belentani-judas-web",
+        "nombre": "Judas Creative OS",
+        "tipo": "Creative OS",
+        "url": "https://belentani7.github.io/belentani-judas-web/",
+        "descripcion": "Sistema operativo creativo Vite + SEO cinemático."
+      },
+      {
+        "id": "fullstack-20",
+        "nombre": "XX Mundos Visuales (Fullstack)",
+        "tipo": "Canon Editorial",
+        "url": "https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/",
+        "descripcion": "Un canon editorial renderizado a través de veinte mundos visuales."
+      },
+      {
+        "id": "belent-cad",
+        "nombre": "Belent-CAD 3D",
+        "tipo": "Herramienta Arquitectura",
+        "url": "https://belentani7.github.io/belent-cad/",
+        "descripcion": "Digitalización de bocetos a 3D, renders fotorrealistas con React 19 + Three.js."
+      },
+      {
+        "id": "3d-portfolio",
+        "nombre": "3D Portfolio",
+        "tipo": "Portfolio Three.js",
+        "url": "https://belentani7.github.io/3d-portfolio/",
+        "descripcion": "Escena interactiva, animaciones y navegación inmersiva."
+      },
+      {
+        "id": "base44",
+        "nombre": "Base44 Multimedia Hub",
+        "tipo": "Web App",
+        "url": "https://belentani.base44.app",
+        "descripcion": "Ecosistema multimedia y catálogo visual."
+      }
+    ],
+    "suite_dominios": [
+      {
+        "dominio": "belentani.es",
+        "rol": "Artista · Galaxia Viajable · Centro del Mito",
+        "ruta_local": "galaxia/ (+ obra/)"
+      },
+      {
+        "dominio": "noiacore.com",
+        "rol": "Lab SaaS · Ingeniería y Arquitectura de Sistemas",
+        "ruta_local": "noiacore/"
+      },
+      {
+        "dominio": "belentani.eu",
+        "rol": "Profesional · Oferta, Auditoría y Evidencia Verificable",
+        "ruta_local": "eu/"
+      }
+    ],
+    "campus_educativo": [
+      { "id": "manos-abiertas", "nombre": "Manos Abiertas", "url": "https://belentani7.github.io/ManosAbiertas/" },
+      { "id": "cruzando-charco", "nombre": "Cruzando el Charco", "url": "https://belentani7.github.io/Cruzando-el-charco/" },
+      { "id": "school-unificado", "nombre": "School Unificado", "url": "https://belentani7.github.io/belentani-school-unificado/" }
+    ]
+  }
+}

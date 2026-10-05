@@ -1,0 +1,381 @@
+[
+  {
+    "name": "Cruzando-el-charco",
+    "roles": [
+      "educacion",
+      "empresa-legado"
+    ],
+    "desc": "Cruzando el Charco, impulsado por noiacore.com y creado por Pedro Belentani, es un portal gratuito y confidencial de acogida, supervivencia y arraigo para hombres migrantes LGBT+ en L'Hospitalet y Barcelona. Informaci├│n directa y pr├íctica sobre papeles, salud, vivienda y comunidad.",
+    "url": "https://github.com/belentani7/Cruzando-el-charco",
+    "home": "https://belentani7.github.io/Cruzando-el-charco/",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "open-school",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Instituto educativo digital universal ÔÇö cursos modulares, certificaciones verificables, accesibilidad WCAG, offline-first",
+    "url": "https://github.com/belentani7/open-school",
+    "home": "https://open-school-gamma.vercel.app",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "WILLIAMSCHOOL",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Escola digital comunit├íria ÔÇö curr├¡culo Nepal adaptado, design institucional, acceso abierto",
+    "url": "https://github.com/belentani7/WILLIAMSCHOOL",
+    "home": "https://williamschool.vercel.app",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "ux-academy-professional-program",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Trilingual UX/Product Design learning platform ÔÇö practice exercises, evaluation system, and capstone projects",
+    "url": "https://github.com/belentani7/ux-academy-professional-program",
+    "home": "https://ux-academy-professional.vercel.app",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "aprende-brasil",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Plataforma educativa brasile├▒a interactiva con tutor IA, trilhas y voz preparada para OpenVoice",
+    "url": "https://github.com/belentani7/aprende-brasil",
+    "home": "https://aprende-brasil.vercel.app/",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "belentani-school-unificado",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Escuela digital unificada - aplicacion web educativa con itinerarios de aprendizaje y tutoria asistida por IA.",
+    "url": "https://github.com/belentani7/belentani-school-unificado",
+    "home": "https://belentani7.github.io/belentani-school-unificado/",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "ManosAbiertas",
+    "roles": [
+      "educacion",
+      "empresa-legado"
+    ],
+    "desc": "Plataforma educativa gratuita: cursos IA/Office, creador CV, gu├¡as derechos y recursos para migrantes y comunidades.",
+    "url": "https://github.com/belentani7/ManosAbiertas",
+    "home": "https://belentani7.github.io/ManosAbiertas/",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "lingua-aberta",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Plataforma abierta y gratuita para j├│venes brasile├▒os en Catalu├▒a, con aprendizaje de espa├▒ol, catal├ín e ingl├®s y tutor IA preparado para voz. ┬À Construido con Manus",
+    "url": "https://github.com/belentani7/lingua-aberta",
+    "home": "https://lingua-aberta.vercel.app/",
+    "pushed": "2026-10-01",
+    "private": true
+  },
+  {
+    "name": "belentani-unified",
+    "roles": [
+      "artista-web",
+      "empresa-legado"
+    ],
+    "desc": "Unified monorepo: AION + Nexus + artist work (belentani). Duck/client repos excluded. Code organization only.",
+    "url": "https://github.com/belentani7/belentani-unified",
+    "home": "https://belentani7.github.io/belentani-unified/",
+    "pushed": "2026-10-01",
+    "private": false
+  },
+  {
+    "name": "belentani7",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Pedro Belentani - Arquitecto de sistemas de IA, full-stack TypeScript/Python, tecnologia creativa y educacion abierta. Barcelona.",
+    "url": "https://github.com/belentani7/belentani7",
+    "home": "https://belentani7.github.io/belentani7/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belent-cad",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Open-source architectural CAD for architects: paper-sketch digitization to 3D, photorealistic renders and standards bank (PT/ES/EN). React 19 + Vite + Three.js.",
+    "url": "https://github.com/belentani7/belent-cad",
+    "home": "https://belent-cad.pages.dev/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani-es-neon",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Belentani Judas Era ÔÇö portfolio visual estatico (dark pop, R&B, neon)",
+    "url": "https://github.com/belentani7/belentani-es-neon",
+    "home": "https://belentani7.github.io/belentani-es-neon/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani-artista-unified",
+    "roles": [
+      "artista-web",
+      "empresa-legado"
+    ],
+    "desc": "belentani-the-experience",
+    "url": "https://github.com/belentani7/belentani-artista-unified",
+    "home": "https://belentani7.github.io/belentani-artista-unified/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "Duck-Omega",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "DUCK Omega - ecosistema artistico y productivo del proyecto Duck/Zion (Belentani).",
+    "url": "https://github.com/belentani7/Duck-Omega",
+    "home": "https://belentani7.github.io/Duck-Omega/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani-office-pack-2027",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Belentani Office Pack 2027 ÔÇö suite local-first para Windows 11",
+    "url": "https://github.com/belentani7/belentani-office-pack-2027",
+    "home": "https://belentani7.github.io/belentani-office-pack-2027/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "BELENTANI-JUDAS-ERA-FULLSTACK",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Creative web system rendering one editorial canon across twenty visual worlds",
+    "url": "https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK",
+    "home": "https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani-judas-web",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Judas Experience Creative OS - web (Vite) + SEO",
+    "url": "https://github.com/belentani7/belentani-judas-web",
+    "home": "https://belentani7.github.io/belentani-judas-web/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "linguaforge-v2",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "> Uma plataforma open source para aprender l├¡nguas com progress├úo CEFR, repeti├º├úo espa├ºada e conte├║do com proveni├¬ncia verific├ível.",
+    "url": "https://github.com/belentani7/linguaforge-v2",
+    "home": "https://belentani7.github.io/linguaforge-v2/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "duck-studio-suite",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Duck Studio Suite - suite integrada de produccion musical web.",
+    "url": "https://github.com/belentani7/duck-studio-suite",
+    "home": "https://belentani7.github.io/duck-studio-suite/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "linguaforge",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Forja linguistica: herramientas de traduccion y adaptacion multilingue.",
+    "url": "https://github.com/belentani7/linguaforge",
+    "home": "https://linguaforge.vercel.app",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani-studio",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Belentani - Plataforma de CVs con IA, 0 euros, multiidioma y cumplimiento GDPR",
+    "url": "https://github.com/belentani7/belentani-studio",
+    "home": "https://belentani7.github.io/belentani-studio/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "duck-unified-master",
+    "roles": [
+      "artista-web",
+      "empresa-legado"
+    ],
+    "desc": "DUCK ecosystem consolidation ÔÇö 9 repos unified into one monorepo with apps, docs, and shared infrastructure",
+    "url": "https://github.com/belentani7/duck-unified-master",
+    "home": "https://belentani7.github.io/duck-unified-master/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "belentani_Omega",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Belentani Omega ÔÇö artist ecosystem connecting music, code, and creative technology",
+    "url": "https://github.com/belentani7/belentani_Omega",
+    "home": "https://belentani.es",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "judas-access",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Control de acceso para la Judas Experience: puerta y permisos de la obra interactiva.",
+    "url": "https://github.com/belentani7/judas-access",
+    "home": "https://belentani7.github.io/judas-access/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "tender-words-connect",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Mapa de comprension y herramientas sobre TLP, vinculos y gestion emocional.",
+    "url": "https://github.com/belentani7/tender-words-connect",
+    "home": "https://tender-words-connect.vercel.app",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "judas-experience-unificado",
+    "roles": [
+      "artista-web"
+    ],
+    "desc": "Judas Experience unificado: la obra interactiva del universo Belentani reunida en una sola experiencia navegable.",
+    "url": "https://github.com/belentani7/judas-experience-unificado",
+    "home": "https://belentani7.github.io/judas-experience-unificado/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "ps-lm-local-powershell",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "PS-LM es un asistente educativo de una sola p├ígina para consultar vocabulario y ejemplos b├ísicos de PowerShell. Utiliza un motor simb├│lico basado en intenciones, patrones ponderados y extracci├│n...",
+    "url": "https://github.com/belentani7/ps-lm-local-powershell",
+    "home": "https://belentani7.github.io/ps-lm-local-powershell/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "noiacore-lab-consciousness",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Experimento del laboratorio NOIACORE sobre conciencia y m├íquina.",
+    "url": "https://github.com/belentani7/noiacore-lab-consciousness",
+    "home": "https://belentani7.github.io/noiacore-lab-consciousness/",
+    "pushed": "2026-09-30",
+    "private": false
+  },
+  {
+    "name": "william.game",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Juego educativo m├│vil con minijuegos de ingl├®s, espa├▒ol y catal├ín, voz natural de profesora y est├®tica arcade neo-glass. ┬À Construido con Manus",
+    "url": "https://github.com/belentani7/william.game",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  },
+  {
+    "name": "william-recursos-educativos",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Portal educativo en espa├▒ol con accesos a recursos oficiales para catal├ín, espa├▒ol, ingl├®s y asignaturas de ESO, optimizado para iPhone, Android y ordenador. ┬À Construido con Manus",
+    "url": "https://github.com/belentani7/william-recursos-educativos",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  },
+  {
+    "name": "python-projects",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Colecci├│n de proyectos Python, incluido nexus-legal-edge-ai.",
+    "url": "https://github.com/belentani7/python-projects",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  },
+  {
+    "name": "qwen-input-cache-max-context",
+    "roles": [
+      "educacion"
+    ],
+    "desc": "Complemento independiente para Qwen Code y Alibaba Cloud Model Studio que reduce tokens de entrada y maximiza el contexto ├║til en repositorios frontend y full stack. Parte de una copia compatible...",
+    "url": "https://github.com/belentani7/qwen-input-cache-max-context",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  },
+  {
+    "name": "pedro-premium-hub",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Unified knowledge repository - projects, skills, protocols, research.",
+    "url": "https://github.com/belentani7/pedro-premium-hub",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  },
+  {
+    "name": "one",
+    "roles": [
+      "empresa-legado"
+    ],
+    "desc": "Belentani One ÔÇö unified personal workspace and project hub",
+    "url": "https://github.com/belentani7/one",
+    "home": "",
+    "pushed": "2026-09-30",
+    "private": true
+  }
+]

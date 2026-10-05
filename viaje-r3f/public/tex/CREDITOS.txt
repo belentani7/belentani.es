@@ -1,0 +1,2 @@
+Texturas planetarias 2K: Solar System Scope (https://www.solarsystemscope.com/textures/), licencia CC BY 4.0.
+Three.js r170 (MIT) en vendor/.

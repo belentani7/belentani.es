@@ -1,0 +1,109 @@
+'use client';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Stars } from '@react-three/drei';
+import * as THREE from 'three';
+import { useGalaxyMap } from '@/hooks/useGalaxyMap';
+import { GalaxyNode } from '@/design-system/components/GalaxyNode';
+import { Ship } from './Ship';
+import { Route } from './Route';
+import { DockPanel } from '@/design-system/components/DockPanel';
+import { HUD } from './HUD';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useGalaxyStore } from '@/store/galaxy';
+import { cn } from '@/lib/utils';
+
+export function GalaxyMap() {
+  const { current, travelTo, allSystems, neighbors, navigate } = useGalaxyMap();
+  const reduced = useReducedMotion();
+  const { current: storeCurrent, travelTo: storeTravelTo } = useGalaxyStore();
+
+  const handleNodeClick = (id: string) => {
+    storeTravelTo(id);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') navigate('next');
+    if (e.key === 'ArrowLeft') navigate('prev');
+    if (e.key === 'Escape') storeTravelTo('belentani');
+  };
+
+  return (
+    <div className="relative h-screen w-full" onKeyDown={handleKeyDown} tabIndex={0}>
+      <Canvas
+        camera={{ position: [0, 0, 100], fov: 50 }}
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.ACESFilmicToneMapping;
+          gl.toneMappingExposure = 1;
+        }}
+        style={{ touchAction: 'none' }}
+      >
+        <color attach="background" args={['#030008']} />
+        <Stars radius={300} depth={100} count={3000} factor={4} saturation={0.3} fade />
+        <Routes current={current} />
+        <Nodes current={current} onNodeClick={handleNodeClick} />
+        <Ship current={current} reduced={reduced} />
+      </Canvas>
+      <DockPanel systemId={current} onAction={handleAction} onClose={() => storeTravelTo('belentani')} />
+      <HUD current={current} onJump={handleNodeClick} onNavigate={navigate} />
+      <style jsx global>{`
+        @media (prefers-reduced-motion: reduce) {
+          .ship { transition: none !important; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function Routes({ current }: { current: string }) {
+  const { allSystems } = useGalaxyMap();
+  const routes = [
+    ['belentani', 'judas'],
+    ['belentani', 'omega'],
+    ['belentani', 'neon'],
+    ['belentani', 'duck'],
+    ['judas', 'omega'],
+    ['omega', 'neon'],
+  ];
+
+  return (
+    <>
+      {routes.map(([a, b], i) => {
+        const A = allSystems.find((s) => s.id === a);
+        const B = allSystems.find((s) => s.id === b);
+        if (!A || !B) return null;
+        const active = a === current || b === current;
+        return <Route key={i} from={A.position} to={B.position} active={active} />;
+      })}
+    </>
+  );
+}
+
+function Nodes({ current, onNodeClick }: { current: string; onNodeClick: (id: string) => void }) {
+  const { allSystems } = useGalaxyMap();
+  return (
+    <>
+      {allSystems.map((system) => (
+        <GalaxyNode
+          key={system.id}
+          kind={system.kind}
+          active={system.id === current}
+          name={system.name}
+          tag={system.tag}
+          color={system.color}
+          onClick={() => onNodeClick(system.id)}
+        />
+      ))}
+    </>
+  );
+}
+
+function handleAction(action: string, url?: string) {
+  if (action === 'navigate' && url) {
+    const { useGalaxyStore } = require('@/store/galaxy');
+    useGalaxyStore.getState().travelTo(url);
+  } else if (action === 'chapter' && url) {
+    window.location.href = `/judas/${url}`;
+  } else if (action === 'external' && url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+}

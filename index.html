@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belentani — Artista</title>
+<meta name="description" content="Belentani: artista y compositor entre São Paulo y Barcelona.">
+<meta http-equiv="refresh" content="1.4;url=app-web-nextjs/belentani7.github.io/">
+<style>
+  :root{--red:#ff073a;--gold:#d4af37}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100vh;display:grid;place-items:center;background:#030008;color:#f2e8ef;font-family:ui-monospace,'Share Tech Mono',Consolas,monospace;text-align:center;overflow:hidden}
+  .ring{position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,7,58,.16),transparent 45%),radial-gradient(circle at 70% 70%,rgba(212,175,55,.10),transparent 45%);filter:blur(40px);animation:drift 12s ease-in-out infinite alternate}
+  @keyframes drift{to{transform:translate3d(4vw,-3vh,0) scale(1.08)}}
+  .wrap{position:relative;padding:24px}
+  .omega{font-size:clamp(96px,24vw,220px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;animation:breath 2.8s ease-in-out infinite}
+  @keyframes breath{0%,100%{filter:drop-shadow(0 0 18px rgba(255,7,58,.35))}50%{filter:drop-shadow(0 0 44px rgba(255,7,58,.75))}}
+  .word{margin-top:10px;font-size:clamp(14px,3vw,22px);letter-spacing:.5em;color:#fff;text-shadow:0 0 16px rgba(255,7,58,.7)}
+  .bar{margin:26px auto 0;width:min(280px,60vw);height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
+  .spin{width:54px;height:54px;margin:26px auto 0;border-radius:50%;border:1px solid rgba(255,7,58,.25);border-top-color:var(--red);animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .msg{margin-top:22px;font-size:11px;letter-spacing:.3em;color:#b3a8a5;text-transform:uppercase}
+  a{color:var(--red)}
+  @media(prefers-reduced-motion:reduce){.ring,.omega,.spin{animation:none}}
+</style>
+<script>setTimeout(function(){location.replace("app-web-nextjs/belentani7.github.io/");},900)</script>
+</head>
+<body>
+<div class="ring" aria-hidden="true"></div>
+<div class="wrap">
+  <div class="omega" aria-hidden="true">Ω</div>
+  <div class="word">BELENTANI</div>
+  <div class="bar" aria-hidden="true"></div>
+  <div class="spin" aria-hidden="true"></div>
+  <p class="msg">Abriendo Belentani…</p>
+  <p><a href="app-web-nextjs/belentani7.github.io/">Abrir la web del artista</a></p>
+</div>
+</body>
+</html>

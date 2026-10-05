@@ -1,0 +1,1355 @@
+Skip to content
+Docs
+
+Build
+
+Learn
+Getting Started
+Avatar for belentani7pedro-6758Avatar for belentani7pedro-6758
+Vercel REST API
+Overview
+Getting Started
+Errors
+
+Access Groups
+
+Ai Gateway
+GET
+Get Virtual Model Config
+POST
+Create Virtual Model Config
+PATCH
+Update Virtual Model Config
+DEL
+Delete Virtual Model Config
+GET
+List Virtual Model Configs
+GET
+Get Virtual Model Config
+PATCH
+Update Virtual Model Config
+DEL
+Delete Virtual Model Config
+GET
+List Rules
+POST
+Create Rule
+PATCH
+Update Rule
+DEL
+Delete Rule
+
+Aliases
+
+Artifacts
+
+Authentication
+
+Billing
+
+Bulk Redirects
+
+Certs
+
+Checks V2
+
+Connect
+
+Deployments
+
+DNS
+
+Domains
+
+Domains Registrar
+
+Drains
+
+CDN Cache
+
+Environment
+
+Feature Flags
+
+Global Config
+
+Integrations
+
+Kms
+
+Logs
+
+Marketplace
+
+Microfrontends
+
+Networking
+
+Observability
+
+Project Routes
+
+Projectmembers
+
+Projects
+
+Rolling Release
+
+Sandboxes
+
+Security
+
+Static Ips
+
+Storage
+
+Teams
+
+User
+
+VCR
+
+Vercel Ci
+
+Web Analytics
+
+Webhooks
+APIs & SDKs
+Vercel REST API
+Get virtual model config
+Get virtual model config
+GET
+https://api.vercel.com/ai-gateway/virtual-model-configs
+Get a virtual model config
+Authentication
+Authorization
+bearerToken
+Default authentication mechanism
+
+Query parameters
+ownerId
+string
+Optional
+virtualModelSlug
+string
+Optional
+limit
+integer
+Optional
+cursor
+string
+Optional
+teamId
+string
+Optional
+The Team identifier to perform the request on behalf of.
+slug
+string
+Optional
+The Team slug to perform the request on behalf of.
+Response
+200
+Success
+Variant 1
+Variant 2
+allowFallbackFromFast
+boolean
+Optional
+Allow fallback from fast to standard providers on failure.
+
++
+Show 2 enum values
+baseUrl
+string
+Optional
+For kind=relay: URL the gateway forwards requests to as a transparent proxy.
+byokCredentialIds
+array
+Optional
+BYOK credential IDs allowed for this VMC.
+caching
+string
+Optional
+Use caching if available.
+
++
+Show 1 enum values
+createdAt
+number
+Required
+Creation timestamp (epoch ms).
+createdBy
+string
+Optional
+User or app id that created this VMC.
+deleted
+boolean
+Required
+Whether this VMC is soft-deleted.
+
++
+Show 2 enum values
+description
+string
+Optional
+Optional description for UI.
+disallowPromptTraining
+boolean
+Optional
+Only use providers that will not train on your prompts.
+
++
+Show 2 enum values
+displayName
+string
+Optional
+Human-readable name for UI.
+has
+array
+Optional
+Limit providers to those with these features.
+hipaaCompliant
+boolean
+Optional
+Only use HIPAA-compliant providers.
+
++
+Show 2 enum values
+inferenceRegion
+object
+Optional
+Region pinned on the VMC for system-credential routing (alias/router only).
+
++
+Show 4 properties
+instanceId
+string
+Optional
+The concrete model-provider instance this VMC resolves to.
+kind
+string
+Required
+VMC kind: alias, relay, or router.
+models
+array
+Optional
+For kind=router: ordered candidates, bare slugs/references or { slug, ...attributes }. For kind=alias: ordered fallback model slugs, optionally led by one conditional { model, when } entry, used when the primary model's answers match when.
+modelSlug
+string
+Optional
+Canonical model slug this VMC maps to (e.g. "creator/model"). Not used by kind=router.
+observabilityTags
+array
+Optional
+Observability tags attached to requests through this VMC.
+ownerId
+string
+Required
+Team (owner) that owns this VMC.
+providerOnly
+array
+Optional
+Restrict routing to only these providers.
+providerOptions
+object
+Optional
+Arbitrary per-provider AI SDK options, keyed by gateway provider slug.
+providerOrder
+array
+Optional
+Ordered list of providers to try as fallbacks on failure.
+providerTimeouts
+object
+Optional
+Per-request provider timeouts in ms, keyed by provider slug for BYOK credentials.
+
++
+Show 1 properties
+selector
+string
+Optional
+For kind=router: how to order candidates. Absent means declared order.
+
++
+Show 3 enum values
+selectorOptions
+object
+Optional
+For kind=router: option slices keyed by selector name; each selector owns its slice's shape.
+
++
+Show 3 properties
+serviceTier
+string
+Optional
+Service tier for providers that support it.
+
++
+Show 3 enum values
+sort
+string
+Optional
+Rank eligible providers by an attribute.
+
++
+Show 6 enum values
+speed
+string
+Optional
+Only use fastest providers with short timeouts.
+
++
+Show 1 enum values
+status
+string
+Required
+UI lifecycle status: draft, active, or archived.
+updatedAt
+number
+Required
+Last update timestamp (epoch ms).
+updatedBy
+string
+Optional
+User or app id that last updated this VMC.
+virtualModelSlug
+string
+Required
+Client-facing alias used as the model slug in Gateway calls.
+visibility
+string
+Optional
+Visibility in listings: public, internal, or stealth.
+zeroDataRetention
+boolean
+Optional
+Only use providers with zero data retention.
+
++
+Show 2 enum values
+Errors
+400
+One of the provided values in the request query is invalid.
+401
+The request is not authorized.
+403
+You do not have permission to access this resource.
+404
+Error
+410
+Error
+500
+Error
+Related Vercel documentation
+TypeScript
+Next.js
+cURL
+https://api.vercel.com/ai-gateway/virtual-model-configs
+const response = await fetch('https://api.vercel.com/ai-gateway/virtual-model-configs?ownerId=string&virtualModelSlug=string&limit=123&cursor=string&teamId=string&slug=string', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+    'Content-Type': 'application/json',
+  },
+});
+
+const data = await response.json();
+console.log(data);
+Response
+{
+  "allowFallbackFromFast": "false",
+  "baseUrl": "https://example.com",
+  "byokCredentialIds": [],
+  "caching": "auto",
+  "createdAt": "123",
+  "createdBy": "string",
+  "deleted": "false",
+  "description": "string",
+  "disallowPromptTraining": "false",
+  "displayName": "Example Name",
+  "has": [],
+  "hipaaCompliant": "false",
+  "inferenceRegion": {
+    "geoRegion": "string",
+    "providerRegion": "example_id",
+    "providers": "value",
+    "scope": "global"
+  },
+  "instanceId": "example_id",
+  "kind": "string",
+  "models": [],
+  "modelSlug": "string",
+  "observabilityTags": [],
+  "ownerId": "example_id",
+  "providerOnly": [],
+  "providerOptions": "value",
+  "providerOrder": [],
+  "providerTimeouts": {
+    "byok": "value"
+  },
+  "selector": "cost",
+  "selectorOptions": {
+    "cost": "value",
+    "tps": "value",
+    "ttft": "value"
+  },
+  "serviceTier": "fast",
+  "sort": "cost",
+  "speed": "fast",
+  "status": "string",
+  "updatedAt": "123",
+  "updatedBy": "string",
+  "virtualModelSlug": "string",
+  "visibility": "string",
+  "zeroDataRetention": "false"
+}
+
+Copy as Markdown
+
+Install Vercel Plugin
+OpenAPI Specification
+
+Give feedback
+
+Ask AI about this page
+Agent Stack
+AI SDK
+AI Gateway
+Sandbox
+Workflows
+Connect
+New
+Passport
+New
+eve
+New
+Core Platform
+CI/CD
+Content Delivery
+Fluid Compute
+Observability
+Security
+Platform Security
+WAF
+Bot Management
+BotID
+Tools
+Vercel Drop
+New
+Vercel Agent
+Vercel Plugin
+New
+Agent Skills
+Domains
+v0
+Frameworks
+eve
+New
+Next.js
+Nuxt
+SvelteKit
+Nitro
+Turborepo
+Tanstack Start
+FastAPI
+All frameworks
+SDKs
+Vercel SDK
+Workflow SDK
+New
+Flags SDK
+Chat SDK
+New
+Queues SDK
+New
+Streamdown
+Build
+AI Apps
+Web Apps
+Marketing Sites
+Platforms
+Commerce
+Platform Engineers
+Design Engineers
+Learn
+Docs
+Blog
+Changelog
+Knowledge Base
+Academy
+Articles
+Community
+Is Agentic
+Explore
+Customers
+Marketplace
+Templates
+Partner Finder
+Vercel + AWS
+Company
+About
+Careers
+Press
+Events
+Startups
+Shipped on Vercel
+Open Source Program
+Enterprise
+Pricing
+Help
+Legal & Trust
+Privacy Policy
+Terms of Service
+Cookie Policy
+DPA
+Acceptable Use Policy
+Legal (all documents)
+Trust Center
+Status
+Cookie Preferences
+Social
+GitHub
+X
+LinkedIn
+YouTube
+Instagram
+Vercel
+Loading status…
+
+Select a display theme:
+
+system
+
+light
+
+dark
+
+This site uses tracking technologies. You may opt in or opt out of the use of these technologies.
+
+Deny
+
+Accept all
+
+Consent SettingsSkip to content
+Docs
+
+Build
+
+Learn
+Getting Started
+Avatar for belentani7pedro-6758Avatar for belentani7pedro-6758
+Vercel REST API
+Overview
+Getting Started
+Errors
+
+Access Groups
+
+Ai Gateway
+GET
+Get Virtual Model Config
+POST
+Create Virtual Model Config
+PATCH
+Update Virtual Model Config
+DEL
+Delete Virtual Model Config
+GET
+List Virtual Model Configs
+GET
+Get Virtual Model Config
+PATCH
+Update Virtual Model Config
+DEL
+Delete Virtual Model Config
+GET
+List Rules
+POST
+Create Rule
+PATCH
+Update Rule
+DEL
+Delete Rule
+
+Aliases
+
+Artifacts
+
+Authentication
+
+Billing
+
+Bulk Redirects
+
+Certs
+
+Checks V2
+
+Connect
+
+Deployments
+
+DNS
+
+Domains
+
+Domains Registrar
+
+Drains
+
+CDN Cache
+
+Environment
+
+Feature Flags
+
+Global Config
+
+Integrations
+
+Kms
+
+Logs
+
+Marketplace
+
+Microfrontends
+
+Networking
+
+Observability
+
+Project Routes
+
+Projectmembers
+
+Projects
+
+Rolling Release
+
+Sandboxes
+
+Security
+
+Static Ips
+
+Storage
+
+Teams
+
+User
+
+VCR
+
+Vercel Ci
+
+Web Analytics
+
+Webhooks
+APIs & SDKs
+Vercel REST API
+Get virtual model config
+Get virtual model config
+GET
+https://api.vercel.com/ai-gateway/virtual-model-configs
+Get a virtual model config
+Authentication
+Authorization
+bearerToken
+Default authentication mechanism
+
+Query parameters
+ownerId
+string
+Optional
+virtualModelSlug
+string
+Optional
+limit
+integer
+Optional
+cursor
+string
+Optional
+teamId
+string
+Optional
+The Team identifier to perform the request on behalf of.
+slug
+string
+Optional
+The Team slug to perform the request on behalf of.
+Response
+200
+Success
+Variant 1
+Variant 2
+allowFallbackFromFast
+boolean
+Optional
+Allow fallback from fast to standard providers on failure.
+
++
+Show 2 enum values
+baseUrl
+string
+Optional
+For kind=relay: URL the gateway forwards requests to as a transparent proxy.
+byokCredentialIds
+array
+Optional
+BYOK credential IDs allowed for this VMC.
+caching
+string
+Optional
+Use caching if available.
+
++
+Show 1 enum values
+createdAt
+number
+Required
+Creation timestamp (epoch ms).
+createdBy
+string
+Optional
+User or app id that created this VMC.
+deleted
+boolean
+Required
+Whether this VMC is soft-deleted.
+
++
+Show 2 enum values
+description
+string
+Optional
+Optional description for UI.
+disallowPromptTraining
+boolean
+Optional
+Only use providers that will not train on your prompts.
+
++
+Show 2 enum values
+displayName
+string
+Optional
+Human-readable name for UI.
+has
+array
+Optional
+Limit providers to those with these features.
+hipaaCompliant
+boolean
+Optional
+Only use HIPAA-compliant providers.
+
++
+Show 2 enum values
+inferenceRegion
+object
+Optional
+Region pinned on the VMC for system-credential routing (alias/router only).
+
++
+Show 4 properties
+instanceId
+string
+Optional
+The concrete model-provider instance this VMC resolves to.
+kind
+string
+Required
+VMC kind: alias, relay, or router.
+models
+array
+Optional
+For kind=router: ordered candidates, bare slugs/references or { slug, ...attributes }. For kind=alias: ordered fallback model slugs, optionally led by one conditional { model, when } entry, used when the primary model's answers match when.
+modelSlug
+string
+Optional
+Canonical model slug this VMC maps to (e.g. "creator/model"). Not used by kind=router.
+observabilityTags
+array
+Optional
+Observability tags attached to requests through this VMC.
+ownerId
+string
+Required
+Team (owner) that owns this VMC.
+providerOnly
+array
+Optional
+Restrict routing to only these providers.
+providerOptions
+object
+Optional
+Arbitrary per-provider AI SDK options, keyed by gateway provider slug.
+providerOrder
+array
+Optional
+Ordered list of providers to try as fallbacks on failure.
+providerTimeouts
+object
+Optional
+Per-request provider timeouts in ms, keyed by provider slug for BYOK credentials.
+
++
+Show 1 properties
+selector
+string
+Optional
+For kind=router: how to order candidates. Absent means declared order.
+
++
+Show 3 enum values
+selectorOptions
+object
+Optional
+For kind=router: option slices keyed by selector name; each selector owns its slice's shape.
+
++
+Show 3 properties
+serviceTier
+string
+Optional
+Service tier for providers that support it.
+
++
+Show 3 enum values
+sort
+string
+Optional
+Rank eligible providers by an attribute.
+
++
+Show 6 enum values
+speed
+string
+Optional
+Only use fastest providers with short timeouts.
+
++
+Show 1 enum values
+status
+string
+Required
+UI lifecycle status: draft, active, or archived.
+updatedAt
+number
+Required
+Last update timestamp (epoch ms).
+updatedBy
+string
+Optional
+User or app id that last updated this VMC.
+virtualModelSlug
+string
+Required
+Client-facing alias used as the model slug in Gateway calls.
+visibility
+string
+Optional
+Visibility in listings: public, internal, or stealth.
+zeroDataRetention
+boolean
+Optional
+Only use providers with zero data retention.
+
++
+Show 2 enum values
+Errors
+400
+One of the provided values in the request query is invalid.
+401
+The request is not authorized.
+403
+You do not have permission to access this resource.
+404
+Error
+410
+Error
+500
+Error
+Related Vercel documentation
+TypeScript
+Next.js
+cURL
+https://api.vercel.com/ai-gateway/virtual-model-configs
+curl -X GET 'https://api.vercel.com/ai-gateway/virtual-model-configs?ownerId=string&virtualModelSlug=string&limit=123&cursor=string&teamId=string&slug=string' \
+  -H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
+  -H 'Content-Type: application/json'
+Response
+{
+  "allowFallbackFromFast": "false",
+  "baseUrl": "https://example.com",
+  "byokCredentialIds": [],
+  "caching": "auto",
+  "createdAt": "123",
+  "createdBy": "string",
+  "deleted": "false",
+  "description": "string",
+  "disallowPromptTraining": "false",
+  "displayName": "Example Name",
+  "has": [],
+  "hipaaCompliant": "false",
+  "inferenceRegion": {
+    "geoRegion": "string",
+    "providerRegion": "example_id",
+    "providers": "value",
+    "scope": "global"
+  },
+  "instanceId": "example_id",
+  "kind": "string",
+  "models": [],
+  "modelSlug": "string",
+  "observabilityTags": [],
+  "ownerId": "example_id",
+  "providerOnly": [],
+  "providerOptions": "value",
+  "providerOrder": [],
+  "providerTimeouts": {
+    "byok": "value"
+  },
+  "selector": "cost",
+  "selectorOptions": {
+    "cost": "value",
+    "tps": "value",
+    "ttft": "value"
+  },
+  "serviceTier": "fast",
+  "sort": "cost",
+  "speed": "fast",
+  "status": "string",
+  "updatedAt": "123",
+  "updatedBy": "string",
+  "virtualModelSlug": "string",
+  "visibility": "string",
+  "zeroDataRetention": "false"
+}
+
+Copy as Markdown
+
+Install Vercel Plugin
+OpenAPI Specification
+
+Give feedback
+
+Ask AI about this page
+Agent Stack
+AI SDK
+AI Gateway
+Sandbox
+Workflows
+Connect
+New
+Passport
+New
+eve
+New
+Core Platform
+CI/CD
+Content Delivery
+Fluid Compute
+Observability
+Security
+Platform Security
+WAF
+Bot Management
+BotID
+Tools
+Vercel Drop
+New
+Vercel Agent
+Vercel Plugin
+New
+Agent Skills
+Domains
+v0
+Frameworks
+eve
+New
+Next.js
+Nuxt
+SvelteKit
+Nitro
+Turborepo
+Tanstack Start
+FastAPI
+All frameworks
+SDKs
+Vercel SDK
+Workflow SDK
+New
+Flags SDK
+Chat SDK
+New
+Queues SDK
+New
+Streamdown
+Build
+AI Apps
+Web Apps
+Marketing Sites
+Platforms
+Commerce
+Platform Engineers
+Design Engineers
+Learn
+Docs
+Blog
+Changelog
+Knowledge Base
+Academy
+Articles
+Community
+Is Agentic
+Explore
+Customers
+Marketplace
+Templates
+Partner Finder
+Vercel + AWS
+Company
+About
+Careers
+Press
+Events
+Startups
+Shipped on Vercel
+Open Source Program
+Enterprise
+Pricing
+Help
+Legal & Trust
+Privacy Policy
+Terms of Service
+Cookie Policy
+DPA
+Acceptable Use Policy
+Legal (all documents)
+Trust Center
+Status
+Cookie Preferences
+Social
+GitHub
+X
+LinkedIn
+YouTube
+Instagram
+Vercel
+Loading status…
+
+Select a display theme:
+
+system
+
+light
+
+dark
+
+This site uses tracking technologies. You may opt in or opt out of the use of these technologies.
+
+Deny
+
+Accept all
+
+Consent SettingsSkip to content
+
+Find
+F
+
+Settings
+General
+Billing
+Build and Deployment
+Invoices
+Members
+Access Groups
+Agent
+Connect
+Drains
+Alerts
+Webhooks
+Security & Privacy
+Compliance
+Deployment Protection
+Passport
+Microfrontends
+Git
+Networking
+Key Management
+Activity
+My Notifications
+Apps
+
+Avatar for belentani7pedro-6758
+belentani7pedro-6758
+
+
+Team Settings
+Key Management
+aaaaaaa
+Overview
+Settings
+aaaaaaa
+Issuer ID
+8bb9c283-4e7b-…7-b89be312606e
+Algorithm
+RS512
+Origin
+Vercel
+Created
+Just now
+Updated
+Just now
+OpenID Configuration
+kms.vercel.com/8…id-configuration
+Issuer URL
+kms.vercel.com/…7-b89be312606e
+JWKS
+kms.vercel.com/…2606e/jwks.json
+Signing Keys
+Keys this issuer uses to sign tokens.
+
+c223f56e-caca-4669-86be-fb455b1e7033
+SHA256:un6Ke4sMu7Ixt+CJnihyhoo1rHK8D4Ww/z9Xx+OR7eY=
+Active
+Created
+just now
+Learn more about
+Signing Keys
+Grants
+Projects and environments allowed to sign tokens with this issuer.
+
+No Grants Yet
+Add a project grant to allow that project's deployments to sign tokens with this issuer.
+Learn more about
+Project Grants
+Quick Start
+app/api/sign-token/route.ts
+import { signToken } from '@vercel/kms';
+
+export async function GET(): Promise<Response> {
+  const token = await signToken({
+    issuerId: '8bb9c283-4e7b-4304-bf47-b89be312606e',
+    claims: {
+      accountId: 'acct_123',
+      role: 'admin',
+    },
+  });
+
+  return Response.json({ token });
+}c223f56e-caca-4669-86be-fb455b1e7033
+Skip to content
+
+Find
+F
+
+Settings
+General
+Billing
+Build and Deployment
+Invoices
+Members
+Access Groups
+Agent
+Connect
+Drains
+Alerts
+Webhooks
+Security & Privacy
+Compliance
+Deployment Protection
+Passport
+Microfrontends
+Git
+Networking
+Key Management
+Activity
+My Notifications
+Apps
+
+Avatar for belentani7pedro-6758
+belentani7pedro-6758
+
+
+Team Settings
+Key Management
+aaaaaaa
+Overview
+Settings
+aaaaaaa
+Issuer ID
+8bb9c283-4e7b-…7-b89be312606e
+Algorithm
+RS512
+Origin
+Vercel
+Created
+Just now
+Updated
+Just now
+OpenID Configuration
+kms.vercel.com/8…id-configuration
+Issuer URL
+kms.vercel.com/…7-b89be312606e
+JWKS
+kms.vercel.com/…2606e/jwks.json
+Signing Keys
+Keys this issuer uses to sign tokens.
+
+c223f56e-caca-4669-86be-fb455b1e7033
+SHA256:un6Ke4sMu7Ixt+CJnihyhoo1rHK8D4Ww/z9Xx+OR7eY=
+Active
+Created
+just now
+Learn more about
+Signing Keys
+Grants
+Projects and environments allowed to sign tokens with this issuer.
+
+No Grants Yet
+Add a project grant to allow that project's deployments to sign tokens with this issuer.
+Learn more about
+Project Grants
+Quick Start
+app/api/sign-token/route.ts
+import { signToken } from '@vercel/kms';
+
+export async function GET(): Promise<Response> {
+  const token = await signToken({
+    issuerId: '8bb9c283-4e7b-4304-bf47-b89be312606e',
+    claims: {
+      accountId: 'acct_123',
+      role: 'admin',
+    },
+  });
+
+  return Response.json({ token });
+}
+Public Key & Certificate
+View and download the PEM-encoded public key and X.509 certificate for this signing key.
+
+
+Public Key
+
+Certificate
+Certificate PEM
+-----BEGIN CERTIFICATE-----
+MIIDdDCCAlygAwIBAgIQRn1VcI4My0HhWCFO5UvzhzANBgkqhkiG9w0BAQ0FADBB
+MRAwDgYDVQQKDAdhYWFhYWFhMS0wKwYDVQQDDCQ4YmI5YzI4My00ZTdiLTQzMDQt
+YmY0Ny1iODliZTMxMjYwNmUwHhcNMjYwOTMwMTA1NzMwWhcNMjkwOTMwMTA1NzMw
+WjBBMRAwDgYDVQQKDAdhYWFhYWFhMS0wKwYDVQQDDCQ4YmI5YzI4My00ZTdiLTQz
+MDQtYmY0Ny1iODliZTMxMjYwNmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCcV5s0cPZO3x3tqsv9b8ESsMF4MFPe6vR9qy8Bbv+iPDJ6zHUL4KpK93ZV
+a65wQl0Et48YMda3hzN8dfUqdNPGAvwj8zUN+TwpAycM1HRx7UKDv//g8YjExTIV
+ilNEmTV4mMDHRO8xsB5c9us69GnA3fB0IriTA8wsMbKKJWXuH0NJlBlFzVsbgtQl
+ib6USzWs9I3yvLbEuUyWhQqpxKSJisI8YBm+6D2ZqneyFekUncgr7L9r0do4nsIz
+uHLrNYPWZ7aPGMOo3zjialw5DzqdB1T5g2NyoQKCe1yIDuZI5P26XRblvJuVzj29
+XeE7LBbEPigVMs0hX4TMSxcmjUqXAgMBAAGjaDBmMAwGA1UdEwEB/wQCMAAwDgYD
+VR0PAQH/BAQDAgeAMEYGA1UdEQQ/MD2GO2h0dHBzOi8va21zLnZlcmNlbC5jb20v
+OGJiOWMyODMtNGU3Yi00MzA0LWJmNDctYjg5YmUzMTI2MDZlMA0GCSqGSIb3DQEB
+DQUAA4IBAQAMSzLUXCwyMEA+RzR77gs8bF+hpYo3cUdij0N1RDme6WNmQ6LMhZaK
+jb4vk7iWFGjq+qpTW4e2G6k18QMWcOcWbpUZ+iOQJc7tsLuWx1iGI40YsHWcWtAj
+sFTQ2SU/XipcqjFrnOZaTVAwJqnstTD3gUfW/0OpqMZZ2/pDE4uWMb2TakAXcQ2/
+1Lf8HaYeNi46xVTguvguQFUAwPB367gBqtYelKqiu3lWOjT909f39eRh/tefkGIh
+nRg6BtMm7RuyF54k7mlcA8hgOp4Jalh03ykDFM3Y7IqWXYBWnaDnKqaZeOxxRXlQ
+TZvZzDYizoKc4SzVTc5rVZye0LS9ynTz
+-----END CERTIFICATE-----
+Skip to content
+
+Find
+F
+
+Settings
+General
+Billing
+Build and Deployment
+Invoices
+Members
+Access Groups
+Agent
+Connect
+Drains
+Alerts
+Webhooks
+Security & Privacy
+Compliance
+Deployment Protection
+Passport
+Microfrontends
+Git
+Networking
+Key Management
+Activity
+My Notifications
+Apps
+
+Avatar for belentani7pedro-6758
+belentani7pedro-6758
+
+
+Team Settings
+Team Name
+This is your team's visible name within Vercel. For example, the name of your company or department.
+
+belentani7pedro-6758's projects
+Please use 32 characters at maximum.
+Team URL
+This is your team's URL namespace on Vercel. Within it, your team can inspect their projects, check out any recent activity, or configure settings to their liking.
+
+belentani7pedro-6758s-projects
+vercel.com/
+Please use 48 characters at maximum.
+belentani7pedro-6758's projects
+Team Avatar
+This is your team's avatar.
+Upload a custom avatar from your files.
+
+An avatar is optional but strongly recommended.
+Preview Deployment Suffix
+By default, the URL of every new Preview Deployment ends with .vercel.app. This setting allows you to choose your own custom domain in place of this suffix.
+
+vercel.app
+my-deployment.
+This feature is available on the Pro plan for $100 per month.
+Team ID
+This is your team's ID within Vercel.
+
+team_PW8qfFcgLWackpqpCQfifest
+Used when interacting with the Vercel API.
+Vercel Toolbar
+Enable the Vercel Toolbar on your Deployments.
+
+Pre-Production Deployments
+
+Default (on)
+Production Deployments
+
+Default (on)
+To use the toolbar in production your team members need the Chrome extension or to enable the toolbar for that domain in the toolbar menu. Learn more about using the toolbar in production.
+Allow this setting to be overridden on the project level.
+
+Enabled
+Learn more about the Vercel Toolbar
+Data Preferences
+Vercel may train on and share code and chat data with AI model providers for training purposes only. If you turn this off, we will not share data going forward for projects owned by this team.
+
+Improve models with my data
+Learn more about Vercel’s data sharing practices.
+Transfer
+Transfer your projects to another team without downtime or workflow interruptions.
+
+Learn more about Transferring Projects
+Leave Team
+Revoke your access to this Team. Any resources you've added to the Team will remain.
+
+To leave this Team, ensure at least one more Member has the Owner role.
+Delete Team
+Permanently remove your team and all of its contents from the Vercel platform. This action is not reversible — please continue with caution.
+
+You cannot delete your last Hobby team.
+To delete your account, visit Account Settings.
+Busca archivo plomo.txt Mirar archivo descargado ahora Si no métete en el navegador y pídelo tú

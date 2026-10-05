@@ -1,0 +1,4486 @@
+{
+  "generated_at": "2026-10-03T06:04:47Z",
+  "root": "C:\\Users\\USER\\Desktop\\belentani.es",
+  "lore": {
+    "principio": "LORE primero. Música, 3D y herramientas sirven al mito.",
+    "arcos": [
+      {
+        "id": "invitacion",
+        "titulo": "La Invitación",
+        "estacion": "Ascensor / sexto piso"
+      },
+      {
+        "id": "exceso",
+        "titulo": "El Exceso",
+        "estacion": "Pábilo / vela / polilla"
+      },
+      {
+        "id": "traicion",
+        "titulo": "La Traición",
+        "estacion": "El beso · Pedro / Judas"
+      },
+      {
+        "id": "deuda",
+        "titulo": "La Deuda",
+        "estacion": "Agua, sal, llave, moneda"
+      },
+      {
+        "id": "redencion",
+        "titulo": "La Redención",
+        "estacion": "Estática / horizonte"
+      }
+    ],
+    "gemas": [
+      "Pedro·Roca",
+      "Marcos·Cronista",
+      "Santos·Antena",
+      "Belentani·Artefacto",
+      "TheHuman·Interfaz"
+    ],
+    "firma": "432 Hz · Red Glass · JUDAS_OS",
+    "como_unir": [
+      "1. Un solo shell (index) con rutas lore: /lore, /mundos, /escucha, /archivo",
+      "2. Cada página externa entra como MUNDO con id + blurb lore + uplink, no como lista de repos",
+      "3. Ciclona = banco de efectos: se importan piezas (shader/partículas), no se enlazan demos crudas",
+      "4. espacio-3d/assets = texturas/arte del canon visual",
+      "5. Disco G: (Google Drive) = origen de packs; copiar solo lo canónico al shell local",
+      "6. belentani.eu / CV / income = fuera del shell lore (atelier)"
+    ]
+  },
+  "ciclona_projects": [
+    {
+      "id": "01-Nikky-05-galaxy",
+      "path": "Ciclona/01-Nikky-05-galaxy",
+      "tech": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "gsap"
+      ],
+      "desc": "Living Universe",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "02-egorshest-webgl-ascii-hero",
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero",
+      "tech": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "desc": "Next.js hero section with animated rotating object in ASCII style",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "03-vanrez-nez-starfield",
+      "path": "Ciclona/03-vanrez-nez-starfield",
+      "tech": [
+        "three"
+      ],
+      "desc": "Starfield Skybox Playground",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "04-AmitDigga-threejs-galaxy-shader",
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader",
+      "tech": [],
+      "desc": "Galaxy Shader",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "05-dgreenheck-webgpu-galaxy",
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy",
+      "tech": [
+        "three"
+      ],
+      "desc": "🌌 WebGPU Galaxy Simulation",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "06-techsuder-rgb-galaxy-project",
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project",
+      "tech": [],
+      "desc": "",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "07-wagiham-threejs-cosmic-modes",
+      "path": "Ciclona/07-wagiham-threejs-cosmic-modes",
+      "tech": [],
+      "desc": "Interactive Particle Universe with Custom GLSL Shaders",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "08-manthrax-space-nebula",
+      "path": "Ciclona/08-manthrax-space-nebula",
+      "tech": [
+        "three"
+      ],
+      "desc": "Nebularity",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "09-harsh05vardhan-Particle-galaxy",
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy",
+      "tech": [],
+      "desc": "Particle Galaxy - Interactive Three.js Project",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "10-anushkachauhxn-particle-galaxy-3js",
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js",
+      "tech": [
+        "three",
+        "gsap"
+      ],
+      "desc": "🌌 Particle Galaxy",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "11-mattjss-Galaxy_Shader_Orbs",
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs",
+      "tech": [
+        "three"
+      ],
+      "desc": "Galaxy Shader Orbs",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "12-nyx4d-NyxStarfield-GL",
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL",
+      "tech": [],
+      "desc": "NyxStarfield-GL",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "13-marian42-starfield",
+      "path": "Ciclona/13-marian42-starfield",
+      "tech": [],
+      "desc": "![Preview](https://i.imgur.com/RmBqJOC.png)",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "14-mcallan-star-shadertoy",
+      "path": "Ciclona/14-mcallan-star-shadertoy",
+      "tech": [],
+      "desc": "shadertoy",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "15-Hifzu04-galaxy",
+      "path": "Ciclona/15-Hifzu04-galaxy",
+      "tech": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "gsap"
+      ],
+      "desc": "3D Galaxy Visualization",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "16-PaulBenMarsh-r3f-stars",
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars",
+      "tech": [
+        "three"
+      ],
+      "desc": "r3f-stars",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "17-modster-react-three-fibre-stars",
+      "path": "Ciclona/17-modster-react-three-fibre-stars",
+      "tech": [
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "desc": "About",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "18-pmndrs-drei",
+      "path": "Ciclona/18-pmndrs-drei",
+      "tech": [],
+      "desc": "",
+      "role": "efecto-demo"
+    },
+    {
+      "id": "espacio-3d",
+      "path": "Ciclona/espacio-3d",
+      "tech": [],
+      "desc": "",
+      "role": "efecto-demo"
+    }
+  ],
+  "pages": [
+    {
+      "id": "hub-os",
+      "url": "local:belentani7.github.io/index.html",
+      "role": "shell",
+      "lore": "JUDAS_OS · puerta al universo"
+    },
+    {
+      "id": "ecosistema",
+      "url": "local:belentani7.github.io/ecosistema.html",
+      "role": "atlas-links",
+      "lore": "circuito de mundos"
+    },
+    {
+      "id": "judas-web",
+      "url": "https://belentani7.github.io/judas-experience-web/",
+      "role": "experiencia-3d",
+      "lore": "traición / planeta / llave"
+    },
+    {
+      "id": "judas-unificado",
+      "url": "https://belentani7.github.io/judas-experience-unificado/",
+      "role": "experiencia-3d",
+      "lore": "cósmico unificado"
+    },
+    {
+      "id": "omega-immersive",
+      "url": "https://belentani7.github.io/belentani-omega-immersive-portal/",
+      "role": "portal",
+      "lore": "OMEGA portal"
+    },
+    {
+      "id": "judas-era-omega",
+      "url": "https://belentani7.github.io/belentani-judas-era-omega/",
+      "role": "portal",
+      "lore": "JUDAS ERA"
+    },
+    {
+      "id": "judas-web-vite",
+      "url": "https://belentani7.github.io/belentani-judas-web/",
+      "role": "os-web",
+      "lore": "Creative OS"
+    },
+    {
+      "id": "fullstack-20",
+      "url": "https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/",
+      "role": "canon-mundos",
+      "lore": "20 mundos visuales"
+    },
+    {
+      "id": "3d-portfolio",
+      "url": "https://belentani7.github.io/3d-portfolio/",
+      "role": "portfolio",
+      "lore": "cara profesional 3D"
+    },
+    {
+      "id": "base44",
+      "url": "https://belentani.base44.app",
+      "role": "spa-externa",
+      "lore": "ecosistema multimedia"
+    },
+    {
+      "id": "belentani-es",
+      "url": "https://belentani.es/",
+      "role": "dominio-artistico",
+      "lore": "universo artístico"
+    },
+    {
+      "id": "belentani-eu",
+      "url": "https://belentani.eu/",
+      "role": "dominio-profesional",
+      "lore": "perfil profesional (fuera del lore)"
+    }
+  ],
+  "stats": {
+    "total_files": 523,
+    "by_kind": {
+      "efecto": 326,
+      "asset": 156,
+      "dato": 10,
+      "herramienta": 13,
+      "codigo": 18
+    }
+  },
+  "files": [
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 226,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 1440,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 121278,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 1102,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 12129,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/tsconfig.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 1214,
+      "name": "tsconfig.json"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/tsconfig.node.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 256,
+      "name": "tsconfig.node.json"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/vite.config.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1336,
+      "name": "vite.config.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/App.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1139,
+      "name": "App.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/index.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 8605,
+      "name": "index.css"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/main.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 406,
+      "name": "main.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/vite-env.d.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 264,
+      "name": "vite-env.d.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/canvas/UniverseCanvas.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 2075,
+      "name": "UniverseCanvas.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/AudioToggle.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 589,
+      "name": "AudioToggle.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/Caption.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1195,
+      "name": "Caption.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/ClickRipple.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1067,
+      "name": "ClickRipple.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/CursorOrb.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1452,
+      "name": "CursorOrb.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/Loader.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 246,
+      "name": "Loader.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/Overlay.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1488,
+      "name": "Overlay.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/QuoteReveal.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1270,
+      "name": "QuoteReveal.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/components/ui/SceneRail.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 912,
+      "name": "SceneRail.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/constants/palette.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1249,
+      "name": "palette.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/constants/scenes.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 3010,
+      "name": "scenes.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/effects/LensDistortion.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 2130,
+      "name": "LensDistortion.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/effects/PostProcessing.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 2294,
+      "name": "PostProcessing.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/hooks/useAudio.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 7195,
+      "name": "useAudio.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/hooks/useCinematicCamera.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 4555,
+      "name": "useCinematicCamera.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/hooks/useMouse.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1073,
+      "name": "useMouse.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/hooks/useScrollStory.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 2832,
+      "name": "useScrollStory.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/UniverseScene.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 1140,
+      "name": "UniverseScene.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/Aurora.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 2293,
+      "name": "Aurora.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/BackgroundGradient.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 3280,
+      "name": "BackgroundGradient.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/BlackHole.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 2511,
+      "name": "BlackHole.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/CosmicSilhouette.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 6584,
+      "name": "CosmicSilhouette.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/DistantGalaxies.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 3894,
+      "name": "DistantGalaxies.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/Galaxy.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 5805,
+      "name": "Galaxy.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/NebulaVolumes.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 3863,
+      "name": "NebulaVolumes.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/NeuralWeb.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 3838,
+      "name": "NeuralWeb.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/scenes/layers/Starfield.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 4268,
+      "name": "Starfield.tsx"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/aurora/aurora.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1741,
+      "name": "aurora.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/aurora/aurora.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 121,
+      "name": "aurora.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/background/gradient.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1433,
+      "name": "gradient.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/background/gradient.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 91,
+      "name": "gradient.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/blackhole/blackhole.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 3846,
+      "name": "blackhole.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/blackhole/blackhole.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 176,
+      "name": "blackhole.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/common/noise.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 3383,
+      "name": "noise.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/energy/energy.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 371,
+      "name": "energy.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/energy/energy.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 3286,
+      "name": "energy.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/galaxy/galaxy.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 415,
+      "name": "galaxy.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/galaxy/galaxy.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 5130,
+      "name": "galaxy.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/nebula/nebula.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 3606,
+      "name": "nebula.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/nebula/nebula.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 195,
+      "name": "nebula.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/neural/connection.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 513,
+      "name": "connection.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/neural/connection.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 552,
+      "name": "connection.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/stars/stars.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 726,
+      "name": "stars.frag.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/shaders/stars/stars.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1375,
+      "name": "stars.vert.glsl"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/store/useUniverseStore.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1395,
+      "name": "useUniverseStore.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/types/index.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1304,
+      "name": "index.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/utils/colors.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 823,
+      "name": "colors.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/utils/curlNoise.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 2200,
+      "name": "curlNoise.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/utils/math.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 2271,
+      "name": "math.ts"
+    },
+    {
+      "path": "Ciclona/01-Nikky-05-galaxy/src/utils/perf.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 1561,
+      "name": "perf.ts"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 482,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/eslint.config.mjs",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".mjs",
+      "bytes": 465,
+      "name": "eslint.config.mjs"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/LICENSE",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 1289,
+      "name": "LICENSE"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/next.config.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 133,
+      "name": "next.config.ts"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 252620,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 845,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/postcss.config.mjs",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".mjs",
+      "bytes": 94,
+      "name": "postcss.config.mjs"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 4285,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/tsconfig.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 666,
+      "name": "tsconfig.json"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/app/favicon.ico",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ico",
+      "bytes": 25931,
+      "name": "favicon.ico"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/app/globals.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 185,
+      "name": "globals.css"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/app/layout.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 811,
+      "name": "layout.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/app/page.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 108,
+      "name": "page.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/components/annotation-dot.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 115,
+      "name": "annotation-dot.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/components/ascii-effect.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 17950,
+      "name": "ascii-effect.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/components/effect-scene.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 9362,
+      "name": "effect-scene.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/components/hero.tsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".tsx",
+      "bytes": 7253,
+      "name": "hero.tsx"
+    },
+    {
+      "path": "Ciclona/02-egorshest-webgl-ascii-hero/public/models/user-model.glb",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".glb",
+      "bytes": 25508732,
+      "name": "user-model.glb"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 17,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 455,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 35346,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 486,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 3315,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/skills-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 552,
+      "name": "skills-lock.json"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/tsconfig.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 384,
+      "name": "tsconfig.json"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/config.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 5429,
+      "name": "config.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/controls.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 52401,
+      "name": "controls.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/global.d.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 412,
+      "name": "global.d.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/gpu-starfield.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 12955,
+      "name": "gpu-starfield.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/main.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 10175,
+      "name": "main.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/performance-monitor.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 11139,
+      "name": "performance-monitor.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 40548,
+      "name": "starfield.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/styles.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 2905,
+      "name": "styles.css"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/vite-env.d.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 38,
+      "name": "vite-env.d.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/bake-pipeline.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 9045,
+      "name": "bake-pipeline.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/constants.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 218,
+      "name": "constants.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/index.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 525,
+      "name": "index.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/layer.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 12038,
+      "name": "layer.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/materials.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 13012,
+      "name": "materials.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/types.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 5125,
+      "name": "types.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/nebula/uniforms.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 3611,
+      "name": "uniforms.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/bake-pipeline.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 13925,
+      "name": "bake-pipeline.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/catalog.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 13809,
+      "name": "catalog.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/constants.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 10122,
+      "name": "constants.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/patch-layout.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 23110,
+      "name": "patch-layout.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/render-targets.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 13040,
+      "name": "render-targets.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/shaders.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 38995,
+      "name": "shaders.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/skydome.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 13145,
+      "name": "skydome.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/star-layers.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 11865,
+      "name": "star-layers.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/stats.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 32250,
+      "name": "stats.ts"
+    },
+    {
+      "path": "Ciclona/03-vanrez-nez-starfield/src/starfield/types.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 10267,
+      "name": "types.ts"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 19,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/LICENSE",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 1071,
+      "name": "LICENSE"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 3708,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 1156,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 5779,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/tsconfig.base.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 727,
+      "name": "tsconfig.base.json"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/tsconfig.commonjs.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 146,
+      "name": "tsconfig.commonjs.json"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/tsconfig.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 142,
+      "name": "tsconfig.json"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/examples/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 27370,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/src/GalaxyGeometry.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 627,
+      "name": "GalaxyGeometry.ts"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/src/GalaxyShader.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 9708,
+      "name": "GalaxyShader.ts"
+    },
+    {
+      "path": "Ciclona/04-AmitDigga-threejs-galaxy-shader/src/index.ts",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".ts",
+      "bytes": 98,
+      "name": "index.ts"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 208,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/galaxy.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 19691,
+      "name": "galaxy.js"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/helpers.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 4412,
+      "name": "helpers.js"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 653,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/LICENSE",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 1067,
+      "name": "LICENSE"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 7446,
+      "name": "main.js"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 29889,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 361,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 2478,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/styles.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 773,
+      "name": "styles.css"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/ui.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 5916,
+      "name": "ui.js"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/vite.config.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 99,
+      "name": "vite.config.js"
+    },
+    {
+      "path": "Ciclona/05-dgreenheck-webgpu-galaxy/public/cloud.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 26428,
+      "name": "cloud.png"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 1371,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 370,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/package.json.bak",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".bak",
+      "bytes": 371,
+      "name": "package.json.bak"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/style.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 2848,
+      "name": "style.css"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/BlackHole.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 4549,
+      "name": "BlackHole.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/DeepZoom.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 6592,
+      "name": "DeepZoom.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Dust.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 4271,
+      "name": "Dust.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Galaxy.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 5759,
+      "name": "Galaxy.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 17442,
+      "name": "main.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Nebula.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3808,
+      "name": "Nebula.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Stars.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 8836,
+      "name": "Stars.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/blackhole.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 4488,
+      "name": "blackhole.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/blackhole.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 90,
+      "name": "blackhole.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/core.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 857,
+      "name": "core.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/core.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 406,
+      "name": "core.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/dust.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 332,
+      "name": "dust.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/dust.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 700,
+      "name": "dust.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/nebula.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1548,
+      "name": "nebula.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/nebula.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1108,
+      "name": "nebula.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/planet.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1466,
+      "name": "planet.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/planet.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 183,
+      "name": "planet.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/star.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 835,
+      "name": "star.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/star.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1159,
+      "name": "star.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/sun.frag.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 351,
+      "name": "sun.frag.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Shaders/sun.vert.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 90,
+      "name": "sun.vert.glsl"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Utils/Noise.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3688,
+      "name": "Noise.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Utils/Palettes.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1179,
+      "name": "Palettes.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Utils/Random.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1922,
+      "name": "Random.js"
+    },
+    {
+      "path": "Ciclona/06-techsuder-rgb-galaxy-project/galaxy-project/src/Utils/ShaderLoader.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 866,
+      "name": "ShaderLoader.js"
+    },
+    {
+      "path": "Ciclona/07-wagiham-threejs-cosmic-modes/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 678,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/07-wagiham-threejs-cosmic-modes/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 1693,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/07-wagiham-threejs-cosmic-modes/script.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 6097,
+      "name": "script.js"
+    },
+    {
+      "path": "Ciclona/07-wagiham-threejs-cosmic-modes/style.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 676,
+      "name": "style.css"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 56,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/example.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 2981,
+      "name": "example.html"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 20857,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 31611,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 507,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 3768,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/README_DEV.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 4927,
+      "name": "README_DEV.md"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/screenshot.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 294090,
+      "name": "screenshot.jpg"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/vite.config.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 451,
+      "name": "vite.config.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/game_spec.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 2684,
+      "name": "game_spec.md"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 9391,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/ship.glb",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".glb",
+      "bytes": 1122936,
+      "name": "ship.glb"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/ship_stack.glb",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".glb",
+      "bytes": 6711392,
+      "name": "ship_stack.glb"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/tts-demo-fixed.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 30804,
+      "name": "tts-demo-fixed.html"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/tts-demo.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 30828,
+      "name": "tts-demo.html"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/CameraController.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1148,
+      "name": "CameraController.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/EconomyManager.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2552,
+      "name": "EconomyManager.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/FlightController.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 14116,
+      "name": "FlightController.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/HUD.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 15028,
+      "name": "HUD.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/kokoro.web.min.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2466130,
+      "name": "kokoro.web.min.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/Main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 29588,
+      "name": "Main.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/MarketUI.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 6558,
+      "name": "MarketUI.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/NameGenerator.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3051,
+      "name": "NameGenerator.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/PersistenceManager.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2178,
+      "name": "PersistenceManager.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/PlanetGenerator.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 11085,
+      "name": "PlanetGenerator.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/SectorManager.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 7688,
+      "name": "SectorManager.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/ShieldSystem.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 7924,
+      "name": "ShieldSystem.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/Starfield.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 5544,
+      "name": "Starfield.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/StarMap.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 14095,
+      "name": "StarMap.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/TTSManager.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 17773,
+      "name": "TTSManager.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/UniverseManager.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 5869,
+      "name": "UniverseManager.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/WarpPoint.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3053,
+      "name": "WarpPoint.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/game/src/WarpSequence.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3968,
+      "name": "WarpSequence.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/src/Exporter.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3824,
+      "name": "Exporter.js"
+    },
+    {
+      "path": "Ciclona/08-manthrax-space-nebula/src/Nebularity.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 33047,
+      "name": "Nebularity.js"
+    },
+    {
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy/HOW_TO_RUN.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 2623,
+      "name": "HOW_TO_RUN.md"
+    },
+    {
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 2567,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy/main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 6969,
+      "name": "main.js"
+    },
+    {
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 448,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/09-harsh05vardhan-Particle-galaxy/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 2081,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 31,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 187291,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 521,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 444,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 705,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/assets/icon.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 61934,
+      "name": "icon.png"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/assets/particle.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 101337,
+      "name": "particle.png"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/js/app.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 5481,
+      "name": "app.js"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/js/shader/fragment.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 347,
+      "name": "fragment.glsl"
+    },
+    {
+      "path": "Ciclona/10-anushkachauhxn-particle-galaxy-3js/src/js/shader/vertex.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 7578,
+      "name": "vertex.glsl"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 800,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 3260,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 613,
+      "name": "main.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 1068,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 879,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/push-to-github.sh",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".sh",
+      "bytes": 480,
+      "name": "push-to-github.sh"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 4590,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/js/morphEngine.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3556,
+      "name": "morphEngine.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/js/particles.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 4486,
+      "name": "particles.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/js/scene.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2306,
+      "name": "scene.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/js/shaders.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1368,
+      "name": "shaders.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/js/uploadUI.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3012,
+      "name": "uploadUI.js"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/shaders/fragment.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 342,
+      "name": "fragment.glsl"
+    },
+    {
+      "path": "Ciclona/11-mattjss-Galaxy_Shader_Orbs/shaders/vertex.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1303,
+      "name": "vertex.glsl"
+    },
+    {
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 420,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL/LICENSE",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 1062,
+      "name": "LICENSE"
+    },
+    {
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL/main.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2531,
+      "name": "main.js"
+    },
+    {
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 1920,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/12-nyx4d-NyxStarfield-GL/style.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 128,
+      "name": "style.css"
+    },
+    {
+      "path": "Ciclona/13-marian42-starfield/bufA.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 4468,
+      "name": "bufA.glsl"
+    },
+    {
+      "path": "Ciclona/13-marian42-starfield/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 243,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/13-marian42-starfield/shader.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 10243,
+      "name": "shader.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/duck.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 571,
+      "name": "duck.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/matrix.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 814,
+      "name": "matrix.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/notes-to-self.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 1695,
+      "name": "notes-to-self.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/rainbow-gradient.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 669,
+      "name": "rainbow-gradient.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 4681,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/sine.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 558,
+      "name": "sine.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/water-waves.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 866,
+      "name": "water-waves.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/docs/capturing-loops.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 950,
+      "name": "capturing-loops.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/docs/noise.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 849,
+      "name": "noise.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/docs/palettes.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 990,
+      "name": "palettes.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/docs/raymarching.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 1479,
+      "name": "raymarching.md"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/images/charlotte.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 315832,
+      "name": "charlotte.jpg"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/images/water.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1134385,
+      "name": "water.png"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/charlotte.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 2166037,
+      "name": "charlotte.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/domain_warp.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 439599,
+      "name": "domain_warp.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/gyroid.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 967483,
+      "name": "gyroid.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/interference.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 67345,
+      "name": "interference.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/julia.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 125967,
+      "name": "julia.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/plasma.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 414645,
+      "name": "plasma.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/raymarch_sphere.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 106778,
+      "name": "raymarch_sphere.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/starfield.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 53713,
+      "name": "starfield.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/media/truchet.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 216259,
+      "name": "truchet.gif"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/charlotte.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 1211,
+      "name": "charlotte.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/domain_warp.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 877,
+      "name": "domain_warp.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/gyroid.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 743,
+      "name": "gyroid.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/interference.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 612,
+      "name": "interference.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/julia.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 670,
+      "name": "julia.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/plasma.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 460,
+      "name": "plasma.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/raymarch_sphere.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 912,
+      "name": "raymarch_sphere.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/starfield.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 717,
+      "name": "starfield.glsl"
+    },
+    {
+      "path": "Ciclona/14-mcallan-star-shadertoy/shaders/truchet.glsl",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".glsl",
+      "bytes": 702,
+      "name": "truchet.glsl"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 253,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/eslint.config.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 763,
+      "name": "eslint.config.js"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 357,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 122549,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 729,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 3477,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/vite.config.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 161,
+      "name": "vite.config.js"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/public/vite.svg",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".svg",
+      "bytes": 1497,
+      "name": "vite.svg"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/App.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 32,
+      "name": "App.css"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/App.jsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".jsx",
+      "bytes": 2208,
+      "name": "App.jsx"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/index.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 398,
+      "name": "index.css"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/main.jsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".jsx",
+      "bytes": 229,
+      "name": "main.jsx"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/assets/react.svg",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".svg",
+      "bytes": 4126,
+      "name": "react.svg"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/components/Galaxy.jsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".jsx",
+      "bytes": 5410,
+      "name": "Galaxy.jsx"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/components/Planet.jsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".jsx",
+      "bytes": 5134,
+      "name": "Planet.jsx"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/components/SpaceEffects.jsx",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".jsx",
+      "bytes": 5575,
+      "name": "SpaceEffects.jsx"
+    },
+    {
+      "path": "Ciclona/15-Hifzu04-galaxy/src/data/galaxiesData.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3948,
+      "name": "galaxiesData.js"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/package-lock.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 590751,
+      "name": "package-lock.json"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 882,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 356,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/public/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 1314,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/public/manifest.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 280,
+      "name": "manifest.json"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/public/robots.txt",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".txt",
+      "bytes": 67,
+      "name": "robots.txt"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/screenshots/loop.gif",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".gif",
+      "bytes": 426599,
+      "name": "loop.gif"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/index.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2227,
+      "name": "index.js"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/material.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2243,
+      "name": "material.js"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/scene.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3175,
+      "name": "scene.js"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/store.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3930,
+      "name": "store.js"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/styles.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 1162,
+      "name": "styles.css"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/cat.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 699,
+      "name": "cat.png"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/flower.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 336,
+      "name": "flower.png"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/moon.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 719,
+      "name": "moon.png"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/star1.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 428,
+      "name": "star1.png"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/star2.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 148,
+      "name": "star2.png"
+    },
+    {
+      "path": "Ciclona/16-PaulBenMarsh-r3f-stars/src/textures/star3.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 171,
+      "name": "star3.png"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/.gitignore",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 293,
+      "name": ".gitignore"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/.npmrc",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 20,
+      "name": ".npmrc"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/.prettierrc",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": "(sin)",
+      "bytes": 183,
+      "name": ".prettierrc"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/download.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1299,
+      "name": "download.png"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/package.json",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".json",
+      "bytes": 1034,
+      "name": "package.json"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/README.md",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".md",
+      "bytes": 539,
+      "name": "README.md"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/yarn.lock",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".lock",
+      "bytes": 507180,
+      "name": "yarn.lock"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/public/bj1wx8.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 505183,
+      "name": "bj1wx8.png"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/public/index.html",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 1544,
+      "name": "index.html"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/App.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2191,
+      "name": "App.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/index.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 661,
+      "name": "index.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/styles.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 572,
+      "name": "styles.css"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/BackDrop.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 387,
+      "name": "BackDrop.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/copy-shader.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 546,
+      "name": "copy-shader.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/GradientTextureBG.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 947,
+      "name": "GradientTextureBG.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/CloudScene/CloudScene.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 54,
+      "name": "CloudScene.css"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/CloudScene/CloudScene.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 713,
+      "name": "CloudScene.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/Effects/Effects.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 957,
+      "name": "Effects.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/SkyScene/SkyScene.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1351,
+      "name": "SkyScene.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/StarScene/Star.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 859,
+      "name": "Star.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/StarScene/StarScene.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 496,
+      "name": "StarScene.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/Text/fonts.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2026,
+      "name": "fonts.js"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/Text/styles.css",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 68,
+      "name": "styles.css"
+    },
+    {
+      "path": "Ciclona/17-modster-react-three-fibre-stars/src/components/Text/Text.js",
+      "base": "Ciclona",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 3317,
+      "name": "Text.js"
+    },
+    {
+      "path": "Ciclona/espacio-3d/INVENTARIO.md",
+      "base": "Ciclona",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 4267,
+      "name": "INVENTARIO.md"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/b44_39922a65c.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 903427,
+      "name": "b44_39922a65c.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/b44_upscalemedia3.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 49123,
+      "name": "b44_upscalemedia3.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/belentani_logo.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 457201,
+      "name": "belentani_logo.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_8s1v5g.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1978315,
+      "name": "catbox_8s1v5g.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_943t1r.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 10437264,
+      "name": "catbox_943t1r.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_h0wamv.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 5651345,
+      "name": "catbox_h0wamv.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_kmtlco.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3413169,
+      "name": "catbox_kmtlco.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_rt1p03.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1221872,
+      "name": "catbox_rt1p03.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/catbox_tf46wf.jpg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 476895,
+      "name": "catbox_tf46wf.jpg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_01-01-copia.jpeg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 221819,
+      "name": "g_01-01-copia.jpeg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_01-copia.jpeg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 259352,
+      "name": "g_01-copia.jpeg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_0E6TSr6Rio.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1247641,
+      "name": "g_0E6TSr6Rio.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_BnUqoEfIfg.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1123947,
+      "name": "g_BnUqoEfIfg.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_FfEYvFQhiL.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 647752,
+      "name": "g_FfEYvFQhiL.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_JfHXANZs7w.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 352663,
+      "name": "g_JfHXANZs7w.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_K0Eizdcy0n.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 3034336,
+      "name": "g_K0Eizdcy0n.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_Lrpnf9kRVA.jpeg",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 214933,
+      "name": "g_Lrpnf9kRVA.jpeg"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_svZuqY9Hcn_upscaled.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 680894,
+      "name": "g_svZuqY9Hcn_upscaled.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/g_XDH4vocGxZ.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 250766,
+      "name": "g_XDH4vocGxZ.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/judas_logo_v2.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 149878,
+      "name": "judas_logo_v2.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/judas_manifest.json",
+      "base": "Ciclona",
+      "kind": "herramienta",
+      "ext": ".json",
+      "bytes": 2611,
+      "name": "judas_manifest.json"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/tt_black-scales.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 292,
+      "name": "tt_black-scales.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/tt_carbon-fibre.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 144,
+      "name": "tt_carbon-fibre.png"
+    },
+    {
+      "path": "Ciclona/espacio-3d/assets/tt_cubes.png",
+      "base": "Ciclona",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 633,
+      "name": "tt_cubes.png"
+    },
+    {
+      "path": "espacio-3d/INVENTARIO.md",
+      "base": "espacio-3d",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 4267,
+      "name": "INVENTARIO.md"
+    },
+    {
+      "path": "espacio-3d/assets/b44_39922a65c.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 903427,
+      "name": "b44_39922a65c.png"
+    },
+    {
+      "path": "espacio-3d/assets/b44_upscalemedia3.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 49123,
+      "name": "b44_upscalemedia3.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/belentani_logo.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 457201,
+      "name": "belentani_logo.png"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_8s1v5g.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1978315,
+      "name": "catbox_8s1v5g.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_943t1r.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 10437264,
+      "name": "catbox_943t1r.png"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_h0wamv.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 5651345,
+      "name": "catbox_h0wamv.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_kmtlco.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3413169,
+      "name": "catbox_kmtlco.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_rt1p03.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1221872,
+      "name": "catbox_rt1p03.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/catbox_tf46wf.jpg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 476895,
+      "name": "catbox_tf46wf.jpg"
+    },
+    {
+      "path": "espacio-3d/assets/g_01-01-copia.jpeg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 221819,
+      "name": "g_01-01-copia.jpeg"
+    },
+    {
+      "path": "espacio-3d/assets/g_01-copia.jpeg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 259352,
+      "name": "g_01-copia.jpeg"
+    },
+    {
+      "path": "espacio-3d/assets/g_0E6TSr6Rio.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1247641,
+      "name": "g_0E6TSr6Rio.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_BnUqoEfIfg.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1123947,
+      "name": "g_BnUqoEfIfg.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_FfEYvFQhiL.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 647752,
+      "name": "g_FfEYvFQhiL.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_JfHXANZs7w.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 352663,
+      "name": "g_JfHXANZs7w.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_K0Eizdcy0n.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 3034336,
+      "name": "g_K0Eizdcy0n.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_Lrpnf9kRVA.jpeg",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 214933,
+      "name": "g_Lrpnf9kRVA.jpeg"
+    },
+    {
+      "path": "espacio-3d/assets/g_svZuqY9Hcn_upscaled.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 680894,
+      "name": "g_svZuqY9Hcn_upscaled.png"
+    },
+    {
+      "path": "espacio-3d/assets/g_XDH4vocGxZ.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 250766,
+      "name": "g_XDH4vocGxZ.png"
+    },
+    {
+      "path": "espacio-3d/assets/judas_logo_v2.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 149878,
+      "name": "judas_logo_v2.png"
+    },
+    {
+      "path": "espacio-3d/assets/judas_manifest.json",
+      "base": "espacio-3d",
+      "kind": "herramienta",
+      "ext": ".json",
+      "bytes": 2611,
+      "name": "judas_manifest.json"
+    },
+    {
+      "path": "espacio-3d/assets/tt_black-scales.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 292,
+      "name": "tt_black-scales.png"
+    },
+    {
+      "path": "espacio-3d/assets/tt_carbon-fibre.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 144,
+      "name": "tt_carbon-fibre.png"
+    },
+    {
+      "path": "espacio-3d/assets/tt_cubes.png",
+      "base": "espacio-3d",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 633,
+      "name": "tt_cubes.png"
+    },
+    {
+      "path": "_universo_assets/belentani-universe.js",
+      "base": "_universo_assets",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 9068,
+      "name": "belentani-universe.js"
+    },
+    {
+      "path": "_universo_assets/captura.png",
+      "base": "_universo_assets",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 592366,
+      "name": "captura.png"
+    },
+    {
+      "path": "_universo_assets/captura2.png",
+      "base": "_universo_assets",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 833562,
+      "name": "captura2.png"
+    },
+    {
+      "path": "_universo_assets/prueba.html",
+      "base": "_universo_assets",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 1057,
+      "name": "prueba.html"
+    },
+    {
+      "path": "_universo_assets/three-galaxy.html",
+      "base": "_universo_assets",
+      "kind": "efecto",
+      "ext": ".html",
+      "bytes": 4545,
+      "name": "three-galaxy.html"
+    },
+    {
+      "path": "_universo_assets/vanta.globe.js",
+      "base": "_universo_assets",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 13108,
+      "name": "vanta.globe.js"
+    },
+    {
+      "path": "_universo_assets/vanta.halo.js",
+      "base": "_universo_assets",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 11370,
+      "name": "vanta.halo.js"
+    },
+    {
+      "path": "_universo_assets/vanta.net.js",
+      "base": "_universo_assets",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 10178,
+      "name": "vanta.net.js"
+    },
+    {
+      "path": "_universo_assets/vanta.rings.js",
+      "base": "_universo_assets",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 8379,
+      "name": "vanta.rings.js"
+    },
+    {
+      "path": "_universo_assets/web-artista.png",
+      "base": "_universo_assets",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1472149,
+      "name": "web-artista.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/404.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 2143,
+      "name": "404.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/belentani-universe.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 15260,
+      "name": "belentani-universe.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/biblia.deep.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 25265,
+      "name": "biblia.deep.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/biblia.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 179196,
+      "name": "biblia.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/catalogo-artista.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 8303,
+      "name": "catalogo-artista.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/CONTRIBUTING.md",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 382,
+      "name": "CONTRIBUTING.md"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/ecosistema.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 26882,
+      "name": "ecosistema.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 206241,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/judas-sessions.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 14704,
+      "name": "judas-sessions.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/MAXIMAS.md",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 3818,
+      "name": "MAXIMAS.md"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/og-cover.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 849400,
+      "name": "og-cover.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/README.md",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 4274,
+      "name": "README.md"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/robots.txt",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".txt",
+      "bytes": 66,
+      "name": "robots.txt"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/SECURITY.md",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 401,
+      "name": "SECURITY.md"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/universo-lore.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 7539,
+      "name": "universo-lore.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/belentani_fullbody_hologram_concert.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 189553,
+      "name": "belentani_fullbody_hologram_concert.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/BL_01_brutalist_low.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 68255,
+      "name": "BL_01_brutalist_low.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/BL_09_rain_street.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 118039,
+      "name": "BL_09_rain_street.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/BL_27_surreal_red.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 67057,
+      "name": "BL_27_surreal_red.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/BL_35_cyberpunk_neon.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 146268,
+      "name": "BL_35_cyberpunk_neon.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/assets/astral/BL_41_futur_city_night.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 185757,
+      "name": "BL_41_futur_city_night.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/biblia/index.html",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".html",
+      "bytes": 14888,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/eu/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 11010,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/galaxia/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 20107,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/galaxia/sistemas.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 9045,
+      "name": "sistemas.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/galaxia/universo-galaxias-datos.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 2080,
+      "name": "universo-galaxias-datos.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/noiacore/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 11250,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/obra/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 20853,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/profesion/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 11396,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/profesion/maquina-profesion.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 10148,
+      "name": "maquina-profesion.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/scripts/extract-biblia-inline.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 4570,
+      "name": "extract-biblia-inline.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/tests/biblia-page.test.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 2652,
+      "name": "biblia-page.test.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/tests/biblia.test.js",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".js",
+      "bytes": 2840,
+      "name": "biblia.test.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 52157,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/README.md",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".md",
+      "bytes": 417,
+      "name": "README.md"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/b44_39922a65c.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 903427,
+      "name": "b44_39922a65c.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/b44_upscalemedia3.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 49123,
+      "name": "b44_upscalemedia3.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/belentani_logo.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 457201,
+      "name": "belentani_logo.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_8s1v5g.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1978315,
+      "name": "catbox_8s1v5g.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_943t1r.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 10437264,
+      "name": "catbox_943t1r.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_h0wamv.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 5651345,
+      "name": "catbox_h0wamv.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_kmtlco.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3413169,
+      "name": "catbox_kmtlco.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_rt1p03.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1221872,
+      "name": "catbox_rt1p03.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/catbox_tf46wf.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 476895,
+      "name": "catbox_tf46wf.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_01-01-copia.jpeg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 221819,
+      "name": "g_01-01-copia.jpeg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_01-copia.jpeg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 259352,
+      "name": "g_01-copia.jpeg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_0E6TSr6Rio.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1247641,
+      "name": "g_0E6TSr6Rio.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_BnUqoEfIfg.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 1123947,
+      "name": "g_BnUqoEfIfg.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_FfEYvFQhiL.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 647752,
+      "name": "g_FfEYvFQhiL.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_JfHXANZs7w.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 352663,
+      "name": "g_JfHXANZs7w.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_K0Eizdcy0n.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 3034336,
+      "name": "g_K0Eizdcy0n.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_Lrpnf9kRVA.jpeg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpeg",
+      "bytes": 214933,
+      "name": "g_Lrpnf9kRVA.jpeg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_svZuqY9Hcn_upscaled.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 680894,
+      "name": "g_svZuqY9Hcn_upscaled.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/g_XDH4vocGxZ.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 250766,
+      "name": "g_XDH4vocGxZ.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/judas_logo_v2.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 149878,
+      "name": "judas_logo_v2.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/judas_manifest.json",
+      "base": "belentani7.github.io",
+      "kind": "herramienta",
+      "ext": ".json",
+      "bytes": 2611,
+      "name": "judas_manifest.json"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/tt_black-scales.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 292,
+      "name": "tt_black-scales.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/tt_carbon-fibre.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 144,
+      "name": "tt_carbon-fibre.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/unificado/assets/tt_cubes.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 633,
+      "name": "tt_cubes.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 25849,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/planetas.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 9857,
+      "name": "planetas.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/planetas3d.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 10477,
+      "name": "planetas3d.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_ceres_fictional.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1127678,
+      "name": "2k_ceres_fictional.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_earth_clouds.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 965676,
+      "name": "2k_earth_clouds.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_earth_daymap.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 463087,
+      "name": "2k_earth_daymap.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_earth_nightmap.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 255287,
+      "name": "2k_earth_nightmap.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_eris_fictional.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1070441,
+      "name": "2k_eris_fictional.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_haumea_fictional.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 900211,
+      "name": "2k_haumea_fictional.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_jupiter.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 498976,
+      "name": "2k_jupiter.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_makemake_fictional.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1179218,
+      "name": "2k_makemake_fictional.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_mars.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 750547,
+      "name": "2k_mars.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_mercury.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 872555,
+      "name": "2k_mercury.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_moon.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1053869,
+      "name": "2k_moon.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_neptune.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 241580,
+      "name": "2k_neptune.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_saturn.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 199916,
+      "name": "2k_saturn.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_saturn_ring_alpha.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 12119,
+      "name": "2k_saturn_ring_alpha.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_stars_milky_way.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 251454,
+      "name": "2k_stars_milky_way.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_sun.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 822427,
+      "name": "2k_sun.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_uranus.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 77751,
+      "name": "2k_uranus.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/2k_venus_surface.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 885075,
+      "name": "2k_venus_surface.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_earth_clouds.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 11619184,
+      "name": "8k_earth_clouds.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_earth_daymap.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 4565076,
+      "name": "8k_earth_daymap.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_earth_nightmap.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3144468,
+      "name": "8k_earth_nightmap.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_jupiter.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3080980,
+      "name": "8k_jupiter.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_mars.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 8396951,
+      "name": "8k_mars.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_mercury.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 15035740,
+      "name": "8k_mercury.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_moon.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 15030356,
+      "name": "8k_moon.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_saturn.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1098204,
+      "name": "8k_saturn.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_saturn_ring_alpha.png",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".png",
+      "bytes": 64790,
+      "name": "8k_saturn_ring_alpha.png"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_stars_milky_way.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 1905513,
+      "name": "8k_stars_milky_way.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_sun.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 3696361,
+      "name": "8k_sun.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/8k_venus_surface.jpg",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".jpg",
+      "bytes": 12523129,
+      "name": "8k_venus_surface.jpg"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/tex/CREDITOS.txt",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".txt",
+      "bytes": 142,
+      "name": "CREDITOS.txt"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/three.module.min.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 691648,
+      "name": "three.module.min.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/EffectComposer.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 4651,
+      "name": "EffectComposer.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/MaskPass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2231,
+      "name": "MaskPass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/OutputPass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 2524,
+      "name": "OutputPass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/Pass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1706,
+      "name": "Pass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/RenderPass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1941,
+      "name": "RenderPass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/ShaderPass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1576,
+      "name": "ShaderPass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/postprocessing/UnrealBloomPass.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 12410,
+      "name": "UnrealBloomPass.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/shaders/CopyShader.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 571,
+      "name": "CopyShader.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/shaders/LuminosityHighPassShader.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1147,
+      "name": "LuminosityHighPassShader.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje/vendor/addons/shaders/OutputShader.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 1490,
+      "name": "OutputShader.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/index.html",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".html",
+      "bytes": 1787,
+      "name": "index.html"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/planetas.js",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".js",
+      "bytes": 9857,
+      "name": "planetas.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/universo-lore.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 7539,
+      "name": "universo-lore.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/assets/index-B0rvWhFx.css",
+      "base": "belentani7.github.io",
+      "kind": "efecto",
+      "ext": ".css",
+      "bytes": 6681,
+      "name": "index-B0rvWhFx.css"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/assets/index-fQeLWzJ5.js",
+      "base": "belentani7.github.io",
+      "kind": "codigo",
+      "ext": ".js",
+      "bytes": 1267127,
+      "name": "index-fQeLWzJ5.js"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/audio/la-deuda.mp3",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".mp3",
+      "bytes": 8597740,
+      "name": "la-deuda.mp3"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_ceres_fictional.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 621918,
+      "name": "2k_ceres_fictional.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_earth_clouds.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 500054,
+      "name": "2k_earth_clouds.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_earth_daymap.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 132502,
+      "name": "2k_earth_daymap.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_earth_nightmap.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 67956,
+      "name": "2k_earth_nightmap.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_eris_fictional.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 527100,
+      "name": "2k_eris_fictional.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_haumea_fictional.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 456266,
+      "name": "2k_haumea_fictional.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_jupiter.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 112672,
+      "name": "2k_jupiter.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_makemake_fictional.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 517584,
+      "name": "2k_makemake_fictional.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_mars.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 204912,
+      "name": "2k_mars.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_mercury.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 415584,
+      "name": "2k_mercury.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_moon.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 543126,
+      "name": "2k_moon.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_neptune.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 15774,
+      "name": "2k_neptune.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_saturn.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 30944,
+      "name": "2k_saturn.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_saturn_ring_alpha.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 6042,
+      "name": "2k_saturn_ring_alpha.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_stars_milky_way.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 43274,
+      "name": "2k_stars_milky_way.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_sun.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 223794,
+      "name": "2k_sun.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_uranus.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 8250,
+      "name": "2k_uranus.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/2k_venus_surface.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 293864,
+      "name": "2k_venus_surface.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/8k_stars_milky_way.webp",
+      "base": "belentani7.github.io",
+      "kind": "asset",
+      "ext": ".webp",
+      "bytes": 302288,
+      "name": "8k_stars_milky_way.webp"
+    },
+    {
+      "path": "app-web-nextjs/belentani7.github.io/viaje3d/tex/CREDITOS.txt",
+      "base": "belentani7.github.io",
+      "kind": "dato",
+      "ext": ".txt",
+      "bytes": 142,
+      "name": "CREDITOS.txt"
+    }
+  ]
+}

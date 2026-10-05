@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Prueba motor universo</title>
+<style>html,body{margin:0;height:100%;background:#000}#fondo{position:fixed;inset:0}
+.info{position:relative;z-index:2;color:#4de8e0;font:14px monospace;padding:20px}</style></head>
+<body><div id="fondo"></div><div class="info" id="salida">cargando...</div>
+<script src="belentani-universe.js"></script>
+<script>
+var salida=document.getElementById('salida');
+try{
+  var u=BelentaniUniverse.attach(document.getElementById('fondo'),{mode:'galaxia'});
+  setTimeout(function(){
+    var c=document.querySelector('canvas');
+    var ctx=c.getContext('2d');
+    var d=ctx.getImageData(0,0,c.width,c.height).data;
+    var noNegros=0, total=0;
+    for(var i=0;i<d.length;i+=4000){total++;if(d[i]>8||d[i+1]>8||d[i+2]>8)noNegros++;}
+    salida.textContent='OK modo='+u.modo+' canvas='+c.width+'x'+c.height+' pixelesConLuz='+noNegros+'/'+total+' modos='+BelentaniUniverse.modos.join(',');
+  },900);
+}catch(e){salida.textContent='ERROR: '+e.message;}
+</script></body></html>

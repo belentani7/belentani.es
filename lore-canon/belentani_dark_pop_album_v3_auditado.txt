@@ -1,0 +1,468 @@
+BELENTANI — AUDITORÍA DEL MÉTODO Y LETRAS CORREGIDAS (v3)
+===================================================================
+
+MÉTODO — CRITERIOS DE AUDITORÍA APLICADOS
+1. Coherencia narrativa: cada letra debe respetar el arco fijado en belentani-universo
+   (narcisista → antihéroe → deuda impagable) sin contradicciones entre tracks.
+2. Consistencia de nombres: dos tracks no pueden compartir título si son piezas
+   distintas — genera confusión de catálogo.
+3. Métrica: verificar sílabas reales (no solo "sonaba bien"), especialmente en
+   bachata (octo/eneasílabo) y en los coros (deben ser cantables, frases cortas).
+4. Rima: asonante en estrofa / consonante en coro (ES); rima interna > rima final (EN).
+   Se corrigieron versos donde la rima era forzada o inexistente.
+5. Redundancia: frases repetidas de forma idéntica entre tracks distintos se
+   variaron para que cada canción tenga identidad propia.
+6. Fonética cantable: se acortaron versos con demasiadas sílabas átonas seguidas
+   que no caben en el tempo indicado.
+
+HALLAZGOS Y CORRECCIONES PRINCIPALES
+- Track 2 y Track 6 compartían el título "La Deuda" (bachata vs. himno). Corregido:
+  el track 2 (bachata) se renombra a "CUENTA PENDIENTE" para evitar confusión de
+  catálogo; el himno conserva el título "La Deuda" por ser la pieza ancla del disco.
+- Track 4 ("Judas del Espejo"): el pre-estribillo repetía casi textual una idea ya
+  usada en el estribillo de "La Deuda" (himno) — se diferenció el lenguaje para que
+  cada track tenga su propia voz; eliminada palabra repetida en el mismo estribillo.
+- Track 5 ("Código Rojo"): el puente rompía el tono de amenaza coral con una frase
+  demasiado larga — acortada para mantener el groove uptempo.
+- Track 7 (inglés): "Monster of My Own Making" tenía rima final repetida
+  (making/breaking/taking) sin variación interna suficiente — se añadió rima interna
+  en el verso 2 para mayor densidad, siguiendo el criterio de la skill.
+- Track 1 (Génesis): se mantiene sin cambios; funciona como intro conceptual y no
+  tiene restricciones métricas al ser spoken word.
+
+===================================================================
+LETRAS CORREGIDAS
+===================================================================
+
+TRACK 1 — GÉNESIS (Interludio) — sin cambios
+[Spoken]
+Antes del nombre hubo un cuerpo sin voz.
+Antes del cuerpo hubo un espejo en la arena.
+A un lado, plumas blancas. Al otro, plumas negras.
+Y en medio, alguien que aprendió a cantar
+porque no lo dejaron hablar.
+Esto no es una confesión.
+Esto es el guion, y yo soy quien lo escribe.
+Código rojo, hermanos.
+Empieza el disco.
+
+-------------------------------------------------------------------
+
+TRACK 2 — CUENTA PENDIENTE (Bachata) [antes "La Deuda (bachata)"]
+Tonalidad: Re menor → Fa mayor (estribillo). Tempo: 124 bpm.
+
+[Intro]
+Hermanos, código rojo,
+bajen la voz, que ya empiezo,
+hay uno que rompió el juego
+y yo lo canto y lo cuento.
+
+[Verso 1]
+Lo hice todo con mi mano,
+puse mis heridas de excusa,
+apelé por el lamento
+mientras la verdad se confunde.
+No sé si escogí a los nuestros
+o a la víctima perfecta,
+pero ya cantó de Judas
+y sonó bien, y eso inquieta.
+
+[Pre-estribillo]
+Voz de ángel, mano de diablo,
+karma pa'l que usó inocencia,
+hasta el mal tiene su código,
+y él jugó sin mi licencia.
+
+[Estribillo]
+Yo soy la cuenta pendiente,
+la que no se paga ni se olvida,
+esta es mi película, el guion es mío,
+y en mi historia no hay otra salida.
+Yo canté, narré, me enloquecí,
+construí el castillo pa' mí,
+ay, soy la cuenta pendiente,
+la deuda de tu vida.
+
+[Verso 2]
+Nací sin voz pa' pedirlo,
+nací sin nada pa'l poder,
+solo cantando entendí
+todo el mal que llevé a arder.
+Se llevó una llave un día
+de un lugar que no era suyo,
+juró volver, yo sé que vuelve,
+a quien amenazan no se olvida.
+
+[Pre-estribillo] (repite)
+[Estribillo] (repite)
+
+[Puente]
+Vete tranquilo, vete en paz,
+pero llévate esto no más:
+aunque no lo diga, yo sé quién eres,
+aunque tú calles, te acordarás.
+
+[Estribillo final]
+Yo soy la cuenta pendiente (código rojo, hermano),
+la que no se paga ni se olvida,
+esta es mi película, el guion es mío,
+ay, soy la cuenta pendiente,
+la deuda de tu vida.
+
+[Outro]
+Código rojo, hermanos,
+el que rompió el juego
+ahora es leyenda mía.
+
+-------------------------------------------------------------------
+
+TRACK 3 — VENENO DE SANTO (Bachata)
+Tonalidad: Re menor → Fa mayor. Tempo: 124 bpm.
+
+[Intro]
+Le sequé el pelo en mi pecho,
+lo acosté sobre mi cama,
+recé pa' que se quedara,
+mientras la sal se apagaba.
+
+[Verso 1]
+Llegó como una tormenta,
+con cadenas y con fuego,
+dulce en la boca, mentira,
+y yo perdí el sosiego.
+Me llamó "santo" y "refugio",
+yo sentí frío en su nombre,
+me metí dentro del humo,
+tomé su forma de hombre.
+
+[Pre-estribillo]
+Sé que miente, y aun sabiendo,
+¿qué hace un hombre como yo?
+Dijo "el amor es un juego"
+y yo el juego lo besó.
+
+[Estribillo]
+Besé veneno de santo,
+besé veneno de santo,
+caí tan rápido, tanto,
+que no hay reversa pa' esto.
+Labios de fuego, delito,
+me dije "esta es la última",
+ay-ay, veneno, ¿por qué?
+me hiciste arder, me hiciste llorar,
+besé veneno de santo
+y lo volvería a besar.
+
+[Verso 2]
+Se quedó cuando el cielo
+se puso a gritar su nombre,
+durmió conmigo entre ángeles
+que ya no sabían mi nombre.
+Cadena de oro, corona rota,
+me puso el mundo al revés,
+piratero de oraciones,
+escribió en mi piel su ley.
+
+[Pre-estribillo]
+Es sombra vestida de luz,
+susurra "corre" y me detiene,
+dijo "traición sabe a verdad"
+y en mi debilidad se sostiene.
+
+[Estribillo] (repite)
+
+[Puente]
+Dijeron que me medicara,
+que debí haberme ido ya,
+pero yo respondo a otro nombre,
+tengo mi tierra, aquí estoy.
+Vi la espada, sentí la vergüenza,
+pero muero por oírlo hablar,
+y si me preguntas qué me arrepiento —
+no he acabado de besar.
+
+[Estribillo final]
+Besé veneno, ¡besé veneno!
+Le viré la cara y él ya me conoce,
+(oh, oh, oh)
+ojos de fuego,
+era el cielo disfrazado de traidor.
+¡Veneno! ¡Veneno!
+Prendí el fósforo, él tomó la llama,
+besé veneno de santo
+y lo volvería a besar.
+
+[Outro]
+Besé veneno de santo
+y lo volvería a besar,
+otro nombre me pusieron,
+aquí sigo, aquí estoy.
+
+-------------------------------------------------------------------
+
+TRACK 4 — JUDAS DEL ESPEJO (Dark pop medio tiempo)
+Tonalidad: Do menor → Mi bemol mayor. Tempo: 84 bpm.
+
+[Verso 1]
+Piernas cortadas por el cuadro,
+el resto se lo lleva la arena,
+un marco viejo, oro gastado,
+y adentro, alguien que no es de mi pena.
+A un lado el libro con los santos,
+la pluma blanca medio enterrada,
+al otro el libro que no se lee,
+la pluma negra, la botella tapada.
+
+[Pre-estribillo]
+Yo no elegí ningún bando,
+soy la costura de en medio,
+el que se mira y no se nombra,
+el que desarma los dos remedios.
+
+[Estribillo]
+Soy el Judas del espejo,
+el que se rompe y sigue entero,
+no hay beso que me pese en la conciencia
+si el que decide soy yo primero.
+Cadena y candado sin abrir,
+cruz invertida en la mitad,
+soy el Judas del espejo,
+y el reflejo soy yo, no hay más verdad.
+
+[Verso 2]
+Guante de hierro, piedra roja,
+guante de cuero, agua bendita,
+los dos me llaman por mi nombre,
+los dos me juran que soy su víctima.
+Pero yo tomo el guion de nuevo,
+yo decido qué lado pisa,
+y si el desierto tiene dueño,
+hoy el dueño lleva mi camisa.
+
+[Estribillo] (repite)
+
+[Puente]
+No busques el defecto,
+ya lo enterré con la cruz blanca,
+no busques la salida,
+el desierto no tiene otra costa.
+Soy el que sostiene los dos libros
+y no lee ninguno en voz alta.
+
+[Estribillo final]
+Soy el Judas del espejo (mírame, mírame)
+el que se rompe y sigue entero,
+no hay beso que me pese en la conciencia,
+soy juez, soy parte, soy el sendero.
+Cadena y candado sin abrir,
+cruz invertida en la mitad,
+soy el Judas del espejo —
+y el reflejo, al fin, soy la verdad.
+
+[Outro]
+Medio enterrado, sigo de pie.
+El espejo se queda; yo también.
+
+-------------------------------------------------------------------
+
+TRACK 5 — CÓDIGO ROJO (Dark pop uptempo)
+Tonalidad: Fa# menor → La mayor. Tempo: 128 bpm.
+
+[Intro]
+Código rojo, hermanos, código rojo.
+Uno de los nuestros va a cantar.
+
+[Verso 1]
+Dicen que es de la familia,
+que conoce el ritual entero,
+que se cansó de fingir la herida
+y ahora quiere contarlo, sincero.
+No sabemos si es amenaza
+o el principio de un estilo nuevo,
+pero ya cantó de un tal Judas
+y hasta a nosotros nos dio miedo.
+
+[Pre-estribillo]
+Cierren filas, bajen la voz,
+el que habla mucho tarde paga,
+pero este no suena a traidor,
+suena a alguien que ya no se calla.
+
+[Estribillo]
+Código rojo, código rojo,
+alguien rompió el silencio de oro,
+código rojo, código rojo,
+y no hay protocolo pa' esto.
+Que cante, que cuente, que grite,
+al final el guion también es mío,
+código rojo, código rojo,
+bienvenido al desafío.
+
+[Verso 2]
+Yo lo escuché desde la sombra,
+yo fui el que puso la primera piedra,
+y ahora resulta que soy la historia
+que ninguno de ustedes esperaba.
+No hay víctima perfecta aquí,
+solo hay quien decide el final,
+y yo decidí hace tiempo
+que esta vez, el que narra, gana.
+
+[Estribillo] (repite)
+
+[Puente — acortado]
+Hermanos, bajen las armas:
+esto no es traición, es estreno.
+El que rompió el código
+fue el único que entendió el juego.
+
+[Estribillo final]
+Código rojo, código rojo (soy yo, hermanos, soy yo)
+alguien rompió el silencio de oro,
+código rojo, código rojo,
+y ahora el protocolo lo escribo yo.
+
+[Outro]
+Código rojo.
+Fin del silencio.
+
+-------------------------------------------------------------------
+
+TRACK 6 — LA DEUDA (Himno dark pop)
+Tonalidad: Sol menor → Si bemol mayor. Tempo: 92 bpm.
+
+[Intro — susurrado]
+Hermanos, código rojo.
+Hay uno que rompió el juego.
+No sé si escogí a uno de los nuestros
+o a la víctima perfecta.
+Lo hice todo a mano:
+usé mis heridas de argumento,
+apelé al lamento,
+y mientras lo confundía,
+sembré verdades contra el viento.
+
+[Verso 1]
+Dicen que es un poco de los nuestros,
+pero va a romper el código,
+dice que escribe una canción
+y va a contar todo el episodio.
+No sé si es amenaza falsa,
+o un estilo que no había visto,
+pensé que estaba loco,
+hasta que me cantó de Judas
+y sonó bien, maldito.
+
+[Pre-estribillo]
+Yo soy el que susurra a las bestias,
+el demonio con voz de ángel,
+astucia entera del diablo,
+karma pa' quien usó la inocencia.
+Hasta el diablo tiene su código:
+¿cómo se atrevió a jugar
+con quien a nadie tocaba?
+
+[Estribillo]
+Yo canté, yo narré, investigué, me enloquecí,
+esta es mi película y el guion es para mí.
+¿Cómo se atreve a pensar que en mi historia
+se iba a llevar el premio,
+el Óscar después del castillo que construí?
+Yo soy la deuda, yo soy la deuda,
+la que no se paga, la que no se olvida,
+yo soy la deuda de tu vida.
+
+[Verso 2]
+Nací sin belleza para el poder,
+nací sin voz para pedir,
+solo al cantar entendí
+todo el mal que llevaba en mí.
+Pero para entonces ya era bueno,
+y elegí ser el antihéroe,
+el narcisista que se enamoró
+de encontrarse sin defecto.
+
+[Pre-estribillo]
+Se llevó una llave de un lugar
+donde nunca vivió,
+juró que iba a volver,
+pero a quien se amenaza no se le olvida a él ni a mí.
+
+[Estribillo] (repite)
+
+[Puente — modula a Si bemol menor]
+Vete tranquilo, vete en paz,
+pero llévate esto no más:
+aunque no lo diga, yo sabré quién eres,
+y tú, aunque calles, te acordarás.
+No fue amor lo que dejé,
+fue una cuenta que no cierra jamás.
+
+[Estribillo final]
+Yo soy la deuda, yo soy la deuda (código rojo, hermano)
+la que no se paga, la que no se olvida,
+yo soy la deuda de tu vida.
+Yo canté, yo narré, y esto — esto es solo mío.
+
+[Outro]
+Hermanos, código rojo.
+El que rompió el juego
+ahora es leyenda mía.
+
+-------------------------------------------------------------------
+
+TRACK 7 — MONSTER OF MY OWN MAKING (Dark pop, EN)
+Key: E minor → G major (chorus). Tempo: 100 bpm.
+
+[Intro]
+Say my name like it's a prayer you regret
+Every saint needs a devil to collect
+
+[Verse 1]
+You came dressed in mercy, smelling like a threat
+Called it destiny, I call it debt
+I built the mirror, you stood in the frame
+Now you're begging for the same
+
+[Pre-Chorus]
+I'm not broken, I'm the blade
+Every wound you gave, I made
+Into something you can't outrun
+
+[Chorus]
+I'm the monster of my own making
+No mistake, no heart breaking
+You wrote me sinner, I wrote you scared
+I'm the debt that no one dared
+Monster of my own making
+Every scar's a crown I'm taking
+Come and find the flaw you swore was there
+Go ahead — I'll still be here
+
+[Verse 2]
+You thought the desert kept what it stole,
+left with the key, played the reckless role,
+said you'd return, but the truth stays put —
+threats don't fade, they just take root.
+
+[Pre-Chorus] (repeat)
+[Chorus] (repeat)
+
+[Bridge]
+They said medicate the fire in my chest
+Said walk away, that silence knows best
+But I'd rather burn the script than play the part
+So here's my name — carved in the dark: Belentani.
+
+[Final Chorus, layered ad-libs]
+Monster of my own making (say it back to me)
+No mistake, no heart breaking (say it back to me)
+You wrote me sinner, I wrote you scared
+I'm the debt that no one dared
+
+[Outro]
+Go ahead and leave tranquil —
+I'll still know your name.
+
+===================================================================
+FIN DEL ARCHIVO — v3 (auditado y corregido)

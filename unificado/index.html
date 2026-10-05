@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BELENTANI — Universo Unificado · JUDAS ERA</title>
+<meta name="description" content="Experiencia inmersiva unificada Belentani: lore JUDAS, galaxia Three.js, mundos OMEGA, dos biblias y archivo visual.">
+
+<!-- Three.js Core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS RESET + VARIABLES — GLASSMORPHISM ROJO NEÓN
+   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  /* Rojo Neón Palette */
+  --neon-red: #ff0033;
+  --neon-red-bright: #ff1a4a;
+  --neon-red-dim: #cc0029;
+  --neon-red-glow: rgba(255, 0, 51, 0.6);
+  --neon-red-glow-intense: rgba(255, 0, 51, 0.9);
+  --neon-red-soft: rgba(255, 26, 74, 0.15);
+  --neon-pink: #ff2d6b;
+  --neon-crimson: #dc143c;
+  
+  /* Glass */
+  --glass-bg: rgba(15, 0, 5, 0.45);
+  --glass-bg-heavy: rgba(20, 0, 8, 0.65);
+  --glass-border: rgba(255, 0, 51, 0.25);
+  --glass-border-hover: rgba(255, 0, 51, 0.6);
+  --glass-blur: 24px;
+  --glass-blur-heavy: 40px;
+  
+  /* Background */
+  --void-black: #050005;
+  --deep-space: #0a0008;
+  
+  /* Text */
+  --text-primary: #f0e6ea;
+  --text-secondary: rgba(240, 230, 234, 0.65);
+  --text-neon: #ff3366;
+  
+  /* Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  /* Spacing */
+  --section-pad: clamp(60px, 10vh, 120px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-red) var(--void-black);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--void-black);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--void-black); }
+::-webkit-scrollbar-thumb { background: var(--neon-red); border-radius: 3px; }
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--neon-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  box-shadow: 0 0 15px var(--neon-red-glow-intense), 0 0 40px var(--neon-red-glow);
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+.cursor-ring {
+  position: fixed;
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--neon-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.5;
+  transition: all 0.15s ease-out;
+}
+.cursor-ring.hovering {
+  transform: scale(1.8);
+  opacity: 1;
+  border-color: var(--neon-red-bright);
+  box-shadow: 0 0 20px var(--neon-red-glow);
+}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: var(--void-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.loader-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: var(--neon-red);
+  text-shadow: 0 0 30px var(--neon-red-glow), 0 0 60px var(--neon-red-glow), 0 0 120px rgba(255,0,51,0.3);
+  letter-spacing: 0.3em;
+  margin-bottom: 40px;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.loader-bar-container {
+  width: min(400px, 80vw);
+  height: 3px;
+  background: rgba(255,0,51,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-red-dim), var(--neon-red), var(--neon-pink));
+  box-shadow: 0 0 20px var(--neon-red-glow);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.loader-percent {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--neon-red);
+  margin-top: 15px;
+  letter-spacing: 0.2em;
+}
+.loader-lore {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 30px;
+  max-width: 500px;
+  text-align: center;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeInLore 1s ease 0.5s forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 30px var(--neon-red-glow), 0 0 60px var(--neon-red-glow); }
+  50% { text-shadow: 0 0 50px var(--neon-red-glow-intense), 0 0 100px var(--neon-red-glow), 0 0 200px rgba(255,0,51,0.2); }
+}
+@keyframes fadeInLore {
+  to { opacity: 1; }
+}
+
+/* ============================================================
+   THREE.JS CANVAS
+   ============================================================ */
+#universe-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   MAIN CONTENT OVERLAY
+   ============================================================ */
+.content-layer {
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================================
+   NAVIGATION — GLASSMORPHISM
+   ============================================================ */
+.nav-glass {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+}
+.nav-glass.scrolled {
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  box-shadow: 0 4px 40px rgba(255,0,51,0.1);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--neon-red);
+  text-shadow: 0 0 20px var(--neon-red-glow);
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red-glow);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--neon-red); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ============================================================
+   GLASS CARD — COMPONENTE BASE
+   ============================================================ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,0,51,0.08) 0%, transparent 50%, rgba(255,45,107,0.05) 100%);
+  pointer-events: none;
+}
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,0,51,0.06) 0%, transparent 50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 8px 60px rgba(255,0,51,0.15), inset 0 0 60px rgba(255,0,51,0.03);
+  transform: translateY(-4px);
+}
+.glass-card:hover::after { opacity: 1; }
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero-overline {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neon-red);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0;
+  text-shadow: 0 0 15px var(--neon-red-glow);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  opacity: 0;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--neon-red) 50%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px var(--neon-red-glow));
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 50px;
+  opacity: 0;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 60px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 60px;
+}
+.hero-cta:hover {
+  border-color: var(--neon-red);
+  box-shadow: 0 0 40px var(--neon-red-glow), 0 0 80px rgba(255,0,51,0.2);
+  transform: scale(1.05);
+}
+.hero-cta:hover::before { opacity: 0.2; }
+.hero-cta span { position: relative; z-index: 1; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+}
+.scroll-indicator span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--neon-red), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--neon-red);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px var(--neon-red-glow);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--text-primary), var(--neon-red-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+/* ============================================================
+   PLANET GRID — GALERÍA DE PROYECTOS
+   ============================================================ */
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+a.planet-card{display:block;color:inherit;text-decoration:none}
+.planet-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.planet-card .planet-visual {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(255,0,51,0.15) 0%, var(--void-black) 70%);
+}
+.planet-card .planet-visual .planet-sphere {
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 35%, var(--neon-red-bright), var(--neon-crimson), #1a0008);
+  box-shadow: 0 0 60px var(--neon-red-glow), inset -20px -20px 40px rgba(0,0,0,0.8);
+  animation: planetFloat 6s ease-in-out infinite;
+}
+.planet-card:nth-child(2) .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #ff4466, #880022, #0a0005);
+  width: 90px; height: 90px;
+  animation-delay: -2s;
+}
+.planet-card:nth-child(3) .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #ff6688, #aa0033, #100008);
+  width: 150px; height: 150px;
+  animation-delay: -4s;
+}
+.planet-card .planet-ring {
+  position: absolute;
+  width: 200px; height: 40px;
+  border: 1.5px solid rgba(255,0,51,0.3);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  animation: ringRotate 10s linear infinite;
+}
+
+@keyframes planetFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+@keyframes ringRotate {
+  from { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
+}
+
+.planet-card .planet-info {
+  padding: 30px;
+}
+.planet-card .planet-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--neon-red);
+  margin-bottom: 8px;
+  text-shadow: 0 0 15px var(--neon-red-glow);
+}
+.planet-card .planet-lore {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+.planet-card .planet-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.planet-card .tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 4px 10px;
+  background: rgba(255,0,51,0.1);
+  border: 1px solid rgba(255,0,51,0.2);
+  border-radius: 20px;
+  color: var(--neon-red);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   LORE SECTION — NARRATIVA INMERSIVA
+   ============================================================ */
+.lore-section {
+  padding: var(--section-pad) clamp(20px, 5vw, 80px);
+  position: relative;
+}
+.lore-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.lore-block {
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.lore-block .lore-chapter {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--neon-red);
+  letter-spacing: 0.5em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px var(--neon-red-glow);
+}
+.lore-block h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+.lore-block p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  font-weight: 300;
+}
+.lore-block .lore-quote {
+  margin-top: 20px;
+  padding: 20px 30px;
+  border-left: 2px solid var(--neon-red);
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--neon-pink);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   ASSETS GALLERY — ARCHIVOS DESCARGADOS
+   ============================================================ */
+.assets-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+.asset-thumb {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.asset-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.asset-thumb:hover {
+  border-color: var(--neon-red);
+  box-shadow: 0 0 30px var(--neon-red-glow);
+  transform: scale(1.05);
+}
+.asset-thumb:hover img { transform: scale(1.15); }
+.asset-thumb .asset-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 8px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--neon-red);
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-glass {
+  padding: 60px 40px;
+  text-align: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-border);
+  margin-top: 100px;
+}
+.footer-glass .footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--neon-red);
+  text-shadow: 0 0 30px var(--neon-red-glow);
+  letter-spacing: 0.3em;
+  margin-bottom: 15px;
+}
+.footer-glass p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+.footer-glass .footer-coords {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,0,51,0.4);
+  margin-top: 20px;
+  letter-spacing: 0.2em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-glass { padding: 12px 20px; }
+  .planet-grid { grid-template-columns: 1fr; }
+  .glass-card { padding: 25px; }
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-title">BELENTANI</div>
+  <div class="loader-bar-container">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+  <div class="loader-percent" id="loaderPercent">0%</div>
+  <div class="loader-lore">"Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en la arena..."</div>
+</div>
+
+<!-- THREE.JS CANVAS -->
+<canvas id="universe-canvas"></canvas>
+
+<!-- MAIN CONTENT -->
+<div class="content-layer">
+
+  <!-- NAVIGATION -->
+  <nav class="nav-glass" id="mainNav">
+    <a href="#" class="nav-logo">BELENTANI</a>
+    <ul class="nav-links">
+      <li><a href="#lore">Lore</a></li>
+      <li><a href="#biblias">Biblias</a></li>
+      <li><a href="#mente-boveda">Cognición</a></li>
+      <li><a href="#planets">Mundos</a></li>
+      <li><a href="#origin">Origen</a></li>
+      <li><a href="#assets">Archivo</a></li>
+      <li><a href="https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener">Música</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-overline">JUDAS ERA · CÓDIGO ROJO · 432 Hz</div>
+    <h1 class="hero-title">BELENTANI</h1>
+    <p class="hero-subtitle">Lore primero. Narcisista → antihéroe → deuda impagable. Varias páginas, dos biblias, un solo universo rojo.</p>
+    <a href="#lore" class="hero-cta">
+      <span>ENTRAR AL LORE</span>
+    </a>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+<section class="section" id="origin">
+    <div class="section-label">// TRANSMISIÓN 001</div>
+    <h2 class="section-title">Origen del universo rojo</h2>
+    <p class="section-desc">Belentani no es solo un cantante. Es un mito: dark pop litúrgico, deuda impagable, espejo en el desierto. Esta página une muchas webs — JUDAS, OMEGA, Fullstack, Biblias y Labs — en una sola experiencia inmersiva.</p>
+    <div class="glass-card" style="margin-bottom: 30px;">
+      <h3 style="font-family: var(--font-display); color: var(--neon-red); margin-bottom: 15px; font-size: 1.1rem;">MANIFIESTO</h3>
+      <p style="color: var(--text-secondary); line-height: 1.9; font-weight: 300;">
+        El lore manda. La música, el 3D y el banco de efectos galácticos (Ciclona, espacio-3d, Python)
+        sirven al arco. No se visita una lista de repos: se habita un sistema estelar donde cada planeta
+        es una página ya publicada, atada por estaciones narrativas y códices de ingeniería.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLANETS / PROJECTS -->
+  <section class="section" id="planets">
+    <div class="section-label">// CARTOGRAFÍA · PÁGINAS REALES</div>
+    <h2 class="section-title">Mundos del sistema</h2>
+    <p class="section-desc">Cada planeta es una página publicada. No se borra: se orbita desde el lore.</p>
+    
+    <div class="planet-grid">
+      <a class="glass-card planet-card" href="https://belentani7.github.io/judas-experience-web/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div><div class="planet-ring"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">JUDAS · EXPERIENCE 3D</div>
+          <p class="planet-lore">Planeta, diamante y llave dorada. La traición convertida en recorrido cinemático — núcleo JUDAS ERA.</p>
+          <div class="planet-tags"><span class="tag">Three.js</span><span class="tag">Lore</span><span class="tag">Portal</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/judas-experience-unificado/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">CÓSMICO UNIFICADO</div>
+          <p class="planet-lore">La obra reunida: reliquia, códice, motor 3D y firma sonora. Un solo cuerpo para varias páginas.</p>
+          <div class="planet-tags"><span class="tag">Unificado</span><span class="tag">Archivo</span><span class="tag">3D</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/belentani-omega-immersive-portal/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div><div class="planet-ring"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">OMEGA IMMERSIVE</div>
+          <p class="planet-lore">Portal creativo OMEGA. Entrada inmersiva al sistema estelar del artefacto.</p>
+          <div class="planet-tags"><span class="tag">OMEGA</span><span class="tag">Portal</span><span class="tag">Inmersivo</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">VEINTE MUNDOS</div>
+          <p class="planet-lore">Un canon editorial en veinte mundos visuales. La deuda y el mito en capas.</p>
+          <div class="planet-tags"><span class="tag">Canon</span><span class="tag">Fullstack</span><span class="tag">Mundos</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/belentani-judas-era-omega/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div><div class="planet-ring"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">JUDAS ERA · OMEGA</div>
+          <p class="planet-lore">Experiencia JUDAS ERA / Omega Core — la noche litúrgica del dark pop.</p>
+          <div class="planet-tags"><span class="tag">JUDAS</span><span class="tag">ERA</span><span class="tag">Dark pop</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/belent-cad/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">BELENT-CAD 3D</div>
+          <p class="planet-lore">Motor CAD arquitectónico: de boceto a modelo 3D y render Three.js en el navegador.</p>
+          <div class="planet-tags"><span class="tag">CAD</span><span class="tag">Three.js</span><span class="tag">Tools</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/3d-portfolio/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div><div class="planet-ring"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">3D PORTFOLIO</div>
+          <p class="planet-lore">Portfolio personal interactivo Three.js: animaciones, navegación orbital y presencia.</p>
+          <div class="planet-tags"><span class="tag">Portfolio</span><span class="tag">WebGL</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani.base44.app" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">BASE44 HUB</div>
+          <p class="planet-lore">Ecosistema multimedia y catálogo interactivo de sonido e imagen.</p>
+          <div class="planet-tags"><span class="tag">Base44</span><span class="tag">Media</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="https://belentani7.github.io/ManosAbiertas/" target="_blank" rel="noopener noreferrer">
+        <div class="planet-visual"><div class="planet-sphere"></div><div class="planet-ring"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">CAMPUS EDUCATIVO</div>
+          <p class="planet-lore">Legado de educación y comunidad: Manos Abiertas, Cruzando el Charco y School Unificado.</p>
+          <div class="planet-tags"><span class="tag">Campus</span><span class="tag">Educación</span></div>
+        </div>
+      </a>
+      <a class="glass-card planet-card" href="../?skipboot=1">
+        <div class="planet-visual"><div class="planet-sphere"></div></div>
+        <div class="planet-info">
+          <div class="planet-name">JUDAS_OS · SHELL</div>
+          <p class="planet-lore">El organismo vivo: terminal, gemas, sesiones y bóveda sonora. El shell que ata el mito.</p>
+          <div class="planet-tags"><span class="tag">OS</span><span class="tag">432 Hz</span><span class="tag">Shell</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- LORE COMPOSITE -->
+  <section class="lore-section" id="lore">
+    <div class="lore-container">
+      <div class="section-label">// ARCHIVOS CLASIFICADOS · CANON</div>
+      <h2 class="section-title" style="margin-bottom: 60px;">El lore Belentani</h2>
+
+      <div class="lore-block">
+        <div class="lore-chapter">CAPÍTULO I · GÉNESIS</div>
+        <h3>Espejo en la arena</h3>
+        <p>Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en el desierto: marco ovalado de oro viejo, terreno de posguerra. A un lado plumas blancas, libro santo, agua con corcho. Al otro plumas negras, cadena, candado entreabierto. En medio, alguien que aprendió a cantar porque no lo dejaron hablar.</p>
+        <div class="lore-quote">"Esto no es una confesión. Esto es el guion, y yo soy quien lo escribe. Código rojo, hermanos."</div>
+      </div>
+
+      <div class="lore-block">
+        <div class="lore-chapter">CAPÍTULO II · LA TRAICIÓN</div>
+        <h3>Pedro besa a Judas</h3>
+        <p>Un narcisista habla a sus hermanos (código rojo) porque una víctima rompió el pacto: promete escribir la canción y contar el plan. Giro: el narrador se revela como el verdadero antihéroe — nació sin belleza ni voz, cantó, entendió el daño, eligió reformarse sin negar el beso.</p>
+        <div class="lore-quote">"Pedro besó a Judas y no se arrepiente."</div>
+      </div>
+
+      <div class="lore-block">
+        <div class="lore-chapter">CAPÍTULO III · LA DEUDA</div>
+        <h3>Impagable</h3>
+        <p>Alguien se enamora de él, no le encuentra defecto y queda con una deuda que no puede destruirlo. La llave solo existe como imagen poética: alguien la llevó de un lugar donde no vivía, con amenaza de volver. Sin nombres, sin marcas — solo el peso del recuerdo.</p>
+        <div class="lore-quote">"Vete tranquilo, no te debo nada, aunque tú creas que me debes la mitad."</div>
+      </div>
+
+      <div class="lore-block">
+        <div class="lore-chapter">CAPÍTULO IV · LA REDENCIÓN</div>
+        <h3>El horizonte no borra la noche</h3>
+        <p>El horizonte no borra la noche: la consagra.</p>
+        <div class="lore-quote">"Vete tranquilo, pero recuérdame."</div>
+      </div>
+
+      <div class="lore-block">
+        <div class="lore-chapter">CAPÍTULO V · EL ARTEFACTO</div>
+        <h3>Un sistema · muchos mundos</h3>
+        <p>La web no sustituye al mito: lo habita. Cada planeta (página JUDAS, OMEGA, Fullstack) es un cuerpo distinto de la misma historia. Frecuencia de firma: 432 Hz. Lenguaje visual: Red Glass · Obsidian · Oro Viejo.</p>
+        <div class="lore-quote">Dark Pop Litúrgico</div>
+      </div>
+    </div>
+  </section>
+
+<section class="section" id="biblias">
+    <div class="section-label">// CÓDICES FUNDACIONALES · SONIDO Y ARQUITECTURA</div>
+    <h2 class="section-title">Las Dos Biblias del Universo</h2>
+    <p class="section-desc">El mito no se improvisa: se gobierna mediante Melodic Math sueca en lo sonoro y arquitectura reproducible en lo técnico.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 30px;">
+      <div class="glass-card">
+        <div class="tag" style="color: var(--neon-red); margin-bottom: 12px;">◈ GOSPELS OF THE NIGHT · 432 Hz</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 15px;">La Biblia de la Música</h3>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px;">
+          Genealogía verificada en disco: <b>Denniz PoP</b> (SweMix / Cheiron 1992) → <b>Max Martin</b> (Melodic Math) → <b>Andreas Carlsson</b> (*NSYNC, BSB, Britney) → <b>Lady Gaga / The Weeknd</b> → <b>Belentani</b>.
+        </p>
+        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 20px; font-size: 0.95rem;">
+          <li><b>Melodic Math:</b> Sílabas, acentos y notas ajustados antes que la letra.</li>
+          <li><b>Regla de la Octava:</b> Verso en registro grave-hablado; estallido en el coro una octava arriba.</li>
+          <li><b>Motivo Firma:</b> Progresión <code style="color: var(--neon-red);">5 ♭6 5 4 ♭3 2 1</code> presente en verso, coro y puente.</li>
+          <li><b>Tonalidad Canónica:</b> F# menor (Judas, La Deuda) y C menor para texturas dance.</li>
+          <li><b>Frecuencia y Master:</b> 432 Hz de afinación, masterizado a −14 LUFS para streaming.</li>
+        </ul>
+        <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--glass-border); font-size: 0.85rem; color: var(--text-neon);">
+          "Sonoridad primero, ambigüedad después, iconografía litúrgica como armadura."
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div class="tag" style="color: #39ff8a; margin-bottom: 12px;">◈ ORGANISMO JUDAS_OS · VERSIÓN 3.0</div>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 15px;">Biblia de Desarrollo Software</h3>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px;">
+          El estándar canónico que rige todo el software del universo Belentani. Contratos formales, inmutabilidad y rigor estricto:
+        </p>
+        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 20px; font-size: 0.95rem;">
+          <li><b>PRD / TRD / ADR:</b> Especificación del Qué, el Cómo y el Registro de Decisiones de Arquitectura.</li>
+          <li><b>TDD & BDD:</b> Pruebas y comportamiento antes de redactar código productivo.</li>
+          <li><b>Idempotencia:</b> Operaciones repetibles que garantizan el mismo estado final sin efectos secundarios.</li>
+          <li><b>SLO, SLI & Error Budget:</b> Métricas cuantitativas de fiabilidad de servicio.</li>
+          <li><b>Arquitectura Zero-Trust:</b> Aislamiento absoluto de secretos, entornos y credenciales.</li>
+        </ul>
+        <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--glass-border); font-size: 0.85rem; color: #39ff8a;">
+          "OBLIGATORIO, AUTOMÁTICO, PERSISTENTE E INDISCUTIBLE."
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section" id="mente-boveda">
+    <div class="section-label">// NÚCLEO COGNITIVO · ORÁCULO Y BÓVEDA DE ORIGEN</div>
+    <h2 class="section-title">Cognición IA & Bóveda de Origen</h2>
+    <p class="section-desc">La inteligencia del sistema: síntesis Gemini, oráculo Qwen, archivos de Google Drive y canon visual de Instagram.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+      <div class="glass-card">
+        <div class="tag" style="color: #4de8e0; margin-bottom: 10px;">◈ MENTE GEMINI</div>
+        <h4 style="font-family: var(--font-display); color: #fff; margin-bottom: 10px;">Pensamiento Sistémico</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+          Memoria cognitiva integrada, masterclass de prompts y arquitectura de visión holística. Estructuración ausubeliana y mapas de conocimiento multidimensionales.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="tag" style="color: #ff77aa; margin-bottom: 10px;">◈ QWEN ORACLE (CHAT EXPORT)</div>
+        <h4 style="font-family: var(--font-display); color: #fff; margin-bottom: 10px;">Análisis Forense Vocal</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+          Análisis a partir de stems de audio reales (JUDAS, violín, coros). Coherencia 100% con dark pop litúrgico. Pedro como el apóstol que no se arrepiente; salto al español en el clímax del dolor.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="tag" style="color: #d4af37; margin-bottom: 10px;">◈ BÓVEDA GOOGLE DRIVE</div>
+        <h4 style="font-family: var(--font-display); color: #fff; margin-bottom: 10px;">Génesis Conceptual</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+          Archivos canónicos de origen: <i>LA DEUDA.docx</i> (dar hasta besar lo sucio; quien recibe destruye para no deber), <i>SOBERANIA.docx</i>, <i>GOD IS AI.docx</i> y stems de producción.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="tag" style="color: #e066ff; margin-bottom: 10px;">◈ INSTAGRAM CANON</div>
+        <h4 style="font-family: var(--font-display); color: #fff; margin-bottom: 10px;">@belentani_ · Estética</h4>
+        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+          Silueta Rick Owens / Thierry Mugler. Arquetipo de soberano melancólico. Paleta negro obsidiana, oro viejo y violeta. Luz cinematográfica de alto contraste en desierto posguerra.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSETS GALLERY -->
+  <section class="section" id="assets">
+    <div class="section-label">// RECURSOS EXTRAÍDOS</div>
+    <h2 class="section-title">Archivos del Universo</h2>
+    <p class="section-desc">Arte extraído de base44, JUDAS y el banco local espacio-3d. Fragmentos del canon visual.</p>
+    
+    <div class="glass-card">
+      <div class="assets-gallery" id="assetsGallery">
+<a class="asset-thumb" href="assets/b44_39922a65c.png" target="_blank" rel="noopener"><img src="assets/b44_39922a65c.png" alt="b44_39922a65c" loading="lazy"><span class="asset-label">b44_39922a65c</span></a>
+<a class="asset-thumb" href="assets/b44_upscalemedia3.jpg" target="_blank" rel="noopener"><img src="assets/b44_upscalemedia3.jpg" alt="b44_upscalemedia3" loading="lazy"><span class="asset-label">b44_upscalemedia3</span></a>
+<a class="asset-thumb" href="assets/belentani_logo.png" target="_blank" rel="noopener"><img src="assets/belentani_logo.png" alt="belentani_logo" loading="lazy"><span class="asset-label">belentani_logo</span></a>
+<a class="asset-thumb" href="assets/catbox_8s1v5g.jpg" target="_blank" rel="noopener"><img src="assets/catbox_8s1v5g.jpg" alt="catbox_8s1v5g" loading="lazy"><span class="asset-label">catbox_8s1v5g</span></a>
+<a class="asset-thumb" href="assets/catbox_943t1r.png" target="_blank" rel="noopener"><img src="assets/catbox_943t1r.png" alt="catbox_943t1r" loading="lazy"><span class="asset-label">catbox_943t1r</span></a>
+<a class="asset-thumb" href="assets/catbox_h0wamv.jpg" target="_blank" rel="noopener"><img src="assets/catbox_h0wamv.jpg" alt="catbox_h0wamv" loading="lazy"><span class="asset-label">catbox_h0wamv</span></a>
+<a class="asset-thumb" href="assets/catbox_kmtlco.jpg" target="_blank" rel="noopener"><img src="assets/catbox_kmtlco.jpg" alt="catbox_kmtlco" loading="lazy"><span class="asset-label">catbox_kmtlco</span></a>
+<a class="asset-thumb" href="assets/catbox_rt1p03.jpg" target="_blank" rel="noopener"><img src="assets/catbox_rt1p03.jpg" alt="catbox_rt1p03" loading="lazy"><span class="asset-label">catbox_rt1p03</span></a>
+<a class="asset-thumb" href="assets/catbox_tf46wf.jpg" target="_blank" rel="noopener"><img src="assets/catbox_tf46wf.jpg" alt="catbox_tf46wf" loading="lazy"><span class="asset-label">catbox_tf46wf</span></a>
+<a class="asset-thumb" href="assets/g_01-01-copia.jpeg" target="_blank" rel="noopener"><img src="assets/g_01-01-copia.jpeg" alt="g_01-01-copia" loading="lazy"><span class="asset-label">g_01-01-copia</span></a>
+<a class="asset-thumb" href="assets/g_01-copia.jpeg" target="_blank" rel="noopener"><img src="assets/g_01-copia.jpeg" alt="g_01-copia" loading="lazy"><span class="asset-label">g_01-copia</span></a>
+<a class="asset-thumb" href="assets/g_0E6TSr6Rio.png" target="_blank" rel="noopener"><img src="assets/g_0E6TSr6Rio.png" alt="g_0E6TSr6Rio" loading="lazy"><span class="asset-label">g_0E6TSr6Rio</span></a>
+<a class="asset-thumb" href="assets/g_BnUqoEfIfg.png" target="_blank" rel="noopener"><img src="assets/g_BnUqoEfIfg.png" alt="g_BnUqoEfIfg" loading="lazy"><span class="asset-label">g_BnUqoEfIfg</span></a>
+<a class="asset-thumb" href="assets/g_FfEYvFQhiL.png" target="_blank" rel="noopener"><img src="assets/g_FfEYvFQhiL.png" alt="g_FfEYvFQhiL" loading="lazy"><span class="asset-label">g_FfEYvFQhiL</span></a>
+<a class="asset-thumb" href="assets/g_JfHXANZs7w.png" target="_blank" rel="noopener"><img src="assets/g_JfHXANZs7w.png" alt="g_JfHXANZs7w" loading="lazy"><span class="asset-label">g_JfHXANZs7w</span></a>
+<a class="asset-thumb" href="assets/g_K0Eizdcy0n.png" target="_blank" rel="noopener"><img src="assets/g_K0Eizdcy0n.png" alt="g_K0Eizdcy0n" loading="lazy"><span class="asset-label">g_K0Eizdcy0n</span></a>
+<a class="asset-thumb" href="assets/g_Lrpnf9kRVA.jpeg" target="_blank" rel="noopener"><img src="assets/g_Lrpnf9kRVA.jpeg" alt="g_Lrpnf9kRVA" loading="lazy"><span class="asset-label">g_Lrpnf9kRVA</span></a>
+<a class="asset-thumb" href="assets/g_svZuqY9Hcn_upscaled.png" target="_blank" rel="noopener"><img src="assets/g_svZuqY9Hcn_upscaled.png" alt="g_svZuqY9Hcn_upscaled" loading="lazy"><span class="asset-label">g_svZuqY9Hcn_upscaled</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-glass">
+    <div class="footer-logo">BELENTANI</div>
+    <p>Experiencia inmersiva unificada — Belentani · JUDAS ERA · OMEGA CORE</p>
+    <p style="margin-top: 5px; font-size: 0.75rem;">Glassmorphism Rojo Neón · Three.js · GSAP · Universo Generativo</p>
+    <div class="footer-coords">SÃO PAULO ↔ BARCELONA · JUDAS_OS · FRECUENCIA 432 Hz · RED GLASS</div>
+  </footer>
+
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT — THREE.JS UNIVERSE + GSAP + INTERACTIONS
+     ============================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // ============================================================
+  // LOADER
+  // ============================================================
+  const loader = document.getElementById('loader');
+  const loaderBar = document.getElementById('loaderBar');
+  const loaderPercent = document.getElementById('loaderPercent');
+  let loadProgress = 0;
+
+  function simulateLoading() {
+    const interval = setInterval(() => {
+      loadProgress += Math.random() * 15 + 5;
+      if (loadProgress >= 100) {
+        loadProgress = 100;
+        clearInterval(interval);
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          initHeroAnimations();
+        }, 500);
+      }
+      loaderBar.style.width = loadProgress + '%';
+      loaderPercent.textContent = Math.floor(loadProgress) + '%';
+    }, 200);
+  }
+
+  // ============================================================
+  // CUSTOM CURSOR
+  // ============================================================
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX - 4 + 'px';
+    cursorDot.style.top = mouseY - 4 + 'px';
+  });
+
+  function animateCursor() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.left = ringX - 20 + 'px';
+    cursorRing.style.top = ringY - 20 + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, .glass-card, .hero-cta, .asset-thumb').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+  });
+
+  // Glass card mouse tracking
+  document.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', x + '%');
+      card.style.setProperty('--mouse-y', y + '%');
+    });
+  });
+
+  // ============================================================
+  // THREE.JS — GALAXY UNIVERSE
+  // ============================================================
+  const canvas = document.getElementById('universe-canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x050005, 0.0008);
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.set(0, 0, 100);
+
+  // --- GALAXY PARTICLES ---
+  const galaxyGeometry = new THREE.BufferGeometry();
+  const galaxyCount = 25000;
+  const positions = new Float32Array(galaxyCount * 3);
+  const colors = new Float32Array(galaxyCount * 3);
+  const sizes = new Float32Array(galaxyCount);
+
+  const colorInner = new THREE.Color(0xff0033);
+  const colorOuter = new THREE.Color(0x1a0008);
+  const colorAccent = new THREE.Color(0xff2d6b);
+
+  for (let i = 0; i < galaxyCount; i++) {
+    const i3 = i * 3;
+    const radius = Math.random() * 300 + 10;
+    const spinAngle = radius * 0.008;
+    const branchAngle = ((i % 5) / 5) * Math.PI * 2;
+    
+    const randomX = (Math.random() - 0.5) * Math.pow(Math.random(), 3) * 80;
+    const randomY = (Math.random() - 0.5) * Math.pow(Math.random(), 3) * 40;
+    const randomZ = (Math.random() - 0.5) * Math.pow(Math.random(), 3) * 80;
+
+    positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+    positions[i3 + 1] = randomY;
+    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+    const mixedColor = colorInner.clone().lerp(colorOuter, radius / 300);
+    if (Math.random() > 0.95) mixedColor.lerp(colorAccent, 0.8);
+    
+    colors[i3] = mixedColor.r;
+    colors[i3 + 1] = mixedColor.g;
+    colors[i3 + 2] = mixedColor.b;
+
+    sizes[i] = Math.random() * 3 + 0.5;
+  }
+
+  galaxyGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  galaxyGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  galaxyGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+  const galaxyMaterial = new THREE.PointsMaterial({
+    size: 1.5,
+    sizeAttenuation: true,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  const galaxy = new THREE.Points(galaxyGeometry, galaxyMaterial);
+  scene.add(galaxy);
+
+  // --- NEBULA CLOUDS ---
+  const nebulaGeometry = new THREE.BufferGeometry();
+  const nebulaCount = 3000;
+  const nebulaPositions = new Float32Array(nebulaCount * 3);
+  const nebulaColors = new Float32Array(nebulaCount * 3);
+
+  for (let i = 0; i < nebulaCount; i++) {
+    const i3 = i * 3;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const r = 150 + Math.random() * 200;
+    
+    nebulaPositions[i3] = r * Math.sin(phi) * Math.cos(theta);
+    nebulaPositions[i3 + 1] = (Math.random() - 0.5) * 100;
+    nebulaPositions[i3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+
+    const c = new THREE.Color().setHSL(0.97 + Math.random() * 0.03, 1, 0.15 + Math.random() * 0.1);
+    nebulaColors[i3] = c.r;
+    nebulaColors[i3 + 1] = c.g;
+    nebulaColors[i3 + 2] = c.b;
+  }
+
+  nebulaGeometry.setAttribute('position', new THREE.BufferAttribute(nebulaPositions, 3));
+  nebulaGeometry.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
+
+  const nebulaMaterial = new THREE.PointsMaterial({
+    size: 4,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.3,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  const nebula = new THREE.Points(nebulaGeometry, nebulaMaterial);
+  scene.add(nebula);
+
+  // --- ORBITING PLANETS ---
+  const planets = [];
+  const planetData = [
+    { radius: 5, distance: 60, speed: 0.003, color: 0xff0033, emissive: 0x880011 },
+    { radius: 3, distance: 90, speed: 0.002, color: 0xff2d6b, emissive: 0x660022 },
+    { radius: 7, distance: 130, speed: 0.001, color: 0xcc0029, emissive: 0x440011 },
+    { radius: 2, distance: 45, speed: 0.005, color: 0xff4466, emissive: 0xaa0033 }
+  ];
+
+  planetData.forEach(data => {
+    const geo = new THREE.SphereGeometry(data.radius, 64, 64);
+    const mat = new THREE.MeshStandardMaterial({
+      color: data.color,
+      emissive: data.emissive,
+      emissiveIntensity: 0.5,
+      roughness: 0.3,
+      metalness: 0.7
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    
+    // Glow
+    const glowGeo = new THREE.SphereGeometry(data.radius * 1.4, 32, 32);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: data.color,
+      transparent: true,
+      opacity: 0.08,
+      side: THREE.BackSide
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    mesh.add(glow);
+
+    scene.add(mesh);
+    planets.push({ mesh, ...data, angle: Math.random() * Math.PI * 2 });
+  });
+
+  // --- LIGHTS ---
+  const ambientLight = new THREE.AmbientLight(0x1a0008, 0.5);
+  scene.add(ambientLight);
+
+  const pointLight = new THREE.PointLight(0xff0033, 2, 500);
+  pointLight.position.set(0, 0, 0);
+  scene.add(pointLight);
+
+  const pointLight2 = new THREE.PointLight(0xff2d6b, 1, 300);
+  pointLight2.position.set(50, 30, -50);
+  scene.add(pointLight2);
+
+  // --- ANIMATION LOOP ---
+  const clock = new THREE.Clock();
+  let scrollY = 0;
+
+  window.addEventListener('scroll', () => { scrollY = window.pageYOffset; });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsed = clock.getElapsedTime();
+
+    // Rotate galaxy
+    galaxy.rotation.y = elapsed * 0.02;
+    nebula.rotation.y = -elapsed * 0.01;
+
+    // Orbit planets
+    planets.forEach(p => {
+      p.angle += p.speed;
+      p.mesh.position.x = Math.cos(p.angle) * p.distance;
+      p.mesh.position.z = Math.sin(p.angle) * p.distance;
+      p.mesh.position.y = Math.sin(elapsed * 0.5 + p.angle) * 10;
+      p.mesh.rotation.y += 0.01;
+    });
+
+    // Camera parallax with scroll
+    camera.position.y = -scrollY * 0.05;
+    camera.position.x = Math.sin(elapsed * 0.1) * 5;
+    camera.lookAt(0, -scrollY * 0.05, 0);
+
+    // Pulse center light
+    pointLight.intensity = 2 + Math.sin(elapsed * 2) * 0.5;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // ============================================================
+  // GSAP ANIMATIONS
+  // ============================================================
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initHeroAnimations() {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('.hero-overline', { opacity: 1, y: 0, duration: 0.8 }, 0.2)
+      .to('.hero-title', { opacity: 1, y: 0, duration: 1.2 }, 0.4)
+      .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, 0.7)
+      .to('.hero-cta', { opacity: 1, y: 0, duration: 0.8 }, 1)
+      .to('.scroll-indicator', { opacity: 1, duration: 1 }, 1.3);
+  }
+
+  // Nav scroll effect
+  ScrollTrigger.create({
+    start: 'top -80',
+    onUpdate: (self) => {
+      document.getElementById('mainNav').classList.toggle('scrolled', self.progress > 0);
+    }
+  });
+
+  // Lore blocks reveal
+  gsap.utils.toArray('.lore-block').forEach(block => {
+    gsap.to(block, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  });
+
+  // Section reveals
+  gsap.utils.toArray('.section').forEach(section => {
+    gsap.from(section.querySelectorAll('.section-label, .section-title, .section-desc'), {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 75%'
+      }
+    });
+  });
+
+  // Planet cards stagger
+  gsap.utils.toArray('.planet-card').forEach((card, i) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 60,
+      scale: 0.95,
+      duration: 0.8,
+      delay: i * 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%'
+      }
+    });
+  });
+
+  // ============================================================
+  // START
+  // ============================================================
+  simulateLoading();
+
+})();
+</script>
+</body>
+</html>
