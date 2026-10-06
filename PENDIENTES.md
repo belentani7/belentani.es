@@ -1,7 +1,7 @@
 # Pendientes concretos
 
-1. Trasladar el bucket a un disco fisico externo usando scripts/rotar_a_disco_externo.ps1. No hay uno conectado.
-2. Resolver el origen del crecimiento de C: fuera de esta app. La compresion es una medida temporal.
+1. Completar Drive con scripts/rotate-rclone.ps1; usar -IncludeRepositories para el lote grande (394 repos, 89281 archivos, 18479490634 bytes). El audio ya fue trasladado y verificado. La cuota de consultas del cliente compartido de Google interrumpe algunos lotes; los archivos fallidos permanecen locales.
+2. Resolver el origen del crecimiento de C: fuera de esta app. La compresion es una medida temporal. Configurar un cliente OAuth propio de rclone para evitar la cuota compartida.
 3. Vincular despliegue del repositorio canonico al dominio belentani.es; no se han modificado DNS ni el hosting existente.
 4. Crear entregas independientes de NoiaCore, educacion y consultoria a partir del inventario; no se presentan como productos terminados.
 5. La API interna existente sigue en el repositorio local: la revision automatica bloqueo su retirada. La entrega canonica nueva contiene solo rutas artisticas seleccionadas.

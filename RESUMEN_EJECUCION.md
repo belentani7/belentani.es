@@ -2,7 +2,7 @@
 
 - Inventario: 500 repositorios locales y 492 remotos.
 - Rotacion: 394 repositorios historicos movidos intactos al bucket con manifiesto CSV.
-- Audio: 11 archivos, 167599920 bytes, aislados de la web. El historial Git antiguo se conserva localmente.
+- Audio: 11 archivos, 167599920 bytes, trasladados a Google Drive y verificados por checksum. Ningun archivo de audio permanece en la carpeta privada de trabajo. El historial Git antiguo se conserva localmente y no se publica.
 - Judas original: HTTP 200, 100 recursos capturados, capturas en 1920, 1440 y 390 px.
 - Imagen historica curada con origen y SHA256; recursos crudos fuera del build.
 - Entrada canonica: galaxia Three.js, cuatro capitulos, pausa, modo inmersivo y reinicio.
@@ -16,8 +16,9 @@
 - Repositorio historico indicado por el usuario archivado en GitHub.
 - Publicacion canonica preparada sobre el repositorio existente, preservando su historia.
 
-La rotacion local no libera espacio de C:. G: es Google Drive y comparte almacenamiento
-local; no se detecto disco fisico externo. Se preparo traslado con manifiesto y SHA256.
+La rotacion inicial al bucket no libera espacio de C:. G: es Google Drive y comparte
+cache local. El traslado directo con rclone evita la unidad virtual defectuosa y mantiene
+un manifiesto. Audio completado; otros lotes sujetos a la cuota de consultas de Google.
 El disco se lleno durante la sesion; se aplico compresion NTFS reversible, sin borrados.
 
 La experiencia principal no requiere llamadas a modelos ni consumo de API.
