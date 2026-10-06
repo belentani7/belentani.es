@@ -11,6 +11,8 @@ import { HUD } from './HUD';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useGalaxyStore } from '@/store/galaxy';
 import { cn } from '@/lib/utils';
+import { NebulaField } from './NebulaField';
+import { LorePanel } from './LorePanel';
 
 export function GalaxyMap() {
   const { current, travelTo, allSystems, neighbors, navigate } = useGalaxyMap();
@@ -38,13 +40,15 @@ export function GalaxyMap() {
         style={{ touchAction: 'none' }}
       >
         <color attach="background" args={['#030008']} />
-        <Stars radius={300} depth={100} count={3000} factor={4} saturation={0.3} fade />
+        <Stars radius={300} depth={120} count={6500} factor={3.6} saturation={0.15} fade speed={0.18} />
+        <NebulaField />
         <Routes current={current} />
         <Nodes current={current} onNodeClick={handleNodeClick} />
         <Ship current={current} reduced={reduced} />
       </Canvas>
       <DockPanel systemId={current} onAction={handleAction} onClose={() => storeTravelTo('belentani')} />
       <HUD current={current} onJump={handleNodeClick} onNavigate={navigate} />
+      <LorePanel />
       <style jsx global>{`
         @media (prefers-reduced-motion: reduce) {
           .ship { transition: none !important; }
