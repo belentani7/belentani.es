@@ -15,7 +15,7 @@ export default function JudasEraPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {judasChapters.map((chapter) => (
-            <Card key={chapter.id} variant="redglass" p-6 className="text-center group">
+            <Card key={chapter.id} variant="redglass" className="p-6 text-center group">
               <div className="text-4xl mb-3">{chapter.symbol}</div>
               <h3 className="font-display text-xl text-white mb-2">{chapter.name}</h3>
               <p className="text-mute text-sm mb-4 line-clamp-3">{chapter.lore}</p>

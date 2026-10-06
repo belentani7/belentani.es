@@ -37,7 +37,7 @@ export default function JudasEraShell() {
       </div>
       <header className={styles.header}>
         <Link className={styles.brand} href="/">BELENTANI<span>THE EXPERIENCE</span></Link>
-        <nav aria-label="Universo artístico"><Link href="/artist">Artista</Link><Link href="/musica">Música</Link><Link href="/prensa">Contacto</Link></nav>
+        <nav aria-label="Universo artístico"><Link href="/">Máquina</Link><Link href="/artist">Artista</Link><Link href="/musica">Música</Link><Link href="/prensa">Contacto</Link></nav>
       </header>
       <div className={styles.coordinates}><span>ERA: JUDAS / CANON 0</span><span>SYSTEM: {state.currentSystem.toUpperCase()}</span></div>
       {!state.isImmersiveMode && <div className={styles.title}><p>Belentani: The Experience</p><h1>JUDAS ERA</h1><p>Una voz. Un espejo. Una deuda.</p></div>}

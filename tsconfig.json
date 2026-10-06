@@ -24,5 +24,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["_private_audio_no_web", "_satellites", "_bucket", ".local-archive", "node_modules", "_clones", "_ARCHIVO", "Ciclona", "masters", "viaje-r3f", "espacio-3d", "unificado", "banco-recursos-galacticos", "Belentani", "lore-canon", "app-web-nextjs", "vitest.setup.ts"]
+  "exclude": ["_private_audio_no_web", "_satellites", "_bucket", ".local-archive", "node_modules", "_clones", "_ARCHIVO", "Ciclona", "masters", "viaje-r3f", "espacio-3d", "unificado", "banco-recursos-galacticos", "Belentani", "lore-canon", "app-web-nextjs", "belentani.es.worktrees", "public/mundos", "public/viaje3d", "public/viaje", "public/galaxia-shell", "public/unificado-live", "vitest.setup.ts"]
 }

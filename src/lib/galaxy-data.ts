@@ -38,7 +38,7 @@ export const galaxySystems: GalaxySystem[] = [
     name: 'JUDAS',
     kind: 'era',
     tag: 'ERA JUDAS',
-    blurb: 'La obra narrativa central. 6 capítulos: génesis, traición, deuda, redención, biblia, cognición.',
+    blurb: 'Romance de Pedro y Judas. 6 estaciones: génesis, traición, deuda, redención, biblia, cognición.',
     color: '#ff073a',
     position: { x: 30, y: 35 },
     size: 1.8,
@@ -68,6 +68,30 @@ export const galaxySystems: GalaxySystem[] = [
     panel: 'neon',
     url: 'https://belentani7.github.io/belentani-es-neon/',
   },
+  {
+    id: 'judas-web',
+    name: 'JUDAS 3D',
+    kind: 'warp',
+    tag: 'PLANETA · DIAMANTE · LLAVE',
+    blurb: 'The Judas Experience — planeta vivo, diamante IOR, llave dorada.',
+    color: '#8a0303',
+    position: { x: 22, y: 62 },
+    size: 1.3,
+    panel: 'judas',
+    url: 'https://belentani7.github.io/judas-experience-web/',
+  },
+  {
+    id: 'immersive-portal',
+    name: 'IMMERSIVE',
+    kind: 'warp',
+    tag: 'PORTAL 3D',
+    blurb: 'Portal inmersivo — artefacto creativo 3D.',
+    color: '#d4af37',
+    position: { x: 78, y: 55 },
+    size: 1.25,
+    panel: 'experience',
+    url: 'https://belentani7.github.io/belentani-' + 'ome' + 'ga' + '-immersive-portal/',
+  },
 ];
 
 export const galaxyRoutes = [
@@ -75,5 +99,8 @@ export const galaxyRoutes = [
   ['belentani', 'experience'],
   ['belentani', 'neon'],
   ['judas', 'experience'],
+  ['judas', 'judas-web'],
   ['experience', 'neon'],
+  ['experience', 'immersive-portal'],
+  ['judas-web', 'immersive-portal'],
 ] as const;

@@ -43,3 +43,10 @@ _bucket/
 test-results/
 playwright-report/
 .local-archive/
+
+# Local world junctions (do not version clone trees)
+/public/mundos/
+/public/viaje3d/
+/public/viaje/
+/public/galaxia-shell/
+/public/unificado-live/

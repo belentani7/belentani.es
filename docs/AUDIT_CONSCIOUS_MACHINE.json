@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-10-06T03:38:43.894Z",
+  "coverageFiles": 16,
+  "checked": 20,
+  "passed": 20,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "exists:src/components/machine/ConsciousMachine.tsx",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:src/components/machine/LivingTerminal.tsx",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:src/lib/mythos.ts",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:src/lib/worlds-atlas.ts",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:src/hooks/useVoiceNarrator.ts",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:app/page.tsx",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:app/(immersive)/galaxia/page.tsx",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:app/api/voice/speak/route.ts",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:app/unificado/page.tsx",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:src/styles/redglass.css",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:lore-canon/LETRAS/01_Judas.md",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "exists:lore-canon/CANON_UNIVERSO_MAESTRO.md",
+      "pass": true,
+      "msg": "presente"
+    },
+    {
+      "id": "home-machine",
+      "pass": true,
+      "msg": "Home = ConsciousMachine"
+    },
+    {
+      "id": "galaxia-intact",
+      "pass": true,
+      "msg": "Galaxia sigue siendo JudasEraShell"
+    },
+    {
+      "id": "mythos-trilingual",
+      "pass": true,
+      "msg": "Mitología trilingüe + traición OK"
+    },
+    {
+      "id": "atlas-links",
+      "pass": true,
+      "msg": "Mundos clave enlazados"
+    },
+    {
+      "id": "leak:public/_private_audio_no_web",
+      "pass": true,
+      "msg": "sin fuga"
+    },
+    {
+      "id": "leak:public/masters/judas",
+      "pass": true,
+      "msg": "sin fuga"
+    },
+    {
+      "id": "gitignore-audio",
+      "pass": true,
+      "msg": "private audio ignorado"
+    },
+    {
+      "id": "canon-llave",
+      "pass": true,
+      "msg": "Sin datos identificables en mythos"
+    }
+  ]
+}

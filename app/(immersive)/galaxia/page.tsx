@@ -1,2 +1,6 @@
 import JudasEraShell from '@/components/eras/JudasEraShell';
-export default function GalaxiaPage() { return <JudasEraShell />; }
+
+/** Escena cinematográfica canónica — intacta, puente desde la máquina. */
+export default function GalaxiaPage() {
+  return <JudasEraShell />;
+}

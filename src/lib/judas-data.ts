@@ -19,7 +19,7 @@ export const judasChapters: Chapter[] = [
     id: 'traicion',
     name: 'Traición',
     symbol: '💎',
-    lore: 'El narrador se revela antihéroe: cantó, entendió el daño, no niega el beso. Pedro besó a Judas y no se arrepiente.',
+    lore: 'Pedro besó a Judas — labios de fuego, crimen santo — y lo haría otra vez. El antihéroe se nombra: no niega el beso.',
     scene: 'diamond',
   },
   {

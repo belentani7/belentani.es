@@ -1,15 +1,51 @@
 .ng-redglass {
-  border-color: var(--glass-edge) !important;
-  background: linear-gradient(145deg, rgba(255,7,58,.09), transparent 45%),
-              linear-gradient(190deg, rgba(255,255,255,.055), transparent 34%),
-              var(--glass) !important;
+  border-color: var(--glass-edge, rgba(255, 7, 58, 0.28)) !important;
+  background: linear-gradient(145deg, rgba(255, 7, 58, 0.09), transparent 45%),
+              linear-gradient(190deg, rgba(255, 255, 255, 0.055), transparent 34%),
+              var(--glass, rgba(12, 4, 18, 0.72)) !important;
   backdrop-filter: blur(18px) saturate(1.35);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.2),
-              inset 0 -1px 0 rgba(255,7,58,.28),
-              -1px 0 0 rgba(77,232,224,.22),
-              1px 0 0 rgba(212,175,55,.18),
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 rgba(255, 7, 58, 0.28),
+              -1px 0 0 rgba(77, 232, 224, 0.22),
+              1px 0 0 rgba(212, 175, 55, 0.18),
               0 20px 52px -30px #000,
-              0 0 38px -24px rgba(255,7,58,.5);
+              0 0 38px -24px rgba(255, 7, 58, 0.5);
+}
+
+/* Sangre neón — capa viva para la máquina consciente */
+.ng-bloodglass {
+  border: 1px solid rgba(255, 7, 58, 0.42);
+  background:
+    linear-gradient(145deg, rgba(255, 7, 58, 0.16), transparent 48%),
+    linear-gradient(210deg, rgba(138, 3, 3, 0.22), transparent 40%),
+    linear-gradient(190deg, rgba(255, 255, 255, 0.06), transparent 34%),
+    rgba(8, 1, 6, 0.78);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -2px 12px rgba(255, 7, 58, 0.18),
+    0 0 48px -16px rgba(255, 7, 58, 0.55),
+    0 24px 60px -36px #000;
+}
+
+.ng-neon-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.ng-neon-scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(255, 7, 58, 0.035) 3px 4px
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 @media (prefers-reduced-motion: reduce) {
