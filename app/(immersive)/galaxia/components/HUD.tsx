@@ -1,6 +1,8 @@
 'use client';
 import { useGalaxyMap } from '@/hooks/useGalaxyMap';
 import { galaxySystems } from '@/lib/galaxy-data';
+import { useJarvisStore } from '@/store/jarvis';
+import { cn } from '@/lib/utils';
 
 interface HUDProps {
   current: string;
@@ -12,11 +14,10 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
   const { allSystems, neighbors } = useGalaxyMap();
 
   const shortcuts = [
-    { id: 'nucleo', label: 'Núcleo' },
+    { id: 'belentani', label: 'Núcleo' },
     { id: 'judas', label: 'Judas' },
-    { id: 'omega', label: 'Omega' },
+    { id: 'experience', label: 'Experience' },
     { id: 'neon', label: 'Neon' },
-    { id: 'duck', label: 'Duck' },
   ];
 
   return (
@@ -39,6 +40,23 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
           ))}
         </nav>
       </header>
+
+      {/* JARVIS Summon Button */}
+      <div className="absolute right-4 bottom-4 z-[20]">
+        <button
+          onClick={() => useJarvisStore.getState().toggle()}
+          className={cn(
+            'flex items-center justify-center gap-2 px-3 py-2',
+            'border border-red/50 bg-voidElevated/90 text-red','font-display font-bold text-xs tracking-widest uppercase',
+            'hover:bg-red hover:text-void hover:shadow-[0_0_20px_rgba(255,7,58,.5)] transition-all',
+            'group'
+          )}
+          aria-label="Summon JARVIS"
+        >
+          <span className="text-lg" style={{ textShadow: '0 0 8px #ff073a' }}>B</span>
+          <span>Jarvis</span>
+        </button>
+      </div>
 
       {/* Keyboard Legend */}
       <div className="absolute left-4 bottom-4 z-[20] font-mono text-xs tracking-normal text-mute/70 bg-void/55 border border-red/15 p-3 rounded-lg">

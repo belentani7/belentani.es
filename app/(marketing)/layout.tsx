@@ -1,7 +1,5 @@
 'use client';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { Button } from '@/design-system/components/Button';
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,9 +8,10 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="font-display font-black text-xl tracking-wider text-white" style={{ textShadow: '0 0 14px rgba(255,7,58,.9)' }}>
-              BELENTANI<span className="text-red text-[0.72em] tracking-widest ml-2">Ω</span>
+              BELENTANI<span className="text-red text-[0.72em] tracking-widest ml-2">THE EXPERIENCE</span>
             </Link>
             <nav className="hidden md:flex items-center gap-6">
+              <Link href="/judas-era" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Judas Era</Link>
               <Link href="/artista" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Artista</Link>
               <Link href="/prensa" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Prensa</Link>
               <Link href="/musica" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Música</Link>

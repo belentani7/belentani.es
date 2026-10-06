@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import JudasEraShell from '@/components/eras/JudasEraShell';
 
 export default function Home() {
-  redirect('/');
+  return <JudasEraShell />;
 }

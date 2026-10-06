@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { test, expect, vi } from 'vitest';
-import LandingPage from '../../app/(marketing)/page';
+import LandingPage from '../../app/page';
 import ArtistaPage from '../../app/(marketing)/artista/page';
 import PrensaPage from '../../app/(marketing)/prensa/page';
 import MusicaPage from '../../app/(marketing)/musica/page';
@@ -53,8 +53,23 @@ vi.mock('@gsap/react', () => ({
 
 // Mock zustand
 vi.mock('zustand', () => ({
-  create: (fn: (set: unknown) => unknown) =>
-    fn((set: unknown) => ({ set })),
+  create: (fn?: (set: unknown, get: unknown) => unknown) => {
+    const store: Record<string, unknown> = {};
+    const set = (partial: unknown) => {
+      const next = typeof partial === 'function' ? (partial as (s: unknown) => unknown)(store) : partial;
+      Object.assign(store, next);
+    };
+    const get = () => store;
+    const build = (creator: (set: unknown, get: unknown) => unknown) => {
+      Object.assign(store, creator(set, get));
+      return () => store;
+    };
+    return fn ? build(fn) : build;
+  },
+}));
+
+vi.mock('zustand/middleware', () => ({
+  persist: (fn: unknown) => fn,
 }));
 
 // Mock @tanstack/react-query

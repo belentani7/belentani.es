@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/check-boundaries.mjs",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

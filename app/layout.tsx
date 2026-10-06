@@ -7,14 +7,14 @@ const rajdhani = Rajdhani({ subsets: ['latin'], weight: ['400', '500', '600', '7
 const shareTechMono = Share_Tech_Mono({ subsets: ['latin'], weight: '400', variable: '--font-share-tech-mono', display: 'swap', preload: true });
 
 export const metadata = {
-  title: 'Belentani — artista alternativo | música, imagen y universos',
-  description: 'Belentani — artista alternativo brasileño-español. Música, imagen y universos interactivos entre dark pop, R&B y electrónica experimental.',
+  title: 'Belentani: The Experience | musica, imagen, galaxias y sistemas',
+  description: 'Belentani: The Experience. Judas Era, musica, narrativa y galaxias interactivas. Artista y compositor de Sao Paulo, basado en Barcelona.',
   openGraph: {
-    title: 'Belentani — artista alternativo',
-    description: 'Música, imagen y mundos interactivos. Una obra alternativa entre dark pop, R&B y electrónica experimental.',
+    title: 'Belentani: The Experience',
+    description: 'Judas Era: musica, imagen y galaxias interactivas de Belentani.',
     type: 'website',
     locale: 'es_ES',
-    siteName: 'Belentani — artista alternativo',
+    siteName: 'Belentani: The Experience',
   },
 };
 
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${orbitron.variable} ${rajdhani.variable} ${shareTechMono.variable}`}>
       <head>
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23ff073a' font-family='monospace'%3E%CE%A9%3C/text%3E%3C/svg%3E" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23ff073a' font-family='monospace'%3EB%3C/text%3E%3C/svg%3E" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

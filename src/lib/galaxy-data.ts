@@ -1,13 +1,13 @@
 export interface GalaxySystem {
   id: string;
   name: string;
-  kind: 'artist' | 'era' | 'duck';
+  kind: 'artist' | 'era' | 'duck' | 'warp';
   tag: string;
   blurb: string;
   color: string;
   position: { x: number; y: number };
   size: number;
-  panel: 'nucleo' | 'judas' | 'omega' | 'neon' | 'duck';
+  panel: 'nucleo' | 'judas' | 'experience' | 'neon' | 'duck';
   url?: string;
   chapters?: Chapter[];
 }
@@ -26,8 +26,8 @@ export const galaxySystems: GalaxySystem[] = [
     id: 'belentani',
     name: 'BELENTANI',
     kind: 'artist',
-    tag: 'ARTISTA PRINCIPAL',
-    blurb: 'Artista y compositor. São Paulo → Barcelona. Dark pop, R&B, electrónica experimental.',
+    tag: 'THE EXPERIENCE',
+    blurb: 'Artista y compositor. São Paulo -> Barcelona. Dark pop, R&B, electronica experimental y mundos interactivos.',
     color: '#ff073a',
     position: { x: 50, y: 50 },
     size: 2.5,
@@ -45,21 +45,21 @@ export const galaxySystems: GalaxySystem[] = [
     panel: 'judas',
   },
   {
-    id: 'omega',
-    name: 'OMEGA',
-    kind: 'era',
-    tag: 'ECOSISTEMA',
-    blurb: 'Ecosistema conectando música, código y tecnología creativa. Portal inmersivo, plantilla, escaparate.',
+    id: 'experience',
+    name: 'EXPERIENCE',
+    kind: 'warp',
+    tag: 'GALAXIA VIVA',
+    blurb: 'La web de galaxias como lenguaje visual maestro: lore, portfolio, mundos 3D y fuentes publicables.',
     color: '#d4af37',
     position: { x: 70, y: 30 },
     size: 1.5,
-    panel: 'omega',
+    panel: 'experience',
     url: 'https://belentani.es',
   },
   {
     id: 'neon',
     name: 'NEON',
-    kind: 'era',
+    kind: 'warp',
     tag: 'VISUAL RED',
     blurb: 'Portfolio visual estático: dark pop, R&B, neon. Judas Era visual identity.',
     color: '#ff073a',
@@ -68,25 +68,12 @@ export const galaxySystems: GalaxySystem[] = [
     panel: 'neon',
     url: 'https://belentani7.github.io/belentani-es-neon/',
   },
-  {
-    id: 'duck',
-    name: 'DUCK',
-    kind: 'duck',
-    tag: 'ARTISTA DUCK',
-    blurb: 'Productor musical (Aracaju, Brasil). Beats, catálogo, reproductor, Studio OS.',
-    color: '#4de8e0',
-    position: { x: 20, y: 70 },
-    size: 1.6,
-    panel: 'duck',
-    url: 'https://belentani7.github.io/duck-hub/',
-  },
 ];
 
 export const galaxyRoutes = [
   ['belentani', 'judas'],
-  ['belentani', 'omega'],
+  ['belentani', 'experience'],
   ['belentani', 'neon'],
-  ['belentani', 'duck'],
-  ['judas', 'omega'],
-  ['omega', 'neon'],
+  ['judas', 'experience'],
+  ['experience', 'neon'],
 ] as const;

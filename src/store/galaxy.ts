@@ -11,6 +11,6 @@ interface GalaxyState {
 export const useGalaxyStore = create<GalaxyState>((set) => ({
   current: 'belentani',
   history: ['belentani'],
-  travelTo: (id) => set((s) => ({ current: id, history: [...s.history, id] })),
-  goBack: () => set((s) => { const h = [...s.history]; h.pop(); return { current: h[h.length - 1], history: h }; }),
+  travelTo: (id) => set((s) => !galaxySystems.some(system => system.id === id) || s.current === id ? s : ({ current: id, history: [...s.history.slice(-49), id] })),
+  goBack: () => set((s) => { if (s.history.length < 2) return s; const h = s.history.slice(0, -1); return { current: h[h.length - 1], history: h }; }),
 }));

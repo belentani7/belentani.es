@@ -9,5 +9,9 @@ export default function ImmersiveLayout({ children }: { children: React.ReactNod
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
     }
   }, []);
-  return <Providers>{children}</Providers>;
+  return (
+    <Providers>
+      {children}
+    </Providers>
+  );
 }

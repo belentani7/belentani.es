@@ -1,6 +1,6 @@
 'use client';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
+import { Stars, Html } from '@react-three/drei';
 import * as THREE from 'three';
 import { useGalaxyMap } from '@/hooks/useGalaxyMap';
 import { GalaxyNode } from '@/design-system/components/GalaxyNode';
@@ -58,11 +58,10 @@ function Routes({ current }: { current: string }) {
   const { allSystems } = useGalaxyMap();
   const routes = [
     ['belentani', 'judas'],
-    ['belentani', 'omega'],
+    ['belentani', 'experience'],
     ['belentani', 'neon'],
-    ['belentani', 'duck'],
-    ['judas', 'omega'],
-    ['omega', 'neon'],
+    ['judas', 'experience'],
+    ['experience', 'neon'],
   ];
 
   return (
@@ -83,6 +82,7 @@ function Nodes({ current, onNodeClick }: { current: string; onNodeClick: (id: st
   return (
     <>
       {allSystems.map((system) => (
+        <Html key={system.id} position={[(system.position.x - 50) * 1.4, (50 - system.position.y) * 1.4, 0]} center>
         <GalaxyNode
           key={system.id}
           kind={system.kind}
@@ -92,6 +92,7 @@ function Nodes({ current, onNodeClick }: { current: string; onNodeClick: (id: st
           color={system.color}
           onClick={() => onNodeClick(system.id)}
         />
+        </Html>
       ))}
     </>
   );

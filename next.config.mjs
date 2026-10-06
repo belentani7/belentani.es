@@ -6,6 +6,7 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
+    outputFileTracingExcludes: { '*': ['./_private_audio_no_web/**/*', './_satellites/**/*', './_bucket/**/*', './.local-archive/**/*'] },
     optimizePackageImports: ['@react-three/fiber', '@react-three/drei', 'gsap', 'lucide-react'],
   },
   images: {

@@ -22,20 +22,20 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
   const chapter = judasChapters.find(c => c.id === chapterId);
   const { travelTo } = useGalaxyStore();
 
-  if (!chapter) return <div className="h-screen flex items-center justify-center text-mute">Capítulo no encontrado</div>;
-
-  const Scene = sceneMap[chapter.id as keyof typeof sceneMap];
-
   useEffect(() => {
+    if (!chapter) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') travelTo('judas');
+      if (e.key === 'Escape') window.location.href = '/judas-era';
       const idx = judasChapters.findIndex(c => c.id === chapter.id);
       if (e.key === 'ArrowRight' && idx < judasChapters.length - 1) window.location.href = `/judas/${judasChapters[idx + 1].id}`;
       if (e.key === 'ArrowLeft' && idx > 0) window.location.href = `/judas/${judasChapters[idx - 1].id}`;
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [chapter.id, travelTo]);
+  }, [chapter, travelTo]);
+
+  if (!chapter) return <div className="h-screen flex items-center justify-center text-mute">Capítulo no encontrado</div>;
+  const Scene = sceneMap[chapter.id as keyof typeof sceneMap];
 
   return (
     <div className="h-screen w-full relative bg-void">
@@ -52,8 +52,7 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
             <p className="text-mute leading-relaxed text-base lg:text-lg">{chapter.lore}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <AudioPlayer src={chapter.audio || ''} title={chapter.name} variant="chapter" />
-            <Button variant="ghost" onClick={() => travelTo('judas')}>← Volver a JUDAS</Button>
+            <Button variant="ghost" onClick={() => { window.location.href = '/judas-era'; }}>← Volver a JUDAS</Button>
           </div>
         </div>
       </ScrollSection>

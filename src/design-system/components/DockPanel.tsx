@@ -12,7 +12,7 @@ interface DockPanelProps {
 
 const PANELS: Record<string, { html: string; actions: { label: string; action: string; variant: 'primary' | 'gold'; external?: boolean }[] }> = {
   nucleo: {
-    html: `<p>Esta galaxia es el mapa navegable de todo el universo Belentani. Cada punto es un sistema: lore, audio, profesión, legado o un uplink a una página ya publicada.</p><p>No son apps rivales. Son órbitas del mismo mito JUDAS / OMEGA.</p><blockquote class="my-4 border-l-2 border-red pl-4 italic text-ink">Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en la arena.</blockquote>`,
+    html: `<p>Esta galaxia es el mapa navegable de Belentani: The Experience. Cada punto es un sistema con funcion propia: obra, era, startup, educacion, consultoria o archivo.</p><p>No son apps rivales. Son orbitas de una trayectoria profesional y artistica curada.</p><blockquote class="my-4 border-l-2 border-red pl-4 italic text-ink">Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en la arena.</blockquote>`,
     actions: [{ label: 'Entrar a Obra', action: 'navigate', variant: 'gold' }],
   },
   judas: {
@@ -26,8 +26,8 @@ const PANELS: Record<string, { html: string; actions: { label: string; action: s
       { label: 'Cognición', action: 'chapter', variant: 'primary' },
     ],
   },
-  omega: {
-    html: `<p><b>ECOSISTEMA OMEGA</b> — Portal inmersivo 3D, plantilla reutilizable, escaparate de versiones. Conecta música, código y tecnología creativa.</p>`,
+  experience: {
+    html: `<p><b>BELENTANI: THE EXPERIENCE</b> — Galaxias, portfolio, Judas Era, mundos 3D y fuentes visuales. La web es exposicion curada, no archivo bruto.</p>`,
     actions: [{ label: 'Saltar al uplink ↗', action: 'external', variant: 'primary', external: true }],
   },
   neon: {
@@ -43,8 +43,6 @@ const PANELS: Record<string, { html: string; actions: { label: string; action: s
 export function DockPanel({ systemId, onAction, onClose }: DockPanelProps) {
   const system = galaxySystems.find((s) => s.id === systemId);
   const panel = system ? PANELS[system.panel] : null;
-  const isWarp = system?.kind === 'duck' || system?.kind === 'era' && system.panel !== 'judas' && system.panel !== 'nucleo';
-
   if (!system || !panel) return null;
 
   return (

@@ -24,3 +24,22 @@ _clones/
 app-web-nextjs/belentani7.github.io/
 .vercel
 .env*.local
+
+# Private archive and independent products
+_private_audio_no_web/
+_satellites/
+_bucket/
+*.wav
+*.mp3
+*.aiff
+*.aif
+*.flac
+*.m4a
+*.ogg
+*.logicx
+*.als
+*.flp
+*.tsbuildinfo
+test-results/
+playwright-report/
+.local-archive/

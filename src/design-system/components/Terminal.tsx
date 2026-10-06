@@ -66,7 +66,7 @@ const BaseTerminal = forwardRef<HTMLDivElement, TerminalProps>(
     }
 
     if (variant === 'quick-commands') {
-      const quickCommands = ['status', 'jump judas', 'jump omega', 'audio on', 'audio off', 'help'];
+      const quickCommands = ['status', 'jump judas', 'jump experience', 'audio on', 'audio off', 'help'];
       return (
         <div className={cn('flex flex-wrap gap-2 p-2 border-t border-red/14', className)} {...props}>
           {quickCommands.map((cmd) => (
