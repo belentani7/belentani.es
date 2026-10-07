@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { judasChapters } from '@/lib/judas-data';
 
 export async function generateStaticParams() {
@@ -20,5 +21,6 @@ import ChapterContent from './ChapterContent';
 
 export default async function ChapterPage({ params }: { params: Promise<{ capitulo: string }> }) {
   const { capitulo } = await params;
+  if (!judasChapters.some(chapter => chapter.id === capitulo)) notFound();
   return <ChapterContent chapterId={capitulo} />;
 }

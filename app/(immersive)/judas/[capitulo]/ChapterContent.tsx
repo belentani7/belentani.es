@@ -1,9 +1,10 @@
 'use client';
 import { Suspense, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { judasChapters } from '@/lib/judas-data';
-import { ScrollSection, AudioPlayer, Button } from '@/design-system';
-import { useGalaxyStore } from '@/store/galaxy';
+import styles from './ChapterContent.module.css';
 
 const sceneMap = {
   genesis: dynamic(() => import('./components/GenesisScene').then(m => m.GenesisScene), { ssr: false }),
@@ -14,67 +15,46 @@ const sceneMap = {
   'qwen-perfil': dynamic(() => import('./components/CognitionScene').then(m => m.CognitionScene), { ssr: false }),
 };
 
-interface ChapterContentProps {
-  chapterId: string;
-}
-
-export default function ChapterContent({ chapterId }: ChapterContentProps) {
-  const chapter = judasChapters.find(c => c.id === chapterId);
-  const { travelTo } = useGalaxyStore();
+export default function ChapterContent({ chapterId }: { chapterId: string }) {
+  const router = useRouter();
+  const index = judasChapters.findIndex(chapter => chapter.id === chapterId);
+  const chapter = judasChapters[index];
+  const previous = judasChapters[index - 1];
+  const next = judasChapters[index + 1];
 
   useEffect(() => {
-    if (!chapter) return;
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') window.location.href = '/judas-era';
-      const idx = judasChapters.findIndex(c => c.id === chapter.id);
-      if (e.key === 'ArrowRight' && idx < judasChapters.length - 1) window.location.href = `/judas/${judasChapters[idx + 1].id}`;
-      if (e.key === 'ArrowLeft' && idx > 0) window.location.href = `/judas/${judasChapters[idx - 1].id}`;
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.repeat) return;
+      if (event.target instanceof Element && event.target.closest('input, textarea, select, button, a, [contenteditable], [role="slider"]')) return;
+      const destination = event.key === 'Escape' ? '/judas-era'
+        : event.key === 'ArrowLeft' && previous ? `/judas/${previous.id}`
+        : event.key === 'ArrowRight' && next ? `/judas/${next.id}` : null;
+      if (destination) { event.preventDefault(); router.push(destination); }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [chapter, travelTo]);
+  }, [previous, next, router]);
 
-  if (!chapter) return <div className="h-screen flex items-center justify-center text-mute">Capítulo no encontrado</div>;
+  if (!chapter) return null;
   const Scene = sceneMap[chapter.id as keyof typeof sceneMap];
-
   return (
-    <div className="h-screen w-full relative bg-void">
-      <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center text-mute font-mono">Cargando capítulo…</div>}>
-        <Scene />
-      </Suspense>
-
-      {/* Narrative Overlay */}
-      <ScrollSection chapter={chapter} variant="journey" className="absolute inset-0 pointer-events-none z-[10]">
-        <div className="h-full w-full flex flex-col justify-between p-6 lg:p-10 pointer-events-auto">
-          <div className="max-w-2xl">
-            <p className="font-mono text-xs tracking-widest uppercase text-gold mb-2">{chapter.symbol} {chapter.id.toUpperCase()}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-tight text-white mb-4">{chapter.name}</h2>
-            <p className="text-mute leading-relaxed text-base lg:text-lg">{chapter.lore}</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button variant="ghost" onClick={() => { window.location.href = '/judas-era'; }}>← Volver a JUDAS</Button>
-          </div>
-        </div>
-      </ScrollSection>
-
-      {/* Chapter Navigation */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-[15] pointer-events-auto">
-        <Button variant="ghost" onClick={() => {
-          const idx = judasChapters.findIndex(c => c.id === chapter.id);
-          if (idx > 0) window.location.href = `/judas/${judasChapters[idx - 1].id}`;
-        }} disabled={chapter.id === 'genesis'}>
-          ← Anterior
-        </Button>
-        <span className="font-mono text-xs tracking-widest uppercase text-gold px-4">
-          {judasChapters.findIndex(c => c.id === chapter.id) + 1} / {judasChapters.length}
-        </span>
-        <Button variant="ghost" onClick={() => {
-          const idx = judasChapters.findIndex(c => c.id === chapter.id);
-          if (idx < judasChapters.length - 1) window.location.href = `/judas/${judasChapters[idx + 1].id}`;
-        }} disabled={chapter.id === 'qwen-perfil'}>
-          Siguiente →
-        </Button>
+    <main className={styles.chapter}>
+      <header className={styles.intro}>
+        <Link className={styles.back} href="/judas-era">← Universo Judas</Link>
+        <p className={styles.eyebrow}>{chapter.symbol} · Capítulo {index + 1}</p>
+        <h1>{chapter.name}</h1>
+        <p className={styles.lore}>{chapter.lore}</p>
+      </header>
+      <div className={styles.scene}>
+        <Suspense fallback={<p role="status" className={styles.loading}>Cargando capítulo…</p>}>
+          <Scene />
+        </Suspense>
       </div>
-    </div>
+      <nav className={styles.navigation} aria-label="Recorrer capítulos">
+        {previous ? <Link href={`/judas/${previous.id}`}>← {previous.name}</Link> : <span>El origen</span>}
+        <span className={styles.counter}>{index + 1} / {judasChapters.length}</span>
+        {next ? <Link href={`/judas/${next.id}`}>{next.name} →</Link> : <Link href="/galaxia">Volver a la galaxia →</Link>}
+      </nav>
+    </main>
   );
 }

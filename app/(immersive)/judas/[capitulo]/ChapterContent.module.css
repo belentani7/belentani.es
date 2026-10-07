@@ -1,0 +1,13 @@
+.chapter { min-height: 100svh; display: grid; grid-template-rows: auto minmax(360px, 1fr) auto; background: #030008; color: #f4f1ec; }
+.intro { padding: clamp(20px, 4vw, 48px); padding-bottom: 18px; position: relative; z-index: 1; border-bottom: 1px solid #d4af3729; }
+.back { display: inline-flex; align-items: center; min-height: 44px; color: #c9c0d6; font-size: 14px; }
+.eyebrow { color: #d4af37; font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; margin: 12px 0; }
+.intro h1 { font-family: var(--font-display); font-size: clamp(28px, 5vw, 58px); line-height: 1.15; }
+.lore { max-width: 72ch; color: #c4bacb; line-height: 1.65; margin-top: 16px; }
+.scene { position: relative; min-width: 0; overflow: hidden; min-height: 440px; height: 62svh; }
+.navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px clamp(20px, 4vw, 48px); border-top: 1px solid #d4af3729; }
+.navigation a { min-height: 44px; display: inline-flex; align-items: center; max-width: 40%; }
+.counter { color: #d4af37; font-family: var(--font-mono); white-space: nowrap; font-size: 12px; }
+.chapter a:focus-visible, .chapter button:focus-visible { outline: 2px solid #d4af37; outline-offset: 5px; }
+.loading { display: grid; place-content: center; height: 100%; color: #c4bacb; }
+@media(max-width: 540px) { .scene { min-height: 380px; height: 54svh; } .navigation { font-size: 13px; gap: 10px; } }

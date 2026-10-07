@@ -109,6 +109,7 @@ function handleAction(action: string, url?: string) {
   } else if (action === 'chapter' && url) {
     window.location.href = `/judas/${url}`;
   } else if (action === 'external' && url) {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    if (url.startsWith('/')) window.location.href = url;
+    else window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

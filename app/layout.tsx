@@ -1,20 +1,29 @@
 import { Orbitron, Rajdhani, Share_Tech_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/Providers';
+import type { Metadata } from 'next';
 
 const orbitron = Orbitron({ subsets: ['latin'], weight: ['500', '700', '900'], variable: '--font-orbitron', display: 'swap', preload: true });
 const rajdhani = Rajdhani({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-rajdhani', display: 'swap', preload: true });
 const shareTechMono = Share_Tech_Mono({ subsets: ['latin'], weight: '400', variable: '--font-share-tech-mono', display: 'swap', preload: true });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Belentani: The Experience | musica, imagen, galaxias y sistemas',
   description: 'Belentani: The Experience. Judas Era, musica, narrativa y galaxias interactivas. Artista y compositor de Sao Paulo, basado en Barcelona.',
+  authors: [{ name: 'Pedro Belentani' }],
+  creator: 'Pedro Belentani',
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Belentani: The Experience',
     description: 'Judas Era: musica, imagen y galaxias interactivas de Belentani.',
     type: 'website',
     locale: 'es_ES',
     siteName: 'Belentani: The Experience',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Belentani: The Experience',
+    description: 'Judas Era: musica, imagen y galaxias interactivas de Belentani.',
   },
 };
 

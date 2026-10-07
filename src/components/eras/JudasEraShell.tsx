@@ -7,6 +7,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import styles from './JudasEraShell.module.css';
 
 const Cosmos = dynamic(() => import('../canvas/CanonCosmos'), { ssr: false });
+const chapterRoutes = ['genesis', 'traicion', 'deuda', 'redencion'];
 const chapters = [
   { title: 'Génesis', symbol: '01', line: 'Antes del nombre, la voz.', text: 'Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en la arena.' },
   { title: 'Traición', symbol: '02', line: 'El espejo devuelve la mirada.', text: 'Aprendió a cantar y entendió el daño que llevaba. El narrador deja de esconderse: el antihéroe también era él.' },
@@ -55,7 +56,7 @@ export default function JudasEraShell() {
     </section>
     <section className={styles.story} aria-live="polite">
       <p>JUDAS / {chapters[chapter].symbol}</p><div><h2>{chapters[chapter].title}</h2><p>{chapters[chapter].text}</p>
-      <div className={styles.storyActions}><button disabled={chapter === 0} onClick={() => select(chapter - 1)}>Anterior</button><button disabled={chapter === chapters.length - 1} onClick={() => select(chapter + 1)}>Siguiente capítulo</button></div></div>
+      <div className={styles.storyActions}><button disabled={chapter === 0} onClick={() => select(chapter - 1)}>Anterior</button><Link href={`/judas/${chapterRoutes[chapter]}`}>Entrar en {chapters[chapter].title} ↗</Link><button disabled={chapter === chapters.length - 1} onClick={() => select(chapter + 1)}>Siguiente capítulo</button></div></div>
     </section>
     <footer className={styles.footer}><span>Belentani · São Paulo / Barcelona</span><a href="https://judas-experience-13898.buildaispace.app/" target="_blank" rel="noopener noreferrer">Judas Experience · Archivo original ↗</a></footer>
   </main>;

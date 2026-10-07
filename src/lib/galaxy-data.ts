@@ -54,7 +54,8 @@ export const galaxySystems: GalaxySystem[] = [
     position: { x: 70, y: 30 },
     size: 1.5,
     panel: 'experience',
-    url: 'https://belentani.es',
+    // The public domain is an orbit, not the primary entrance. Keep the canonical journey local.
+    url: '/unificado',
   },
   {
     id: 'neon',

@@ -1,11 +1,18 @@
 'use client';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 export function NebulaField() {
+  const reduced = useReducedMotion();
+  const [lowPower, setLowPower] = useState(false);
+  useEffect(() => {
+    setLowPower(window.innerWidth < 768 || (navigator.hardwareConcurrency || 8) <= 4);
+  }, []);
+  const count = reduced ? 900 : lowPower ? 1800 : 4200;
   const positions = useMemo(() => {
-    const n = 4200;
+    const n = count;
     const a = new Float32Array(n * 3);
     let s = 0x9e3779b9;
     const rand = () => {
@@ -22,7 +29,7 @@ export function NebulaField() {
       a[i * 3 + 2] = Math.sin(theta) * r + Math.sin(theta + Math.PI / 2) * width;
     }
     return a;
-  }, []);
+  }, [count]);
 
   return (
     <Points positions={positions} stride={3} frustumCulled={false}>
