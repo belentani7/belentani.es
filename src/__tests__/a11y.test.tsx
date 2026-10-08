@@ -1,13 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { test, expect, vi } from 'vitest';
+import { afterEach, test, expect, vi } from 'vitest';
 import LandingPage from '../../app/page';
 import ArtistaPage from '../../app/(marketing)/artista/page';
 import PrensaPage from '../../app/(marketing)/prensa/page';
 import MusicaPage from '../../app/(marketing)/musica/page';
 
 expect.extend(toHaveNoViolations);
+afterEach(cleanup);
 
 // Mock next/navigation
 vi.mock('next/navigation', () => ({

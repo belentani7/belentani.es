@@ -12,7 +12,6 @@ espacio-3d
 lore-canon
 masters
 node_modules
-scripts
 tests
 unificado
 viaje-r3f
@@ -25,7 +24,6 @@ _universo_assets
 *.db
 *.sqlite
 *.tsbuildinfo
-pnpm-lock.yaml
 .git
 .gitignore
 *.md
@@ -44,3 +42,5 @@ pnpm-lock.yaml
 !playwright.config.mjs
 !vitest.config.mjs
 !lighthouse-budget.json
+!pnpm-lock.yaml
+!scripts/check-boundaries.mjs

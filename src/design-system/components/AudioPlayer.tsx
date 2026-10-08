@@ -17,35 +17,42 @@ export function AudioPlayer({ src, title, variant = 'chapter', autoPlay = false,
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.volume = volume;
-    audioRef.current.src = src;
-    audioRef.current.load();
+    const audio = audioRef.current;
+    if (!audio) return;
+    setLoaded(false);
+    setError(false);
+    setPlaying(false);
+    audio.src = src;
+    audio.load();
     const handleCanPlay = () => setLoaded(true);
     const handleError = () => setError(true);
     const handleEnded = () => setPlaying(false);
-    audioRef.current.addEventListener('canplay', handleCanPlay);
-    audioRef.current.addEventListener('error', handleError);
-    audioRef.current.addEventListener('ended', handleEnded);
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('error', handleError);
+    audio.addEventListener('ended', handleEnded);
     if (autoPlay) {
-      audioRef.current.play().catch(() => {});
+      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     }
     return () => {
-      if (!audioRef.current) return;
-      audioRef.current.removeEventListener('canplay', handleCanPlay);
-      audioRef.current.removeEventListener('error', handleError);
-      audioRef.current.removeEventListener('ended', handleEnded);
+      audio.pause();
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('error', handleError);
+      audio.removeEventListener('ended', handleEnded);
     };
-  }, [src, volume, autoPlay]);
+  }, [src, autoPlay]);
+
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.volume = volume;
+  }, [volume]);
 
   const toggle = () => {
     if (!audioRef.current) return;
     if (playing) {
       audioRef.current.pause();
+      setPlaying(false);
     } else {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     }
-    setPlaying(!playing);
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

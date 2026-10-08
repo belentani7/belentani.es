@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import {
   ORBIT_PLACES,
@@ -12,11 +11,6 @@ import {
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useVoiceNarrator } from '@/hooks/useVoiceNarrator';
 import styles from './VoyageCinema.module.css';
-
-const BelentaniUniverse = dynamic(() => import('./BelentaniUniverse'), {
-  ssr: false,
-  loading: () => <div className={styles.skyFallback} aria-hidden />,
-});
 
 type LogRole = 'sys' | 'user' | 'ok' | 'err';
 
@@ -37,13 +31,15 @@ export default function VoyageCinema() {
   const reduced = useReducedMotion();
   const voice = useVoiceNarrator('es');
   const [placeId, setPlaceId] = useState('viaje3d');
-  const [orbit, setOrbit] = useState(true);
+  const [orbit, setOrbit] = useState(false);
+  const [consoleOpen, setConsoleOpen] = useState(false);
   const [warping, setWarping] = useState(false);
   const [cmd, setCmd] = useState('');
   const [log, setLog] = useState<LogLine[]>([
     { id: 'boot', role: 'sys', text: 'BELENTANI_OS online · un solo universo · HELP' },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const warpTimerRef = useRef<number>();
   const place = VOYAGE_PLACES.find((p) => p.id === placeId) ?? VOYAGE_PLACES[0];
   const index = ORBIT_PLACES.findIndex((p) => p.id === placeId);
 
@@ -55,17 +51,20 @@ export default function VoyageCinema() {
     (id: string) => {
       const target = findPlace(id) || VOYAGE_PLACES.find((p) => p.id === id);
       if (!target?.url) return;
-      setWarping(true);
+      window.clearTimeout(warpTimerRef.current);
+      setWarping(!reduced);
       setPlaceId(target.id);
       if (typeof window !== 'undefined') {
         const url = new URL(window.location.href);
         url.searchParams.set('lugar', target.id);
         window.history.replaceState({}, '', url);
       }
-      window.setTimeout(() => setWarping(false), reduced ? 0 : 900);
+      if (!reduced) warpTimerRef.current = window.setTimeout(() => setWarping(false), 900);
     },
     [reduced]
   );
+
+  useEffect(() => () => window.clearTimeout(warpTimerRef.current), []);
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get('lugar');
@@ -85,6 +84,13 @@ export default function VoyageCinema() {
     const t = window.setInterval(goNext, 32000);
     return () => window.clearInterval(t);
   }, [orbit, reduced, goNext]);
+
+  const narrate = useCallback(() => {
+    push('sys', 'solicitando narración…');
+    void voice.speak(`${place.title}. ${place.tagline}.`).then((played) => {
+      push(played ? 'ok' : 'sys', played ? 'narración terminada' : 'voz no disponible o detenida · puedes seguir explorando');
+    });
+  }, [voice, place, push]);
 
   const run = useCallback(
     (raw: string) => {
@@ -151,8 +157,7 @@ export default function VoyageCinema() {
         return;
       }
       if (head === 'speak' || head === 'narrar' || head === 'habla') {
-        void voice.speak(`${place.title}. ${place.tagline}.`);
-        push('ok', 'narrando…');
+        narrate();
         return;
       }
       if (head === 'stop' || head === 'silencio') {
@@ -168,7 +173,7 @@ export default function VoyageCinema() {
       }
       push('err', 'comando desconocido. HELP');
     },
-    [goNext, goPrev, place, push, travelTo, voice]
+    [goNext, goPrev, narrate, push, travelTo, voice]
   );
 
   const onSubmit = (e: FormEvent) => {
@@ -179,8 +184,8 @@ export default function VoyageCinema() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      const target = e.target as HTMLElement | null;
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || target?.closest('input, textarea, select, button, a, [contenteditable="true"]')) return;
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         goNext();
@@ -195,23 +200,20 @@ export default function VoyageCinema() {
       }
       if (e.key === '/') {
         e.preventDefault();
-        inputRef.current?.focus();
+        setConsoleOpen(true);
+        window.setTimeout(() => inputRef.current?.focus(), 0);
       }
       if (e.key.toLowerCase() === 'n') {
         e.preventDefault();
-        void voice.speak(`${place.title}. ${place.tagline}.`);
+        narrate();
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [goNext, goPrev, place, voice]);
+  }, [goNext, goPrev, narrate]);
 
   return (
     <main className={styles.voyage} data-testid="voyage-cinema">
-      <div className={styles.sky} aria-hidden>
-        <BelentaniUniverse />
-      </div>
-
       {place.url && (
         <div className={`${styles.planetLayer} ${warping ? styles.warpFlash : ''}`}>
           <iframe
@@ -221,21 +223,24 @@ export default function VoyageCinema() {
             title={place.title}
             allow="fullscreen; autoplay"
             referrerPolicy="no-referrer"
+            onFocus={() => setOrbit(false)}
           />
-          <div className={styles.crystalVeil} aria-hidden />
         </div>
       )}
 
       <header className={styles.mark}>
         <h1>BELENTANI</h1>
-        <p>
+        {consoleOpen && <p>
           {String(Math.max(index, 0) + 1).padStart(2, '0')}/{String(ORBIT_PLACES.length).padStart(2, '0')} ·{' '}
           {place.title}
-          {orbit ? ' · ÓRBITA' : ''}
-        </p>
+          {orbit && !reduced ? ' · ÓRBITA' : ' · PAUSA'}
+        </p>}
       </header>
 
-      <section className={styles.machine} aria-label="Consola de la máquina">
+      <button type="button" className={styles.consoleToggle} aria-expanded={consoleOpen} aria-controls="voyage-console" onClick={() => setConsoleOpen(v => !v)}>
+        {consoleOpen ? 'Cerrar máquina' : 'Máquina'}
+      </button>
+      {consoleOpen && <section id="voyage-console" className={styles.machine} aria-label="Consola de la máquina">
         <div className={styles.crystalFace} aria-hidden />
         <div className={styles.log} role="log" aria-live="polite">
           {log.slice(-6).map((l) => (
@@ -253,6 +258,7 @@ export default function VoyageCinema() {
             className={styles.cmd}
             value={cmd}
             onChange={(e) => setCmd(e.target.value)}
+            onFocus={() => setOrbit(false)}
             placeholder="WARP judas · ORBIT on · LIST · HELP"
             aria-label="Comando de la máquina"
             autoComplete="off"
@@ -262,6 +268,13 @@ export default function VoyageCinema() {
             ENTER
           </button>
         </form>
+        <nav className={styles.controls} aria-label="Viajar por el universo">
+          <button type="button" onClick={() => { setOrbit(false); goPrev(); }}>Anterior</button>
+          <button type="button" aria-pressed={orbit && !reduced} disabled={reduced} onClick={() => setOrbit((v) => !v)}>
+            {reduced ? 'Modo tranquilo' : orbit ? 'Pausar viaje' : 'Continuar viaje'}
+          </button>
+          <button type="button" onClick={() => { setOrbit(false); goNext(); }}>Siguiente</button>
+        </nav>
         <div className={styles.orbitRing} aria-hidden>
           {ORBIT_PLACES.map((p) => (
             <span
@@ -271,7 +284,7 @@ export default function VoyageCinema() {
             />
           ))}
         </div>
-      </section>
+      </section>}
     </main>
   );
 }

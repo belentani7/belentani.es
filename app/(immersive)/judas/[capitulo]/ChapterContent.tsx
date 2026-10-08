@@ -1,9 +1,9 @@
 'use client';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { judasChapters } from '@/lib/judas-data';
 import { ScrollSection, AudioPlayer, Button } from '@/design-system';
-import { useGalaxyStore } from '@/store/galaxy';
 
 const sceneMap = {
   genesis: dynamic(() => import('./components/GenesisScene').then(m => m.GenesisScene), { ssr: false }),
@@ -20,19 +20,21 @@ interface ChapterContentProps {
 
 export default function ChapterContent({ chapterId }: ChapterContentProps) {
   const chapter = judasChapters.find(c => c.id === chapterId);
-  const { travelTo } = useGalaxyStore();
+  const router = useRouter();
+  const goToChapter = useCallback((id: string) => router.push(`/judas/${id}`), [router]);
+  const goToEra = useCallback(() => router.push('/judas-era'), [router]);
 
   useEffect(() => {
     if (!chapter) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') window.location.href = '/judas-era';
+      if (e.key === 'Escape') goToEra();
       const idx = judasChapters.findIndex(c => c.id === chapter.id);
-      if (e.key === 'ArrowRight' && idx < judasChapters.length - 1) window.location.href = `/judas/${judasChapters[idx + 1].id}`;
-      if (e.key === 'ArrowLeft' && idx > 0) window.location.href = `/judas/${judasChapters[idx - 1].id}`;
+      if (e.key === 'ArrowRight' && idx < judasChapters.length - 1) goToChapter(judasChapters[idx + 1].id);
+      if (e.key === 'ArrowLeft' && idx > 0) goToChapter(judasChapters[idx - 1].id);
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [chapter, travelTo]);
+  }, [chapter, goToChapter, goToEra]);
 
   if (!chapter) return <div className="h-screen flex items-center justify-center text-mute">Capítulo no encontrado</div>;
   const Scene = sceneMap[chapter.id as keyof typeof sceneMap];
@@ -52,7 +54,7 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
             <p className="text-mute leading-relaxed text-base lg:text-lg">{chapter.lore}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Button variant="ghost" onClick={() => { window.location.href = '/judas-era'; }}>← Volver a JUDAS</Button>
+            <Button variant="ghost" onClick={goToEra}>← Volver a JUDAS</Button>
           </div>
         </div>
       </ScrollSection>
@@ -61,7 +63,7 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-[15] pointer-events-auto">
         <Button variant="ghost" onClick={() => {
           const idx = judasChapters.findIndex(c => c.id === chapter.id);
-          if (idx > 0) window.location.href = `/judas/${judasChapters[idx - 1].id}`;
+          if (idx > 0) goToChapter(judasChapters[idx - 1].id);
         }} disabled={chapter.id === 'genesis'}>
           ← Anterior
         </Button>
@@ -70,7 +72,7 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
         </span>
         <Button variant="ghost" onClick={() => {
           const idx = judasChapters.findIndex(c => c.id === chapter.id);
-          if (idx < judasChapters.length - 1) window.location.href = `/judas/${judasChapters[idx + 1].id}`;
+          if (idx < judasChapters.length - 1) goToChapter(judasChapters[idx + 1].id);
         }} disabled={chapter.id === 'qwen-perfil'}>
           Siguiente →
         </Button>

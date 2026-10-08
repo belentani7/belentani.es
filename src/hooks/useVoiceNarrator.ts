@@ -14,7 +14,7 @@ export interface VoiceNarratorState {
   naturalReady: boolean;
   setLang: (lang: MythLang) => void;
   setMode: (mode: VoiceMode) => void;
-  speak: (text: string, langOverride?: MythLang) => Promise<void>;
+  speak: (text: string, langOverride?: MythLang) => Promise<boolean>;
   stop: () => void;
 }
 
@@ -63,22 +63,38 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
   const [naturalReady, setNaturalReady] = useState(false);
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const requestRef = useRef<AbortController | null>(null);
+  const cancelPlaybackRef = useRef<(() => void) | null>(null);
+  const generationRef = useRef(0);
 
   useEffect(() => {
     const ok = typeof window !== 'undefined' && 'speechSynthesis' in window;
     setSupported(ok);
-    setNaturalReady(true); // endpoint por defecto /api/voice/speak
-    if (!ok) return;
+    const controller = new AbortController();
+    const endpoint = process.env.NEXT_PUBLIC_VOICE_CLONE_ENDPOINT || '/api/voice/speak';
+    void fetch(endpoint, { signal: controller.signal, cache: 'no-store' })
+      .then(async (res) => res.ok && (await res.json()).available === true)
+      .then((ready) => { if (!controller.signal.aborted) setNaturalReady(ready); })
+      .catch(() => { if (!controller.signal.aborted) setNaturalReady(false); });
+    if (!ok) return () => controller.abort();
     const load = () => {
       voicesRef.current = window.speechSynthesis.getVoices().filter((v) => !isBannedVoice(v.name));
       setVoicesReady(voicesRef.current.length > 0);
     };
     load();
     window.speechSynthesis.addEventListener('voiceschanged', load);
-    return () => window.speechSynthesis.removeEventListener('voiceschanged', load);
+    return () => {
+      controller.abort();
+      window.speechSynthesis.removeEventListener('voiceschanged', load);
+    };
   }, []);
 
   const stop = useCallback(() => {
+    generationRef.current += 1;
+    requestRef.current?.abort();
+    requestRef.current = null;
+    cancelPlaybackRef.current?.();
+    cancelPlaybackRef.current = null;
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel();
     if (audioRef.current) {
       audioRef.current.pause();
@@ -88,8 +104,10 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
     setSpeaking(false);
   }, []);
 
+  useEffect(() => () => stop(), [stop]);
+
   const speakBrowser = useCallback(
-    (text: string, useLang: MythLang) =>
+    (text: string, useLang: MythLang, generation: number) =>
       new Promise<void>((resolve, reject) => {
         if (!supported) {
           reject(new Error('no speech'));
@@ -106,13 +124,20 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
           return;
         }
         u.voice = voice;
-        u.onstart = () => setSpeaking(true);
+        u.onstart = () => { if (generation === generationRef.current) setSpeaking(true); };
+        cancelPlaybackRef.current = () => reject(new Error('speech cancelled'));
         u.onend = () => {
-          setSpeaking(false);
+          if (generation === generationRef.current) {
+            cancelPlaybackRef.current = null;
+            setSpeaking(false);
+          }
           resolve();
         };
         u.onerror = () => {
-          setSpeaking(false);
+          if (generation === generationRef.current) {
+            cancelPlaybackRef.current = null;
+            setSpeaking(false);
+          }
           reject(new Error('speech failed'));
         };
         window.speechSynthesis.speak(u);
@@ -120,13 +145,17 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
     [supported]
   );
 
-  const speakNatural = useCallback(async (text: string, useLang: MythLang) => {
+  const speakNatural = useCallback(async (text: string, useLang: MythLang, generation: number) => {
     const endpoint = process.env.NEXT_PUBLIC_VOICE_CLONE_ENDPOINT || '/api/voice/speak';
+    const controller = new AbortController();
+    requestRef.current = controller;
+    let url: string | undefined;
     setSpeaking(true);
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           text,
           lang: LANG_BCP47[useLang],
@@ -134,20 +163,27 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
         }),
       });
       if (!res.ok) throw new Error(`voice HTTP ${res.status}`);
+      const type = res.headers.get('Content-Type') || '';
+      if (!type.startsWith('audio/') && !type.includes('octet-stream')) throw new Error('audio required');
       const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
+      if (controller.signal.aborted || generation !== generationRef.current) throw new Error('speech cancelled');
+      url = URL.createObjectURL(blob);
       const audio = new Audio(url);
       audioRef.current = audio;
       await new Promise<void>((resolve, reject) => {
-        audio.onended = () => {
-          URL.revokeObjectURL(url);
-          resolve();
-        };
+        cancelPlaybackRef.current = () => reject(new Error('speech cancelled'));
+        audio.onended = () => resolve();
         audio.onerror = () => reject(new Error('playback failed'));
-        void audio.play();
+        void audio.play().catch(reject);
       });
     } finally {
-      setSpeaking(false);
+      if (url) URL.revokeObjectURL(url);
+      if (generation === generationRef.current) {
+        audioRef.current = null;
+        requestRef.current = null;
+        cancelPlaybackRef.current = null;
+        setSpeaking(false);
+      }
     }
   }, []);
 
@@ -155,15 +191,18 @@ export function useVoiceNarrator(initial: MythLang = 'es'): VoiceNarratorState {
     async (text: string, langOverride?: MythLang) => {
       const useLang = langOverride ?? lang;
       stop();
+      const generation = generationRef.current;
       try {
         if (mode === 'natural') {
-          await speakNatural(text, useLang);
-          return;
+          await speakNatural(text, useLang, generation);
+          return true;
         }
-        await speakBrowser(text, useLang);
+        await speakBrowser(text, useLang, generation);
+        return true;
       } catch {
         // Natural fallido: NO caer a Microsoft. Silencio.
-        setSpeaking(false);
+        if (generation === generationRef.current) setSpeaking(false);
+        return false;
       }
     },
     [lang, mode, stop, speakNatural, speakBrowser]

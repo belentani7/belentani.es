@@ -24,5 +24,13 @@ const VoyageCinema = dynamic(() => import('@/components/voyage/VoyageCinema'), {
 });
 
 export default function Home() {
-  return <VoyageCinema />;
+  return (
+    <>
+      <h1 className="sr-only">Belentani: música, imagen y galaxias interactivas</h1>
+      <p className="sr-only">
+        Universo artístico de Belentani: pop alternativo, R&amp;B, electrónica experimental y Judas Era.
+      </p>
+      <VoyageCinema />
+    </>
+  );
 }

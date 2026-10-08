@@ -55,10 +55,14 @@ if (exists('app/page.tsx')) {
 
 if (exists('src/lib/voyage-places.ts')) {
   const v = read('src/lib/voyage-places.ts');
-  const need = ['judas-experience-web', 'diamond', 'blackhole', 'key', 'planet'];
+  // El catálogo actual sustituyó nombres históricos (diamond/blackhole/key)
+  // por estaciones navegables del mismo universo. Auditar el contrato actual,
+  // no exigir alias retirados que producen falsos negativos.
+  const need = ['viaje3d', 'planet', 'judas-web', 'unificado', 'expanded', 'identity-core', 'memory-os', 'nucleo'];
   const missing = need.filter((n) => !v.includes(n));
-  if (missing.length === 0) ok('voyage-places', 'Lugares 3D + warps presentes');
-  else fail('voyage-places', `Falta: ${missing.join(', ')}`);
+  const urlCount = (v.match(/url:\s*'/g) || []).length;
+  if (missing.length === 0 && urlCount >= need.length) ok('voyage-places', 'Catálogo actual de estaciones + warps presente');
+  else fail('voyage-places', `Falta: ${missing.join(', ') || 'URL en estación'}`);
 } else {
   fail('voyage-places', 'Falta voyage-places.ts');
 }

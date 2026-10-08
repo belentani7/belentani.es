@@ -7,7 +7,7 @@
   --color-void: #030008;
   --color-voidElevated: #0a0205;
   --color-ink: #f2e8ef;
-  --color-mute: #9a8a96;
+  --color-mute: #b8a8b4;
   --color-red: #ff073a;
   --color-redDim: #7a0e1e;
   --color-blood: #8a0303;
@@ -27,6 +27,7 @@ body { background: var(--color-void); color: var(--color-ink); font-family: var(
 a { color: var(--color-red); text-decoration: none; }
 button { font-family: var(--font-mono); cursor: pointer; }
 input, select, textarea { font-family: var(--font-mono); }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #0a0205; }
 ::-webkit-scrollbar-thumb { background: var(--color-redDim); border-radius: 0; }

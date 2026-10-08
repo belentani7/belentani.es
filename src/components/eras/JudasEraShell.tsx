@@ -16,7 +16,13 @@ const chapters = [
 class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
-  render() { return this.state.failed ? null : this.props.children; }
+  render() {
+    return this.state.failed ? (
+      <div role="status" style={{ padding: '2rem', color: '#d4af37', fontFamily: 'monospace' }}>
+        El lienzo inmersivo no está disponible en este navegador. La navegación y la historia siguen activas abajo.
+      </div>
+    ) : this.props.children;
+  }
 }
 
 export default function JudasEraShell() {
@@ -33,7 +39,11 @@ export default function JudasEraShell() {
   return <main className={styles.shell}>
     <section className={styles.stage} aria-label="Judas Era">
       <div className={styles.cosmos} aria-label="Galaxia de Judas" role="img">
-        {webgl && <SceneBoundary><Cosmos calm={reduced || paused} chapter={chapter} /></SceneBoundary>}
+        {webgl ? <SceneBoundary><Cosmos calm={reduced || paused} chapter={chapter} /></SceneBoundary> : (
+          <div role="status" style={{ padding: '2rem', color: '#d4af37', fontFamily: 'monospace' }}>
+            Modo compatible activo: esta experiencia conserva sus capítulos y controles sin WebGL.
+          </div>
+        )}
       </div>
       <header className={styles.header}>
         <Link className={styles.brand} href="/">BELENTANI<span>THE EXPERIENCE</span></Link>

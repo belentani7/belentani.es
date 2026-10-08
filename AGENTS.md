@@ -8,7 +8,8 @@ Unify the artist's highest-value web experiences into a coherent, immersive arti
 2. Read `banco-recursos-galacticos/COMO_UNIR.md` and `banco-recursos-galacticos/inventario.md` for the integration architecture and inventory snapshot. The JSON inventory is generated and dated 2026-10-01; treat counts and paths as a snapshot, not guaranteed current truth.
 3. **App única = galaxia:** `galaxia/` es el mapa viajable de todo lo de valor en esta carpeta. `npm start` / `ABRIR_APP.bat` → `http://localhost:4321/galaxia/`. Subpáginas (`obra/`, `unificado/`, `profesion/`, shell) son sistemas del mismo mapa, no marcas competidoras.
 4. Read `lore-canon/belentani-universo-SKILL.md` before changing lore, visual symbolism, or album concepts. `belentani-songwriting-SKILL.md` applies when writing lyrics.
-5. Use `banco-recursos-galacticos/inventario.json` to locate candidate assets/effects. Check each source's license and provenance before reuse; Sketchfab availability is not permission to download or redistribute.
+5. Read `AGENT_WORK_QUEUE.md` for the active, user-authorized tasks and their completion criteria.
+6. Use `banco-recursos-galacticos/inventario.json` to locate candidate assets/effects. Check each source's license and provenance before reuse; Sketchfab availability is not permission to download or redistribute.
 
 ## Canon and product intent
 - Narrative arc: a voice-less origin, a self-implicating antihero, betrayal/desire, an unpayable debt, and the closing imperative to leave peacefully but remember.

@@ -3,7 +3,7 @@ export const tokens = {
     void: '#030008',
     voidElevated: '#0a0205',
     ink: '#f2e8ef',
-    mute: '#9a8a96',
+    mute: '#b8a8b4',
     red: '#ff073a',
     redDim: '#7a0e1e',
     blood: '#8a0303',

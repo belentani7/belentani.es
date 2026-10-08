@@ -36,7 +36,8 @@ const nextConfig = {
   },
   headers: async () => [
     { source: '/:path*', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }] },
-    { source: '/assets/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
+    // These filenames are not content-hashed: edits must reach returning visitors.
+    { source: '/assets/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, must-revalidate' }] },
   ],
   webpack: (config, { isServer }) => {
     if (!isServer) {

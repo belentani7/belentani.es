@@ -278,7 +278,7 @@ export default function ConsciousMachine() {
         <span>Vidrio rojo · sangre neón · código consciente</span>
         <span>
           Voz: {voice.supported ? (voice.mode === 'natural' ? 'NATURAL' : 'BROWSER') : 'N/A'}
-          {voice.naturalReady ? ' · ElevenLabs listo' : ' · sin endpoint'}
+          {voice.naturalReady ? ' · narración configurada' : ' · narración no disponible'}
         </span>
       </footer>
     </main>

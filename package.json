@@ -68,9 +68,9 @@
     "vitest": "2.0.0"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": "22.x"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.17.1",
   "pnpm": {
     "overrides": {
       "@tailwindcss/oxide": "4.0.0",

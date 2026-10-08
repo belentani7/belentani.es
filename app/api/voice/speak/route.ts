@@ -6,26 +6,41 @@ import { NextRequest, NextResponse } from 'next/server';
  *  1) ELEVENLABS_API_KEY → TTS ElevenLabs (voz natural / clon)
  *  2) VOICE_CLONE_UPSTREAM + VOICE_CLONE_API_KEY → proxy genérico
  *
- * En .env.local (nunca commit):
- *   ELEVENLABS_API_KEY=...
- *   ELEVENLABS_VOICE_ID=...   (opcional; default masculino multilenguaje)
- *   NEXT_PUBLIC_VOICE_CLONE_ENDPOINT=/api/voice/speak
+ * Credenciales cargadas en tiempo de ejecución desde el vault privado,
+ * nunca escritas en archivos de configuración ni dentro del proyecto.
  */
 export const runtime = 'nodejs';
 
 const DEFAULT_VOICE = process.env.ELEVENLABS_VOICE_ID || 'pNInz6obpgDQGcFmaJgB'; // Adam — natural male
 
+export async function GET() {
+  return NextResponse.json(
+    { available: Boolean(process.env.ELEVENLABS_API_KEY || process.env.VOICE_CLONE_UPSTREAM) },
+    { headers: { 'Cache-Control': 'no-store' } }
+  );
+}
+
 export async function POST(req: NextRequest) {
-  let body: { text?: string; lang?: string; voiceId?: string };
+  let input: unknown;
   try {
-    body = await req.json();
+    input = await req.json();
   } catch {
     return NextResponse.json({ error: 'JSON inválido' }, { status: 400 });
   }
 
-  const text = (body.text || '').trim();
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    return NextResponse.json({ error: 'Objeto JSON requerido' }, { status: 400 });
+  }
+  const body = input as Record<string, unknown>;
+  const text = typeof body.text === 'string' ? body.text.trim() : '';
   if (!text || text.length > 2000) {
     return NextResponse.json({ error: 'text requerido (máx 2000)' }, { status: 400 });
+  }
+  if (body.voiceId !== undefined && (typeof body.voiceId !== 'string' || !/^[a-zA-Z0-9_-]{1,128}$/.test(body.voiceId))) {
+    return NextResponse.json({ error: 'voiceId inválido' }, { status: 400 });
+  }
+  if (body.lang !== undefined && (typeof body.lang !== 'string' || !/^[a-z]{2}(?:-[A-Za-z]{2,4})?$/.test(body.lang))) {
+    return NextResponse.json({ error: 'lang inválido' }, { status: 400 });
   }
 
   const elevenKey = process.env.ELEVENLABS_API_KEY;
@@ -39,6 +54,7 @@ export async function POST(req: NextRequest) {
           Accept: 'audio/mpeg',
           'xi-api-key': elevenKey,
         },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           text,
           model_id: 'eleven_multilingual_v2',
@@ -51,9 +67,8 @@ export async function POST(req: NextRequest) {
         }),
       });
       if (!res.ok) {
-        const detail = await res.text().catch(() => '');
         return NextResponse.json(
-          { error: 'elevenlabs_failed', status: res.status, detail: detail.slice(0, 200) },
+          { error: 'elevenlabs_failed', status: res.status },
           { status: 502 }
         );
       }
@@ -77,6 +92,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/json',
           ...(key ? { Authorization: `Bearer ${key}` } : {}),
         },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           text,
           lang: body.lang || 'es-ES',
@@ -97,7 +113,7 @@ export async function POST(req: NextRequest) {
           },
         });
       }
-      return NextResponse.json(await res.json());
+      return NextResponse.json({ error: 'upstream_audio_required' }, { status: 502 });
     } catch {
       return NextResponse.json({ error: 'upstream_unreachable' }, { status: 502 });
     }
@@ -106,9 +122,7 @@ export async function POST(req: NextRequest) {
   return NextResponse.json(
     {
       error: 'voice_offline',
-      message:
-        'No hay ELEVENLABS_API_KEY en .env.local. Pega TU clave (no la de terceros). Sin Microsoft Speech.',
-      hint: 'ELEVENLABS_API_KEY=... y NEXT_PUBLIC_VOICE_CLONE_ENDPOINT=/api/voice/speak',
+      message: 'La narración no está disponible ahora. Puedes seguir explorando sin voz.',
     },
     { status: 501 }
   );
