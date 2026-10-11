@@ -14,6 +14,11 @@ const nextConfig = {
     remotePatterns: [{ protocol: 'https', hostname: '**.github.io' }],
   },
   // Evita 404: Next redirige /dir/ → /dir sin servir index.html de public/
+  async redirects() {
+    return [
+      { source: '/judas/qwen-perfil', destination: '/judas/cognicion', permanent: true },
+    ];
+  },
   async rewrites() {
     const core = 'ome' + 'ga-core';
     const versiones = 'ome' + 'ga-versiones';

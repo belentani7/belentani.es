@@ -9,9 +9,9 @@ vi.mock('@/hooks/useVoiceNarrator', () => ({
 }));
 afterEach(() => { cleanup(); vi.useRealTimers(); window.history.replaceState({}, '', '/'); });
 
-test('starts inside the original world, with the console and navigation labels closed', () => {
+test('starts inside the canonical galaxy, with the console and navigation labels closed', () => {
   const { container } = render(<VoyageCinema />);
-  expect(container.querySelector('iframe')?.getAttribute('src')).toContain('viaje3d');
+  expect(container.querySelector('iframe')?.getAttribute('src')).toContain('/galaxia');
   expect(screen.queryByRole('textbox')).toBeNull();
   expect(screen.queryByRole('log')).toBeNull();
   expect(screen.queryByText(/PAUSA/)).toBeNull();

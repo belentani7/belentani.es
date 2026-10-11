@@ -9,9 +9,11 @@ import styles from './JudasEraShell.module.css';
 const Cosmos = dynamic(() => import('../canvas/CanonCosmos'), { ssr: false });
 const chapters = [
   { title: 'Génesis', symbol: '01', line: 'Antes del nombre, la voz.', text: 'Antes del nombre hubo un cuerpo sin voz. Antes del cuerpo, un espejo en la arena.' },
-  { title: 'Traición', symbol: '02', line: 'El espejo devuelve la mirada.', text: 'Aprendió a cantar y entendió el daño que llevaba. El narrador deja de esconderse: el antihéroe también era él.' },
-  { title: 'La deuda', symbol: '03', line: 'Hay puertas que no se olvidan.', text: 'Una llave, un lugar vacío y la promesa de volver. Queda una deuda que ninguna despedida consigue cerrar.' },
-  { title: 'Redención', symbol: '04', line: 'Vete tranquilo, pero recuérdame.', text: 'La herida no desaparece. Cambia la forma de llevarla. El final no absuelve: deja una voz.' },
+  { title: 'La Invitación', symbol: '02', line: 'La luz del sexto piso.', text: 'La luz del sexto piso. Subir es entrar en una noche sin mapa. Judas ya está dentro de la casa — botas, cadenas, sonrisa de fuego.' },
+  { title: 'El Exceso', symbol: '03', line: 'Cera, deseo y silencio.', text: 'Cera, deseo y el silencio después del ruido. Las estrellas se disolvieron. Él secó el cabello de Judas sobre su pecho y susurró una oración para que se quedara.' },
+  { title: 'Traición', symbol: '04', line: 'El espejo devuelve la mirada.', text: 'Aprendió a cantar y entendió el daño que llevaba. El narrador deja de esconderse: el antihéroe también era él.' },
+  { title: 'La deuda', symbol: '05', line: 'Hay puertas que no se olvidan.', text: 'Una llave, un lugar vacío y la promesa de volver. Queda una deuda que ninguna despedida consigue cerrar.' },
+  { title: 'Redención', symbol: '06', line: 'Vete tranquilo, pero recuérdame.', text: 'La herida no desaparece. Cambia la forma de llevarla. El final no absuelve: deja una voz.' },
 ];
 class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -54,7 +56,7 @@ export default function JudasEraShell() {
       <div className={styles.controls}>
         <button title={paused ? 'Reanudar movimiento' : 'Pausar movimiento'} aria-label={paused ? 'Reanudar movimiento' : 'Pausar movimiento'} aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? '▷' : 'Ⅱ'}</button>
         <button title="Modo inmersivo" aria-label="Modo inmersivo" aria-pressed={state.isImmersiveMode} onClick={state.toggleImmersiveMode}>⛶</button>
-        <button title="Reset to Canon 0" aria-label="Reset to Canon 0" onClick={() => { state.resetToCanon(); setChapter(0); }}>↺</button>
+        <button title="Reiniciar Canon 0" aria-label="Reiniciar Canon 0" onClick={() => { state.resetToCanon(); setChapter(0); }}>↺</button>
       </div>
       <div className={styles.bottom}>
         <div className={styles.chapterIntro} aria-live="polite"><span>CAPÍTULO {chapters[chapter].symbol}</span><h2>{chapters[chapter].line}</h2></div>

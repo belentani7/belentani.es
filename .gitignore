@@ -44,6 +44,9 @@ test-results/
 playwright-report/
 .local-archive/
 
+# Leftover git worktree checkouts (dead gitdir pointers; never re-add as gitlink)
+belentani.es.worktrees/
+
 # Local world junctions (do not version clone trees)
 /public/mundos/
 /public/viaje3d/

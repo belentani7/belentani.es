@@ -11,8 +11,20 @@ const sceneMap = {
   deuda: dynamic(() => import('./components/KeyScene').then(m => m.KeyScene), { ssr: false }),
   redencion: dynamic(() => import('./components/MachineScene').then(m => m.MachineScene), { ssr: false }),
   'biblia-musica': dynamic(() => import('./components/BibliaScene').then(m => m.BibliaScene), { ssr: false }),
-  'qwen-perfil': dynamic(() => import('./components/CognitionScene').then(m => m.CognitionScene), { ssr: false }),
+  cognicion: dynamic(() => import('./components/CognitionScene').then(m => m.CognitionScene), { ssr: false }),
 };
+
+const CrystalSky = () => (
+  <div
+    aria-hidden
+    style={{
+      position: 'absolute',
+      inset: 0,
+      background: 'radial-gradient(ellipse at 55% 40%, #4a0818 0%, #120008 40%, #020006 75%)',
+      zIndex: 0,
+    }}
+  />
+);
 
 interface ChapterContentProps {
   chapterId: string;
@@ -42,7 +54,7 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
   return (
     <div className="h-screen w-full relative bg-void">
       <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center text-mute font-mono">Cargando capítulo…</div>}>
-        <Scene />
+        {Scene ? <Scene /> : <CrystalSky />}
       </Suspense>
 
       {/* Narrative Overlay */}
@@ -64,16 +76,16 @@ export default function ChapterContent({ chapterId }: ChapterContentProps) {
         <Button variant="ghost" onClick={() => {
           const idx = judasChapters.findIndex(c => c.id === chapter.id);
           if (idx > 0) goToChapter(judasChapters[idx - 1].id);
-        }} disabled={chapter.id === 'genesis'}>
+        }} disabled={chapter.order === 1}>
           ← Anterior
         </Button>
         <span className="font-mono text-xs tracking-widest uppercase text-gold px-4">
-          {judasChapters.findIndex(c => c.id === chapter.id) + 1} / {judasChapters.length}
+          {chapter.order} / {judasChapters.length}
         </span>
         <Button variant="ghost" onClick={() => {
           const idx = judasChapters.findIndex(c => c.id === chapter.id);
           if (idx < judasChapters.length - 1) goToChapter(judasChapters[idx + 1].id);
-        }} disabled={chapter.id === 'qwen-perfil'}>
+        }} disabled={chapter.order === judasChapters.length}>
           Siguiente →
         </Button>
       </div>

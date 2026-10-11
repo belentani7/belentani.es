@@ -14,46 +14,46 @@ export interface VoyagePlace {
   accent: string;
 }
 
-/** Planetas del mismo cielo — HTML locales reales */
+/** Planetas del mismo cielo — cada planeta apunta a una experiencia viva y verificada */
 export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'viaje3d',
     title: 'GALAXIA',
     tagline: 'Planetas · estaciones · nave',
     kind: 'warp',
-    url: '/viaje3d/index.html',
+    url: '/galaxia',
     accent: '#ff073a',
   },
   {
     id: 'planet',
-    title: 'PLANETA',
-    tagline: 'Diamante · llave · máquina',
+    title: 'NEON',
+    tagline: 'Identidad visual · dark pop',
     kind: 'warp',
-    url: '/mundos/judas-web/sources/planetary/' + 'ome' + 'ga-living-universe.html',
+    url: '/neon',
     accent: '#ff073a',
   },
   {
     id: 'judas-web',
     title: 'JUDAS',
-    tagline: 'Experiencia viva local',
+    tagline: 'Seis capítulos · stems reales',
     kind: 'warp',
-    url: '/mundos/judas-web/index.html',
+    url: '/judas',
     accent: '#ff073a',
   },
   {
     id: 'unificado',
     title: 'UNIFICADO',
-    tagline: 'Lore + Three local',
+    tagline: 'Puerta al satélite Three',
     kind: 'warp',
-    url: '/unificado-live/index.html',
+    url: '/unificado',
     accent: '#d4af37',
   },
   {
     id: 'expanded',
     title: 'HORIZONTE',
-    tagline: 'Expanded · sangre',
+    tagline: 'Modo compatible · sin WebGL',
     kind: 'warp',
-    url: '/mundos/judas-expanded/index.html',
+    url: '/judas-era',
     accent: '#8a0303',
   },
   {
@@ -77,7 +77,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'NÚCLEO',
     tagline: 'Shell maestro',
     kind: 'warp',
-    url: '/mundos/' + 'ome' + 'ga-core/index.html',
+    url: '/maquina',
     accent: '#ff073a',
   },
 ];

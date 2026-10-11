@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/** LEGACY — tema real vive en app/globals.css @theme (Tailwind v4). Mantener solo para tooling externo. */
 const config = {
   content: ['./src/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   theme: {
@@ -7,7 +8,7 @@ const config = {
         void: '#030008',
         voidElevated: '#0a0205',
         ink: '#f2e8ef',
-        mute: '#9a8a96',
+        mute: '#b8a8b4',
         red: '#ff073a',
         redDim: '#7a0e1e',
         blood: '#8a0303',
