@@ -14,12 +14,12 @@ export interface VoyagePlace {
   accent: string;
 }
 
-/** Planetas del mismo cielo — cada planeta apunta a una experiencia viva y verificada */
+/** Planetas del mismo cielo — rutas internas presentes en esta aplicación */
 export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'viaje3d',
     title: 'GALAXIA',
-    tagline: 'Planetas · estaciones · nave',
+    tagline: 'Escena cinematográfica · nave',
     kind: 'warp',
     url: '/galaxia',
     accent: '#ff073a',
@@ -35,7 +35,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'judas-web',
     title: 'JUDAS',
-    tagline: 'Seis capítulos · stems reales',
+    tagline: 'Seis capítulos · dos anexos',
     kind: 'warp',
     url: '/judas',
     accent: '#ff073a',
@@ -43,7 +43,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'unificado',
     title: 'UNIFICADO',
-    tagline: 'Puerta al satélite Three',
+    tagline: 'Puente al satélite artístico',
     kind: 'warp',
     url: '/unificado',
     accent: '#d4af37',
@@ -51,26 +51,26 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'expanded',
     title: 'HORIZONTE',
-    tagline: 'Modo compatible · sin WebGL',
+    tagline: 'Horizonte cinematográfico',
     kind: 'warp',
     url: '/judas-era',
     accent: '#8a0303',
   },
   {
-    id: 'identity-core',
-    title: 'IDENTIDAD',
-    tagline: 'Archivo 120k',
+    id: 'origen',
+    title: 'ORIGEN',
+    tagline: 'El artista · música e imagen',
     kind: 'warp',
-    url: '/mundos/judas-identity-core.html',
-    accent: '#ff073a',
+    url: '/artista',
+    accent: '#d4af37',
   },
   {
-    id: 'memory-os',
-    title: 'MEMORIA',
-    tagline: 'OS de memoria',
+    id: 'sonic-archive',
+    title: 'ARCHIVO SONORO',
+    tagline: 'La voz y las canciones',
     kind: 'warp',
-    url: '/mundos/memory-os-30k.html',
-    accent: '#d4af37',
+    url: '/musica',
+    accent: '#4de8e0',
   },
   {
     id: 'nucleo',

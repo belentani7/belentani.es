@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import type { VoyagePlace } from '@/lib/voyage-places';
@@ -18,14 +18,15 @@ export function VoyageMap({
   onSelect: (id: string) => void;
 }) {
   const reduced = useReducedMotion();
+  useEffect(() => () => { document.body.style.cursor = ''; }, []);
   return (
-    <Canvas camera={{ position: [0, 18, 28], fov: 48 }} dpr={[1, 1.6]}>
+    <Canvas camera={{ position: [0, 18, 28], fov: 48 }} dpr={[1, 1.5]} frameloop={reduced ? 'demand' : 'always'}>
       <color attach="background" args={['#030008']} />
       <Stars radius={220} depth={90} count={5500} factor={3.2} saturation={0} fade speed={reduced ? 0 : 0.15} />
       <ambientLight intensity={0.35} />
       <pointLight position={[0, 8, 10]} intensity={40} color="#ff073a" distance={60} />
       <pointLight position={[-10, 2, -8]} intensity={14} color="#d4af37" distance={40} />
-      <GalaxyDust />
+      <GalaxyDust reduced={reduced} />
       <OrbitRing />
       {places.map((p, i) => (
         <PlaceNode
@@ -34,6 +35,7 @@ export function VoyageMap({
           index={i}
           total={places.length}
           active={p.id === currentId}
+          reduced={reduced}
           onSelect={onSelect}
         />
       ))}
@@ -42,7 +44,7 @@ export function VoyageMap({
   );
 }
 
-function GalaxyDust() {
+function GalaxyDust({ reduced }: { reduced: boolean }) {
   const geo = useMemo(() => {
     const n = 8000;
     const pos = new Float32Array(n * 3);
@@ -73,8 +75,9 @@ function GalaxyDust() {
     return g;
   }, []);
   const ref = useRef<THREE.Points>(null);
+  useEffect(() => () => geo.dispose(), [geo]);
   useFrame((_, d) => {
-    if (ref.current) ref.current.rotation.y += d * 0.02;
+    if (ref.current && !reduced) ref.current.rotation.y += d * 0.02;
   });
   return (
     <points ref={ref} geometry={geo}>
@@ -103,18 +106,20 @@ function PlaceNode({
   index,
   total,
   active,
+  reduced,
   onSelect,
 }: {
   place: VoyagePlace;
   index: number;
   total: number;
   active: boolean;
+  reduced: boolean;
   onSelect: (id: string) => void;
 }) {
   const pos = placePos(index, total);
   const mesh = useRef<THREE.Mesh>(null);
   useFrame((_, d) => {
-    if (mesh.current && active) mesh.current.rotation.y += d * 1.2;
+    if (mesh.current && active && !reduced) mesh.current.rotation.y += d * 1.2;
   });
   return (
     <group position={pos}>
@@ -128,7 +133,7 @@ function PlaceNode({
           document.body.style.cursor = 'pointer';
         }}
         onPointerOut={() => {
-          document.body.style.cursor = 'auto';
+          document.body.style.cursor = '';
         }}
         scale={active ? 1.6 : 1}
       >

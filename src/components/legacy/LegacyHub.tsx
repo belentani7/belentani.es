@@ -4,10 +4,21 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ChangeEvent } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { judasChapters } from '@/lib/judas-data';
+import { VOYAGE_PLACES } from '@/lib/voyage-places';
 import { WORLDS, findWorld, type World } from './worlds';
 import styles from './LegacyHub.module.css';
 
 const LegacyScene = dynamic(() => import('./LegacyScene'), { ssr: false });
+const VoyageMap = dynamic(() => import('@/components/voyage/VoyageMap').then((module) => module.VoyageMap), { ssr: false });
+const ARTIST_PLACES = VOYAGE_PLACES.filter((place) => place.kind === 'warp' && place.url);
+const SIGNATURES = [
+  { name: 'PEDRO', role: 'LA ROCA', copy: 'El cuerpo que sostiene.' },
+  { name: 'MARCOS', role: 'EL CRONISTA', copy: 'La memoria que registra.' },
+  { name: 'SANTOS', role: 'LA ANTENA', copy: 'La escucha antes del nombre.' },
+  { name: 'BELENTANI', role: 'EL ARTEFACTO', copy: 'El conflicto convertido en obra.' },
+  { name: 'THE HUMAN', role: 'LA INTERFAZ', copy: 'La persona real y el presente.' },
+] as const;
 
 function supportsWebGL(): boolean {
   try {
@@ -23,6 +34,8 @@ function supportsWebGL(): boolean {
 
 export default function LegacyHub() {
   const [selected, setSelected] = useState<World['id']>('judas');
+  const [mode, setMode] = useState<'artist' | 'ecosystem'>('artist');
+  const [selectedPlace, setSelectedPlace] = useState('judas-web');
   const [webgl, setWebgl] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string>();
   const [audioName, setAudioName] = useState('');
@@ -32,8 +45,11 @@ export default function LegacyHub() {
   const analyserRef = useRef<AnalyserNode | null>(null);
   const animationRef = useRef<number | null>(null);
   const energy = useRef(0);
+  const sceneRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const world = findWorld(selected) ?? WORLDS[0];
+  const place = ARTIST_PLACES.find((item) => item.id === selectedPlace) ?? ARTIST_PLACES[0];
+  const destination = mode === 'artist' ? place : world;
 
   useEffect(() => setWebgl(supportsWebGL()), []);
   useEffect(() => () => {
@@ -52,6 +68,7 @@ export default function LegacyHub() {
     }
     audioElement.current?.pause();
     energy.current = 0;
+    if (sceneRef.current) sceneRef.current.style.filter = '';
     setAudioError('');
     setAudioName(file.name);
     setAudioUrl(URL.createObjectURL(file));
@@ -79,6 +96,7 @@ export default function LegacyHub() {
         analyser.getByteFrequencyData(data);
         const average = data.reduce((sum, value) => sum + value, 0) / data.length;
         energy.current += (Math.min(1, average / 110) - energy.current) * 0.16;
+        if (sceneRef.current) sceneRef.current.style.filter = `brightness(${1 + energy.current * 0.26})`;
         animationRef.current = requestAnimationFrame(sample);
       };
       sample();
@@ -91,17 +109,20 @@ export default function LegacyHub() {
     if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
     animationRef.current = null;
     energy.current = 0;
+    if (sceneRef.current) sceneRef.current.style.filter = '';
   }
 
   return (
     <main className={styles.hub}>
-      <a className={styles.skip} href="#worlds">Saltar a los destinos</a>
+      <a className={styles.skip} href="#constelacion">Saltar a los planetas</a>
       <div className={styles.grain} aria-hidden="true" />
       <header className={styles.header}>
         <Link href="/" className={styles.brand} aria-label="Belentani, inicio">B<span>7</span><i>.</i></Link>
-        <div className={styles.headerCenter}>BELENTANI <span>/</span> UNIVERSO</div>
+        <div className={styles.headerCenter}>BELENTANI <span>/</span> MÁQUINA VIVA</div>
         <nav className={styles.topNav} aria-label="Navegación principal">
-          <Link href="/judas-era">JUDAS</Link>
+          <a href="#constelacion">PLANETAS</a>
+          <Link href="/judas">JUDAS</Link>
+          <Link href="/maquina">MÁQUINA</Link>
           <Link href="/agency">AGENCY</Link>
           <Link href="/duck">DUCK</Link>
           <Link href="/school">SCHOOL</Link>
@@ -110,34 +131,104 @@ export default function LegacyHub() {
       </header>
 
       <section className={styles.stage} aria-labelledby="legacy-heading">
-        <div className={styles.scene} aria-hidden="true">
-          {webgl && <LegacyScene selected={selected} onSelect={setSelected} energy={energy} reduced={reduced} />}
+        <div className={styles.scene} ref={sceneRef} aria-hidden="true">
+          {webgl && (mode === 'artist'
+            ? <VoyageMap places={ARTIST_PLACES} currentId={place.id} onSelect={setSelectedPlace} />
+            : <LegacyScene selected={selected} onSelect={setSelected} energy={energy} reduced={reduced} />)}
           <div className={styles.sceneVignette} />
         </div>
         <div className={styles.orbitLabel} aria-hidden="true">SYSTEM ONLINE <span>◇</span> B7 / 2026</div>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span className={styles.live} /> PEDRO BELENTANI · ARTISTA / CREADOR / CONSTRUCTOR</p>
-          <h1 id="legacy-heading">ENTRA EN<br /><em>EL UNIVERSO</em><span className={styles.period}>.</span></h1>
-          <p className={styles.lead}>Música, sistemas y conocimiento orbitan una misma voluntad. Elige un mundo. Encuentra tu propia ruta.</p>
+          <h1 id="legacy-heading">LA OBRA<br /><em>SIGUE VIVA</em><span className={styles.period}>.</span></h1>
+          <p className={styles.lead}>Un planeta, una llave, un diamante, una voz. Entra en JUDAS y atraviesa las puertas del universo BELENTANI.</p>
           <div className={styles.heroActions}>
-            <Link href={world.href} className={styles.enter}>ENTRAR EN {world.title} <span aria-hidden="true">↗</span></Link>
-            <a href="#worlds" className={styles.explore}>EXPLORAR LOS MUNDOS <span aria-hidden="true">↓</span></a>
+            <Link href={mode === 'artist' ? place.url! : world.href} className={styles.enter}>ENTRAR EN {destination.title} <span aria-hidden="true">↗</span></Link>
+            <a href="#constelacion" className={styles.explore}>EXPLORAR LOS PLANETAS <span aria-hidden="true">↓</span></a>
           </div>
         </div>
+        <div className={styles.modeSwitch} role="group" aria-label="Elegir mapa del universo">
+          <button type="button" aria-pressed={mode === 'artist'} onClick={() => setMode('artist')}>01 / OBRA</button>
+          <button type="button" aria-pressed={mode === 'ecosystem'} onClick={() => setMode('ecosystem')}>02 / ECOSISTEMA</button>
+        </div>
         <div className={styles.signal} role="status" aria-live="polite" aria-label="Mundo seleccionado">
-          <span className={styles.signalIndex}>TRANSMISIÓN / 0{WORLDS.findIndex((item) => item.id === selected) + 1}</span>
-          <span className={styles.signalTitle}>{world.title}</span>
-          <span className={styles.signalDescription}>{world.subtitle}</span>
-          <span className={styles.signalTrack} aria-hidden="true"><i style={{ backgroundColor: world.accent }} /></span>
+          <span className={styles.signalIndex}>TRANSMISIÓN / {mode === 'artist' ? 'OBRA' : 'ECOSISTEMA'}</span>
+          <span className={styles.signalTitle}>{destination.title}</span>
+          <span className={styles.signalDescription}>{mode === 'artist' ? place.tagline : world.subtitle}</span>
+          <span className={styles.signalTrack} aria-hidden="true"><i style={{ backgroundColor: destination.accent }} /></span>
         </div>
         <div className={styles.stageBottom}><span>DESCIENDE PARA NAVEGAR</span><span>SCROLL ↓</span></div>
       </section>
 
+      <section id="constelacion" className={styles.constellation} aria-labelledby="constellation-title">
+        <div className={styles.constellationIntro}>
+          <span className={styles.overline}>CÓDICE / PLANETAS CON RUTA PROPIA</span>
+          <h2 id="constellation-title">UN UNIVERSO.<br /><em>MUCHAS PUERTAS.</em></h2>
+          <p>La obra se despliega en escenas, capítulos y archivos. Elige un nodo en el cielo o desde esta lista: cada puerta conserva su voz.</p>
+        </div>
+        <div className={styles.planetList}>
+          {ARTIST_PLACES.map((item, index) => (
+            <article className={styles.planetEntry} key={item.id} style={{ ['--accent' as string]: item.accent }}>
+              <button type="button" aria-pressed={selectedPlace === item.id && mode === 'artist'} onClick={() => { setSelectedPlace(item.id); setMode('artist'); }} aria-label={`Enfocar ${item.title} en el mapa`}>
+                <span className={styles.planetNumber}>{String(index + 1).padStart(2, '0')}</span>
+                <span className={styles.planetDot} aria-hidden="true" />
+                <strong>{item.title}</strong>
+                <span>{item.tagline}</span>
+              </button>
+              <Link href={item.url!} aria-label={`Entrar en ${item.title}`}>ENTRAR ↗</Link>
+            </article>
+          ))}
+        </div>
+        <div className={styles.loreStatement}>
+          <p className={styles.overline}>ARCHIVO / LA LLAVE DORADA</p>
+          <blockquote>La llave es metal.<br /><em>Mi voz nadie me la arrebata.</em></blockquote>
+          <p>JUDAS es una ficción simbólica: el planeta, el espejo y la máquina cambian de forma; la voz atraviesa todos los mundos.</p>
+          <Link href="/maquina">ABRIR LA MÁQUINA ↗</Link>
+        </div>
+      </section>
+
+      <section className={styles.chronicle} aria-labelledby="chronicle-title">
+        <div className={styles.chronicleHeader}>
+          <span className={styles.overline}>JUDAS / LA CRÓNICA</span>
+          <h2 id="chronicle-title">SEIS CAPÍTULOS.<br /><em>UNA VOZ.</em></h2>
+          <p>Del espejo a la máquina. La historia se recorre como obra audiovisual, con dos anexos para volver al proceso.</p>
+        </div>
+        <ol className={styles.chapterList}>
+          {judasChapters.filter((chapter) => chapter.kind === 'chapter').map((chapter, index) => (
+            <li key={chapter.id}>
+              <Link href={`/judas/${chapter.id}`}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <span aria-hidden="true">{chapter.symbol}</span>
+                <strong>{chapter.name}</strong>
+                <small>{chapter.lore}</small>
+                <b aria-hidden="true">↗</b>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <Link className={styles.chronicleLink} href="/judas">ENTRAR EN LA OBRA COMPLETA / 2 ANEXOS ↗</Link>
+      </section>
+
+      <section className={styles.signatures} aria-labelledby="signatures-title">
+        <span className={styles.overline}>PUERTA MAESTRA / CINCO FIRMAS</span>
+        <h2 id="signatures-title">SER MUCHOS PARA<br /><em>SEGUIR SIENDO UNO.</em></h2>
+        <div className={styles.signatureGrid}>
+          {SIGNATURES.map((signature, index) => (
+            <div key={signature.name}>
+              <span>{String(index + 1).padStart(2, '0')} / {signature.role}</span>
+              <strong>{signature.name}</strong>
+              <p>{signature.copy}</p>
+            </div>
+          ))}
+        </div>
+        <p className={styles.signaturesNote}>Las firmas son funciones del relato, no personas distintas. La sexta variable es quien atraviesa la obra.</p>
+      </section>
+
       <section id="worlds" className={styles.worlds} aria-labelledby="worlds-title">
         <div className={styles.worldsHeading}>
-          <span className={styles.overline}>MAPA / 004 DESTINOS</span>
-          <h2 id="worlds-title">CUATRO MUNDOS.<br /><em>UNA FIRMA.</em></h2>
-          <p>Cada órbita tiene su identidad. La puerta está abierta.</p>
+          <span className={styles.overline}>ECOSISTEMA / 004 DESTINOS</span>
+          <h2 id="worlds-title">LA OBRA TAMBIÉN<br /><em>CONSTRUYE MUNDOS.</em></h2>
+          <p>Del sonido al estudio, de los sistemas a la educación: cuatro puertas con identidad propia.</p>
         </div>
         <div className={styles.worldGrid}>
           {WORLDS.map((item, index) => (
