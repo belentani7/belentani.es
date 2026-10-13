@@ -124,12 +124,12 @@ export default function LegacyHub() {
             <a href="#worlds" className={styles.explore}>EXPLORAR LOS MUNDOS <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <aside className={styles.signal} aria-label="Mundo seleccionado">
+        <div className={styles.signal} role="status" aria-live="polite" aria-label="Mundo seleccionado">
           <span className={styles.signalIndex}>TRANSMISIÓN / 0{WORLDS.findIndex((item) => item.id === selected) + 1}</span>
           <span className={styles.signalTitle}>{world.title}</span>
           <span className={styles.signalDescription}>{world.subtitle}</span>
           <span className={styles.signalTrack} aria-hidden="true"><i style={{ backgroundColor: world.accent }} /></span>
-        </aside>
+        </div>
         <div className={styles.stageBottom}><span>DESCIENDE PARA NAVEGAR</span><span>SCROLL ↓</span></div>
       </section>
 
