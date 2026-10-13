@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Legacy GitHub Pages export (manual)
 
+# Production is served by Vercel from main. Keep this export only for a deliberate
+# historical snapshot; it must never race the canonical deployment.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -24,20 +24,19 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: '9.0.0'
+          version: '10.17.1'
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Configure for GitHub Pages
-        run: |
-          cp next.config.github-pages.mjs next.config.mjs
+        run: cp next.config.github-pages.mjs next.config.mjs
 
       - name: Build
         run: pnpm build
