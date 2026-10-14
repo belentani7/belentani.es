@@ -1,6 +1,10 @@
-import JudasEraShell from '@/components/eras/JudasEraShell';
+import GalaxyVoyage from '@/components/voyage/GalaxyVoyage';
 
-/** Escena cinematográfica canónica — intacta, puente desde la máquina. */
+export const metadata = {
+  title: 'Galaxia navegable | BELENTANI',
+  description: 'Recorre la galaxia de JUDAS, la música y los mundos de Pedro Belentani.',
+};
+
 export default function GalaxiaPage() {
-  return <JudasEraShell />;
+  return <GalaxyVoyage />;
 }

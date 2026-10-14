@@ -1,0 +1,10 @@
+fecha_utc,origen_repositorio,ruta_origen,tipo,decision,destino,observacion
+2026-10-13,belentani7/belentani.es,src/components/canvas/CanonCosmos.tsx,codigo,adaptado,src/components/voyage/VoyageMap.tsx,Campo espiral canónico con semilla reproducible y paleta propia
+2026-10-13,belentani7/belentani.es,src/components/voyage/VoyageMap.tsx,codigo,evolucionado,src/components/voyage/VoyageMap.tsx,El marcador de nave y los destinos son ahora un atlas navegable
+2026-10-13,belentani7/belentani-visual-engine,packages/frontend/src/objects/Planet.ts,codigo,adaptado,src/components/voyage/VoyageMap.tsx,Superficie planetaria y halo atmosférico sin dependencia de otro monorepo
+2026-10-13,belentani7/belentani-visual-engine,packages/generators/src/planet/PlanetGenerator.ts,codigo,adaptado,src/components/voyage/CelestialMaterials.ts,Variación procedural de biomas y relieve en shader
+2026-10-13,belentani7/judas-experience-web,core/hub-scene.js,codigo,referencia,src/components/voyage/CelestialMaterials.ts,Ruido volumétrico y gradación cinematográfica revisados sin portar el demo completo
+2026-10-13,belentani7/judas-experience-unificado,sources/planetary/judas-accretion-kernel.html,codigo,referencia,src/components/voyage/VoyageMap.tsx,Disco de acreción y partículas como dirección visual
+2026-10-13,belentani7/BELENTANI-JUDAS-ERA-FULLSTACK,public/media/judas/judas-signal-ship.webp,imagen,localizada_no_importada,,Imagen de nave versionada de 102432 bytes; no es un modelo tridimensional
+2026-10-13,belentani7/belentani.es,banco-recursos-galacticos/inventario.json,inventario,no_importado,,Referencia a Ciclona/08-manthrax-space-nebula/game/ship.glb de 1122936 bytes; binario no versionado ni licencia verificada
+2026-10-13,belentani7/3d-portfolio,public/models/room.glb,modelo,no_importado,,Modelo versionado de habitación; no representa una nave ni un planeta

@@ -80,6 +80,30 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     url: '/maquina',
     accent: '#ff073a',
   },
+  {
+    id: 'agency',
+    title: 'AGENCY',
+    tagline: 'IA · confianza · evidencia',
+    kind: 'warp',
+    url: '/agency',
+    accent: '#b9a4ff',
+  },
+  {
+    id: 'duck',
+    title: 'DUCK STUDIO',
+    tagline: 'Música · producción creativa',
+    kind: 'warp',
+    url: '/duck',
+    accent: '#ffc36c',
+  },
+  {
+    id: 'school',
+    title: 'OPEN SCHOOL',
+    tagline: 'Educación · lenguas · acceso',
+    kind: 'warp',
+    url: '/school',
+    accent: '#83d6ba',
+  },
 ];
 
 /** Solo warp (órbita automática) */
