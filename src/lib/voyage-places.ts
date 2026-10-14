@@ -16,7 +16,7 @@ export interface VoyagePlace {
   assetNote?: string;
 }
 
-/** Planetas del mismo cielo — rutas internas y satélites públicos curados. */
+/** Planetas del mismo cielo — rutas internas y satélites curados. */
 export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'viaje3d',
@@ -33,7 +33,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'VISUAL ENGINE',
     tagline: 'Shaders · planeta vivo · export',
     kind: 'warp',
-    url: '/maquina',
+    url: '/visual-engine',
     accent: '#ff315b',
     sourceRepo: 'belentani-visual-engine',
     assetNote: 'Dirección técnica para planetas, diamante IOR y atmósfera',
@@ -43,7 +43,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'PLANETA ROJO',
     tagline: 'Órbita bioluminiscente · anillos',
     kind: 'warp',
-    url: '/galaxia',
+    url: '/planet-scene',
     accent: '#ff0033',
     sourceRepo: 'belentani-portfolio/client/src/components/PlanetScene.tsx',
     assetNote: 'Patrón de planeta neón y nave orbital adaptado',
@@ -83,7 +83,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'STARFIELD',
     tagline: 'Campo rojo · textura espacial',
     kind: 'warp',
-    url: '/neon',
+    url: '/starfield',
     accent: '#ff456d',
     sourceRepo: 'red-starfield-frontend',
     assetNote: 'Tratamiento de fondo rojo y estrellas',
@@ -93,7 +93,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'DIAMANTE',
     tagline: 'Facetas físicas · arquetipos',
     kind: 'warp',
-    url: '/#firmas',
+    url: '/diamante',
     accent: '#f4f0f2',
     sourceRepo: 'diamante-fotorealista',
     assetNote: 'Referencia de corte brillante y material físico',
@@ -103,7 +103,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'NAVE',
     tagline: 'Estela · guía · movimiento',
     kind: 'warp',
-    url: '/maquina',
+    url: '/nave',
     accent: '#4de8e0',
     sourceRepo: 'ManosAbiertas/src/components/manos-abiertas/SpaceShipTrail.tsx',
     assetNote: 'Estelas luminosas adaptadas como capa de navegación',
@@ -143,17 +143,17 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     title: 'OMEGA PORTAL',
     tagline: 'Portal inmersivo · Three.js',
     kind: 'warp',
-    url: 'https://belentani-omega-immersive-portal.vercel.app',
+    url: '/omega-portal',
     accent: '#b9a4ff',
     sourceRepo: 'belentani-omega-immersive-portal',
-    assetNote: 'Satélite 3D público',
+    assetNote: 'Satélite 3D público inventariado',
   },
   {
     id: 'portfolio3d',
     title: '3D PORTFOLIO',
     tagline: 'Room GLB · portfolio',
     kind: 'warp',
-    url: 'https://belentani7.github.io/3d-portfolio/',
+    url: '/portfolio3d',
     accent: '#83d6ba',
     sourceRepo: '3d-portfolio',
     assetNote: 'GLB localizado, no importado por no ser nave/planeta',
