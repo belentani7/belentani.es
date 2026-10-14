@@ -1,7 +1,7 @@
 fecha_utc,origen,tipo,hallazgo,decision,destino,observacion
 2026-10-14,belentani7/belentani-portfolio/client/src/components/PlanetScene.tsx,codigo,"planeta rojo 3D con anillos y nave bioluminiscente",adaptado,"src/components/voyage/VoyageMap.tsx","Se amplía el atlas con planetas, anillos y nave propia; no se copia el componente completo."
 2026-10-14,belentani7/ManosAbiertas/src/components/manos-abiertas/SpaceShipTrail.tsx,codigo,"estelas luminosas en canvas",adaptado,"src/components/voyage/GalaxyVoyage.tsx","Estelas reescritas como capa de navegación del hub."
-2026-10-14,belentani7/belentani_Omega/js/06-ai.js,codigo,"NAVE/CORE_AI local con comandos de lore",referencia,"src/lib/nave-knowledge.ts","El patrón ya alimenta NAVE; se conserva como fuente del agente."
+2026-10-14,B7 core local,codigo,"NAVE local con comandos de lore",referencia,"src/lib/nave-knowledge.ts","El patrón ya alimenta NAVE; se conserva como fuente del agente."
 2026-10-14,belentani7/belentani-visual-engine/SPEC.md,especificacion,"planeta vivo, diamante IOR, exports GLTF/USDZ/MP4/WebM",referencia,"src/components/voyage/VoyageMap.tsx","Dirección técnica para shaders y materiales."
 2026-10-14,belentani7/diamante-fotorealista/README.md,codigo,"diamante de corte brillante con material físico",adaptado,"src/components/voyage/VoyageMap.tsx","Cada planeta recibe un beacon diamantado translúcido."
 2026-10-14,belentani7/red-starfield-frontend,repo,"campo de estrellas rojo TypeScript",referencia,"src/lib/voyage-places.ts","Añadido como sistema STARFIELD dentro del atlas."
