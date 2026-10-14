@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import AgencyPortal from '@/components/portals/agency/AgencyPortal';
+import NoiacoreConsultancy from '@/components/noiacore/NoiacoreConsultancy';
 
 export const metadata: Metadata = {
-  title: 'Belentani Agency | IA y Trust & Safety',
-  description: 'Arquitectura de agentes, Trust & Safety y evidencia de decisiones de Belentani Agency.',
+  title: 'NOIACORE Consultoria | Belentani Agency',
+  description: 'Consultoria premium de IA, SaaS, terminales y sistemas noir de Pedro Belentani.',
 };
 
 export default function AgencyPage() {
-  return <AgencyPortal />;
+  return <NoiacoreConsultancy entry="agency" />;
 }

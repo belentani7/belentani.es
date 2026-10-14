@@ -33,6 +33,7 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
   { id: 'portal3d', title: 'PORTAL 3D', tagline: 'Portal inmersivo · Three.js', kind: 'warp', url: '/portal3d', accent: '#b9a4ff', sourceRepo: 'portal inmersivo B7', assetNote: 'Satélite 3D público inventariado' },
   { id: 'portfolio3d', title: '3D PORTFOLIO', tagline: 'Room GLB · portfolio', kind: 'warp', url: '/portfolio3d', accent: '#83d6ba', sourceRepo: '3d-portfolio', assetNote: 'GLB localizado, no importado por no ser nave/planeta' },
   { id: 'agency', title: 'AGENCY', tagline: 'IA · confianza · evidencia', kind: 'warp', url: '/agency', accent: '#b9a4ff', sourceRepo: 'noiacore-turbo-v2 · agentguard · evidence-ledger', assetNote: 'Imperio IA en órbita' },
+  { id: 'noiacore-consultoria', title: 'NOIACORE', tagline: 'Consultoría IA · SaaS · terminal noir', kind: 'warp', url: '/consultoria', accent: '#ff234e', sourceRepo: 'NOIACORE · hbo-noir-icons · saas-plasma · neural-git-tui · firelab', assetNote: 'HTML real, terminal del observador, noir glass y caballo negro procedural' },
   { id: 'duck', title: 'DUCK STUDIO', tagline: 'Música · producción creativa', kind: 'warp', url: '/duck', accent: '#ffc36c', sourceRepo: 'duck-studio-os-v2 · duck-music-lab', assetNote: 'Planeta musical creativo' },
   { id: 'school', title: 'OPEN SCHOOL', tagline: 'Educación · lenguas · acceso', kind: 'warp', url: '/school', accent: '#83d6ba', sourceRepo: 'open-school · linguaforge-v2', assetNote: 'Planeta educativo abierto' },
 ];
