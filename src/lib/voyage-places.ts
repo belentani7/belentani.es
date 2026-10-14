@@ -1,6 +1,6 @@
 /**
- * Un solo universo: pocos planetas en el mismo cielo.
- * Sin «versiones», sin menús de hamburger — órbita continua.
+ * Un solo universo: planetas navegables con origen trazable.
+ * Cada nodo resume una fuente real del ecosistema Belentani o una ruta viva del sitio.
  */
 
 export type PlaceKind = 'warp' | 'map';
@@ -12,9 +12,11 @@ export interface VoyagePlace {
   kind: PlaceKind;
   url?: string;
   accent: string;
+  sourceRepo?: string;
+  assetNote?: string;
 }
 
-/** Planetas del mismo cielo — rutas internas presentes en esta aplicación */
+/** Planetas del mismo cielo — rutas internas y satélites públicos curados. */
 export const VOYAGE_PLACES: VoyagePlace[] = [
   {
     id: 'viaje3d',
@@ -23,14 +25,28 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/galaxia',
     accent: '#ff073a',
+    sourceRepo: 'belentani.es',
+    assetNote: 'Atlas procedural propio',
   },
   {
-    id: 'planet',
-    title: 'NEON',
-    tagline: 'Identidad visual · dark pop',
+    id: 'visual-engine',
+    title: 'VISUAL ENGINE',
+    tagline: 'Shaders · planeta vivo · export',
     kind: 'warp',
-    url: '/neon',
-    accent: '#ff073a',
+    url: '/maquina',
+    accent: '#ff315b',
+    sourceRepo: 'belentani-visual-engine',
+    assetNote: 'Dirección técnica para planetas, diamante IOR y atmósfera',
+  },
+  {
+    id: 'planet-scene',
+    title: 'PLANETA ROJO',
+    tagline: 'Órbita bioluminiscente · anillos',
+    kind: 'warp',
+    url: '/galaxia',
+    accent: '#ff0033',
+    sourceRepo: 'belentani-portfolio/client/src/components/PlanetScene.tsx',
+    assetNote: 'Patrón de planeta neón y nave orbital adaptado',
   },
   {
     id: 'judas-web',
@@ -39,6 +55,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/judas',
     accent: '#ff073a',
+    sourceRepo: 'judas-experience-unificado',
+    assetNote: 'Planeta, llave, diamante y máquina como motivos centrales',
   },
   {
     id: 'unificado',
@@ -47,6 +65,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/unificado',
     accent: '#d4af37',
+    sourceRepo: 'judas-experience-unificado/readme.md',
+    assetNote: 'Canon de seis nodos y artefactos',
   },
   {
     id: 'expanded',
@@ -55,6 +75,38 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/judas-era',
     accent: '#8a0303',
+    sourceRepo: 'belentani-judas-era-export',
+    assetNote: 'Planeta 3D como lienzo narrativo',
+  },
+  {
+    id: 'red-starfield',
+    title: 'STARFIELD',
+    tagline: 'Campo rojo · textura espacial',
+    kind: 'warp',
+    url: '/neon',
+    accent: '#ff456d',
+    sourceRepo: 'red-starfield-frontend',
+    assetNote: 'Tratamiento de fondo rojo y estrellas',
+  },
+  {
+    id: 'diamond',
+    title: 'DIAMANTE',
+    tagline: 'Facetas físicas · arquetipos',
+    kind: 'warp',
+    url: '/#firmas',
+    accent: '#f4f0f2',
+    sourceRepo: 'diamante-fotorealista',
+    assetNote: 'Referencia de corte brillante y material físico',
+  },
+  {
+    id: 'spaceship-trail',
+    title: 'NAVE',
+    tagline: 'Estela · guía · movimiento',
+    kind: 'warp',
+    url: '/maquina',
+    accent: '#4de8e0',
+    sourceRepo: 'ManosAbiertas/src/components/manos-abiertas/SpaceShipTrail.tsx',
+    assetNote: 'Estelas luminosas adaptadas como capa de navegación',
   },
   {
     id: 'origen',
@@ -63,6 +115,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/artista',
     accent: '#d4af37',
+    sourceRepo: 'Drive + app/(marketing)/artista',
+    assetNote: 'Foto segura y bio revisada',
   },
   {
     id: 'sonic-archive',
@@ -71,6 +125,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/musica',
     accent: '#4de8e0',
+    sourceRepo: 'catálogo artístico',
+    assetNote: 'Ruta musical del universo',
   },
   {
     id: 'nucleo',
@@ -79,6 +135,28 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/maquina',
     accent: '#ff073a',
+    sourceRepo: 'belentani_Omega/js/06-ai.js',
+    assetNote: 'NAVE, comandos y lore local',
+  },
+  {
+    id: 'portal3d',
+    title: 'OMEGA PORTAL',
+    tagline: 'Portal inmersivo · Three.js',
+    kind: 'warp',
+    url: 'https://belentani-omega-immersive-portal.vercel.app',
+    accent: '#b9a4ff',
+    sourceRepo: 'belentani-omega-immersive-portal',
+    assetNote: 'Satélite 3D público',
+  },
+  {
+    id: 'portfolio3d',
+    title: '3D PORTFOLIO',
+    tagline: 'Room GLB · portfolio',
+    kind: 'warp',
+    url: 'https://belentani7.github.io/3d-portfolio/',
+    accent: '#83d6ba',
+    sourceRepo: '3d-portfolio',
+    assetNote: 'GLB localizado, no importado por no ser nave/planeta',
   },
   {
     id: 'agency',
@@ -87,6 +165,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/agency',
     accent: '#b9a4ff',
+    sourceRepo: 'noiacore-turbo-v2 · agentguard · evidence-ledger',
+    assetNote: 'Imperio IA en órbita',
   },
   {
     id: 'duck',
@@ -95,6 +175,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/duck',
     accent: '#ffc36c',
+    sourceRepo: 'duck-studio-os-v2 · duck-music-lab',
+    assetNote: 'Planeta musical creativo',
   },
   {
     id: 'school',
@@ -103,6 +185,8 @@ export const VOYAGE_PLACES: VoyagePlace[] = [
     kind: 'warp',
     url: '/school',
     accent: '#83d6ba',
+    sourceRepo: 'open-school · linguaforge-v2',
+    assetNote: 'Planeta educativo abierto',
   },
 ];
 
