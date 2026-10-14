@@ -5,20 +5,16 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, type ChangeEvent } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { judasChapters } from '@/lib/judas-data';
+import { ARCHETYPES, type ArchetypeId } from '@/lib/archetypes';
 import { VOYAGE_PLACES } from '@/lib/voyage-places';
 import { WORLDS, findWorld, type World } from './worlds';
 import styles from './LegacyHub.module.css';
 
 const LegacyScene = dynamic(() => import('./LegacyScene'), { ssr: false });
 const VoyageMap = dynamic(() => import('@/components/voyage/VoyageMap').then((module) => module.VoyageMap), { ssr: false });
+const ArchetypeDiamonds = dynamic(() => import('./ArchetypeDiamonds'), { ssr: false });
+const NaveCompanion = dynamic(() => import('./NaveCompanion'), { ssr: false });
 const ARTIST_PLACES = VOYAGE_PLACES.filter((place) => place.kind === 'warp' && place.url);
-const SIGNATURES = [
-  { name: 'PEDRO', role: 'LA ROCA', copy: 'El cuerpo que sostiene.' },
-  { name: 'MARCOS', role: 'EL CRONISTA', copy: 'La memoria que registra.' },
-  { name: 'SANTOS', role: 'LA ANTENA', copy: 'La escucha antes del nombre.' },
-  { name: 'BELENTANI', role: 'EL ARTEFACTO', copy: 'El conflicto convertido en obra.' },
-  { name: 'THE HUMAN', role: 'LA INTERFAZ', copy: 'La persona real y el presente.' },
-] as const;
 
 function supportsWebGL(): boolean {
   try {
@@ -36,6 +32,8 @@ export default function LegacyHub() {
   const [selected, setSelected] = useState<World['id']>('judas');
   const [mode, setMode] = useState<'artist' | 'ecosystem'>('artist');
   const [selectedPlace, setSelectedPlace] = useState('viaje3d');
+  const [archetype, setArchetype] = useState<ArchetypeId>('belentani');
+  const [visitedArchetypes, setVisitedArchetypes] = useState<ArchetypeId[]>(['belentani']);
   const [webgl, setWebgl] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string>();
   const [audioName, setAudioName] = useState('');
@@ -52,6 +50,24 @@ export default function LegacyHub() {
   const destination = mode === 'artist' ? place : world;
 
   useEffect(() => setWebgl(supportsWebGL()), []);
+  useEffect(() => {
+    if (reduced) return;
+    let animation: { revert: () => void } | undefined;
+    let cancelled = false;
+    void Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ gsap }, { ScrollTrigger }]) => {
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+      animation = gsap.context(() => {
+        gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
+          gsap.fromTo(element, { autoAlpha: .3, y: 34 }, {
+            autoAlpha: 1, y: 0, duration: .95, ease: 'power2.out',
+            scrollTrigger: { trigger: element, start: 'top 92%', once: true },
+          });
+        });
+      });
+    });
+    return () => { cancelled = true; animation?.revert(); };
+  }, [reduced]);
   useEffect(() => () => {
     if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
     if (contextRef.current) void contextRef.current.close();
@@ -112,6 +128,11 @@ export default function LegacyHub() {
     if (sceneRef.current) sceneRef.current.style.filter = '';
   }
 
+  function selectArchetype(id: ArchetypeId) {
+    setArchetype(id);
+    setVisitedArchetypes((current) => current.includes(id) ? current : [...current, id]);
+  }
+
   return (
     <main className={styles.hub}>
       <a className={styles.skip} href="#constelacion">Saltar a los planetas</a>
@@ -122,7 +143,9 @@ export default function LegacyHub() {
         <nav className={styles.topNav} aria-label="Navegación principal">
           <Link href="/galaxia">GALAXIA</Link>
           <a href="#constelacion">PLANETAS</a>
+          <a href="#firmas">DIAMANTES</a>
           <Link href="/judas">JUDAS</Link>
+          <Link href="/artista">ARTISTA</Link>
           <Link href="/maquina">MÁQUINA</Link>
           <Link href="/agency">AGENCY</Link>
           <Link href="/duck">DUCK</Link>
@@ -210,15 +233,26 @@ export default function LegacyHub() {
         <Link className={styles.chronicleLink} href="/judas">ENTRAR EN LA OBRA COMPLETA / 2 ANEXOS ↗</Link>
       </section>
 
-      <section className={styles.signatures} aria-labelledby="signatures-title">
+      <section id="firmas" className={styles.signatures} aria-labelledby="signatures-title">
         <span className={styles.overline}>PUERTA MAESTRA / CINCO FIRMAS</span>
-        <h2 id="signatures-title">SER MUCHOS PARA<br /><em>SEGUIR SIENDO UNO.</em></h2>
+        <h2 id="signatures-title" data-reveal>SER MUCHOS PARA<br /><em>SEGUIR SIENDO UNO.</em></h2>
+        <p className={styles.gemLead}>Cinco diamantes, cinco colores, cinco funciones de una sola obra. Toca una gema; NAVE te dejará una pista. Al explorar las cinco se abre la sexta variable.</p>
+        <div className={styles.gemTheatre} aria-label="Diamantes de los cinco arquetipos">
+          {webgl ? <ArchetypeDiamonds activeId={archetype} reduced={reduced} onSelect={selectArchetype} /> : <div className={styles.gemFallback} aria-hidden="true">◇ ◇ ◇ ◇ ◇</div>}
+          <div className={styles.gemCaption} style={{ ['--gem-color' as string]: ARCHETYPES.find((item) => item.id === archetype)?.color }} role="status" aria-live="polite">
+            <span>GEMA / {String(ARCHETYPES.findIndex((item) => item.id === archetype) + 1).padStart(2, '0')} · {visitedArchetypes.length}/05 EXPLORADAS</span>
+            <strong>{ARCHETYPES.find((item) => item.id === archetype)?.name}</strong>
+            <p>{ARCHETYPES.find((item) => item.id === archetype)?.copy}</p>
+            {visitedArchetypes.length === ARCHETYPES.length && <Link href="/unificado">LA SEXTA VARIABLE ERES TÚ ↗</Link>}
+          </div>
+        </div>
         <div className={styles.signatureGrid}>
-          {SIGNATURES.map((signature, index) => (
-            <div key={signature.name}>
-              <span>{String(index + 1).padStart(2, '0')} / {signature.role}</span>
+          {ARCHETYPES.map((signature, index) => (
+            <div key={signature.id} style={{ ['--gem-color' as string]: signature.color }} data-reveal>
+              <button type="button" onClick={() => selectArchetype(signature.id)} aria-pressed={archetype === signature.id} aria-label={`Enfocar diamante de ${signature.name}`}><i aria-hidden="true">◇</i><span>{String(index + 1).padStart(2, '0')} / {signature.role}</span></button>
               <strong>{signature.name}</strong>
               <p>{signature.copy}</p>
+              <Link href={signature.href}>SEGUIR FIRMA ↗</Link>
             </div>
           ))}
         </div>
@@ -260,6 +294,7 @@ export default function LegacyHub() {
         </div>
       </section>
       <footer className={styles.footer}><strong>BELENTANI<span>.</span></strong><p>MÚSICA · IA · EDUCACIÓN</p><Link href="/viaje-clasico">EXPLORAR EL VIAJE ORIGINAL ↗</Link></footer>
+      <NaveCompanion archetypeId={archetype} unlocked={visitedArchetypes.length === ARCHETYPES.length} />
     </main>
   );
 }

@@ -1,0 +1,5 @@
+fecha_utc,componente,fuente,decision,limite
+2026-10-14,cinco_diamantes,src/components/legacy/LegacyHub.tsx,Geometría y colores procedurales ligados a las cinco firmas simbólicas,No se presentan como cinco personas reales
+2026-10-14,NAVE,src/lib/judas-data.ts,Respuestas breves con enlace al capítulo o a la página local,El modo IA solo se habilita con modelo privado configurado
+2026-10-14,voz_NAVE,src/hooks/useVoiceNarrator.ts,Control activado solo con identificador explícito de voz propia,Sin identificador propio queda desactivado y no usa voz Microsoft ni voz genérica
+2026-10-14,biografia_NAVE,app/(marketing)/artista/page.tsx,São Paulo y Barcelona con género artístico verificado,No se atribuye formación académica no comprobada
