@@ -7,6 +7,7 @@ import {
   NOIACORE_COMMANDS,
   NOIACORE_DESCRIPTION,
   NOIACORE_OFFERS,
+  NOIACORE_SIGNAL_MATRIX,
   NOIACORE_SOURCES,
   NOIACORE_TAGLINE,
 } from '@/lib/noiacore-consultancy';
@@ -65,6 +66,36 @@ function resolveCommand(rawCommand: string): readonly string[] {
     return [
       'BLACK STALLION: fuerza soberana, elegancia oscura, control silencioso.',
       'La marca usa una silueta procedural para evitar exponer una foto privada sin verificacion final.',
+    ];
+  }
+  if (command === 'brief' || command.startsWith('brief ')) {
+    const target = command.replace('brief', '').trim();
+    const match = NOIACORE_SIGNAL_MATRIX.find((item) =>
+      item.phase.includes(target) || item.claim.toLowerCase().includes(target) || item.command.endsWith(target)
+    ) ?? NOIACORE_SIGNAL_MATRIX[0];
+    return [
+      match.phase.toUpperCase(),
+      'Claim: ' + match.claim,
+      'Proof: ' + match.proof,
+      'Output: ' + match.output,
+    ];
+  }
+  if (command === 'matriz' || command === 'matrix') {
+    return NOIACORE_SIGNAL_MATRIX.map((item) => item.phase + ' -> ' + item.output);
+  }
+  if (command === 'pack' || command === 'paquete') {
+    return NOIACORE_OFFERS.map((offer) => offer.title + ': ' + offer.deliverable);
+  }
+  if (command === 'judas') {
+    return [
+      'Easter egg: la obra no se separa de la empresa; se convierte en lenguaje de mando.',
+      'JUDAS aporta mito, NOIACORE aporta arquitectura, Belentani firma la maquina.',
+    ];
+  }
+  if (command === 'lambda' || command === 'Λ') {
+    return [
+      'Λ = el core invisible. No adorna: ordena, filtra y ejecuta.',
+      'Cuando el simbolo aparece, la terminal entra en modo de decision.',
     ];
   }
   if (command === 'contacto' || command === 'contact') {
@@ -305,6 +336,24 @@ export default function NoiacoreConsultancy({ entry = 'consultoria' }: NoiacoreC
         </div>
       </section>
 
+      <section className={styles.section} data-noia-reveal>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>NOTORIEDAD / 004</span>
+          <h2>Una maquina que explica por que impone presencia.</h2>
+        </div>
+        <div className={styles.signalMatrix}>
+          {NOIACORE_SIGNAL_MATRIX.map((signal) => (
+            <article className={styles.signalCard} key={signal.phase}>
+              <span>{signal.phase}</span>
+              <h3>{signal.claim}</h3>
+              <p>{signal.proof}</p>
+              <strong>{signal.output}</strong>
+              <code>{signal.command}</code>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="terminal" className={styles.terminalSection} data-noia-reveal aria-labelledby="terminal-title">
         <div className={styles.sectionHeader}>
           <span className={styles.sectionLabel}>TERMINAL / 004</span>
@@ -329,7 +378,7 @@ export default function NoiacoreConsultancy({ entry = 'consultoria' }: NoiacoreC
               id="noiacore-command"
               value={value}
               onChange={(event) => setValue(event.currentTarget.value)}
-              placeholder="help / saas / noir / caballo / repos / voz"
+              placeholder="help / matriz / brief system / pack / caballo / repos / voz"
               autoComplete="off"
             />
             <button type="submit">RUN</button>

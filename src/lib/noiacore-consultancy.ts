@@ -18,6 +18,14 @@ export interface NoiacoreOffer {
   readonly deliverable: string;
 }
 
+export interface NoiacoreSignal {
+  readonly phase: string;
+  readonly claim: string;
+  readonly proof: string;
+  readonly output: string;
+  readonly command: string;
+}
+
 export const NOIACORE_DESCRIPTION =
   'NOIACORE es la consultoria premium de Pedro Belentani para convertir IA, producto, marca y operaciones en sistemas inteligentes con criterio visible. El core es invisible; el impacto tiene que poder verse, explicarse y escalarse.';
 
@@ -125,6 +133,37 @@ export const NOIACORE_OFFERS: readonly NoiacoreOffer[] = [
   },
 ];
 
+export const NOIACORE_SIGNAL_MATRIX: readonly NoiacoreSignal[] = [
+  {
+    phase: '01 / authority',
+    claim: 'La primera pantalla debe parecer inevitable.',
+    proof: 'NOIACORE entra con caballo negro, cristal rojo, terminal y una promesa ejecutiva medible.',
+    output: 'Hero de notoriedad, schema profesional y CTA de audit.',
+    command: 'brief authority',
+  },
+  {
+    phase: '02 / diagnosis',
+    claim: 'Antes de automatizar, se separa ruido de oportunidad.',
+    proof: 'Se mapean procesos, repos, datos, riesgos, coste y quick wins sin publicar secretos.',
+    output: 'AI Transformation Audit con matriz de riesgo y ROI.',
+    command: 'brief diagnosis',
+  },
+  {
+    phase: '03 / system',
+    claim: 'Un agente sin consola es solo una demo.',
+    proof: 'La terminal define comandos, rutas, limites, trazas y handoffs humanos.',
+    output: 'AgentOps blueprint, consola y backlog del primer sprint.',
+    command: 'brief system',
+  },
+  {
+    phase: '04 / product',
+    claim: 'La consultoria escala cuando se empaqueta como SaaS.',
+    proof: 'SaaS Plasma se traduce en ofertas Audit, Blueprint y Build con entregables claros.',
+    output: 'Landing, pricing, onboarding y prototipo vendible.',
+    command: 'brief product',
+  },
+];
+
 export const NOIACORE_COMMANDS = [
   'help',
   'status',
@@ -133,7 +172,12 @@ export const NOIACORE_COMMANDS = [
   'noir',
   'repos',
   'caballo',
+  'brief',
+  'matriz',
+  'pack',
   'voz',
   'contacto',
+  'judas',
+  'lambda',
   'clear',
 ] as const;

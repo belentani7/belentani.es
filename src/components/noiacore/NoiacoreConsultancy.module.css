@@ -443,7 +443,8 @@
 
 .capabilityGrid,
 .offerGrid,
-.sourceGrid {
+.sourceGrid,
+.signalMatrix {
   display: grid;
   gap: 1rem;
 }
@@ -512,6 +513,62 @@
 
 .offerGrid {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.signalMatrix {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.signalCard {
+  min-height: 360px;
+  padding: clamp(1.2rem, 2.3vw, 2rem);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 26px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022)),
+    radial-gradient(circle at 22% 8%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(circle at 88% 92%, rgba(255,35,78,.18), transparent 42%);
+}
+
+.signalCard span {
+  display: inline-flex;
+  margin-bottom: 1.6rem;
+  color: #d4af37;
+  font: 800 .72rem var(--font-share-tech-mono), monospace;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.signalCard h3 {
+  margin: 0 0 1rem;
+  font: 900 clamp(1.2rem, 1.65vw, 1.7rem)/1.05 var(--font-orbitron), sans-serif;
+  letter-spacing: -.05em;
+  text-transform: uppercase;
+}
+
+.signalCard p {
+  margin: 0 0 1rem;
+  color: #d4c7ce;
+  line-height: 1.55;
+}
+
+.signalCard strong {
+  display: block;
+  margin: 0 0 1.3rem;
+  color: #fff;
+  font: 700 .86rem var(--font-share-tech-mono), monospace;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.signalCard code {
+  display: inline-flex;
+  padding: .5rem .65rem;
+  border: 1px solid rgba(255,35,78,.32);
+  border-radius: 999px;
+  color: #ffc8d2;
+  background: rgba(255,35,78,.08);
+  font: 700 .72rem var(--font-share-tech-mono), monospace;
 }
 
 .offerCard {
@@ -758,7 +815,8 @@
   }
 
   .proofGrid,
-  .capabilityGrid {
+  .capabilityGrid,
+  .signalMatrix {
     grid-template-columns: repeat(2, 1fr);
   }
 
