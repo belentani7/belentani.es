@@ -147,6 +147,7 @@ export default function LegacyHub() {
           <Link href="/judas">JUDAS</Link>
           <Link href="/artista">ARTISTA</Link>
           <Link href="/maquina">MÁQUINA</Link>
+          <Link href="/consultoria">NOIACORE</Link>
           <Link href="/agency">AGENCY</Link>
           <Link href="/duck">DUCK</Link>
           <Link href="/school">SCHOOL</Link>

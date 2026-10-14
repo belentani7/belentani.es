@@ -16,8 +16,9 @@ export const WORLDS: readonly World[] = [
     accent: '#ff174d', coordinates: [0, 1.15, 0],
   },
   {
-    id: 'agency', title: 'BELENTANI AGENCY', category: 'IA / TRUST & SAFETY',
-    subtitle: 'Sistemas de IA con criterio y trazabilidad.', href: '/agency',
+    id: 'agency', title: 'NOIACORE AGENCY', category: 'IA / SAAS / TRUST',
+    subtitle: 'Consultoría de IA, terminales y sistemas con presencia.',
+    href: '/consultoria',
     accent: '#e3b96a', coordinates: [-3.8, -0.85, -0.5],
   },
   {
