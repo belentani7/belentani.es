@@ -35,7 +35,7 @@ function supportsWebGL(): boolean {
 export default function LegacyHub() {
   const [selected, setSelected] = useState<World['id']>('judas');
   const [mode, setMode] = useState<'artist' | 'ecosystem'>('artist');
-  const [selectedPlace, setSelectedPlace] = useState('judas-web');
+  const [selectedPlace, setSelectedPlace] = useState('viaje3d');
   const [webgl, setWebgl] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string>();
   const [audioName, setAudioName] = useState('');
@@ -120,6 +120,7 @@ export default function LegacyHub() {
         <Link href="/" className={styles.brand} aria-label="Belentani, inicio">B<span>7</span><i>.</i></Link>
         <div className={styles.headerCenter}>BELENTANI <span>/</span> MÁQUINA VIVA</div>
         <nav className={styles.topNav} aria-label="Navegación principal">
+          <Link href="/galaxia">GALAXIA</Link>
           <a href="#constelacion">PLANETAS</a>
           <Link href="/judas">JUDAS</Link>
           <Link href="/maquina">MÁQUINA</Link>
@@ -141,10 +142,10 @@ export default function LegacyHub() {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span className={styles.live} /> PEDRO BELENTANI · ARTISTA / CREADOR / CONSTRUCTOR</p>
           <h1 id="legacy-heading">LA OBRA<br /><em>SIGUE VIVA</em><span className={styles.period}>.</span></h1>
-          <p className={styles.lead}>Un planeta, una llave, un diamante, una voz. Entra en JUDAS y atraviesa las puertas del universo BELENTANI.</p>
+          <p className={styles.lead}>Un planeta, una llave, un diamante, una voz. Pilota la galaxia de JUDAS y atraviesa las puertas del universo BELENTANI.</p>
           <div className={styles.heroActions}>
             <Link href={mode === 'artist' ? place.url! : world.href} className={styles.enter}>ENTRAR EN {destination.title} <span aria-hidden="true">↗</span></Link>
-            <a href="#constelacion" className={styles.explore}>EXPLORAR LOS PLANETAS <span aria-hidden="true">↓</span></a>
+            <Link href="/galaxia" className={styles.explore}>PILOTAR LA GALAXIA <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
         <div className={styles.modeSwitch} role="group" aria-label="Elegir mapa del universo">
