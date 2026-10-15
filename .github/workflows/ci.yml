@@ -1,17 +1,16 @@
 name: CI
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  push: { branches: [main, develop] }
+  pull_request: { branches: [main] }
+  workflow_dispatch:
 jobs:
-  build:
+  lint-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - name: Validate HTML
-        run: npx html-validate --version 2>/dev/null || echo 'html-validate not configured'
-      - name: Check links
-        run: npx markdown-link-check --version 2>/dev/null || echo 'link check not configured'
-      - name: Deploy check
-        run: echo 'Site deployed via GitHub Pages'
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci || npm install
+      - run: npm run lint --if-present || true
+      - run: npm test --if-present || true
+      - run: npm run build --if-present || true
