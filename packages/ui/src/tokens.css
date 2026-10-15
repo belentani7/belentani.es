@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Belentani / NOIACORE — Design System Tokens
+   "Verde Positivo" — Awards-level palette, WCAG AAA on dark surfaces
+   ========================================================================== */
+
+:root {
+  /* ============================================================
+     BASE: Dark void foundation
+     ============================================================ */
+  --bp-bg-void: #050e0a;
+  --bp-bg-surface: #0a1f17;
+  --bp-bg-elevated: #123326;
+  --bp-bg-panel: #1a4231;
+
+  /* ============================================================
+     GREEN POSITIVE — Core signature palette
+     WCAG AAA contrast on #050e0a (ratio > 12:1)
+     ============================================================ */
+  --bp-green-core: #00ff94;       /* Primary — neon mint */
+  --bp-green-glow: #39d98a;       /* Hover / focus / active */
+  --bp-green-lime: #a7f36c;       /* Positive accents, success icons */
+  --bp-green-mint: #b7f7d4;       /* Secondary text, subtle backgrounds */
+
+  /* ============================================================
+     NEUTRALS — text and borders
+     ============================================================ */
+  --bp-text-primary: #f0fff7;
+  --bp-text-secondary: #9bb8ac;
+  --bp-text-tertiary: #6b8b78;
+  --bp-border: rgba(0, 255, 148, 0.12);
+  --bp-border-hover: rgba(0, 255, 148, 0.24);
+
+  /* ============================================================
+     SEMANTIC — state colors
+     ============================================================ */
+  --bp-success: var(--bp-green-core);
+  --bp-warning: #ffd93d;
+  --bp-error: #ff6b6b;
+  --bp-info: #6bb8ff;
+
+  /* ============================================================
+     GRADIENTS — for accents and hero sections
+     ============================================================ */
+  --bp-gradient-text: linear-gradient(90deg, var(--bp-green-core), var(--bp-green-lime));
+  --bp-gradient-surface: linear-gradient(135deg, var(--bp-bg-void), var(--bp-bg-surface));
+  --bp-gradient-glow: radial-gradient(circle at center, var(--bp-green-core) 0%, transparent 70%);
+
+  /* ============================================================
+   * TYPOGRAPHY
+   * ============================================================ */
+  --bp-font-display: 'Geist Sans', ui-sans, system-ui, sans-serif;
+  --bp-font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
+
+  /* Fluid scale (clamp for responsiveness) */
+  --bp-text-xs: clamp(0.625rem, 0.57vw + 0.49rem, 0.75rem);
+  --bp-text-sm: clamp(0.75rem, 0.86vw + 0.55rem, 0.9375rem);
+  --bp-text-base: clamp(0.9375rem, 1.14vw + 0.66rem, 1.125rem);
+  --bp-text-lg: clamp(1.125rem, 1.51vw + 0.75rem, 1.4375rem);
+  --bp-text-xl: clamp(1.4375rem, 2.04vw + 0.9rem, 1.9375rem);
+  --bp-text-2xl: clamp(1.9375rem, 2.74vw + 1.2rem, 2.5rem);
+  --bp-text-3xl: clamp(2.5rem, 3.59vw + 1.6rem, 3.75rem);
+  --bp-text-4xl: clamp(3rem, 4.71vw + 1.8rem, 5rem);
+  --bp-text-5xl: clamp(3.75rem, 6.22vw + 2.2rem, 6.5rem);
+  --bp-text-6xl: clamp(4.5rem, 8.21vw + 2.6rem, 8rem);
+
+  --bp-font-extrabold: 800;
+  --bp-font-black: 900;
+  --bp-tracking-tight: -0.02em;
+  --bp-tracking-normal: 0;
+  --bp-tracking-wide: 0.02em;
+
+  /* ============================================================
+   * SPACING — 4px grid (8px base unit)
+   * ============================================================ */
+  --bp-space-0: 0;
+  --bp-space-px: 1px;
+  --bp-space-0-5: 0.125rem;
+  --bp-space-1: 0.25rem;
+  --bp-space-1-5: 0.375rem;
+  --bp-space-2: 0.5rem;
+  --bp-space-2-5: 0.625rem;
+  --bp-space-3: 0.75rem;
+  --bp-space-3-5: 0.875rem;
+  --bp-space-4: 1rem;
+  --bp-space-5: 1.25rem;
+  --bp-space-6: 1.5rem;
+  --bp-space-7: 1.75rem;
+  --bp-space-8: 2rem;
+  --bp-space-9: 2.25rem;
+  --bp-space-10: 2.5rem;
+  --bp-space-11: 2.75rem;
+  --bp-space-12: 3rem;
+  --bp-space-14: 3.5rem;
+  --bp-space-16: 4rem;
+  --bp-space-20: 5rem;
+  --bp-space-24: 6rem;
+  --bp-space-32: 8rem;
+
+  /* ============================================================
+   * BORDER RADIUS
+   * ============================================================ */
+  --bp-radius-sm: 0.125rem;
+  --bp-radius-default: 0.375rem;
+  --bp-radius-md: 0.5rem;
+  --bp-radius-lg: 0.75rem;
+  --bp-radius-xl: 1rem;
+  --bp-radius-2xl: 1.5rem;
+  --bp-radius-3xl: 2rem;
+  --bp-radius-full: 9999px;
+
+  /* ============================================================
+   * SHADOWS — green-positive glow palette
+   * ============================================================ */
+  --bp-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --bp-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  --bp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --bp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --bp-shadow-xl: 0 20px 25px 0.5rem rgba(0, 0, 0, 0.4);
+  --bp-shadow-green: 0 0 40px 8px rgba(0, 255, 148, 0.15);
+  --bp-shadow-green-strong: 0 0 60px 12px rgba(0, 255, 148, 0.25);
+  --bp-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
+  /* ============================================================
+   * Z-INDEX SCALE
+   * ============================================================ */
+  --bp-z-auto: auto;
+  --bp-z-0: 0;
+  --bp-z-10: 10;
+  --bp-z-20: 20;
+  --bp-z-30: 30;
+  --bp-z-40: 40;
+  --bp-z-50: 50;
+  --bp-z-modal: 1000;
+  --bp-z-popover: 1000;
+  --bp-z-tooltip: 1100;
+  --bp-z-notification: 1200;
+  --bp-z-drawer: 1300;
+  --bp-z-fullscreen: 2000;
+
+  /* ============================================================
+   * TRANSITIONS
+   * ============================================================ */
+  --bp-duration-instant: 0.05s;
+  --bp-duration-fast: 0.15s;
+  --bp-duration-normal: 0.3s;
+  --bp-duration-slow: 0.6s;
+  --bp-duration-slower: 1.2s;
+  --bp-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --bp-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --bp-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --bp-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --bp-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ============================================================
+   * VIEWPORT BREAKPOINTS (mobile-first)
+   * ============================================================ */
+  --bp-breakpoint-sm: 480px;
+  --bp-breakpoint-md: 768px;
+  --bp-breakpoint-lg: 1024px;
+  --bp-breakpoint-xl: 1280px;
+  --bp-breakpoint-2xl: 1536px;
+  --bp-breakpoint-3xl: 1920px;
+}
+
+/* ============================================================
+   Dark mode (explicit)
+   ============================================================ */
+[data-theme='dark'] {
+  --bp-bg-void: #050e0a;
+  --bp-bg-surface: #0a1f17;
+  --bp-bg-elevated: #123326;
+  --bp-text-primary: #f0fff7;
+  --bp-text-secondary: #9bb8ac;
+}
+
+/* ============================================================
+   Light mode (accessible inversion)
+   ============================================================ */
+[data-theme='light'] {
+  --bp-bg-void: #f0fff7;
+  --bp-bg-surface: #e6f7ea;
+  --bp-bg-elevated: #d1f0e0;
+  --bp-bg-panel: #bbf9d0;
+  --bp-text-primary: #050e0a;
+  --bp-text-secondary: #3a6b5c;
+  --bp-border: rgba(57, 217, 138, 0.12);
+}
+
+/* ============================================================
+   Prefers-reduced-motion override — ALL motion disabled
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Base element resets using tokens
+   ============================================================ */
+html, :where(:root) {
+  --bp-font-body: var(--bp-font-display), system-ui, sans-serif;
+  --bp-font-size-body: var(--bp-text-base);
+  --bp-line-height-body: 1.6;
+  --bp-font-weight-body: 400;
+}
+
+body {
+  margin: 0;
+  background: var(--bp-bg-void);
+  color: var(--bp-text-primary);
+  font-family: var(--bp-font-body);
+  font-size: var(--bp-font-size-body);
+  line-height: var(--bp-line-height-body);
+  font-weight: var(--bp-font-weight-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================================
+   Utilities — can be imported by any project
+   ============================================================ */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focus ring — accessible, green-positive */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--bp-green-core);
+  outline-offset: 2px;
+}
+
+/* Green-positive button base */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bp-space-2);
+  padding: var(--bp-space-3) var(--bp-space-6);
+  background: var(--bp-green-core);
+  color: var(--bp-bg-void);
+  font-family: var(--bp-font-display);
+  font-weight: 700;
+  font-size: var(--bp-text-base);
+  border-radius: var(--bp-radius-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--bp-duration-fast) var(--bp-ease-spring);
+  box-shadow: var(--bp-shadow-green);
+}
+
+.btn-primary:hover {
+  background: var(--bp-green-glow);
+  transform: translateY(-1px);
+  box-shadow: var(--bp-shadow-green-strong);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--bp-green-core);
+  outline-offset: 3px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Link styles — green-positive */
+a {
+  color: var(--bp-green-lime);
+  text-decoration: none;
+  transition: color var(--bp-duration-fast) var(--bp-ease-out);
+}
+a:hover {
+  color: var(--bp-green-core);
+}
+a:focus-visible {
+  outline: 2px solid var(--bp-green-core);
+  outline-offset: 2px;
+  border-radius: var(--bp-radius-sm);
+}
