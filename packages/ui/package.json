@@ -1,0 +1,51 @@
+{
+  "name": "@belentani/ui",
+  "version": "1.0.0",
+  "description": "Belentani / NOIACORE Design System — Green Positive, Awards-level UI components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belentani7/belentani-universe.git",
+    "directory": "packages/ui"
+  },
+  "keywords": [
+    "belentani",
+    "noiacore",
+    "design-system",
+    "tailwind",
+    "react",
+    "awards",
+    "green-positive"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint": "ruff check .",
+    "format": "ruff format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.0.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@tailwindcss/typography": "^3.0.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.5.0",
+    "tailwindcss": "^3.4.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.6.0",
+    "ts-tailwindcss": "^1.0.0"
+  }
+}
