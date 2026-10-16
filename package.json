@@ -23,7 +23,7 @@
     "assets": "pnpm assets:download && pnpm assets:process"
   },
   "dependencies": {
-    "@gsap/react": "2.1.0",
+    "@gsap/react": "2.1.2",
     "@react-three/drei": "9.100.0",
     "@react-three/fiber": "8.16.0",
     "@tailwindcss/postcss": "4.0.0",
