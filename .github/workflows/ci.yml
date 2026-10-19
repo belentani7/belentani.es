@@ -86,7 +86,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Detect secrets with Gitleaks (built-in rules)
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@v3
 
   lighthouse:
     name: Lighthouse Audit
