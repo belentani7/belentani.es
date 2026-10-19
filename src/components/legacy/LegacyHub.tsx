@@ -44,6 +44,7 @@ export default function LegacyHub() {
   const animationRef = useRef<number | null>(null);
   const energy = useRef(0);
   const sceneRef = useRef<HTMLDivElement>(null);
+  const mobileNavRef = useRef<HTMLDetailsElement>(null);
   const reduced = useReducedMotion();
   const world = findWorld(selected) ?? WORLDS[0];
   const place = ARTIST_PLACES.find((item) => item.id === selectedPlace) ?? ARTIST_PLACES[0];
@@ -152,9 +153,18 @@ export default function LegacyHub() {
           <Link href="/duck">DUCK</Link>
           <Link href="/school">SCHOOL</Link>
         </nav>
-        <details className={styles.mobileNav}>
+        <details ref={mobileNavRef} className={styles.mobileNav} onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            mobileNavRef.current?.removeAttribute('open');
+            mobileNavRef.current?.querySelector('summary')?.focus();
+          }
+        }}>
           <summary>MENÚ <span aria-hidden="true">☰</span></summary>
-          <nav aria-label="Navegación móvil">
+          <nav aria-label="Navegación móvil" onClick={(event) => {
+            if (event.target instanceof Element && event.target.closest('a')) {
+              mobileNavRef.current?.removeAttribute('open');
+            }
+          }}>
             <Link href="/galaxia">GALAXIA</Link>
             <a href="#constelacion">PLANETAS</a>
             <a href="#firmas">DIAMANTES</a>
