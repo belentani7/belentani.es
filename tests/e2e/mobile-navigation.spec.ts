@@ -9,6 +9,12 @@ test('mobile visitors can open and use the full navigation without WebGL', async
   await expect(nav).toBeVisible();
   await expect(nav.getByRole('link', { name: 'JUDAS', exact: true })).toHaveAttribute('href', '/judas');
   await expect(nav.getByRole('link', { name: 'NOIACORE', exact: true })).toHaveAttribute('href', '/consultoria');
+  await page.keyboard.press('Escape');
+  await expect(nav).toBeHidden();
+  await expect(page.locator('header summary')).toBeFocused();
+  await page.locator('header summary').click();
+  await expect(nav).toBeVisible();
   await nav.getByRole('link', { name: 'PLANETAS', exact: true }).click();
+  await expect(nav).toBeHidden();
   await expect(page).toHaveURL(/#constelacion$/);
 });
