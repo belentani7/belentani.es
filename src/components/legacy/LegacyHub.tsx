@@ -152,6 +152,21 @@ export default function LegacyHub() {
           <Link href="/duck">DUCK</Link>
           <Link href="/school">SCHOOL</Link>
         </nav>
+        <details className={styles.mobileNav}>
+          <summary>MENÚ <span aria-hidden="true">☰</span></summary>
+          <nav aria-label="Navegación móvil">
+            <Link href="/galaxia">GALAXIA</Link>
+            <a href="#constelacion">PLANETAS</a>
+            <a href="#firmas">DIAMANTES</a>
+            <Link href="/judas">JUDAS</Link>
+            <Link href="/artista">ARTISTA</Link>
+            <Link href="/maquina">MÁQUINA</Link>
+            <Link href="/consultoria">NOIACORE</Link>
+            <Link href="/agency">AGENCY</Link>
+            <Link href="/duck">DUCK</Link>
+            <Link href="/school">SCHOOL</Link>
+          </nav>
+        </details>
         <span className={styles.headerIndex}>UNIVERSO / 001</span>
       </header>
 
