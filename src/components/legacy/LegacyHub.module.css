@@ -66,3 +66,17 @@
 @media(max-width:700px){.modeSwitch{left:1.3rem;bottom:24%}.modeSwitch button{font-size:10px;padding:.6rem}.constellationIntro,.chronicleHeader,.loreStatement{display:block}.constellationIntro>p,.chronicleHeader>p{margin-top:1.5rem}.planetList{grid-template-columns:1fr}.planetEntry{min-height:160px}.loreStatement blockquote{margin:1.5rem 0}.loreStatement>p:not(.overline){margin:1.6rem 0}.chapterList a{grid-template-columns:24px 35px minmax(0,1fr) 24px;gap:.65rem}.chapterList small{grid-column:3;grid-row:2}.chapterList b{grid-column:4;grid-row:1}.signatureGrid{grid-template-columns:1fr}.signatureGrid>div{min-height:140px;border-right:0;border-bottom:1px solid #ff073a42}.signatureGrid>div:last-child{border-bottom:0}.signatureGrid span{min-height:0}.signatureGrid strong{margin:.9rem 0 .3rem}}
 @media(max-width:700px){.gemLead{margin-top:-1rem}.gemTheatre{height:390px}.gemCaption{bottom:1rem}.gemCaption p{font-size:.95rem}.signatureGrid>div{min-height:160px}}
 @media(prefers-reduced-motion:reduce){.hub *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Accessible navigation fallback: mobile visitors must never lose the site map. */
+.mobileNav{display:none}
+@media(max-width:700px){
+  .mobileNav{display:block;margin-left:auto;font:600 .76rem var(--font-share-tech-mono),monospace;letter-spacing:.12em}
+  .mobileNav summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.7rem;min-height:44px;padding:.5rem;color:#fff}
+  .mobileNav summary::-webkit-details-marker{display:none}
+  .mobileNav summary span{color:var(--red);font-size:1.1rem}
+  .mobileNav summary:focus-visible,.mobileNav nav a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .mobileNav[open] summary{color:#ff8ca6}
+  .mobileNav nav{position:absolute;left:0;right:0;top:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:.75rem 1.1rem 1rem;background:#05050bf5;border-bottom:1px solid #ffffff4a;box-shadow:0 26px 60px #000c;max-height:70svh;overflow-y:auto;overscroll-behavior:contain}
+  .mobileNav nav a{display:flex;align-items:center;min-height:48px;padding:.9rem .55rem;color:#f9f7fa;font:600 .75rem var(--font-share-tech-mono),monospace;letter-spacing:.07em}
+  .mobileNav nav a:hover{color:#ff8ca6}
+}
