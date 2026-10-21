@@ -1,29 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "target": "ES2022",
     "strict": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "esModuleInterop": true,
-    "module": "esnext",
+    "noImplicitAny": true,
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/design-system/*": ["./src/design-system/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/store/*": ["./src/store/*"],
-      "@/styles/*": ["./src/styles/*"]
-    }
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["_private_audio_no_web", "_satellites", "_bucket", ".local-archive", "node_modules", "_clones", "_ARCHIVO", "Ciclona", "masters", "viaje-r3f", "espacio-3d", "unificado", "banco-recursos-galacticos", "Belentani", "lore-canon", "app-web-nextjs", "belentani.es.worktrees", "public/mundos", "public/viaje3d", "public/viaje", "public/galaxia-shell", "public/unificado-live", "vitest.setup.ts"]
+  "include": ["src"]
 }
