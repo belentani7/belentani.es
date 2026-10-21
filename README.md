@@ -1,88 +1,52 @@
-# belentani.es
+# Belentani: The Experience
 
-> Professional project template
+Artist universe. Judas Era is Canon 0.
 
-## 🚀 Quick Start
+The main entry is an interactive Three.js galaxy with four narrative chapters:
+Genesis, Traicion, La deuda and Redencion. The original Judas Experience remains
+the historical reference at https://judas-experience-13898.buildaispace.app/.
 
-### Prerequisites
-- Node.js >= 20.0.0
-- pnpm >= 9.0.0
+## Run
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/belentani7/belentani.es.git
-cd belentani.es
+Requires Node 20 or newer and pnpm 9.
 
-# Install dependencies
-pnpm install
-
-# Start development server
+```sh
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-## 📦 Available Scripts
+## Verify
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server |
-| `pnpm build` | Build for production |
-| `pnpm preview` | Preview production build |
-| `pnpm lint` | Run ESLint |
-| `pnpm lint:fix` | Fix ESLint errors |
-| `pnpm format` | Format with Prettier |
-| `pnpm format:check` | Check formatting |
-| `pnpm typecheck` | TypeScript type checking |
-| `pnpm test` | Run unit tests |
-| `pnpm test:watch` | Run tests in watch mode |
-| `pnpm test:coverage` | Run tests with coverage |
-| `pnpm test:e2e` | Run E2E tests |
-
-## 🏗️ Architecture
-
-```
-src/
-├── components/     # Reusable UI components
-├── hooks/          # Custom React hooks
-├── pages/          # Page components
-├── services/       # Business logic & API calls
-├── utils/          # Utility functions
-├── styles/         # Global styles & theme
-├── types/          # TypeScript types
-├── test/           # Test utilities & setup
-└── main.tsx        # Application entry point
+```sh
+pnpm check:boundaries
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm start --port 3017
+node scripts/verify-experience.mjs
 ```
 
-## 🧪 Testing
+The visual check uses locally installed Google Chrome. It checks desktop/mobile,
+canvas pixels, motion, chapter changes, reset and horizontal overflow.
 
-- **Unit/Integration**: Vitest + React Testing Library
-- **E2E**: Playwright
-- **Coverage**: Target ≥ 80%
+## Public Scope
 
-## 🔧 Code Quality
+Artist, music links, narrative, curated visual assets and contact channels.
+NoiaCore, education, consulting and Duck are independent projects.
+Private audio, masters, stems and sessions are excluded from Git and the build.
 
-- **TypeScript**: Strict mode enabled
-- **Linting**: ESLint + Biome
-- **Formatting**: Prettier
-- **Git Hooks**: Husky + lint-staged
-- **Commits**: Conventional Commits enforced
+## Archive
 
-## 🚢 Deployment
+Historical source projects and raw captures are preserved outside the public
+release. The local rotation has a CSV manifest. No project history is rewritten.
+The canonical release preserves its own existing Git history and does not import
+the local historical repository's audio-containing history.
 
-### Staging
-Automatic on push to `main` branch.
+## Costs
 
-### Production
-Manual via GitHub Actions workflow dispatch or tag push.
+The main experience does not call a model API. No paid generation, API credits,
+subscription upgrades or routing services are required to browse it.
 
-## 📋 Contributing
+## State
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-## 🔒 Security
-
-See [SECURITY.md](SECURITY.md) for reporting vulnerabilities.
+See RESUMEN_EJECUCION.md and PENDIENTES.md for verified results and remaining work.
