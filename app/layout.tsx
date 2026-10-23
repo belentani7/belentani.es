@@ -9,9 +9,8 @@ const shareTechMono = Share_Tech_Mono({ subsets: ['latin'], weight: '400', varia
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://belentani.es'),
-  title: 'Belentani: The Experience | musica, imagen, galaxias y sistemas',
+  title: { default: 'Belentani: The Experience | música y mundos interactivos', template: '%s | Belentani' },
   description: 'Belentani: The Experience. Judas Era, musica, narrativa y galaxias interactivas. Artista y compositor de Sao Paulo, basado en Barcelona.',
-  alternates: { canonical: '/' },
   authors: [{ name: 'Belentani' }],
   robots: { index: true, follow: true },
   openGraph: {
