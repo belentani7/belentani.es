@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description: 'Biografía artística breve y contacto oficial de Belentani.',
     locale: 'es_ES',
     siteName: 'Belentani: The Experience',
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', width: 1368, height: 2048, alt: 'Retrato artístico de Belentani' }],
   },
 };
 
