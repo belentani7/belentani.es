@@ -17,6 +17,8 @@ describe('cabecera de la web del artista en móvil', () => {
     const toggle = screen.getByRole('button', { name: 'Abrir menú' });
 
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
+    expect(toggle.getAttribute('aria-controls')).toBe('belentani-mobile-nav');
+    expect(document.getElementById('belentani-mobile-nav')).not.toBeNull();
     fireEvent.click(toggle);
     expect(screen.getByRole('button', { name: 'Cerrar menú' }).getAttribute('aria-expanded')).toBe('true');
 
