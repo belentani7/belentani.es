@@ -36,4 +36,18 @@ describe('cabecera de la web del artista en móvil', () => {
     expect(screen.queryByRole('navigation', { name: 'Navegación móvil' })).toBeNull();
     expect(screen.getByRole('button', { name: 'Abrir menú' }).getAttribute('aria-expanded')).toBe('false');
   });
+  it('cierra con Escape y devuelve el foco al botón del menú', () => {
+    render(<MarketingLayout><p>Contenido de prueba</p></MarketingLayout>);
+    const toggle = screen.getByRole('button', { name: 'Abrir menú' });
+    toggle.focus();
+    fireEvent.click(toggle);
+    expect(screen.getByRole('navigation', { name: 'Navegación móvil' })).not.toBeNull();
+
+    const currentToggle = screen.getByRole('button', { name: 'Cerrar menú' });
+    currentToggle.blur();
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(screen.queryByRole('navigation', { name: 'Navegación móvil' })).toBeNull();
+    expect(document.activeElement).toBe(toggle);
+  });
+
 });
