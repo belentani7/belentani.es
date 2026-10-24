@@ -46,19 +46,18 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
               Menú
             </button>
           </div>
-          {mobileMenuOpen && (
-            <nav
-              id="belentani-mobile-nav"
-              aria-label="Navegación móvil"
-              className="flex flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden"
-            >
+          <nav
+            id="belentani-mobile-nav"
+            aria-label="Navegación móvil"
+            hidden={!mobileMenuOpen}
+            className={`${mobileMenuOpen ? 'flex' : 'hidden'} flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden`}
+          >
               <Link onClick={() => setMobileMenuOpen(false)} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
-            </nav>
-          )}
+          </nav>
         </div>
       </header>
       <main className="flex-1">{children}</main>
