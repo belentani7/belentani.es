@@ -1,7 +1,10 @@
 'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-border bg-void/80 backdrop-blur-sm sticky top-0 z-[10]">
@@ -17,7 +20,31 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
               <Link href="/musica" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Música</Link>
               <Link href="/galaxia" className="font-mono text-xs tracking-widest uppercase text-red hover:text-ink transition-colors">Galaxia</Link>
             </nav>
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-white hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red md:hidden"
+              aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="belentani-mobile-nav"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              <span aria-hidden="true">{mobileMenuOpen ? '×' : '☰'}</span>
+              Menú
+            </button>
           </div>
+          {mobileMenuOpen && (
+            <nav
+              id="belentani-mobile-nav"
+              aria-label="Navegación móvil"
+              className="flex flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden"
+            >
+              <Link onClick={() => setMobileMenuOpen(false)} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
+            </nav>
+          )}
         </div>
       </header>
       <main className="flex-1">{children}</main>
