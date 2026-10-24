@@ -1,9 +1,22 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuButton = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+        mobileMenuButton.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [mobileMenuOpen]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -21,6 +34,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
               <Link href="/galaxia" className="font-mono text-xs tracking-widest uppercase text-red hover:text-ink transition-colors">Galaxia</Link>
             </nav>
             <button
+              ref={mobileMenuButton}
               type="button"
               className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-white hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red md:hidden"
               aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
