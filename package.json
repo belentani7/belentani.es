@@ -47,7 +47,7 @@
   "devDependencies": {
     "@lhci/cli": "0.15.1",
     "@next/bundle-analyzer": "14.2.5",
-    "@next/eslint-plugin-next": "14.2.35",
+    "@next/eslint-plugin-next": "16.4.2",
     "@playwright/test": "1.64.0",
     "@testing-library/jest-dom": "6.4.0",
     "@testing-library/react": "16.3.3",
