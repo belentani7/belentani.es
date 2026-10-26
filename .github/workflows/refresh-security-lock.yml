@@ -1,0 +1,52 @@
+name: One-off Next.js security lock refresh
+
+on:
+  push:
+    branches: [security/nextjs-rce-20261026]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nextjs-security-lock-refresh-belentani-es
+  cancel-in-progress: true
+
+jobs:
+  refresh-lock-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: security/nextjs-rce-20261026
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "10.17.1"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24.22.1"
+          cache: pnpm
+      - name: Regenerate the lockfile from the patched manifest
+        run: pnpm install --lockfile-only --no-frozen-lockfile
+      - name: Verify frozen installation
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Typecheck
+        run: pnpm run typecheck
+      - name: Lint
+        run: pnpm run lint
+      - name: Test suite
+        run: pnpm test
+      - name: Production build
+        run: pnpm run build
+      - name: Commit lockfile and remove one-off workflow
+        run: |
+          rm .github/workflows/refresh-security-lock.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml .github/workflows/refresh-security-lock.yml
+          if git diff --cached --quiet; then
+            echo "No lockfile changes to commit"
+          else
+            git commit -m "chore(security): refresh patched Next.js lockfile [skip ci]"
+            git push origin HEAD:security/nextjs-rce-20261026
+          fi
