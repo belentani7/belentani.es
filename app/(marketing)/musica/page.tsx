@@ -1,3 +1,20 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Música de Belentani: pop alternativo, R&B y electrónica',
+  description: 'Escucha la música de Belentani y descubre sus proyectos de pop alternativo, R&B, electrónica experimental y el universo Judas Era.',
+  alternates: { canonical: '/musica' },
+  openGraph: {
+    type: 'website',
+    url: '/musica',
+    title: 'Música de Belentani',
+    description: 'Escucha y explora la obra musical de Belentani.',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', width: 1368, height: 2048, alt: 'Retrato artístico de Belentani' }],
+  },
+};
+
 import Link from 'next/link';
 export default function MusicaPage() {
   return <section className="max-w-4xl mx-auto px-6 py-20">

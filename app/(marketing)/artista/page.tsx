@@ -1,3 +1,20 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Belentani: artista y compositor',
+  description: 'Conoce la obra musical y visual de Belentani: pop alternativo, R&B, electrónica experimental y el universo artístico Judas Era.',
+  alternates: { canonical: '/artista' },
+  openGraph: {
+    type: 'website',
+    url: '/artista',
+    title: 'Belentani: artista y compositor',
+    description: 'Música, imagen y experiencias interactivas de Belentani.',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', width: 1368, height: 2048, alt: 'Retrato artístico de Belentani' }],
+  },
+};
+
 import Image from 'next/image';
 import Link from 'next/link';
 

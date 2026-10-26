@@ -1,3 +1,20 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Prensa y contacto artístico',
+  description: 'Información pública para prensa y contacto artístico de Belentani: música, obra audiovisual y canales oficiales.',
+  alternates: { canonical: '/prensa' },
+  openGraph: {
+    type: 'website',
+    url: '/prensa',
+    title: 'Belentani: prensa y contacto artístico',
+    description: 'Biografía artística breve y contacto oficial de Belentani.',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', width: 1368, height: 2048, alt: 'Retrato artístico de Belentani' }],
+  },
+};
+
 export default function PrensaPage() {
   return <section className="max-w-4xl mx-auto px-6 py-20">
     <p className="text-gold">BELENTANI: THE EXPERIENCE</p><h1 className="font-display text-4xl my-6">Prensa y contacto</h1>
