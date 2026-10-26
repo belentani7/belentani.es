@@ -88,16 +88,21 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Gitleaks
+        id: gitleaks
         uses: gitleaks/gitleaks-action@v2
         with:
           config-path: .gitleaks.toml
           report-format: sarif
-          report-path: gitleaks.sarif
+          report-path: results.sarif
         continue-on-error: true
       - name: Upload SARIF
+        if: always() && hashFiles('results.sarif') != ''
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: gitleaks.sarif
+          sarif_file: results.sarif
+      - name: Fail if Gitleaks detected secrets or failed
+        if: steps.gitleaks.outcome == 'failure'
+        run: exit 1
 
   lighthouse:
     name: Lighthouse Audit
@@ -115,20 +120,10 @@ jobs:
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Build
         run: pnpm run build
-      - name: Start server
-        run: pnpm start &
-        env:
-          PORT: 3000
-      - name: Wait for server
-        run: sleep 10
-      - name: Run Lighthouse
+      - name: Run Lighthouse against the configured production-like server
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: |
-            http://localhost:3000
-            http://localhost:3000/privacy
-            http://localhost:3000/terms
-          budgetPath: ./.github/lighthouse/budget.json
+          configPath: ./lighthouserc.json
           uploadArtifacts: true
 
   deploy-preview:
