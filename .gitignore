@@ -46,3 +46,6 @@ coverage/
 playwright-report/
 test-results/
 *.swo
+
+# Next.js build output
+.next/
