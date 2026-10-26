@@ -1,7 +1,7 @@
 {
   "name": "belentani-unified-hub",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "prebuild": "node scripts/check-boundaries.mjs",
     "check:boundaries": "node scripts/check-boundaries.mjs",
@@ -79,5 +79,7 @@
       "@tailwindcss/oxide": "4.0.0",
       "@tailwindcss/node": "4.0.0"
     }
-  }
+  },
+  "homepage": "https://belentani.es",
+  "license": "MIT"
 }

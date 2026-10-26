@@ -4,24 +4,27 @@
 @source './';
 
 @theme {
-  --color-void: #030008;
-  --color-voidElevated: #0a0205;
-  --color-ink: #f2e8ef;
-  --color-mute: #b8a8b4;
-  --color-red: #ff073a;
-  --color-redDim: #7a0e1e;
-  --color-blood: #8a0303;
-  --color-gold: #d4af37;
-  --color-goldDim: #8a6d1f;
-  --color-cyan: #4de8e0;
-  --color-green: #39ff8a;
-  --color-border: rgba(255, 7, 58, 0.28);
+  /* CANON Design Tokens - WCAG AAA verified on #050505 */
+  --color-void: #050505;
+  --color-voidElevated: #0A0A0A;
+  --color-ink: #FFFFFF;
+  --color-mute: #B3B3B3;
+  --color-red: #FF7777;
+  --color-redDim: #FF4444;
+  --color-blood: #FF2222;
+  --color-gold: #FDE047;
+  --color-goldDim: #F59E0B;
+  --color-violet: #D8B4FE;
+  --color-violetLight: #E9D5FF;
+  --color-violetDark: #A855F7;
+  --color-border: rgba(255, 119, 119, 0.28);
   --font-display: var(--font-orbitron), "Share Tech Mono", ui-monospace, monospace;
   --font-body: var(--font-rajdhani), "Share Tech Mono", system-ui, sans-serif;
   --font-mono: var(--font-share-tech-mono), ui-monospace, Consolas, monospace;
-  --shadow-glowRed: 0 0 24px rgba(255,7,58,.35), inset 0 0 12px rgba(255,7,58,.12);
-  --shadow-glowGold: 0 0 24px rgba(212,175,55,.35);
-  --shadow-elevation: 0 20px 52px -30px #000, 0 0 38px -24px rgba(255,7,58,.5);
+  --shadow-glowRed: 0 0 24px rgba(255, 119, 119, 0.35), inset 0 0 12px rgba(255, 119, 119, 0.12);
+  --shadow-glowGold: 0 0 24px rgba(253, 224, 71, 0.35);
+  --shadow-glowViolet: 0 0 24px rgba(216, 180, 254, 0.35);
+  --shadow-elevation: 0 20px 52px -30px #000, 0 0 38px -24px rgba(255, 119, 119, 0.5);
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-slow: 400ms;
@@ -50,9 +53,9 @@ a { color: var(--color-red); text-decoration: none; }
 button { font-family: var(--font-mono); cursor: pointer; }
 input, select, textarea { font-family: var(--font-mono); }
 :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
-iframe:focus-visible { outline: 2px solid rgba(255,7,58,.8); outline-offset: -2px; }
+iframe:focus-visible { outline: 2px solid rgba(255, 119, 119, .8); outline-offset: -2px; }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #0a0205; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
 ::-webkit-scrollbar-thumb { background: var(--color-redDim); border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
 

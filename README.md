@@ -8,7 +8,8 @@ the historical reference at https://judas-experience-13898.buildaispace.app/.
 
 ## Run
 
-Requires Node 20 or newer and pnpm 9.
+Requires Node >= 18.17 (engines in package.json) and pnpm pinned via
+`packageManager` (pnpm@10.17.1 — `corepack enable` resolves it).
 
 ```sh
 pnpm install --frozen-lockfile

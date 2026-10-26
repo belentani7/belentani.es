@@ -1,0 +1,153 @@
+{
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/BibliaScene": {
+    "id": 1327,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/3808.8a9d3c04f88ec702.js"
+    ]
+  },
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/CognitionScene": {
+    "id": 9091,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/6401.7d75d7040fc31ace.js"
+    ]
+  },
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/DiamondScene": {
+    "id": 6181,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/6266.4396911376ecef8f.js",
+      "static/chunks/6181.bca66a3a3a17ff77.js"
+    ]
+  },
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/GenesisScene": {
+    "id": 8774,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/3652.8c6a0191b65a4d11.js"
+    ]
+  },
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/KeyScene": {
+    "id": 2612,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/6266.4396911376ecef8f.js",
+      "static/chunks/2612.11b3e1c697129fbc.js"
+    ]
+  },
+  "app\\(immersive)\\judas\\[capitulo]\\ChapterContent.tsx -> ./components/MachineScene": {
+    "id": 6023,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/6266.4396911376ecef8f.js",
+      "static/chunks/6023.569a8ca2d459d4fe.js"
+    ]
+  },
+  "app\\viaje-clasico\\page.tsx -> @/components/voyage/VoyageCinema": {
+    "id": 677,
+    "files": [
+      "static/css/a594422a70f1f030.css",
+      "static/chunks/890.ff9bf90c4c44e04b.js"
+    ]
+  },
+  "src\\components\\eras\\JudasEraShell.tsx -> ../canvas/CanonCosmos": {
+    "id": 9776,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/4298.d69444909a18556f.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> ./ArchetypeDiamonds": {
+    "id": 3946,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/9465.f4cbb30a178c4397.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> ./LegacyScene": {
+    "id": 7723,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/9195.5c33cf380d62a316.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> ./NaveCompanion": {
+    "id": 5377,
+    "files": [
+      "static/css/0467b3fcb22c6584.css",
+      "static/chunks/5377.4af0d0437b4fbe1a.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> @/components/voyage/VoyageMap": {
+    "id": 3269,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/9670.192375e3cf36d467.js",
+      "static/chunks/3269.b9e4069a5916909c.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> gsap": {
+    "id": 9902,
+    "files": [
+      "static/chunks/94cf3c84.baf85fd1066e2f85.js",
+      "static/chunks/9902.6d46ac25f296422a.js"
+    ]
+  },
+  "src\\components\\legacy\\LegacyHub.tsx -> gsap/ScrollTrigger": {
+    "id": 6038,
+    "files": [
+      "static/chunks/6038.3d355d9976f1c6f6.js"
+    ]
+  },
+  "src\\components\\machine\\ConsciousMachine.tsx -> ../canvas/CanonCosmos": {
+    "id": 9776,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/9776.e97dcaac168748d5.js"
+    ]
+  },
+  "src\\components\\noiacore\\NoiacoreConsultancy.tsx -> gsap": {
+    "id": 9902,
+    "files": [
+      "static/chunks/94cf3c84.baf85fd1066e2f85.js",
+      "static/chunks/9902.6d46ac25f296422a.js"
+    ]
+  },
+  "src\\components\\noiacore\\NoiacoreConsultancy.tsx -> gsap/ScrollTrigger": {
+    "id": 6038,
+    "files": [
+      "static/chunks/6038.3d355d9976f1c6f6.js"
+    ]
+  },
+  "src\\components\\voyage\\GalaxyVoyage.tsx -> ./VoyageMap": {
+    "id": 3269,
+    "files": [
+      "static/chunks/c570273e.9d583723b11f8b18.js",
+      "static/chunks/5324.f1f74186581901f8.js",
+      "static/chunks/5102.ae645c07a9ce0bbd.js",
+      "static/chunks/9670.192375e3cf36d467.js",
+      "static/chunks/3269.b9e4069a5916909c.js"
+    ]
+  }
+}

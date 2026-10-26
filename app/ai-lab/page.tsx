@@ -29,7 +29,7 @@ const SEED_TOOLS = [
  {name:'Canon Archive',kind:'canon',description:'Consulta fichas narrativas sin inventar contenido.'}
 ] as const;
 type ToolKind = typeof SEED_TOOLS[number]['kind'];
-function retrieve(q:string) {const words=q.toLocaleLowerCase().split(/[^\p{L}\p{N}]+/u).filter(x=>x.length>3);return CANON.map(c=>({c,n:words.reduce((n,w)=>n+(c.title+' '+c.text).toLowerCase().includes(w)?1:0,0)})).sort((a,b)=>b.n-a.n).slice(0,2).map(x=>x.c);}
+function retrieve(q:string) {const words=q.toLocaleLowerCase().split(/[^\p{L}\p{N}]+/u).filter(x=>x.length>3);return CANON.map(c=>({c,n:words.reduce((n,w)=>n+((c.title+' '+c.text).toLowerCase().includes(w)?1:0),0)})).sort((a,b)=>b.n-a.n).slice(0,2).map(x=>x.c);}
 function localReply(id:AgentId,query:string) {
  const p=PERSONAS[id]; const facts=retrieve(query); return p.name+' // '+p.role+'\n\n'+p.brief+'\n\n'+(facts[0]?.text??CANON[0].text)+'\n\n'+(facts[1]&&facts[1].title!==facts[0]?.title?'Archivo asociado: '+facts[1].title+'. ':'')+'Esta es una respuesta guiada por el canon (modo narrativo local), no un modelo generativo.';
 }
