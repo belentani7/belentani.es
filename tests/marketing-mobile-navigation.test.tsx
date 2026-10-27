@@ -34,7 +34,12 @@ describe('cabecera de la web del artista en móvil', () => {
       expect(within(nav).getByRole('link', { name: label }).getAttribute('href')).toBe(destination);
     }
 
-    fireEvent.click(within(nav).getByRole('link', { name: 'Música' }));
+    // Navigating to the current route must not strand focus in a hidden link.
+    const musicLink = within(nav).getByRole('link', { name: 'Música' });
+    musicLink.focus();
+    expect(document.activeElement).toBe(musicLink);
+    fireEvent.click(musicLink);
+    expect(document.activeElement).toBe(toggle);
     expect(screen.queryByRole('navigation', { name: 'Navegación móvil' })).toBeNull();
     expect(screen.getByRole('button', { name: 'Abrir menú' }).getAttribute('aria-expanded')).toBe('false');
   });

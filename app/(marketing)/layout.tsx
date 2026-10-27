@@ -18,6 +18,12 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [mobileMenuOpen]);
 
+  // A same-route navigation can leave keyboard focus inside a now-hidden menu.
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    mobileMenuButton.current?.focus();
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-border bg-void/80 backdrop-blur-sm sticky top-0 z-[10]">
@@ -52,11 +58,11 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             hidden={!mobileMenuOpen}
             className={`${mobileMenuOpen ? 'flex' : 'hidden'} flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden`}
           >
-              <Link onClick={() => setMobileMenuOpen(false)} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
+              <Link onClick={closeMobileMenu} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
+              <Link onClick={closeMobileMenu} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
+              <Link onClick={closeMobileMenu} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
+              <Link onClick={closeMobileMenu} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
+              <Link onClick={closeMobileMenu} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
           </nav>
         </div>
       </header>
