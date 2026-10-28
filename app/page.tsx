@@ -1,5 +1,5 @@
-import LegacyHub from '@/components/legacy/LegacyHub';
+import GalaxyVoyage from '@/components/voyage/GalaxyVoyage';
 
 export default function Home() {
-  return <LegacyHub />;
+  return <GalaxyVoyage />;
 }
