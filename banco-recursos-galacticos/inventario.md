@@ -37,13 +37,13 @@ LORE primero. Música, 3D y herramientas sirven al mito.
 
 - **hub-os** [shell] — JUDAS_OS · puerta al universo — `local:belentani7.github.io/index.html`
 - **ecosistema** [atlas-links] — circuito de mundos — `local:belentani7.github.io/ecosistema.html`
-- **judas-web** [experiencia-3d] — traición / planeta / llave — `https://belentani7.github.io/judas-experience-web/`
-- **judas-unificado** [experiencia-3d] — cósmico unificado — `https://belentani7.github.io/judas-experience-unificado/`
-- **omega-immersive** [portal] — OMEGA portal — `https://belentani7.github.io/belentani-omega-immersive-portal/`
-- **judas-era-omega** [portal] — JUDAS ERA — `https://belentani7.github.io/belentani-judas-era-omega/`
-- **judas-web-vite** [os-web] — Creative OS — `https://belentani7.github.io/belentani-judas-web/`
-- **fullstack-20** [canon-mundos] — 20 mundos visuales — `https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/`
-- **3d-portfolio** [portfolio] — cara profesional 3D — `https://belentani7.github.io/3d-portfolio/`
+- **judas-web** [experiencia-3d] — traición / planeta / llave — `https://github.com/belentani7/judas-experience-web`
+- **judas-unificado** [experiencia-3d] — cósmico unificado — `https://github.com/belentani7/judas-experience-unificado`
+- **omega-immersive** [portal] — OMEGA portal — `https://github.com/belentani7/belentani-omega-immersive-portal`
+- **judas-era-omega** [portal] — JUDAS ERA — `https://github.com/belentani7/belentani-judas-era-omega`
+- **judas-web-vite** [os-web] — Creative OS — `https://github.com/belentani7/belentani-judas-web`
+- **fullstack-20** [canon-mundos] — 20 mundos visuales — `https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK`
+- **3d-portfolio** [portfolio] — cara profesional 3D — `https://github.com/belentani7/3d-portfolio`
 - **base44** [spa-externa] — ecosistema multimedia — `https://belentani.base44.app`
 - **belentani-es** [dominio-artistico] — universo artístico — `https://belentani.es/`
 - **belentani-eu** [dominio-profesional] — perfil profesional (fuera del lore) — `https://belentani.eu/`
