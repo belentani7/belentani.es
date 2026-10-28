@@ -23,9 +23,9 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
   return (
     <div className="fixed inset-0 z-[10] pointer-events-none">
       {/* Top Bar */}
-      <header className="absolute top-0 left-0 right-0 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-6 bg-gradient-to-b from-void/92 to-transparent border-b border-border">
+      <header className="absolute top-0 left-0 right-0 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-6 bg-gradient-to-b from-black/95 to-transparent border-b border-red/40">
         <div className="font-display font-black text-lg tracking-wider text-red" style={{ textShadow: '0 0 14px rgba(255,7,58,.9)' }}>
-          BELENTANI<span className="text-red text-[0.72em] tracking-widest ml-2">GALAXIA ÚNICA</span>
+          BELENTANI<span className="text-red/80 text-[0.72em] tracking-widest ml-2">GALAXIA ÚNICA</span>
         </div>
         <nav className="flex flex-wrap gap-3" aria-label="Atajos de navegación">
           {shortcuts.map((s) => (
@@ -33,7 +33,7 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
               key={s.id}
               onClick={() => onJump(s.id)}
               disabled={s.id === current}
-              className="px-3 py-1.5 border border-border bg-voidElevated/80 text-xs tracking-widest uppercase text-mute hover:text-cyan hover:border-cyan/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hud-glass px-3 py-1.5 text-xs tracking-widest uppercase text-red hover:text-white hover:bg-red/20 hover:shadow-[0_0_24px_rgba(255,7,58,.7)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {s.label}
             </button>
@@ -47,8 +47,8 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
           onClick={() => useJarvisStore.getState().toggle()}
           className={cn(
             'flex items-center justify-center gap-2 px-3 py-2',
-            'border border-red/50 bg-voidElevated/90 text-red','font-display font-bold text-xs tracking-widest uppercase',
-            'hover:bg-red hover:text-void hover:shadow-[0_0_20px_rgba(255,7,58,.5)] transition-all',
+            'hud-glass text-red','font-display font-bold text-xs tracking-widest uppercase',
+            'hover:bg-red hover:text-black hover:shadow-[0_0_28px_rgba(255,7,58,.8)] transition-all',
             'group'
           )}
           aria-label="Summon JARVIS"
@@ -59,18 +59,18 @@ export function HUD({ current, onJump, onNavigate }: HUDProps) {
       </div>
 
       {/* Keyboard Legend */}
-      <div className="absolute left-4 bottom-4 z-[20] font-mono text-xs tracking-normal text-mute/70 bg-void/55 border border-red/15 p-3 rounded-lg">
+      <div className="absolute left-4 bottom-4 z-[20] font-mono text-xs tracking-normal text-red/80 hud-glass p-3 rounded-lg">
         <strong className="text-white block mb-1">Teclado:</strong>
         <span>← →</span> navegar · <span>Enter</span> viajar · <span>Esc</span> volver al núcleo
       </div>
 
       {/* Universe Switch (mobile) */}
-      <div className="fixed left-4 bottom-24 md:hidden z-[20] flex gap-2 p-2 bg-voidElevated/9 border border-border rounded-lg">
+      <div className="fixed left-4 bottom-24 md:hidden z-[20] flex gap-2 p-2 hud-glass rounded-lg">
         {shortcuts.map((s) => (
           <button
             key={s.id}
             onClick={() => onJump(s.id)}
-            className="px-3 py-2 border border-border bg-voidElevated text-xs tracking-widest uppercase text-mute hover:text-white hover:border-red transition-all"
+            className="hud-glass px-3 py-2 text-xs tracking-widest uppercase text-red hover:text-white hover:bg-red/20 transition-all"
           >
             {s.label}
           </button>
