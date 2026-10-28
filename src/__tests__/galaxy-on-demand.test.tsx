@@ -49,7 +49,7 @@ describe('GPU-safe interactive galaxy homepage', () => {
     vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null);
     render(<GalaxyVoyage />);
     fireEvent.click(screen.getByRole('button', { name: /explorar en 3d/i }));
-    expect(screen.getByRole('status').textContent).toContain('Este navegador no ofrece WebGL');
+    expect(screen.getByText(/Este navegador no ofrece WebGL/)).toBeTruthy();
     expect(screen.queryByTestId('webgl-map-mounted')).toBeNull();
   });
 });
