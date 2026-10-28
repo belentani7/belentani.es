@@ -71,7 +71,7 @@ export default function GalaxyVoyage() {
       <header className={styles.header}>
         <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">B<span>7</span>.</Link>
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
-        <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/musica">MÚSICA</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
+        <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/lore">LORE</Link><Link href="/musica">MÚSICA</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
       </header>
       <section className={styles.intro} aria-labelledby="voyage-title">
         <p className={styles.kicker}>01 / UNIVERSO NAVEGABLE · {String(VOYAGE_PLACES.length).padStart(2, '0')} SISTEMAS</p>
@@ -83,6 +83,7 @@ export default function GalaxyVoyage() {
         </div>
         <div className={styles.portalActions}>
           <Link href="/studio-creativo">✦ ESTUDIO GENERATIVO <span aria-hidden="true">↗</span></Link>
+          <Link href="/lore">ENTRAR EN JUDAS / LORE <span aria-hidden="true">↗</span></Link>
           <Link href="/musica">ESCUCHAR LA OBRA <span aria-hidden="true">↗</span></Link>
           <Link href="/artista">CONOCER AL ARTISTA <span aria-hidden="true">↗</span></Link>
         </div>

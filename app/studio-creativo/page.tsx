@@ -20,7 +20,7 @@ function seededRandom(seed: number) {
     return value / 4294967296;
   };
 }
-export function createGalaxy(seed: number, stars: number, complexity: number) {
+function createGalaxy(seed: number, stars: number, complexity: number) {
   const random = seededRandom(seed);
   const points: Star[] = Array.from({ length: stars }, () => ({
     x: Math.round(random() * 1600), y: Math.round(random() * 1600),
