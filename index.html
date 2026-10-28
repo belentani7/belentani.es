@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Belentani — Artista</title>
 <meta name="description" content="Belentani: artista y compositor entre São Paulo y Barcelona.">
-<meta http-equiv="refresh" content="1.4;url=app-web-nextjs/belentani7.github.io/">
+
 <style>
   :root{--red:#ff073a;--gold:#d4af37}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{min-height:100vh;display:grid;place-items:center;background:#030008;color:#f2e8ef;font-family:ui-monospace,'Share Tech Mono',Consolas,monospace;text-align:center;overflow:hidden}
+  body{min-height:100vh;display:grid;place-items:center;background:#030008;color:#f2e8ef;font-family:ui-monospace,'Share Tech Mono',Consolas,monospace;text-align:center;overflow-x:hidden;overflow-y:auto}
   .ring{position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,7,58,.16),transparent 45%),radial-gradient(circle at 70% 70%,rgba(212,175,55,.10),transparent 45%);filter:blur(40px);animation:drift 12s ease-in-out infinite alternate}
   @keyframes drift{to{transform:translate3d(4vw,-3vh,0) scale(1.08)}}
   .wrap{position:relative;padding:24px}
@@ -20,10 +20,20 @@
   .spin{width:54px;height:54px;margin:26px auto 0;border-radius:50%;border:1px solid rgba(255,7,58,.25);border-top-color:var(--red);animation:spin 1s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   .msg{margin-top:22px;font-size:11px;letter-spacing:.3em;color:#b3a8a5;text-transform:uppercase}
-  a{color:var(--red)}
+  a{color:var(--red)}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+  .wrap{min-height:90svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .universe{position:relative;z-index:3;max-width:1020px;margin:0 auto;padding:4rem 1.3rem 7rem}
+  .universe h2{font-size:clamp(2rem,5vw,4.2rem);margin-bottom:1rem}
+  .universe p{line-height:1.7;color:#e2d5df}
+  .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem;margin:2rem 0}
+  .glass{background:linear-gradient(130deg,#ffffff1a,#ff17441b,#000d);border:1px solid #ff31596b;border-radius:22px;backdrop-filter:blur(18px);padding:2rem;box-shadow:0 0 34px #ff073a1d;text-align:left;display:block}
+  .glass strong{display:block;color:#fff;margin-bottom:.8rem;font-size:1.2rem}.glass:hover{border-color:#ff7994;box-shadow:0 0 40px #ff174467}
+  .glass input{width:100%;max-width:380px;padding:.8rem;color:white;background:#110610;border:1px solid #f75476;border-radius:8px}
+  .glass button{display:block;margin:1rem 0;padding:.85rem 1.2rem;border:1px solid #f75476;border-radius:8px;background:#ff17442a;color:white;cursor:pointer}
+  output{display:block;white-space:pre-wrap;color:#ffdfec;line-height:1.6}
   @media(prefers-reduced-motion:reduce){.ring,.omega,.spin{animation:none}}
 </style>
-<script>setTimeout(function(){location.replace("app-web-nextjs/belentani7.github.io/");},900)</script>
+
 </head>
 <body>
 <div class="ring" aria-hidden="true"></div>
@@ -32,8 +42,36 @@
   <div class="word">BELENTANI</div>
   <div class="bar" aria-hidden="true"></div>
   <div class="spin" aria-hidden="true"></div>
-  <p class="msg">Abriendo Belentani…</p>
-  <p><a href="app-web-nextjs/belentani7.github.io/">Abrir la web del artista</a></p>
+  <p class="msg">SÃO PAULO → BARCELONA · VOZ · MÚSICA · JUDAS</p>
+  <p><a href="#universo">ENTRAR EN EL UNIVERSO ↓</a></p>
 </div>
+<section id="universo" class="universe" aria-label="Universo del artista">
+  <h2>BELENTANI · EXPERIENCIA VIVA</h2>
+  <p>Artista y compositor de São Paulo, basado en Barcelona. Pop oscuro, R&amp;B, electrónica y el universo narrativo JUDAS.</p>
+  <div class="panels">
+    <a class="glass" href="#galaxia"><strong>GALAXIA INMERSIVA</strong><p>Una invitación a explorar la obra a través de planetas, historias y luz.</p></a>
+    <a class="glass" href="#laboratorio"><strong>CREAR UNA ESCENA</strong><p>Un pequeño instrumento creativo local, sin dependencias ni claves API.</p></a>
+    <a class="glass" href="https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener noreferrer"><strong>ESCUCHAR LA MÚSICA</strong><p>Mon Amour, Apaga a Luz, Heart Breaking y más.</p></a>
+  </div>
+  <div class="glass" id="galaxia"><strong>JUDAS / LA GALAXIA</strong><p>La llave, el espejo y la voz. Viaja por una narrativa cinematográfica donde cada escena funciona como una constelación.</p></div>
+  <div class="glass" id="laboratorio" style="margin-top:1rem">
+    <strong>LABORATORIO DE ESCENAS</strong>
+    <label for="idea">Describe un símbolo</label>
+    <input id="idea" value="la llave y el espejo" maxlength="120">
+    <button id="generar" type="button">GENERAR CONCEPTO ORIGINAL</button>
+    <output id="resultado" aria-live="polite">El generador funciona directamente en tu navegador.</output>
+  </div>
+</section>
+<script>
+(function() {
+  let iteration=0;
+  const luces=['neón rojo vibrante','luz lechosa','reflejos granate','dorado tenue'];
+  document.getElementById('generar').addEventListener('click',function(){
+    iteration+=1;
+    const simbolo=document.getElementById('idea').value.trim().slice(0,120)||'el espejo';
+    document.getElementById('resultado').textContent='ESCENA '+String(iteration).padStart(2,'0')+' — '+simbolo+'\nUniverso visual: '+luces[iteration%luces.length]+', cristal negro ahumado, galaxia de partículas, cámara flotante suave, textura fotográfica natural y narrativa original. Generación procedural local; sin IA remota.';
+  });
+})();
+</script>
 </body>
 </html>
