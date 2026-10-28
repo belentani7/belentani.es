@@ -32,7 +32,7 @@ export default function GalaxyVoyage() {
   useEffect(() => setWebgl(supportsWebGL()), []);
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.altKey || event.ctrlKey || event.metaKey || event.target instanceof HTMLInputElement) return;
+      if (event.altKey || event.ctrlKey || event.metaKey || (event.target instanceof HTMLElement && event.target.closest('input, textarea, select, button, a, [contenteditable="true"]'))) return;
       if (event.key === 'Escape') {
         setFocusId(null);
         setResetToken((value) => value + 1);
@@ -71,15 +71,20 @@ export default function GalaxyVoyage() {
       <header className={styles.header}>
         <Link href="/" className={styles.brand}>B<span>7</span>.</Link>
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
-        <Link href="/" className={styles.return}>VOLVER A LA OBRA <span aria-hidden="true">↗</span></Link>
+        <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/musica">MÚSICA</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
       </header>
       <section className={styles.intro} aria-labelledby="voyage-title">
         <p className={styles.kicker}>01 / UNIVERSO NAVEGABLE · {String(VOYAGE_PLACES.length).padStart(2, '0')} SISTEMAS</p>
         <h1 id="voyage-title">ATRAVIESA<br /><em>LA GALAXIA.</em></h1>
-        <p>Un mapa vivo de la obra, la música, los repos espaciales y los mundos que nacieron a su alrededor. Elige un planeta; la nave irá contigo.</p>
+        <p>Belentani: artista y compositor de São Paulo, establecido en Barcelona. Pop oscuro, R&amp;B, electrónica y JUDAS EXPERIENCE. Un universo de música, imagen y mundos creativos que puedes recorrer.</p>
         <div className={styles.actions}>
           <button type="button" onClick={overview}>VISTA GENERAL <span aria-hidden="true">◎</span></button>
-          <span>ARRASTRA PARA ORBITAR · RUEDA PARA ACERCAR · FLECHAS PARA VIAJAR</span>
+          <span>ARRASTRA · ACERCA · SELECCIONA · VIAJA</span>
+        </div>
+        <div className={styles.portalActions}>
+          <Link href="/studio-creativo">✦ ESTUDIO GENERATIVO <span aria-hidden="true">↗</span></Link>
+          <Link href="/musica">ESCUCHAR LA OBRA <span aria-hidden="true">↗</span></Link>
+          <Link href="/artista">CONOCER AL ARTISTA <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
       <aside className={styles.active} aria-live="polite" style={{ ['--system-color' as string]: selected.accent }}>
@@ -87,7 +92,7 @@ export default function GalaxyVoyage() {
         <strong>{selected.title}</strong>
         <p>{selected.tagline}</p>
         {selected.sourceRepo && <small>{selected.sourceRepo}</small>}
-        <Link href={selected.url!}>ENTRAR EN ESTE MUNDO <span aria-hidden="true">↗</span></Link>
+        <Link href={selected.url ?? "/"}>ENTRAR EN ESTE MUNDO <span aria-hidden="true">↗</span></Link>
       </aside>
       <nav id="destinos" className={styles.destinations} aria-label="Sistemas de la galaxia">
         <span className={styles.destinationsHeading}>DESTINOS / SELECCIONA UN PLANETA</span>
@@ -101,6 +106,7 @@ export default function GalaxyVoyage() {
         </div>
       </nav>
       <div className={styles.coordinates} aria-hidden="true">B7 // SÃO PAULO ↔ BARCELONA <span>✦</span> EL LORE MANDA</div>
+      <div className={styles.reactiveStatus} role="status" aria-live="polite"><span aria-hidden="true">◉</span> SISTEMA REACTIVO · {focusId ? "TRAYECTORIA FIJADA" : "ÓRBITA LIBRE"} · {selected.title}</div>
     </main>
   );
 }
