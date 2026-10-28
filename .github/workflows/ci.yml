@@ -79,6 +79,43 @@ jobs:
       - name: Build
         run: pnpm run build
 
+  browser-journeys:
+    name: Mobile and desktop marketing navigation (Chromium)
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install exact application dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build the actual Next.js application
+        run: pnpm build
+      - name: Install Chromium for browser journeys
+        run: node node_modules/@playwright/test/cli.js install --with-deps chromium
+      - name: Verify desktop and mobile navigation, focus and route changes
+        run: node node_modules/@playwright/test/cli.js test tests/e2e/marketing-navigation.spec.ts --project=chromium --project="Mobile Chrome"
+        env:
+          CI: true
+      - name: Retain screenshots, traces and reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-navigation-browser-evidence
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
+
   security:
     name: Security Scan
     runs-on: ubuntu-latest

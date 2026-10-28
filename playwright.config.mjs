@@ -23,7 +23,7 @@ export default defineConfig({
     { name: 'Mobile Safari', use: { ...devices['iPhone 12'] } },
   ],
   webServer: {
-    command: `pnpm start -- --port ${port}`,
+    command: `pnpm exec next start --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

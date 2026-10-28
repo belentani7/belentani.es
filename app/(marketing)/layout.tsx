@@ -1,7 +1,29 @@
 'use client';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuButton = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+        mobileMenuButton.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [mobileMenuOpen]);
+
+  // A same-route navigation can leave keyboard focus inside a now-hidden menu.
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    mobileMenuButton.current?.focus();
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-border bg-void/80 backdrop-blur-sm sticky top-0 z-[10]">
@@ -17,7 +39,31 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
               <Link href="/musica" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Música</Link>
               <Link href="/galaxia" className="font-mono text-xs tracking-widest uppercase text-red hover:text-ink transition-colors">Galaxia</Link>
             </nav>
+            <button
+              ref={mobileMenuButton}
+              type="button"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-white hover:border-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red md:hidden"
+              aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="belentani-mobile-nav"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              <span aria-hidden="true">{mobileMenuOpen ? '×' : '☰'}</span>
+              Menú
+            </button>
           </div>
+          <nav
+            id="belentani-mobile-nav"
+            aria-label="Navegación móvil"
+            hidden={!mobileMenuOpen}
+            className={`${mobileMenuOpen ? 'flex' : 'hidden'} flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden`}
+          >
+              <Link onClick={closeMobileMenu} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
+              <Link onClick={closeMobileMenu} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
+              <Link onClick={closeMobileMenu} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
+              <Link onClick={closeMobileMenu} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
+              <Link onClick={closeMobileMenu} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
+          </nav>
         </div>
       </header>
       <main className="flex-1">{children}</main>
