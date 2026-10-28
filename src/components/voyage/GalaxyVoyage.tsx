@@ -23,13 +23,26 @@ function supportsWebGL() {
 
 /** Navegación libre y rutas publicables; cada planeta es un destino interno. */
 export default function GalaxyVoyage() {
+  // WebGL remains opt-in: mounting WebGL on first paint held the main thread
+  // for ~17s in Lighthouse, even though the scene is decorative until selected.
   const [webgl, setWebgl] = useState(false);
+  const [webglError, setWebglError] = useState('');
   const [selectedId, setSelectedId] = useState(VOYAGE_PLACES[0].id);
   const [focusId, setFocusId] = useState<string | null>(null);
   const [resetToken, setResetToken] = useState(0);
   const selected = VOYAGE_PLACES.find((place) => place.id === selectedId) ?? VOYAGE_PLACES[0];
 
-  useEffect(() => setWebgl(supportsWebGL()), []);
+  const toggleMap = () => {
+    if (webgl) {
+      setWebgl(false);
+      setWebglError('');
+    } else if (supportsWebGL()) {
+      setWebglError('');
+      setWebgl(true);
+    } else {
+      setWebglError('Este navegador no ofrece WebGL. Puedes recorrer todos los destinos usando la lista.');
+    }
+  };
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.altKey || event.ctrlKey || event.metaKey || (event.target instanceof HTMLElement && event.target.closest('input, textarea, select, button, a, [contenteditable="true"]'))) return;
@@ -60,7 +73,7 @@ export default function GalaxyVoyage() {
   return (
     <main className={styles.voyage}>
       <a className={styles.skip} href="#destinos">Saltar a la lista de destinos</a>
-      <div className={styles.scene} aria-hidden="true">
+      <div id="galaxy-cosmos-map" data-testid="galaxy-3d-scene" className={styles.scene} aria-hidden="true">
         {webgl
           ? <VoyageMap places={VOYAGE_PLACES} currentId={selectedId} onSelect={select}
               interactive focusId={focusId} resetToken={resetToken} />
@@ -78,9 +91,13 @@ export default function GalaxyVoyage() {
         <h1 id="voyage-title">ATRAVIESA<br /><em>LA GALAXIA.</em></h1>
         <p>Belentani: artista y compositor de São Paulo, establecido en Barcelona. Pop oscuro, R&amp;B, electrónica y JUDAS EXPERIENCE. Un universo de música, imagen y mundos creativos que puedes recorrer.</p>
         <div className={styles.actions}>
-          <button type="button" onClick={overview}>VISTA GENERAL <span aria-hidden="true">◎</span></button>
-          <span>ARRASTRA · ACERCA · SELECCIONA · VIAJA</span>
+          <button type="button" onClick={toggleMap} aria-controls="galaxy-cosmos-map" aria-pressed={webgl}>
+            {webgl ? 'VOLVER A MODO LIGERO' : 'EXPLORAR EN 3D'} <span aria-hidden="true">{webgl ? '◌' : '✦'}</span>
+          </button>
+          {webgl && <button type="button" onClick={overview}>VISTA GENERAL <span aria-hidden="true">◎</span></button>}
+          <span>{webgl ? 'ARRASTRA · ACERCA · SELECCIONA · VIAJA' : 'ELIGE UN DESTINO O ACTIVA EL MAPA INMERSIVO'}</span>
         </div>
+        {webglError && <p className={styles.mapStatus} role="status">{webglError}</p>}
         <div className={styles.portalActions}>
           <Link href="/studio-creativo">✦ ESTUDIO GENERATIVO <span aria-hidden="true">↗</span></Link>
           <Link href="/lore">ENTRAR EN JUDAS / LORE <span aria-hidden="true">↗</span></Link>
@@ -159,7 +176,15 @@ function ShipTrailCanvas() {
       return seed / 4294967296;
     };
 
-    const draw = () => {
+    // 25 fps is sufficient for subtle light trails; avoid a perpetual
+    // 60 fps full-viewport translucent repaint on the main thread.
+    let previousFrame = -Infinity;
+    const draw = (now: number) => {
+      if (document.hidden || now - previousFrame < 40) {
+        animationRef.current = requestAnimationFrame(draw);
+        return;
+      }
+      previousFrame = now;
       ctx.fillStyle = 'rgba(3, 2, 8, 0.035)';
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
