@@ -69,7 +69,7 @@ export default function GalaxyVoyage() {
       <ShipTrailCanvas />
       <div className={styles.vignette} aria-hidden="true" />
       <header className={styles.header}>
-        <Link href="/" className={styles.brand}>B<span>7</span>.</Link>
+        <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">B<span>7</span>.</Link>
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
         <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/musica">MÚSICA</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
       </header>
