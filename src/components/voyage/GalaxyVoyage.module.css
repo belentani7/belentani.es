@@ -23,3 +23,21 @@
 @media(max-width:850px){.intro{width:75vw;margin-top:4rem;margin-bottom:17rem}.active{right:1.2rem;bottom:12rem;width:290px}.intro h1{font-size:clamp(2.8rem,9vw,5rem)}}
 @media(max-width:600px){.header{min-height:65px}.headerName{display:none}.return{font-size:.6rem}.intro{width:auto;margin:5rem 1.2rem 12rem}.intro h1{font-size:clamp(2.5rem,10.5vw,4.2rem)}.intro>p:not(.kicker){max-width:350px;font-size:1.05rem}.actions span{display:none}.active{position:relative;right:auto;bottom:auto;width:auto;margin:0 1.2rem 1.8rem;padding:1rem}.active p{margin-bottom:.8rem}.destinations{padding:1.1rem 1.2rem 2rem}.destinationList{max-height:175px;overflow-y:auto}.coordinates{display:none}.vignette{background:linear-gradient(90deg,#030208de,transparent 85%),linear-gradient(0deg,#030208d9,transparent 35%,#03020898)}}
 @media(prefers-reduced-motion:reduce){.voyage *{animation:none!important;transition:none!important}.trails{display:none}}
+
+
+/* Cinematic artist navigation & milky black-glass reactive HUD. */
+.headerLinks{display:flex;align-items:center;gap:clamp(.65rem,1.7vw,1.5rem);margin-left:auto}
+.headerLinks a{font:.7rem var(--font-share-tech-mono),monospace;letter-spacing:.12em;color:#ffe0e8;white-space:nowrap;transition:color .2s,text-shadow .2s}
+.headerLinks a:hover{color:#ff4c76;text-shadow:0 0 22px #ff073aaa}
+.headerLinks .return{margin-left:0;padding:.7rem .9rem;border:1px solid #ff3b6785;border-radius:9px;background:linear-gradient(120deg,#ff294920,#ffffff0e,#150610bb);box-shadow:0 0 28px #ff073a23,inset 0 1px #ffffff24;backdrop-filter:blur(22px)}
+.portalActions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.2rem;pointer-events:auto}
+.portalActions a{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:46px;padding:.78rem 1rem;border:1px solid #ff517a74;border-radius:10px;background:linear-gradient(140deg,#ffffff18,#1b0814d9 65%);font:.66rem var(--font-share-tech-mono),monospace;letter-spacing:.1em;color:#fff0f4;box-shadow:0 12px 30px #0007,0 0 23px #ff073a19,inset 0 1px #ffffff4b;backdrop-filter:blur(24px) saturate(140%);transition:transform .25s,box-shadow .25s,border-color .25s}
+.portalActions a:first-child{border-color:#ff366d;background:linear-gradient(120deg,#ff17472f,#180711c5)}
+.portalActions a:hover{transform:translateY(-3px);border-color:#ff8bab;box-shadow:0 0 35px #ff073a56,inset 0 1px #ffffff66}
+.portalActions a span{color:#ff557d}
+.reactiveStatus{position:absolute;left:clamp(1.2rem,3.5vw,4.5rem);bottom:1rem;z-index:5;color:#ffd3df;font:.61rem var(--font-share-tech-mono),monospace;letter-spacing:.13em;text-shadow:0 0 14px #ff073aa9;pointer-events:none}
+.reactiveStatus span{color:#ff3568;animation:galaxySignal 2.7s ease-in-out infinite}
+@keyframes galaxySignal{50%{opacity:.38;text-shadow:0 0 28px #ff073a}}
+@media(max-width:850px){.headerLinks a:not(.return){display:none}.portalActions{max-width:470px}}
+@media(max-width:600px){.portalActions{display:grid;grid-template-columns:1fr;margin-bottom:1.5rem}.portalActions a{min-height:43px}.intro{margin-bottom:9rem}.reactiveStatus{position:relative;left:auto;bottom:auto;padding:1.2rem;font-size:.57rem;background:#0a040dd9}.headerLinks .return{font-size:.57rem}.active{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.reactiveStatus span{animation:none}}
