@@ -8,6 +8,16 @@ const marketingRoutes = [
   ['Galaxia', '/galaxia'],
 ] as const;
 
+test('every marketing destination returns a real document instead of a 404', async ({ request }) => {
+  for (const [, destination] of marketingRoutes) {
+    const response = await request.get(destination);
+    expect(response.status(), `Broken route ${destination}`).toBe(200);
+    expect(response.headers()['content-type']).toContain('text/html');
+    const html = await response.text();
+    expect(html, `Empty page at ${destination}`).toMatch(/<main[\s>]/i);
+  }
+});
+
 test('marketing menu on mobile opens, exposes real destinations and closes after clicking', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/artista');
