@@ -1,52 +1,44 @@
 ﻿REPOSITORIOS RELACIONADOS CON PLANETAS, GALAXIAS Y WEB GUI
 
 ================================================================================
-REPOSITORIO: 3d-portfolio
-Descripción: Portfolio personal en 3D construido con Three.js: escena interactiva, animaciones y navegacion inmersiva.
-Link del repo: https://github.com/belentani7/3d-portfolio
-Link GitHub Pages: https://belentani7.github.io/3d-portfolio/
-Link Vercel: 
-
-----------------------------------------
-
-REPOSITORIO: belentani-omega-immersive-portal
-Descripción: BELENTANI OMEGA — immersive 3D creative portal experience
-Link del repo: https://github.com/belentani7/belentani-omega-immersive-portal
-Link GitHub Pages: https://belentani7.github.io/belentani-omega-immersive-portal/
-Link Vercel: https://belentani-omega-immersive-portal.vercel.app
-
-----------------------------------------
-
-REPOSITORIO: belentani-judas-era-omega
-Descripción: BELENTANI // JUDAS ERA - Omega Core Experience 10/10
-Link del repo: https://github.com/belentani7/belentani-judas-era-omega
-Link GitHub Pages: https://belentani7.github.io/belentani-judas-era-omega/
-Link Vercel: 
-
-----------------------------------------
-
-REPOSITORIO: belentani-judas-web
-Descripción: Judas Experience Creative OS - web (Vite) + SEO
-Link del repo: https://github.com/belentani7/belentani-judas-web
-Link GitHub Pages: https://belentani7.github.io/belentani-judas-web/
-Link Vercel: 
-
-----------------------------------------
-
-REPOSITORIO: BELENTANI-JUDAS-ERA-FULLSTACK
-Descripción: Creative web system rendering one editorial canon across twenty visual worlds
-Link del repo: https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK
-Link GitHub Pages: https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/
-Link Vercel: 
-
-----------------------------------------
-
 REPOSITORIO: belent-cad
 Descripción: Open-source architectural CAD for architects: paper-sketch digitization to 3D, photorealistic renders and standards bank (PT/ES/EN). React 19 + Vite + Three.js.
 Link del repo: https://github.com/belentani7/belent-cad
-Link GitHub Pages: https://belentani7.github.io/belent-cad/
-Link Vercel: 
+Link Vercel: https://belent-cad.pages.dev/
+Estado: ACTIVO — enlace válido
 
-----------------------------------------
+================================================================================
 
-Archivo creado en: C:\Users\USER\Desktop\repositorios_planetas_galaxias.txt
+--- GALAXIAS ROTAS / FALTANTES (enlaces no resueltos) ---
+
+Las siguientes galaxias tenían enlace a GitHub Pages pero el repositorio está
+archivado o no existe. GitHub Pages no publica repos privados archivados.
+
+1. REPOSITORIO: 3d-portfolio
+   Link del repo: https://github.com/belentani7/3d-portfolio (archivado, privado)
+   Link GitHub Pages: https://belentani7.github.io/3d-portfolio/ — ROTO (no publica)
+   Motivo: Repo archivado, sin GitHub Pages habilitado.
+
+2. REPOSITORIO: belentani-omega-immersive-portal
+   Link del repo: https://github.com/belentani7/belentani-omega-immersive-portal (archivado, privado)
+   Link Vercel: https://belentani-omega-immersive-portal.vercel.app — válido
+   Link GitHub Pages: https://belentani7.github.io/belentani-omega-immersive-portal/ — ROTO (no publica)
+   Motivo: Repo archivado, solo despliega en Vercel.
+
+3. REPOSITORIO: belentani-judas-era-omega
+   Link del repo: https://github.com/belentani7/belentani-judas-era-omega (archivado, privado)
+   Link GitHub Pages: https://belentani7.github.io/belentani-judas-era-omega/ — ROTO (no publica)
+   Motivo: Repo archivado, sin GitHub Pages habilitado.
+
+4. REPOSITORIO: belentani-judas-web
+   Link del repo: https://github.com/belentani7/belentani-judas-web (archivado, privado)
+   Link GitHub Pages: https://belentani7.github.io/belentani-judas-web/ — ROTO (no publica)
+   Motivo: Repo archivado, sin GitHub Pages habilitado.
+
+5. REPOSITORIO: BELENTANI-JUDAS-ERA-FULLSTACK
+   Link del repo: https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK — FALTANTE (404, no existe)
+   Link GitHub Pages: https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/ — ROTO
+   Motivo: Repositorio no encontrado en GitHub.
+
+================================================================================
+Archivo corregido por GitAutoHeal — enlaces rotos documentados, galaxias faltantes identificadas.
