@@ -55,3 +55,13 @@ paths = [
   '''pnpm-lock\.yaml$''',
   '''yarn\.lock$''',
 ]
+
+# Historical generated Next.js build artifacts. These files were mistakenly
+# committed in 003247a1 and are not present on the current default branch.
+# Gitleaks detected only generic-api-key entropy matches in these compiled
+# outputs. Do not exclude application source, .env files, or other credentials.
+[[allowlists]]
+description = "Historical compiled Next.js output only; current source remains scanned"
+paths = [
+  '''^\.next/''',
+]
