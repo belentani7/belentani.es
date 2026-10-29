@@ -4,7 +4,7 @@
     {
       "label": "BELENTANI: Dev server",
       "type": "shell",
-      "command": "pnpm dev --hostname 0.0.0.0",
+      "command": "corepack pnpm dev --hostname 0.0.0.0",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -17,7 +17,7 @@
     {
       "label": "BELENTANI: Quality gate",
       "type": "shell",
-      "command": "pnpm check:boundaries && pnpm typecheck && pnpm lint && pnpm test && pnpm build",
+      "command": "corepack pnpm check:boundaries && corepack pnpm typecheck && corepack pnpm lint && corepack pnpm test && corepack pnpm build",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -31,7 +31,7 @@
     {
       "label": "BELENTANI: Browser tests",
       "type": "shell",
-      "command": "pnpm exec playwright install chromium && pnpm test:e2e",
+      "command": "corepack pnpm exec playwright install chromium && corepack pnpm test:e2e",
       "options": {
         "cwd": "${workspaceFolder}"
       },
