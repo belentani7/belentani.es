@@ -48,8 +48,8 @@ function Galaxy({ calm, chapter }: { calm: boolean; chapter: number }) {
     <group ref={group} rotation={[0.35, chapter * 0.15, 0.12]} scale={1.15}>
       <points>
         <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={COUNT} array={points.positions} itemSize={3} />
-          <bufferAttribute attach="attributes-color" count={COUNT} array={points.colors} itemSize={3} />
+          <bufferAttribute attach="attributes-position" args={[points.positions, 3]} />
+          <bufferAttribute attach="attributes-color" args={[points.colors, 3]} />
         </bufferGeometry>
         <pointsMaterial
           size={0.055}

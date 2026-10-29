@@ -39,7 +39,7 @@ export default function VoyageCinema() {
     { id: 'boot', role: 'sys', text: 'BELENTANI_OS online · un solo universo · HELP' },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
-  const warpTimerRef = useRef<number>();
+  const warpTimerRef = useRef<number | undefined>(undefined);
   const place = VOYAGE_PLACES.find((p) => p.id === placeId) ?? VOYAGE_PLACES[0];
   const index = ORBIT_PLACES.findIndex((p) => p.id === placeId);
 
