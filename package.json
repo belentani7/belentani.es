@@ -31,13 +31,13 @@
     "clsx": "2.1.0",
     "d3-force": "3.0.0",
     "gsap": "3.12.5",
-    "next": "14.2.35",
+    "next": "15.5.28",
     "openrouter-client": "1.9.0",
     "postcss": "8.4.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-use": "17.5.0",
-    "sharp": "0.33.0",
+    "sharp": "0.35.5",
     "tailwind-merge": "2.2.0",
     "tailwindcss": "4.0.0",
     "three": "0.160.0",
@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@lhci/cli": "0.15.1",
-    "@next/bundle-analyzer": "14.2.5",
-    "@next/eslint-plugin-next": "14.2.35",
+    "@next/bundle-analyzer": "15.5.28",
+    "@next/eslint-plugin-next": "15.5.28",
     "@playwright/test": "1.64.0",
     "@testing-library/jest-dom": "6.4.0",
     "@testing-library/react": "16.3.3",
@@ -71,7 +71,7 @@
     "vitest": "2.0.0"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.9.0"
   },
   "packageManager": "pnpm@10.17.1",
   "pnpm": {
