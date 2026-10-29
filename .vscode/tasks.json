@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BELENTANI: Dev server",
+      "type": "shell",
+      "command": "pnpm dev --hostname 0.0.0.0",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BELENTANI: Quality gate",
+      "type": "shell",
+      "command": "pnpm check:boundaries && pnpm typecheck && pnpm lint && pnpm test && pnpm build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BELENTANI: Browser tests",
+      "type": "shell",
+      "command": "pnpm exec playwright install chromium && pnpm test:e2e",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BELENTANI: Doctor",
+      "type": "shell",
+      "command": "bash .devcontainer/scripts/doctor.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BELENTANI: Safe Git review",
+      "type": "shell",
+      "command": "git status --short --branch && git diff --check && git diff --stat",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
