@@ -102,7 +102,7 @@ jobs:
       - name: Install Chromium for browser journeys
         run: node node_modules/@playwright/test/cli.js install --with-deps chromium
       - name: Verify desktop and mobile navigation, focus and route changes
-        run: node node_modules/@playwright/test/cli.js test tests/e2e/marketing-navigation.spec.ts --project=chromium --project="Mobile Chrome"
+        run: node node_modules/@playwright/test/cli.js test tests/e2e/marketing-navigation.spec.ts tests/e2e/artist-editorial.spec.ts --project=chromium --project="Mobile Chrome"
         env:
           CI: true
       - name: Retain screenshots, traces and reports on failure

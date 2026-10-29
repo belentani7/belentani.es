@@ -29,8 +29,8 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
       <header className="border-b border-border bg-void/80 backdrop-blur-sm sticky top-0 z-[10]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="font-display font-black text-xl tracking-wider text-white" style={{ textShadow: '0 0 14px rgba(255,7,58,.9)' }}>
-              BELENTANI<span className="text-red text-[0.72em] tracking-widest ml-2">THE EXPERIENCE</span>
+            <Link href="/" className="font-serif text-xl font-semibold tracking-[-.04em] text-[#f2eee8]">
+              BELENTANI<span className="ml-2 align-middle font-mono text-[.55em] font-medium tracking-[.13em] text-[#c6a789]">THE EXPERIENCE</span>
             </Link>
             <nav className="hidden md:flex items-center gap-6">
               <Link href="/judas-era" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Judas Era</Link>
@@ -66,7 +66,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
           </nav>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <div className="flex-1">{children}</div>
       <footer className="border-t border-border py-8 px-4 text-center text-mute font-mono text-xs tracking-wider">
         <p>Belentani — São Paulo → Barcelona. Dark pop, R&B, electrónica experimental.</p>
         <div className="flex justify-center gap-6 mt-4">
