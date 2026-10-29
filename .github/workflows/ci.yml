@@ -40,6 +40,8 @@ jobs:
         run: pnpm run lint
       - name: Validate artist/project boundaries
         run: pnpm run check:boundaries
+      - name: Validate renderer and CSS package compatibility
+        run: pnpm run check:renderer
 
   test:
     name: Test
