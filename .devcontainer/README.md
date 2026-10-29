@@ -13,8 +13,8 @@ This configuration is for **belentani7/belentani.es** (Next.js/React, TypeScript
 ## Runtime & quality
 
 - Node 22, Python 3.12 and GitHub CLI via pinned-major devcontainer features.
-- `pnpm@10.17.1` from `package.json`; Corepack enforces the version.
-- `pnpm check:boundaries && pnpm typecheck && pnpm lint && pnpm test && pnpm build` is the quality gate; it stops on the first failure.
+- `pnpm@10.17.1` from `package.json`; use `corepack pnpm` to enforce the version even if the base image contains a different global pnpm.
+- `corepack pnpm check:boundaries && corepack pnpm typecheck && corepack pnpm lint && corepack pnpm test && corepack pnpm build` is the quality gate; it stops on the first failure.
 - Playwright Chromium installation is **on demand** (not downloaded at every startup to save storage).
 - Do not commit credentials, secrets, private audio or generated artifacts. Git push, PR merges and deployments stay manual and require successful checks.
 - Never put tokens in `devcontainer.json`, `tasks.json` or shell scripts. Use GitHub Codespaces secrets for authorized external services. GitHub authentication is provided by the platform when available.
@@ -29,7 +29,7 @@ Stop the Codespace when idle. A stopped Codespace can still use billed storage; 
 ```bash
 bash .devcontainer/scripts/doctor.sh
 bash .devcontainer/scripts/bootstrap.sh
-pnpm dev
+corepack pnpm dev
 ```
 
 An existing Codespace must be rebuilt before these image changes take effect. A repository commit does not itself rebuild or start the remote machine.
