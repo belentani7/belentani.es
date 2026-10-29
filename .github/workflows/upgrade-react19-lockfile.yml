@@ -1,0 +1,49 @@
+# Temporary migration-only workflow. Remove after the frozen lockfile is generated.
+name: Regenerate React 19 and R3F 9 lockfile
+on:
+  push:
+    branches:
+      - agent/dependabot-77-repaired-20261029
+    paths:
+      - package.json
+      - .github/workflows/upgrade-react19-lockfile.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upgrade-react19-lockfile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regenerate:
+    if: github.repository == 'belentani7/belentani.es'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+      - name: Regenerate exact lockfile without package lifecycle scripts
+        run: pnpm install --lockfile-only --ignore-scripts --no-frozen-lockfile
+      - name: Verify frozen resolution
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Commit only the corrected lockfile to this branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- pnpm-lock.yaml; then
+            echo "::error::Lockfile did not change; inspect dependency resolution."
+            exit 1
+          fi
+          git add -- pnpm-lock.yaml
+          git diff --cached --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "fix(deps): resolve coherent React 19 and Three Fiber 9 stack"
+          git push origin HEAD:agent/dependabot-77-repaired-20261029
