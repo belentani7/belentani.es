@@ -76,8 +76,8 @@
   "packageManager": "pnpm@10.17.1",
   "pnpm": {
     "overrides": {
-      "@tailwindcss/oxide": "4.0.0",
-      "@tailwindcss/node": "4.0.0"
+      "@tailwindcss/oxide": "4.3.3",
+      "@tailwindcss/node": "4.3.3"
     }
   },
   "homepage": "https://belentani.es",
