@@ -124,6 +124,13 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+      - name: Reject committed Next.js build output
+        shell: bash
+        run: |
+          if git ls-files -- '.next/' | grep -q .; then
+            echo "::error::Generated .next/ output must never be committed. Remove tracked build artifacts."
+            exit 1
+          fi
       - name: Run Gitleaks
         id: gitleaks
         uses: gitleaks/gitleaks-action@v2
