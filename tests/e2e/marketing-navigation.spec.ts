@@ -52,3 +52,14 @@ test('desktop marketing navigation shows the same destinations without mobile to
   }
   await expect(page.getByRole('button', { name: 'Abrir menú' })).toBeHidden();
 });
+
+test('keyboard users can skip the marketing navigation directly to the main content', async ({ page }) => {
+  await page.goto('/artista');
+  const skip = page.getByRole('link', { name: 'Saltar al contenido' });
+  await page.keyboard.press('Tab');
+  await expect(skip).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/artista\/?(?:#contenido)?$/);
+  await expect(page.locator('main#contenido')).toBeFocused();
+  await expect(page.locator('main#contenido')).toBeVisible();
+});
