@@ -3,7 +3,7 @@ set -Eeuo pipefail
 cd "$(git rev-parse --show-toplevel)"
 echo "[BELENTANI] Environment diagnostics"
 failed=0
-for tool in git node pnpm python3 gh; do
+for tool in git node corepack python3 gh; do
   if command -v "$tool" >/dev/null 2>&1; then
     printf '  %-9s %s\n' "$tool" "$(command -v "$tool")"
   else
@@ -13,8 +13,8 @@ for tool in git node pnpm python3 gh; do
 done
 if [[ -f package.json ]]; then
   expected="$(node -p 'require("./package.json").packageManager.split("@").pop()')" || exit 1
-  if command -v pnpm >/dev/null 2>&1; then
-    actual="$(pnpm --version)" || exit 1
+  if command -v corepack >/dev/null 2>&1; then
+    actual="$(corepack pnpm --version)" || exit 1
     [[ "$actual" == "$expected" ]] || { echo "  pnpm mismatch: $actual != $expected"; failed=1; }
   fi
 fi
