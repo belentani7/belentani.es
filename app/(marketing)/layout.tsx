@@ -26,6 +26,12 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen flex flex-col">
+      <a
+        href="#contenido"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-black focus:outline focus:outline-offset-2 focus:outline-red"
+      >
+        Saltar al contenido
+      </a>
       <header className="border-b border-border bg-void/80 backdrop-blur-sm sticky top-0 z-[10]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -66,7 +72,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
           </nav>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <main id="contenido" tabIndex={-1} className="flex-1">{children}</main>
       <footer className="border-t border-border py-8 px-4 text-center text-mute font-mono text-xs tracking-wider">
         <p>Belentani — São Paulo → Barcelona. Dark pop, R&B, electrónica experimental.</p>
         <div className="flex justify-center gap-6 mt-4">
