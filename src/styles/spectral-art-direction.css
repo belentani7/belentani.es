@@ -74,3 +74,196 @@
 @media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
   .spectral-art-direction::before { animation: none; opacity: .16; }
 }
+
+/* JUDAS STORY — editorial architecture layered above the original scenic engine.
+   No external assets, no additional WebGL context, all links native. */
+.spectral-art-direction {
+  --spectral-blood: #ff365d;
+  --spectral-rose: #ffc0cd;
+  --spectral-ink: #f5ecf0;
+  --spectral-muted: #cebcc6;
+  --spectral-line: rgba(255, 130, 157, .27);
+  --spectral-easing: cubic-bezier(.2,.8,.2,1);
+}
+.spectral-art-direction .spectral-overline {
+  font: 700 .69rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--spectral-rose);
+}
+.spectral-art-direction .spectral-editorial-hero {
+  min-height: min(76svh, 740px);
+  padding: clamp(2.5rem, 7vw, 6rem) clamp(1rem, 3.4vw, 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(210px, .8fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  border: 1px solid var(--spectral-line);
+  border-radius: clamp(18px, 2.5vw, 30px);
+  background:
+    radial-gradient(ellipse at 88% 46%, rgba(177,14,61,.15), transparent 55%),
+    linear-gradient(128deg, rgba(28,9,22,.87), rgba(9,6,13,.84));
+  box-shadow: inset 0 1px rgba(255,255,255,.09), 0 42px 100px -67px #000;
+  overflow: clip;
+}
+.spectral-art-direction .spectral-hero-copy { position: relative; z-index: 2; }
+.spectral-art-direction .spectral-editorial-hero h1 {
+  margin: clamp(1.1rem, 2.5vw, 2.2rem) 0;
+  max-width: 12ch;
+  font-size: clamp(3.4rem, 7.6vw, 6.9rem);
+  line-height: .98;
+  letter-spacing: -.068em;
+}
+.spectral-art-direction .spectral-editorial-hero h1 span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,177,201,.85);
+  text-shadow: none;
+}
+.spectral-art-direction .spectral-lead {
+  max-width: 59ch;
+  color: #f1dfe7;
+  font-size: clamp(1rem, 1.7vw, 1.21rem);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+.spectral-art-direction .spectral-quicklinks {
+  display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.1rem;
+}
+.spectral-art-direction .spectral-quicklinks a,
+.spectral-art-direction .spectral-return {
+  display: inline-flex; align-items: center; justify-content: center; gap: .9rem;
+  min-height: 48px; padding: .8rem 1.1rem; border: 1px solid rgba(255,151,181,.55);
+  background: rgba(59,10,29,.75); color: #fff0f4; font-size: .85rem;
+  font-weight: 650; letter-spacing: .02em; text-decoration: none;
+  border-radius: 7px; transition: background-color .22s, transform .22s;
+}
+.spectral-art-direction .spectral-quicklinks a:first-child {
+  background: #b50d3d; border-color: #fb6f99;
+}
+.spectral-art-direction .spectral-artifact {
+  position: relative; display: grid; place-items: center;
+  width: min(100%, 350px); aspect-ratio: 1; justify-self: center;
+  border-radius: 50%; isolation: isolate;
+  background: radial-gradient(circle, rgba(250,37,101,.15), rgba(170,10,50,.05) 44%, transparent 72%);
+}
+.spectral-art-direction .spectral-artifact-ring {
+  position: absolute; inset: 9%; border: 1px solid rgba(255,165,195,.48);
+  border-radius: 50%; box-shadow: inset 0 0 36px rgba(250,18,75,.11), 0 0 35px rgba(244,17,80,.12);
+}
+.spectral-art-direction .spectral-artifact-ring-a { transform: rotate(-25deg) rotateX(64deg); }
+.spectral-art-direction .spectral-artifact-ring-b { inset: 21%; transform: rotate(31deg) rotateY(59deg); }
+.spectral-art-direction .spectral-artifact-core {
+  display: grid; place-items: center; width: 38%; aspect-ratio: 1; border-radius: 50%;
+  border: 1px solid rgba(255,179,204,.7);
+  color: #fff5f5; background: radial-gradient(circle at 34% 20%, #92254b 0%, #350717 45%, #0b040b 88%);
+  font-family: Georgia, serif; font-size: clamp(4rem, 9vw, 6rem); line-height: 1;
+  text-shadow: 0 0 25px rgba(255,99,146,.65);
+  box-shadow: 0 0 70px rgba(245,14,81,.19), inset 0 0 24px rgba(255,105,161,.22);
+}
+.spectral-art-direction .spectral-artifact-caption {
+  position: absolute; bottom: 3%; font: 650 .6rem ui-monospace, monospace;
+  color: var(--spectral-muted); letter-spacing: .17em;
+}
+.spectral-art-direction .spectral-rituals,
+.spectral-art-direction .spectral-appendices { padding-top: clamp(4rem, 8vw, 7rem); }
+.spectral-art-direction .spectral-section-heading {
+  display: flex; gap: 2rem; justify-content: space-between;
+  align-items: end; padding-bottom: 2rem; border-bottom: 1px solid var(--spectral-line);
+}
+.spectral-art-direction .spectral-section-heading h2 {
+  margin-top: .6rem; font-size: clamp(2rem, 4.4vw, 3.8rem);
+  line-height: 1.06; max-width: 18ch; letter-spacing: -.054em; font-weight: 650;
+}
+.spectral-art-direction .spectral-section-heading > p {
+  color: var(--spectral-muted); max-width: 33ch; font-size: .91rem; line-height: 1.7;
+}
+.spectral-art-direction .spectral-act-list { list-style: none; margin: 0; padding: 0; }
+.spectral-art-direction .spectral-act {
+  display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
+  align-items: start; gap: clamp(1.2rem, 3.5vw, 3rem);
+  border-bottom: 1px solid var(--spectral-line); padding: clamp(2.4rem, 6vw, 5rem) 0;
+}
+.spectral-art-direction .spectral-act-intro { display: flex; align-items: start; gap: 1.15rem; }
+.spectral-art-direction .spectral-act-number {
+  font: 400 clamp(3rem, 5vw, 4.7rem)/1 Georgia, serif;
+  color: transparent; -webkit-text-stroke: 1px rgba(255,151,186,.65);
+}
+.spectral-art-direction .spectral-act-name {
+  font-size: clamp(1.7rem, 3vw, 2.65rem); line-height: 1.1;
+  color: var(--spectral-ink); letter-spacing: -.05em; font-weight: 650;
+  margin: .7rem 0 1rem;
+}
+.spectral-art-direction .spectral-act-text {
+  max-width: 38ch; color: var(--spectral-muted);
+  font-size: .94rem; line-height: 1.76;
+}
+.spectral-art-direction .spectral-chapter-grid,
+.spectral-art-direction .spectral-appendix-grid {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem;
+}
+.spectral-art-direction .spectral-chapter-card {
+  display: flex; flex-direction: column; min-width: 0;
+  padding: clamp(1.2rem, 2.5vw, 1.8rem); border-radius: 15px;
+  background: linear-gradient(145deg, rgba(45,15,29,.85), rgba(11,8,16,.91));
+}
+.spectral-art-direction .spectral-card-index {
+  color: var(--spectral-rose); letter-spacing: .18em; font: 700 .65rem ui-monospace,monospace;
+}
+.spectral-art-direction .spectral-chapter-symbol {
+  margin: 1.35rem 0 .85rem; font-size: 2.2rem; line-height: 1.1;
+}
+.spectral-art-direction .spectral-card-title {
+  margin: 0 0 .85rem; font-size: clamp(1.24rem, 2.15vw, 1.7rem);
+  font-weight: 700; line-height: 1.19; letter-spacing: -.035em; color: var(--spectral-ink);
+}
+.spectral-art-direction .spectral-card-lore {
+  flex: 1; color: #e1cbd5; line-height: 1.72; font-size: .89rem;
+  margin-bottom: 1.5rem; overflow-wrap: anywhere;
+}
+.spectral-art-direction .spectral-appendix-grid { margin-top: 2rem; }
+.spectral-art-direction .spectral-appendix-card { border-color: rgba(235,183,112,.4); }
+.spectral-art-direction .spectral-story-footer {
+  margin-top: clamp(4rem,8vw,7rem); padding: clamp(2rem,4vw,3.5rem);
+  border: 1px solid var(--spectral-line); border-radius: 19px;
+  text-align: center;
+  background: radial-gradient(ellipse at top, rgba(117,14,50,.18), transparent 65%), #0c080e;
+}
+.spectral-art-direction .spectral-story-footer > p:nth-child(2) {
+  margin: 1rem auto 1.7rem; max-width: 32ch;
+  font: 400 clamp(1.55rem,3.2vw,2.6rem)/1.17 Georgia, serif; color: #fff0f2;
+}
+.spectral-art-direction .spectral-access-note {
+  margin: 1.6rem auto 0; max-width: 50ch; font-size: .79rem;
+  line-height: 1.7; color: var(--spectral-muted);
+}
+@media (hover:hover) and (pointer:fine) {
+  .spectral-art-direction :is(.spectral-quicklinks a, .spectral-return):hover {
+    transform: translateY(-2px); background-color: #8e1438;
+  }
+}
+@media (max-width: 880px) {
+  .spectral-art-direction .spectral-editorial-hero { grid-template-columns: 1fr; }
+  .spectral-art-direction .spectral-artifact { width: min(58%, 245px); }
+  .spectral-art-direction .spectral-act { grid-template-columns: 1fr; }
+  .spectral-art-direction .spectral-section-heading { align-items: start; flex-direction: column; gap: .8rem; }
+  .spectral-art-direction .spectral-section-heading > p { max-width: 58ch; }
+}
+@media (max-width: 520px) {
+  .spectral-art-direction .spectral-editorial-hero { padding: 2rem 1.1rem; }
+  .spectral-art-direction .spectral-editorial-hero h1 { font-size: clamp(3rem, 13vw, 4.8rem); }
+  .spectral-art-direction .spectral-artifact { width: min(76%, 215px); }
+  .spectral-art-direction .spectral-chapter-grid,
+  .spectral-art-direction .spectral-appendix-grid { grid-template-columns: 1fr; }
+  .spectral-art-direction .spectral-act-intro { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spectral-art-direction :is(.spectral-quicklinks a,.spectral-return) { transition: none; }
+  .spectral-art-direction :is(.spectral-quicklinks a,.spectral-return):hover { transform: none; }
+}
+@media (prefers-contrast: more) {
+  .spectral-art-direction .spectral-editorial-hero,
+  .spectral-art-direction .spectral-chapter-card { border: 2px solid #fff; background: #080609; }
+  .spectral-art-direction .spectral-card-lore,
+  .spectral-art-direction .spectral-act-text,
+  .spectral-art-direction .spectral-section-heading > p { color: #fff; }
+}

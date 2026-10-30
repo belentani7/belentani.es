@@ -46,6 +46,13 @@
   --spacing-xxl: 48px;
 }
 
+/* Matching families are requested at runtime, never during the Next.js build.
+   Local system fallbacks remain usable when the font CDN is unavailable. */
+:root {
+  --font-orbitron: "Orbitron";
+  --font-rajdhani: "Rajdhani";
+  --font-share-tech-mono: "Share Tech Mono";
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { background: var(--color-void); color: var(--color-ink); font-family: var(--font-body); overflow-x: hidden; min-height: 100vh; }
