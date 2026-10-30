@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     siteName: 'Belentani: The Experience',
     url: "/musica",
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', alt: 'Retrato artístico de BELENTANI' }],
   },
 };
 

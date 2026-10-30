@@ -5,8 +5,8 @@ import { Providers } from '@/components/Providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://belentani.es'),
-  title: 'Belentani: The Experience | musica, imagen, galaxias y sistemas',
-  description: 'Belentani: The Experience. Judas Era, musica, narrativa y galaxias interactivas. Artista y compositor de Sao Paulo, basado en Barcelona.',
+  title: 'BELENTANI | Música, arte y universo JUDAS',
+  description: 'BELENTANI, artista y compositor de São Paulo afincado en Barcelona. Música, pop alternativo, R&B, electrónica experimental y el universo narrativo JUDAS.',
   authors: [{ name: 'Belentani' }],
   robots: { index: true, follow: true },
   openGraph: {
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     siteName: 'Belentani: The Experience',
+    images: [{ url: '/media/artist/pedro-2024-portrait.jpg', alt: 'Retrato artístico de BELENTANI' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/media/artist/pedro-2024-portrait.jpg'],
   },
 };
 
@@ -25,9 +30,11 @@ const musicGroupSchema = {
   url: 'https://belentani.es',
   description: 'Artista y compositor de pop alternativo, R&B y electrónica experimental.',
   genre: ['Pop alternativo', 'R&B', 'Electrónica experimental'],
+  image: 'https://belentani.es/media/artist/pedro-2024-portrait.jpg',
   sameAs: [
     'https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl',
     'https://www.youtube.com/@belentani',
+    'https://www.instagram.com/belentani_/',
   ],
 };
 
