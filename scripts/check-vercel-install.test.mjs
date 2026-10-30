@@ -55,3 +55,20 @@ test('Vercel API function globs target the existing App Router tree', () => {
     assert.match(route, /^app\/api\/(?:[^/]+\/)+route\.ts$/, `Unexpected API route: ${route}`);
   }
 });
+
+test('Vercel bundle keeps mandatory local build modules, PostCSS and canonical art metadata', () => {
+  const lines = readFileSync(new URL('../.vercelignore', import.meta.url), 'utf8')
+    .split(/\r?\n/).map((line) => line.trim());
+  const required = [
+    ['scripts/check-boundaries.mjs', '*.mjs'],
+    ['scripts/check-renderer-stack.mjs', '*.mjs'],
+    ['postcss.config.mjs', '*.mjs'],
+    ['public/assets/judas-canon/manifest.json', '*.json'],
+  ];
+  for (const [file, wildcard] of required) {
+    const ignoreAt = lines.indexOf(wildcard);
+    const allowAt = lines.indexOf('!' + file);
+    assert.ok(ignoreAt >= 0, 'Missing wildcard boundary: ' + wildcard);
+    assert.ok(allowAt > ignoreAt, 'Vercel excludes required build resource: ' + file);
+  }
+});

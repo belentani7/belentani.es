@@ -44,3 +44,9 @@ _universo_assets
 !lighthouse-budget.json
 !pnpm-lock.yaml
 !scripts/check-boundaries.mjs
+
+# The Next.js production build reads these existing files. Keep explicit
+# exceptions after blanket *.mjs / *.json ignores so Vercel receives them.
+!scripts/check-renderer-stack.mjs
+!postcss.config.mjs
+!public/assets/judas-canon/manifest.json
