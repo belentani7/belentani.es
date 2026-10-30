@@ -76,7 +76,8 @@ test('music landing keeps the real discography ahead of the immersive universe',
   const judasSection = page.locator('section[aria-labelledby="judas-era-musica"]');
   expect(await musicSection.evaluate((element) => {
     const nextSection = document.querySelector('section[aria-labelledby="judas-era-musica"]');
-    return nextSection !== null && Boolean(element.compareDocumentPosition(nextSection) & Node.DOCUMENT_POSITION_FOLLOWING);
+    if (!nextSection) return false;
+    return (element.compareDocumentPosition(nextSection) & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
   })).toBe(true);
   await expect(judasSection.getByRole('link', { name: /entrar en la era/i })).toHaveAttribute('href', '/judas-era');
 
