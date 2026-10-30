@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const configText = readFileSync(new URL('../next.config.mjs', import.meta.url), 'utf8');
@@ -45,7 +45,7 @@ test('Vercel API function globs target the existing App Router tree', () => {
       const entryPath = join(directory, entry.name);
       if (entry.isDirectory()) walk(entryPath);
       else if (entry.isFile() && entry.name === 'route.ts') {
-        routes.push(relative(root, entryPath).replaceAll('\\\\', '/'));
+        routes.push(relative(root, entryPath).replaceAll(sep, '/'));
       }
     }
   }
