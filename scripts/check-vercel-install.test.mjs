@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const configText = readFileSync(new URL('../next.config.mjs', import.meta.url), 'utf8');
 const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
@@ -29,4 +31,27 @@ test('Vercel installs the exact lockfile including build dependencies', () => {
   assert.equal(deployment.framework, 'nextjs');
   assert.match(deployment.installCommand, /pnpm install --frozen-lockfile --prod=false/);
   assert.equal(deployment.buildCommand, 'pnpm build');
+});
+
+test('Vercel API function globs target the existing App Router tree', () => {
+  const rules = deployment.functions ?? {};
+  assert.deepEqual(Object.keys(rules), ['app/api/**/route.ts']);
+  assert.equal(rules['app/api/**/route.ts'].maxDuration, 30);
+
+  const root = fileURLToPath(new URL('../', import.meta.url));
+  const routes = [];
+  function walk(directory) {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const entryPath = join(directory, entry.name);
+      if (entry.isDirectory()) walk(entryPath);
+      else if (entry.isFile() && entry.name === 'route.ts') {
+        routes.push(relative(root, entryPath).replaceAll('\\\\', '/'));
+      }
+    }
+  }
+  walk(join(root, 'app', 'api'));
+  assert.ok(routes.length > 0, 'Expected at least one App Router API route');
+  for (const route of routes) {
+    assert.match(route, /^app\/api\/(?:[^/]+\/)+route\.ts$/, `Unexpected API route: ${route}`);
+  }
 });
