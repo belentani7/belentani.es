@@ -1,7 +1,3 @@
-import bundleAnalyzer from '@next/bundle-analyzer';
-
-const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -53,4 +49,12 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+// The analyzer is a devDependency: loading it eagerly can break a production-only
+// install even when analysis is disabled. Resolve it only for an explicit audit.
+let config = nextConfig;
+if (process.env.ANALYZE === 'true') {
+  const { default: bundleAnalyzer } = await import('@next/bundle-analyzer');
+  config = bundleAnalyzer({ enabled: true })(nextConfig);
+}
+
+export default config;
