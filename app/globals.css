@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '../src/styles/redglass.css';
+@import '../src/styles/spectral-art-direction.css';
 @source '../src';
 @source './';
 
