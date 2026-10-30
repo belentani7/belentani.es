@@ -8,7 +8,7 @@ export default function JudasEraPage() {
   const appendices = judasChapters.filter(c => c.kind === 'appendix');
 
   return (
-    <div className="omega-art-direction max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div className="spectral-art-direction max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <ScrollSection variant="hero">
         <div className="text-center mb-12">
           <p className="font-mono text-xs tracking-widest uppercase text-gold mb-2">Era JUDAS</p>
