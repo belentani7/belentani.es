@@ -62,3 +62,21 @@ test('keyboard users can skip the marketing navigation directly to the main cont
   await expect(page.locator('#contenido')).toBeFocused();
   await expect(page.locator('#contenido')).toBeVisible();
 });
+
+
+test('music landing keeps the real discography ahead of the immersive universe', async ({ page }) => {
+  await page.goto('/musica');
+
+  const recordings = page.getByRole('region', { name: 'Canciones antes que interfaces.' });
+  await expect(recordings).toBeVisible();
+  for (const title of ['Mon Amour', 'Apaga a Luz', 'Heart Breaking']) {
+    await expect(recordings.getByRole('heading', { name: title, exact: true })).toBeVisible();
+  }
+  const musicSection = page.locator('section[aria-labelledby="canciones-publicadas"]');
+  const judasSection = page.locator('section[aria-labelledby="judas-era-musica"]');
+  expect(await musicSection.evaluate((element) => Boolean(element.compareDocumentPosition(document.querySelector('section[aria-labelledby="judas-era-musica"]')) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
+  await expect(judasSection.getByRole('link', { name: /entrar en la era/i })).toHaveAttribute('href', '/judas-era');
+
+  const spotify = page.getByRole('link', { name: /spotify/i }).first();
+  await expect(spotify).toHaveAttribute('href', 'https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl');
+});
