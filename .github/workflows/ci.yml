@@ -42,6 +42,8 @@ jobs:
         run: pnpm run check:boundaries
       - name: Validate renderer and CSS package compatibility
         run: pnpm run check:renderer
+      - name: Verify production dependency boundary
+        run: node --test scripts/check-vercel-install.test.mjs
 
   test:
     name: Test
