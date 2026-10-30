@@ -1,11 +1,7 @@
-import { Orbitron, Rajdhani, Share_Tech_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 import { Providers } from '@/components/Providers';
 
-const orbitron = Orbitron({ subsets: ['latin'], weight: ['500', '700', '900'], variable: '--font-orbitron', display: 'swap', preload: true });
-const rajdhani = Rajdhani({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-rajdhani', display: 'swap', preload: true });
-const shareTechMono = Share_Tech_Mono({ subsets: ['latin'], weight: '400', variable: '--font-share-tech-mono', display: 'swap', preload: true });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://belentani.es'),
@@ -39,11 +35,13 @@ const musicGroupSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${orbitron.variable} ${rajdhani.variable} ${shareTechMono.variable}`}>
+    <html lang="es">
       <head>
         <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23ff073a' font-family='monospace'%3EB%3C/text%3E%3C/svg%3E" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Keep the original three typefaces. Loading at runtime avoids a known intermittent next/font build failure. */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupSchema) }}
