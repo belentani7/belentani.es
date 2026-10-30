@@ -17,7 +17,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: 22
+  # Match Vercel project's verified Node.js 24.x runtime to catch production-only issues.
+  NODE_VERSION: 24
 
 jobs:
   lint:
@@ -165,7 +166,6 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: pnpm/action-setup@v4
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Build
