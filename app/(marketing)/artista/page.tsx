@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Biografía de Belentani | Artista y compositor",
+  description: "Belentani, artista y compositor nacido en São Paulo y basado en Barcelona. Descubre su música, identidad artística y el universo narrativo JUDAS.",
+  alternates: { canonical: "/artista" },
+  openGraph: {
+    title: "Biografía de Belentani | Artista y compositor",
+    description: "Belentani, artista y compositor nacido en São Paulo y basado en Barcelona. Descubre su música, identidad artística y el universo narrativo JUDAS.",
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    url: "/artista",
+  },
+};
+
 import Image from 'next/image';
 import Link from 'next/link';
 

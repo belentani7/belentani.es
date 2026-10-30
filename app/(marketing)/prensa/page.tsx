@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Belentani para prensa | Biografía y enlaces oficiales",
+  description: "Biografía, contexto musical, obra seleccionada y canales oficiales de Belentani para medios, colaboradores y oyentes.",
+  alternates: { canonical: "/prensa" },
+  openGraph: {
+    title: "Belentani para prensa | Biografía y enlaces oficiales",
+    description: "Biografía, contexto musical, obra seleccionada y canales oficiales de Belentani para medios, colaboradores y oyentes.",
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    url: "/prensa",
+  },
+};
+
 import Link from 'next/link';
 
 const officialProfiles = [

@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Música de Belentani | Canciones y Judas Era",
+  description: "Escucha la música de Belentani: Mon Amour, Apaga a Luz y Heart Breaking. Explora Judas Era y sus mundos interactivos.",
+  alternates: { canonical: "/musica" },
+  openGraph: {
+    title: "Música de Belentani | Canciones y Judas Era",
+    description: "Escucha la música de Belentani: Mon Amour, Apaga a Luz y Heart Breaking. Explora Judas Era y sus mundos interactivos.",
+    type: 'website',
+    locale: 'es_ES',
+    siteName: 'Belentani: The Experience',
+    url: "/musica",
+  },
+};
+
 import Link from 'next/link';
 
 const CANCIONES = [
