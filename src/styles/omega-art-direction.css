@@ -41,3 +41,36 @@
   .omega-art-direction :is(.ng-redglass, .ng-goldglass) { transition: none; }
   .omega-art-direction :is(.ng-redglass, .ng-goldglass):hover { transform: none; }
 }
+
+/* Storytelling light field: CSS-only procedural orb behind editorial cards. */
+@property --omega-field-rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.omega-art-direction::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .42;
+  background:
+    conic-gradient(from var(--omega-field-rotation) at 78% 11%,
+      transparent 0deg, rgba(255,7,58,.19) 42deg,
+      transparent 102deg, rgba(255,231,240,.05) 180deg,
+      transparent 270deg),
+    repeating-linear-gradient(90deg,
+      transparent 0 79px, rgba(255,7,58,.018) 80px 81px);
+  mask-image: linear-gradient(#000, transparent 84%);
+  -webkit-mask-image: linear-gradient(#000, transparent 84%);
+}
+.omega-art-direction > * { position: relative; z-index: 1; }
+@keyframes omega-field-drift { to { --omega-field-rotation: 360deg; } }
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .omega-art-direction::before { animation: omega-field-drift 55s linear infinite; }
+}
+@media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
+  .omega-art-direction::before { animation: none; opacity: .16; }
+}
