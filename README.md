@@ -51,3 +51,24 @@ subscription upgrades or routing services are required to browse it.
 ## State
 
 See RESUMEN_EJECUCION.md and PENDIENTES.md for verified results and remaining work.
+
+
+## Uso
+
+Instala dependencias y ejecuta el proyecto:
+
+```powershell
+# Dependencias
+npm install
+
+# Desarrollo
+npm run dev
+
+# Pruebas
+npm test
+
+# Construcción de producción
+npm run build
+```
+
+Consulta `package.json` para la lista completa de scripts disponibles.
