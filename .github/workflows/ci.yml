@@ -202,8 +202,8 @@ jobs:
           vercel-scope: ${{ secrets.VERCEL_ORG_ID }}
 
   sync-lockfile:
-    name: Synchronize pnpm lockfile (controlled)
-    if: (github.event_name == 'workflow_dispatch' && github.actor == 'belentani7' && github.ref == 'refs/heads/main') || (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[sync-lockfile-once]'))
+    name: Synchronize pnpm lockfile (manual)
+    if: github.event_name == 'workflow_dispatch' && github.actor == 'belentani7' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
