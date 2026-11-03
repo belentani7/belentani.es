@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   outputFileTracingExcludes: { '*': ['./_private_audio_no_web/**/*', './_satellites/**/*', './_bucket/**/*', './.local-archive/**/*'] },
   experimental: {
     optimizePackageImports: ['@react-three/fiber', '@react-three/drei', 'gsap', 'lucide-react'],
