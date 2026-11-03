@@ -1,0 +1,34 @@
+# Dependencias y artefactos
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.turbo/
+.vercel/
+__pycache__/
+.venv/
+venv/
+*.pyc
+target/
+vendor/
+
+# Secretos y entorno
+.env
+.env.local
+.env.*.local
+secrets/
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Binarios y medios pesados
+*.zip
+*.mp4
+*.mov
+*.wav
+*.psd
