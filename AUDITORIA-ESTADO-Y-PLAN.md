@@ -4,15 +4,15 @@ Generado 2026-11-03 por el pase de reglas del ecosistema (catálogo `_meta/regla
 Todo lo afirmado aquí sale de datos reales: base de consolidación, gate oficial y git.
 
 - **Categoría:** arte-musica · **Ruta:** `C:\Users\USER\belentani-ecosystem\arte-musica\belentani.es`
-- **Remoto:** https://github.com/belentani7/belentani.es.git · **Rama:** main · **HEAD:** cfa55b9 (fix(web-rules): reparar equilibrio de etiquetas (ul en nav, h1/h2, p) + gate end)
-- **Lenguajes:** .tsx:149,.ts:79,.md:23,.json:22,.mjs:19,.css:19 · **Commits (git real):** 26 · **Tamaño worktree:** 19.8 MB
-- **Visibilidad GitHub:** public · **Homepage:** https://belentani.es · **HTTP:** —
+- **Remoto:** https://github.com/belentani7/belentani.es.git · **Rama:** main · **HEAD:** 5934fdd (docs(auditoria): estado real del repo, comandos para arreglar/elevar y potencial)
+- **Lenguajes:** .tsx:149,.ts:79,.md:23,.json:22,.mjs:19,.css:19 · **Commits (git real):** 27 · **Tamaño worktree:** 19.8 MB
+- **Visibilidad GitHub:** public · **Homepage:** https://belentani.es · **HTTP:** HTTP_200
 - **GitHub Pages:** no activo
 
 ## 1. Situación actual
 
 - **Consolidación:** familia `proyecto-belentanies` · acción survivor (estable).
-- **Git:** 2 ficheros sin commitear · 3 commits sin push · 2 commits del pase de reglas (desde 2026-11-02).
+- **Git:** 2 ficheros sin commitear · 4 commits sin push · 3 commits del pase de reglas (desde 2026-11-02).
 - **Reglas web (gate oficial):** 378 HTML · **0 hallazgos** · 0 títulos duplicados.
 - **Gobernanza GitHub (protocolo MS):** 10/11 reglas aplicadas · pendientes: GH-09
 - **Secretos (triaje):** sin hallazgos.
