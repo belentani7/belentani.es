@@ -3,8 +3,8 @@
    HBO-noir glass · rojo/neón · accesible AA · HTML5 semántico
    ============================================================ */
 :root{
-  --fondo:#0d1117;--panel:#161b22;--borde:#30363d;--tinta:#e6edf3;--tenue:#8b949e;
-  --acento:#ff2d55;--acento-suave:rgba(255,45,85,.12);
+  --fondo:#0d1117;--panel:#161b22;--borde:#30363d;--tinta:#e6edf3;--tenue:#94a3b8;
+  --acento:#ff4757;--acento-suave:rgba(255,71,87,.15);
   --vidrio:rgba(22,27,34,.72);--blur:saturate(1.4) blur(14px);
   --radio:14px;--sombra:0 18px 50px rgba(0,0,0,.45);
   --fuente:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
@@ -55,10 +55,10 @@ section.rejilla{margin-inline:auto}
 .tarjeta a{color:var(--tinta);text-decoration:none}
 .tarjeta a:hover{color:var(--acento)}
 .meta{color:var(--tenue);font-size:.85rem;margin:.4rem 0 0}
-.institucion-tarjeta{border-top:3px solid var(--acento)}
+.institucion-tarjeta{border-top:2px solid var(--acento)}
 .lista-programas{align-items:start}
 /* --- bandea / prosa --- */
-.bandea{position:relative;z-index:1;margin:2.5rem 4vw;padding:1.4rem 1.6rem;background:var(--panel);border:1px solid var(--borde);border-left:4px solid var(--acento);border-radius:var(--radio);max-width:70rem}
+.bandea{position:relative;z-index:1;margin:2.5rem 4vw;padding:1.4rem 1.6rem;background:var(--panel);border:1px solid var(--borde);border-left:2px solid var(--acento);border-radius:var(--radio);max-width:70rem}
 .prosa{position:relative;z-index:1;max-width:72rem;margin:0 auto;padding:1.5rem 4vw}
 .prosa h2,.section h2{font-size:1.6rem;margin:2rem 0 .7rem}
 .prosa h3{font-size:1.2rem;margin:1.4rem 0 .5rem}
@@ -127,7 +127,7 @@ details.criterios summary{cursor:pointer;color:#6cb6ff;font-weight:600}
 .practica .numero{font-family:var(--mono);color:var(--acento);margin-right:.5rem}
 .bitacora{list-style:none;padding:0;position:relative}
 .bitacora li{position:relative;padding:0 0 1.4rem 2rem;border-left:2px solid var(--borde);margin-left:.6rem}
-.bitacora li::before{content:"";position:absolute;left:-7px;top:.2rem;width:12px;height:12px;border-radius:50%;background:var(--acento);box-shadow:0 0 12px var(--acento)}
+.bitacora li::before{content:"";position:absolute;left:-7px;top:.2rem;width:12px;height:12px;border-radius:50%;background:var(--acento)}
 .bit-fecha{margin:0 0 .2rem;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acento)}
 .anexo-bloque{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:1rem 1.2rem;margin:.8rem 0}
 .anexo-bloque h4{margin:.1rem 0 .5rem}
@@ -138,13 +138,13 @@ details.criterios summary{cursor:pointer;color:#6cb6ff;font-weight:600}
 .recursos{list-style:square;padding-left:1.3rem}
 .recursos li{margin:.4rem 0}
 /* --- temas por institución (la escena y el acento cambian) --- */
-body[data-shader="lengua-de-fuego"]{--acento:#ff2d55}
-body[data-shader="constelacion-aula"]{--acento:#31d0aa}
-body[data-shader="forja-neon"]{--acento:#58a6ff}
-body[data-shader="reactor-omega"]{--acento:#d29922}
-body[data-shader="mercado-vidrio"]{--acento:#a371f7}
-body[data-shader="campo-abierto"]{--acento:#8b949e}
-body[data-shader="nebulosa-cristal"]{--acento:#ff2d55}
+body[data-shader="lengua-de-fuego"]{--acento:#ff4757}
+body[data-shader="constelacion-aula"]{--acento:#00d4aa}
+body[data-shader="forja-neon"]{--acento:#3b82f6}
+body[data-shader="reactor-omega"]{--acento:#f59e0b}
+body[data-shader="mercado-vidrio"]{--acento:#c084fc}
+body[data-shader="campo-abierto"]{--acento:#64748b}
+body[data-shader="nebulosa-cristal"]{--acento:#ff4757}
 body[data-acento]{--acento:var(--acento)}
 /* --- impresión: el contenido es lo que importa --- */
 @media print{
