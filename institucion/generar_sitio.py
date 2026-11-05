@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 generar_sitio.py — Genera la INSTITUCIÓN BELLENTANI completa dentro de
 belentani.es (sin crear ningún repo nuevo).
@@ -2352,7 +2351,8 @@ FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 
 def og_png() -> bytes:
     """PNG 1200x630 con degradado vertical simple (solo stdlib, sin escapes raros)."""
-    import struct, zlib
+    import struct
+    import zlib
     W, H = 1200, 630
     filas = bytearray()
     for y in range(H):

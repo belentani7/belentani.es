@@ -1,4 +1,4 @@
-﻿# Auditoría, situación y plan de elevación — `belentani.es`
+# Auditoría, situación y plan de elevación — `belentani.es`
 
 Generado 2026-11-03 por el pase de reglas del ecosistema (catálogo `_meta/reglas-oficiales.md`).
 Todo lo afirmado aquí sale de datos reales: base de consolidación, gate oficial y git.

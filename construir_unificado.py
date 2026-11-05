@@ -292,7 +292,7 @@ def main() -> None:
         "<title>BELENTANI — Universo Unificado · JUDAS ERA</title>",
         html,
         count=1,
-        flags=re.I | re.S,
+        flags=re.IGNORECASE | re.DOTALL,
     )
     html = re.sub(
         r'<meta name="description" content="[^"]*">',
@@ -344,7 +344,7 @@ def main() -> None:
         "  <!-- ORIGIN -->\n" + ORIGIN_HTML.strip(),
         html,
         count=1,
-        flags=re.S,
+        flags=re.DOTALL,
     )
 
     # Replace planets grid (keep section chrome)
@@ -353,7 +353,7 @@ def main() -> None:
         PLANETS_HTML.strip() + "\n  </section>\n\n  <!-- LORE SECTION -->",
         html,
         count=1,
-        flags=re.S,
+        flags=re.DOTALL,
     )
     html = html.replace(
         '<div class="section-label">// CARTOGRAFÍA ESTELAR</div>\n    <h2 class="section-title">Sistemas Planetarios</h2>\n    <p class="section-desc">Cada proyecto es un mundo. Cada mundo tiene su propia gravedad, su atmósfera, su lore.</p>',
@@ -367,7 +367,7 @@ def main() -> None:
         "  <!-- LORE COMPOSITE -->\n  " + lore_composite,
         html,
         count=1,
-        flags=re.S,
+        flags=re.DOTALL,
     )
 
     # Assets section + gallery
@@ -377,7 +377,7 @@ def main() -> None:
         f'<div class="assets-gallery" id="assetsGallery">\n{gallery}\n      </div>\n    </div>\n  </section>',
         html,
         count=1,
-        flags=re.S,
+        flags=re.DOTALL,
     )
     html = html.replace(
         "Texturas, modelos, imágenes y artefactos descargados de todas las webs de Belentani. Cada archivo es un fragmento de un mundo.",
@@ -408,8 +408,8 @@ def main() -> None:
         )
 
     # Reorder: put lore composite before planets in DOM for "lore first"
-    lore_m = re.search(r'  <!-- LORE COMPOSITE -->\s*<section class="lore-section".*?</section>\s*</section>', html, re.S)
-    plan_m = re.search(r'  <!-- PLANETS / PROJECTS -->\s*<section class="section" id="planets">.*?</section>', html, re.S)
+    lore_m = re.search(r'  <!-- LORE COMPOSITE -->\s*<section class="lore-section".*?</section>\s*</section>', html, re.DOTALL)
+    plan_m = re.search(r'  <!-- PLANETS / PROJECTS -->\s*<section class="section" id="planets">.*?</section>', html, re.DOTALL)
     if lore_m and plan_m and lore_m.start() > plan_m.start():
         lore_block = lore_m.group(0)
         plan_block = plan_m.group(0)
@@ -423,7 +423,7 @@ def main() -> None:
         r"  // =+\n  // DYNAMIC ASSET LOADING\n  // =+\n  function loadLocalAssets\(\) \{.*?\n  \}\n  loadLocalAssets\(\);\n\n",
         "",
         html,
-        flags=re.S,
+        flags=re.DOTALL,
     )
 
     OUT.write_text(html, encoding="utf-8")

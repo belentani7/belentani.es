@@ -1,4 +1,4 @@
-﻿REPOSITORIOS RELACIONADOS CON PLANETAS, GALAXIAS Y WEB GUI
+REPOSITORIOS RELACIONADOS CON PLANETAS, GALAXIAS Y WEB GUI
 
 ================================================================================
 REPOSITORIO: belent-cad

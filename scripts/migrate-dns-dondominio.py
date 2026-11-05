@@ -14,7 +14,7 @@ import csv
 import ipaddress
 import json
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -84,7 +84,7 @@ def write_manifest(path: Path, actions: list[dict], status: str) -> None:
         writer = csv.DictWriter(stream, ["date_utc", "domain", "action", "name", "type",
                                          "entityID", "before", "after", "status"])
         writer.writeheader()
-        stamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        stamp = datetime.now(UTC).isoformat(timespec="seconds")
         for action in actions:
             writer.writerow({"date_utc": stamp, "domain": DOMAIN, **action, "status": status})
 
@@ -97,7 +97,7 @@ def main() -> None:
     parser.add_argument("--www-target", required=True, help="CNAME recomendado para www por Vercel")
     parser.add_argument("--zone-json", type=Path, help="Simula la planificación con una respuesta dnslist guardada")
     parser.add_argument("--manifest", type=Path,
-                        default=Path(f"migration-dns-{datetime.now(timezone.utc):%Y-%m-%d}.csv"))
+                        default=Path(f"migration-dns-{datetime.now(UTC):%Y-%m-%d}.csv"))
     parser.add_argument("--apply", action="store_true", help="Ejecuta los cambios; requiere credenciales y servicio")
     args = parser.parse_args()
     ipaddress.IPv4Address(args.apex_ip)
