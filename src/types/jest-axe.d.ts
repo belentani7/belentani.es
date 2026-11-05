@@ -16,5 +16,5 @@ declare module 'jest-axe' {
   ): Promise<JestAxeResults>;
 
   // Matcher bundle passed to `expect.extend(...)`.
-  export const toHaveNoViolations: any;
+  export const toHaveNoViolations: unknown;
 }
