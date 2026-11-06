@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LoreEngine from './LoreEngine';
+import { ECHO_MYTH } from '@/lib/mythos';
 import styles from './lore.module.css';
 
 export const metadata: Metadata = {
-  title: 'JUDAS / El archivo vivo — BELENTANI',
-  description: 'Entra en el universo narrativo de BELENTANI: música, espejo, llave, memoria y laboratorio de escenas original.',
+  title: 'BELENTANI — El Eco y las Cuerdas | Archivo Vivo',
+  description: 'Una galaxia hermana guardada, un candado armónico y la voz improbable que encuentra su compatibilidad.',
   alternates: { canonical: '/lore' },
   openGraph: {
     title: 'BELENTANI — JUDAS / El archivo vivo',
@@ -32,6 +33,7 @@ export default function LorePage() {
           <Link href="/">GALAXIA</Link>
           <Link href="/artista">ARTISTA</Link>
           <Link href="/musica">MÚSICA</Link>
+          <Link href="/maquina">ANTIGRAVITY</Link>
           <Link href="/studio-creativo">ESTUDIO</Link>
         </nav>
       </header>
@@ -65,6 +67,23 @@ export default function LorePage() {
         </div>
       </section>
 
+      <section className={styles.echo} id="eco-y-cuerdas" aria-labelledby="echo-title">
+        <div className={styles.echoHeading}>
+          <p className={styles.eyebrow}>ARCHIVO 002 / MITO DE CIENCIA FICCIÓN</p>
+          <h2 id="echo-title">EL ECO<br /><em>Y LAS CUERDAS.</em></h2>
+          <p className={styles.echoIntro}>Una galaxia guardada. Un candado armónico. Una voz que nadie esperaba.</p>
+        </div>
+        <div className={styles.echoGrid}>
+          <article><span>01 / LO QUE PERMANECE</span><p>{ECHO_MYTH.es.opening}</p></article>
+          <article><span>02 / LA GALAXIA HERMANA</span><p>{ECHO_MYTH.es.galaxy}</p></article>
+          <article><span>03 / EL CANDADO SÓNICO</span><p>{ECHO_MYTH.es.lock}</p></article>
+          <article><span>04 / EL CANTANTE IMPROBABLE</span><p>{ECHO_MYTH.es.singer}</p></article>
+          <article className={styles.echoReveal}><span>05 / LA REVELACIÓN</span><p>{ECHO_MYTH.es.reveal}</p></article>
+        </div>
+        <p className={styles.scienceNote}>{ECHO_MYTH.es.scienceNote}</p>
+        <Link href="/maquina" className={styles.machineLink}>ENTRAR EN ANTIGRAVITY · ALIVE MACHINE <span aria-hidden="true">↗</span></Link>
+      </section>
+
       <section className={styles.lab} id="laboratorio" aria-labelledby="lab-title">
         <div><p className={styles.eyebrow}>LABORATORIO / LOCAL FIRST</p><h2 id="lab-title">EL LORE RESPONDE<br />A TU IMAGINACIÓN.</h2><p>Combina un símbolo y una intención para recibir una escena original. Este instrumento es generativo y procedural; no envía tus ideas a servidores de IA.</p></div>
         <LoreEngine />
@@ -76,6 +95,9 @@ export default function LorePage() {
         <div className={styles.bridgeLinks}>
           <Link href="/">Explorar la galaxia <span aria-hidden="true">↗</span></Link>
           <Link href="/studio-creativo">Abrir el estudio creativo <span aria-hidden="true">↗</span></Link>
+          <Link href="/maquina">ANTIGRAVITY · terminal viva <span aria-hidden="true">↗</span></Link>
+          <Link href="/ai-lab">AI LAB · herramientas creativas <span aria-hidden="true">↗</span></Link>
+          <Link href="/noiacore">NOIACORE · satélite técnico <span aria-hidden="true">↗</span></Link>
           <a href="https://judas-experience-v3.vercel.app" target="_blank" rel="noopener noreferrer">JUDAS EXPERIENCE · portal externo <span aria-hidden="true">↗</span></a>
           <a href="https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener noreferrer">BELENTANI en Spotify <span aria-hidden="true">↗</span></a>
         </div>

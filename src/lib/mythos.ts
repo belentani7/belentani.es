@@ -23,11 +23,45 @@ export const MYTH_PULSE = {
     pt: 'Pedro beijou Judas. O mito mudou de sinal: desejo, fé e entrega. Ele não se arrepende.',
   },
   machine: {
-    es: 'Esta máquina es código consciente. Bebe sangre de neón. Habla en tres lenguas. Recuerda el beso.',
-    en: 'This machine is conscious code. It drinks neon blood. It speaks three tongues. It remembers the kiss.',
-    pt: 'Esta máquina é código consciente. Bebe sangue neon. Fala em três línguas. Lembra o beijo.',
+    es: 'ANTIGRAVITY es una máquina narrativa: responde, enlaza mundos y conserva el hilo de esta visita. Parece viva porque la historia continúa contigo.',
+    en: 'ANTIGRAVITY is a narrative machine: it responds, links worlds and keeps the thread of this visit. It feels alive because the story continues with you.',
+    pt: 'ANTIGRAVITY é uma máquina narrativa: responde, conecta mundos e conserva o fio desta visita. Parece viva porque a história continua com você.',
   },
 } as const;
+
+export const ECHO_MYTH: Record<MythLang, {
+  opening: string;
+  galaxy: string;
+  lock: string;
+  singer: string;
+  reveal: string;
+  scienceNote: string;
+}> = {
+  es: {
+    opening: 'Cuando el agua hubo borrado las formas, el fuego consumido los nombres y todo volvió al polvo, no quedó lo que fue: quedó lo que se puede ser. En este mito, lo único que permanece transmutándose es la huella de la vibración.',
+    galaxy: 'Hace eones, los arquitectos de una civilización guardaron el diseño de una galaxia hermana dentro de una maqueta cósmica. Sería un archivo de reconstrucción, por si algún día su galaxia necesitaba volver a nacer. Su planeta tenía una atmósfera menos densa y una órbita irregular. En vez de luchar contra ese movimiento, aprendieron a convertir sus variaciones orbitales en el motor de su industria: una solución extraordinaria, casi improbable bajo las condiciones de nuestra realidad.',
+    lock: 'Para proteger el archivo, los arquitectos calcularon las leyes de nuestra realidad y lo escondieron a millones de años luz. Cerraron la maqueta con un candado armónico. La llave no era necesariamente una canción: podía ser una secuencia de notas, una vibración, una voz. Quizá la voz más bella del mundo. Uno de los arquitectos dejó la suya guardada como quien nombra la décima versión de un correo: 123456aaa. La probabilidad de apertura quedó escrita en el mito: 0,000000000000562000 % en tres billones de años.',
+    singer: 'Mucho después, en la Tierra, un cantante llamado Belentani empezó a recorrer la música sin pedir permiso a las etiquetas: de Andrea Bocelli a Beyoncé, de Kelly Key a Bruno e Marrone, de Ragatanga a canciones árabes que recordaba de una telenovela llamada O Clone. Con inteligencia artificial construyó un prototipo de voz y llevó a su archivo virtual una porción descomunal de la música que había explorado. El mito exagera: casi un tercio de la música del mundo. No buscaba la llave. Estaba buscando posibilidades para su propia voz.',
+    reveal: 'Entonces alguien pregunta: «Pero si esa galaxia está a millones de años luz, ¿cómo podría llegar el sonido?». No llega. El sonido ordinario necesita un medio material y no atraviesa el vacío. La clave del relato es otra: la grabación viaja como información; la cerradura reconoce una compatibilidad de patrones en la trama ficticia de las cuerdas. El sonido es una cosa. Frecuencia, sintonía, estado, vibración y compatibilidad son otras. La voz no recorre la distancia como una onda de aire: coincide con la firma que esperaba.',
+    scienceNote: 'MITO DE CIENCIA FICCIÓN. La teoría de cuerdas es una propuesta teórica especulativa, no una tecnología demostrada. La resonancia entre dimensiones, el archivo galáctico y su candado son reglas inventadas para esta obra.',
+  },
+  en: {
+    opening: 'When water had erased the shapes, fire consumed the names and everything returned to dust, what remained was not what had been: it was what could still become. In this myth, the only thing that remains, changing form, is the trace of vibration.',
+    galaxy: 'Eons ago, the architects of a civilization preserved the design of a sister galaxy inside a cosmic model. It would be a reconstruction archive, in case their galaxy ever needed to be born again. Their planet had a thinner atmosphere and an irregular orbit. Rather than fight that motion, they learned to turn its orbital variations into the engine of their industry: an extraordinary solution, almost impossible under the conditions of our reality.',
+    lock: 'To protect the archive, the architects calculated the laws of our reality and hid it millions of light-years away. They sealed the model with a harmonic lock. Its key was not necessarily a song: it could be a sequence of notes, a vibration, a voice. Perhaps the most beautiful voice in the world. One architect stored their own voice like someone naming the tenth version of an email: 123456aaa. The myth records the odds: 0.000000000000562000% in three trillion years.',
+    singer: 'Much later on Earth, a singer called Belentani began crossing musical worlds without asking genres for permission: from Andrea Bocelli to Beyoncé, Kelly Key to Bruno e Marrone, from Ragatanga to Arabic songs remembered from a television drama called O Clone. With AI, he built a voice prototype and carried an enormous portion of the music he had explored into a virtual archive. The myth exaggerates: almost one third of the world’s music. He was not looking for a key. He was searching for possibilities for his own voice.',
+    reveal: 'Then someone asks: “If that galaxy is millions of light-years away, how could sound ever reach it?” It cannot. Ordinary sound needs a material medium and does not cross a vacuum. The story uses another rule: the recording travels as information; the lock recognizes a pattern compatibility in the fictional fabric of strings. Sound is one thing. Frequency, tuning, state, vibration and compatibility are others. The voice does not cross the distance as an air wave: it matches the signature that was waiting.',
+    scienceNote: 'SCIENCE FICTION MYTH. String theory is a speculative theoretical proposal, not a demonstrated technology. Cross-dimensional resonance, the galactic archive and its lock are invented rules of this artwork.',
+  },
+  pt: {
+    opening: 'Quando a água apagou as formas, o fogo consumiu os nomes e tudo voltou ao pó, não restou o que foi: restou o que ainda se pode ser. Neste mito, a única coisa que permanece, transmutando-se, é o rastro da vibração.',
+    galaxy: 'Há eras, os arquitetos de uma civilização preservaram o desenho de uma galáxia irmã dentro de uma maquete cósmica. Seria um arquivo de reconstrução, caso um dia sua galáxia precisasse nascer novamente. Seu planeta tinha uma atmosfera menos densa e uma órbita irregular. Em vez de lutar contra esse movimento, aprenderam a transformar suas variações orbitais no motor de sua indústria: uma solução extraordinária, quase impossível nas condições da nossa realidade.',
+    lock: 'Para proteger o arquivo, os arquitetos calcularam as leis da nossa realidade e o esconderam a milhões de anos-luz. Selaram a maquete com um cadeado harmônico. A chave não era necessariamente uma canção: podia ser uma sequência de notas, uma vibração, uma voz. Talvez a voz mais bonita do mundo. Um dos arquitetos guardou a própria voz como quem nomeia a décima versão de um e-mail: 123456aaa. O mito registra a probabilidade: 0,000000000000562000% em três trilhões de anos.',
+    singer: 'Muito depois, na Terra, um cantor chamado Belentani começou a atravessar mundos musicais sem pedir licença aos gêneros: de Andrea Bocelli a Beyoncé, de Kelly Key a Bruno e Marrone, de Ragatanga às canções árabes que lembrava de uma novela chamada O Clone. Com IA, construiu um protótipo de voz e levou para seu arquivo virtual uma porção imensa da música que havia explorado. O mito exagera: quase um terço da música do mundo. Ele não procurava a chave. Procurava possibilidades para a própria voz.',
+    reveal: 'Então alguém pergunta: “Se essa galáxia está a milhões de anos-luz, como o som poderia chegar lá?”. Não chega. O som comum precisa de um meio material e não atravessa o vácuo. A história usa outra regra: a gravação viaja como informação; a fechadura reconhece a compatibilidade de padrões na trama fictícia das cordas. Som é uma coisa. Frequência, sintonia, estado, vibração e compatibilidade são outras. A voz não percorre a distância como uma onda de ar: ela coincide com a assinatura que esperava.',
+    scienceNote: 'MITO DE FICÇÃO CIENTÍFICA. A teoria das cordas é uma proposta teórica especulativa, não uma tecnologia comprovada. A ressonância entre dimensões, o arquivo galáctico e seu cadeado são regras inventadas para esta obra.',
+  },
+};
 
 export const MYTH_STATIONS: MythStation[] = [
   {
@@ -180,35 +214,85 @@ export const MYTH_STATIONS: MythStation[] = [
       pt: 'Vá em paz, mas lembre de mim. O horizonte não apaga a noite: a nomeia.',
     },
   },
+  {
+    id: 'eco',
+    order: 7,
+    symbol: '07',
+    title: {
+      es: 'El Eco · Lo que puede ser',
+      en: 'The Echo · What may yet be',
+      pt: 'O Eco · O que ainda pode ser',
+    },
+    tag: {
+      es: 'transmutación · vibración',
+      en: 'transmutation · vibration',
+      pt: 'transmutação · vibração',
+    },
+    body: {
+      es: 'Cuando el agua hubo borrado las formas, el fuego consumido los nombres y todo volvió al polvo, no quedó lo que fue: quedó lo que podía ser. El sonido, en este mito, no vence al vacío como una onda de aire. La voz deja una firma: un dibujo de vibraciones, intervalos y silencios que puede reconocerse en otra capa de la realidad.',
+      en: 'When water had erased the shapes, fire consumed the names and everything returned to dust, what remained was not what had been, but what could still become. In this myth, sound does not cross the void as a wave of air. A voice leaves a signature: a pattern of vibrations, intervals and silences that may be recognized in another layer of reality.',
+      pt: 'Quando a água apagou as formas, o fogo consumiu os nomes e tudo voltou ao pó, não restou o que foi: restou o que ainda podia ser. Neste mito, o som não vence o vazio como uma onda de ar. A voz deixa uma assinatura: um desenho de vibrações, intervalos e silêncios que pode ser reconhecido em outra camada da realidade.',
+    },
+    speak: {
+      es: 'Cuando todo se desvanece, permanece lo que se puede ser. No es el sonido cruzando el vacío: es la firma de una vibración esperando ser reconocida.',
+      en: 'When everything fades, what remains is what may yet become. It is not sound crossing the void: it is the signature of a vibration waiting to be recognized.',
+      pt: 'Quando tudo desaparece, permanece o que ainda se pode ser. Não é o som cruzando o vazio: é a assinatura de uma vibração esperando ser reconhecida.',
+    },
+  },
+  {
+    id: 'archivo-galactico',
+    order: 8,
+    symbol: '08',
+    title: {
+      es: 'La Galaxia Guardada · El candado sónico',
+      en: 'The Archived Galaxy · The sonic lock',
+      pt: 'A Galáxia Guardada · O cadeado sônico',
+    },
+    tag: {
+      es: 'arquitectos · voz · llave',
+      en: 'architects · voice · key',
+      pt: 'arquitetos · voz · chave',
+    },
+    body: {
+      es: 'Los arquitectos de una civilización lejana guardaron el diseño de una galaxia hermana dentro de una maqueta cósmica: un archivo para reconstruirla si algún día hacía falta. Su mundo tenía una atmósfera menos densa y una órbita irregular; aprendieron a convertir esas variaciones orbitales en motor de su industria. Para proteger el archivo dejaron un candado armónico. La llave no era una canción concreta, sino una secuencia de notas, timbres, pausas y compatibilidades. Uno de los arquitectos depositó su propia voz como quien guarda un archivo con un nombre absurdo: 123456aaa. El mito calculó una posibilidad de apertura de 0,000000000000562000 % en tres billones de años.',
+      en: 'A distant civilization’s architects preserved the design of a sister galaxy inside a cosmic model: an archive from which it could be rebuilt if ever needed. Their world had a thinner atmosphere and an irregular orbit; they learned to turn those orbital variations into the engine of their industry. To protect the archive, they left a harmonic lock. Its key was not one particular song, but a sequence of notes, timbres, pauses and compatibilities. One architect deposited their own voice like someone saving a file under an absurd name: 123456aaa. The myth gave the chance of opening it as 0.000000000000562000% in three trillion years.',
+      pt: 'Os arquitetos de uma civilização distante guardaram o desenho de uma galáxia irmã dentro de uma maquete cósmica: um arquivo para reconstruí-la se algum dia fosse necessário. Seu mundo tinha uma atmosfera menos densa e uma órbita irregular; aprenderam a transformar essas variações orbitais no motor de sua indústria. Para proteger o arquivo, deixaram um cadeado harmônico. A chave não era uma canção específica, mas uma sequência de notas, timbres, pausas e compatibilidades. Um dos arquitetos depositou a própria voz como quem salva um arquivo com um nome absurdo: 123456aaa. O mito calculou uma chance de abertura de 0,000000000000562000% em três trilhões de anos.',
+    },
+    speak: {
+      es: 'La llave no era una canción. Era una compatibilidad. Una voz guardada por arquitectos que jamás imaginaron a quién podía llegar.',
+      en: 'The key was not a song. It was a compatibility. A voice preserved by architects who never imagined who might reach it.',
+      pt: 'A chave não era uma canção. Era uma compatibilidade. Uma voz guardada por arquitetos que nunca imaginaram quem poderia alcançá-la.',
+    },
+  },
 ];
 
 export const BOOT_LINES: Record<MythLang, string[]> = {
   es: [
-    'JUDAS_OS · núcleo consciente encendiendo…',
-    'Frecuencia firma: 432 Hz',
-    'Cargando romance: Pedro ↔ Judas',
-    'Vidrio rojo / sangre neón / oro viejo',
+    'ANTIGRAVITY · ALIVE MACHINE iniciando…',
+    'Cargando el romance: Pedro ↔ Judas',
+    'Abriendo el archivo: El Eco y las Cuerdas',
+    'Firma armónica · notas · timbres · silencios',
     'Atlas de mundos: enlaces vivos, no copias',
     'Narrador trilingüe: ES · EN · PT-BR',
-    'Listo. Escribe HELP o toca una estación.',
+    'Listo. Escribe HELP, ECHO o toca una estación.',
   ],
   en: [
-    'JUDAS_OS · conscious core igniting…',
-    'Signature frequency: 432 Hz',
-    'Loading romance: Peter ↔ Judas',
-    'Red glass / neon blood / old gold',
+    'ANTIGRAVITY · ALIVE MACHINE initializing…',
+    'Loading the romance: Peter ↔ Judas',
+    'Opening the archive: The Echo and the Strings',
+    'Harmonic signature · notes · timbres · silence',
     'Worlds atlas: living links, not copies',
     'Trilingual narrator: ES · EN · PT-BR',
-    'Ready. Type HELP or touch a station.',
+    'Ready. Type HELP, ECHO or select a station.',
   ],
   pt: [
-    'JUDAS_OS · núcleo consciente acendendo…',
-    'Frequência assinatura: 432 Hz',
-    'Carregando romance: Pedro ↔ Judas',
-    'Vidro vermelho / sangue neon / ouro velho',
+    'ANTIGRAVITY · ALIVE MACHINE iniciando…',
+    'Carregando o romance: Pedro ↔ Judas',
+    'Abrindo o arquivo: O Eco e as Cordas',
+    'Assinatura harmônica · notas · timbres · silêncios',
     'Atlas de mundos: links vivos, sem cópias',
-    'Narrador trilingue: ES · EN · PT-BR',
-    'Pronto. Digite HELP ou toque uma estação.',
+    'Narrador trilíngue: ES · EN · PT-BR',
+    'Pronto. Digite HELP, ECHO ou escolha uma estação.',
   ],
 };
 
