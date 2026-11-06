@@ -84,7 +84,31 @@ export default function GalaxyVoyage() {
       <header className={styles.header}>
         <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">B<span>7</span>.</Link>
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
-        <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/lore">LORE</Link><Link href="/musica">MÚSICA</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
+        <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/lore">LORE</Link><Link href="/musica">MÚSICA</Link><Link href="/maquina">ANTIGRAVITY</Link><Link href="/ai-lab">AI LAB</Link><Link href="/noiacore">NOIACORE</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
+        <details className={styles.mobileMenu} onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            event.currentTarget.open = false;
+            event.preventDefault();
+          }
+        }}>
+          <summary aria-label="Abrir menú">MENÚ <span aria-hidden="true">＋</span></summary>
+          <nav aria-label="Navegación móvil" onClick={(event) => {
+            if (event.target instanceof HTMLAnchorElement) {
+              const menu = event.currentTarget.closest('details');
+              if (menu) menu.open = false;
+            }
+          }}>
+            <Link href="/judas">JUDAS</Link>
+            <Link href="/noiacore">NOIACORE</Link>
+            <Link href="#destinos">PLANETAS</Link>
+            <Link href="/maquina">ANTIGRAVITY</Link>
+            <Link href="/ai-lab">AI LAB</Link>
+            <Link href="/lore">LORE</Link>
+            <Link href="/musica">MÚSICA</Link>
+            <Link href="/artista">ARTISTA</Link>
+            <Link href="/studio-creativo">ESTUDIO</Link>
+          </nav>
+        </details>
       </header>
       <section className={styles.intro} aria-labelledby="voyage-title">
         <p className={styles.kicker}>01 / UNIVERSO NAVEGABLE · {String(VOYAGE_PLACES.length).padStart(2, '0')} SISTEMAS</p>
@@ -103,6 +127,9 @@ export default function GalaxyVoyage() {
           <Link href="/lore">ENTRAR EN JUDAS / LORE <span aria-hidden="true">↗</span></Link>
           <Link href="/musica">ESCUCHAR LA OBRA <span aria-hidden="true">↗</span></Link>
           <Link href="/artista">CONOCER AL ARTISTA <span aria-hidden="true">↗</span></Link>
+          <Link href="/maquina">ANTIGRAVITY · ALIVE MACHINE <span aria-hidden="true">↗</span></Link>
+          <Link href="/ai-lab">AI LAB · HERRAMIENTAS CREATIVAS <span aria-hidden="true">↗</span></Link>
+          <Link href="/noiacore">NOIACORE · SATÉLITE TÉCNICO <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
       <aside className={styles.active} aria-live="polite" style={{ ['--system-color' as string]: selected.accent }}>

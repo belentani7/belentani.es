@@ -55,3 +55,7 @@ legacy/
 _stems/
 __pycache__/
 *.pyc
+.vercel
+.env
+.env.local
+.env.*.local
