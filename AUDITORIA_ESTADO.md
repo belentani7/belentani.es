@@ -1,34 +1,23 @@
 # AUDITORIA_ESTADO — belentani.es
 
-> Repositorio físico: `belentani-ecosystem/arte-musica/belentani.es`
+- Cumplimiento: **83.3%** (35 ok / 7 incumple / 7 no evaluable)
+- Paginas HTML muestreadas: 375
+- Generado: 2026-11-07T15:18:51
 
-## Situación actual
+## Reglas que incumple
 
-| Indicador | Valor |
-|-----------|-------|
-| Categoría | arte-musica |
-| Lenguaje | HTML |
-| Rama | main |
-| package.json | Sí |
-| Python | No |
-| Docker | Sí |
-| README | Sí |
-| AGENTS.md | Sí |
-| Tests | No |
-| CI | Sí |
+| Regla | Detalle |
+|---|---|
+| COH-01 | variantes de marca: ['belentani', 'belentani7', 'belentani_', 'belentaniuniverse'] |
+| DEV-04 | scripts sin documentar: ['prebuild', 'lint', 'test:watch', 'test:e2e'] |
+| SEO-01 | institucion/experiencia/03-duck-web-build-everything-drive.html: title 70 chars |
+| SEO-02 | index.html: description 60 chars |
+| SEO-03 | institucion/404.html: title y h1 no comparten termino |
+| WEB-06 | _universo_assets/prueba.html: sin <header> |
+| WEB-23 | _universo_assets/prueba.html: sin favicon |
 
-## Comentarios
-
-- Hub de artista: portfolio 3D inmersivo, catálogo musical y universo narrativo.
-- Repo curado (categoría creative). Sitio en línea: https://belentani.es
-- Tiene AGENTS.md y CI, pero falta tests.
-
-## Comando para arreglar y elevar
+## Reparacion
 
 ```bash
-npm install
-npm run build
-# HTML estático: copiar archivos al servidor
-npm run test  # crear tests básicos si no existen
-# Verificar WCAG, SEO y Open Graph en todas las páginas HTML
-gitleaks detect --source .
+python _audit/reparar.py --apply --only belentani.es
+```
