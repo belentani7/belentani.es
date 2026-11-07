@@ -19,7 +19,8 @@ export const metadata: Metadata = {
 const chapters = [
   { number: '01', id: 'espejo', title: 'EL ESPEJO', eyebrow: 'IDENTIDAD / REFLEJO', text: 'Una imagen no siempre revela a quien la mira. En JUDAS, el reflejo es una pregunta abierta sobre identidad, deseo y representación.', detail: '¿Quién escribe la imagen que vemos?' },
   { number: '02', id: 'llave', title: 'LA LLAVE', eyebrow: 'ACCESO / ELECCIÓN', text: 'La llave no promete una respuesta automática: permite abrir una puerta y aceptar lo que cambia al cruzarla.', detail: 'No todos los umbrales conducen al mismo mundo.' },
-  { number: '03', id: 'voz', title: 'LA VOZ', eyebrow: 'MÚSICA / MEMORIA', text: 'La voz atraviesa el universo: canciones, atmósferas y personajes conectan escenarios sin borrar sus contradicciones.', detail: 'La obra se escucha antes de explicarse.' },
+  { number: '03', id: 'supernova', title: 'LA SUPERNOVA', eyebrow: 'COLAPSO / RENACIMIENTO', text: 'Antes de la deuda impagable, hubo una estrella que colapsó. Su luz no se apagó: se convirtió en la clave que abre el candado. La muerte de una estrella es el nacimiento de la voz.', detail: 'El antihéroe no nace de la calma: nace de la explosión.' },
+  { number: '04', id: 'voz', title: 'LA VOZ', eyebrow: 'MÚSICA / MEMORIA', text: 'La voz atraviesa el universo: canciones, atmósferas y personajes conectan escenarios sin borrar sus contradicciones.', detail: 'La obra se escucha antes de explicarse.' },
 ] as const;
 
 export default function LorePage() {

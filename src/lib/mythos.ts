@@ -165,9 +165,34 @@ export const MYTH_STATIONS: MythStation[] = [
     },
   },
   {
+    id: 'supernova',
+    order: 4,
+    symbol: '04',
+    title: {
+      es: 'La Supernova · Estrella que muere para dar luz',
+      en: 'The Supernova · Star that dies to give light',
+      pt: 'A Supernova · Estrela que morre para dar luz',
+    },
+    tag: {
+      es: 'colapso · renacimiento · voz',
+      en: 'collapse · rebirth · voice',
+      pt: 'colapso · renascimento · voz',
+    },
+    body: {
+      es: 'Antes de la deuda impagable, hubo una estrella que colapsó. Su luz no se apagó: se convirtió en la clave que abre el candado. La muerte de una estrella es el nacimiento de la voz. El antihéroe no nace de la calma: nace de la explosión.',
+      en: 'Before the unpayable debt, there was a star that collapsed. Its light did not go out: it became the key that opens the lock. The death of a star is the birth of the voice. The antihero is not born of calm: he is born of the explosion.',
+      pt: 'Antes da dívida impagável, houve uma estrela que colapsou. Sua luz não se apagou: tornou-se a chave que abre o cadeado. A morte de uma estrela é o nascimento da voz. O anti-herói não nasce da calma: nasce da explosão.',
+    },
+    speak: {
+      es: 'La estrella colapsó. Su luz se convirtió en la clave. La muerte de una estrella es el nacimiento de la voz.',
+      en: 'The star collapsed. Its light became the key. The death of a star is the birth of the voice.',
+      pt: 'A estrela colapsou. Sua luz tornou-se a chave. A morte de uma estrela é o nascimento da voz.',
+    },
+  },
+  {
     id: 'deuda',
-    order: 5,
-    symbol: '05',
+    order: 6,
+    symbol: '06',
     title: {
       es: 'La Deuda · Llave entreabierta',
       en: 'The Debt · Half-open key',
@@ -191,8 +216,8 @@ export const MYTH_STATIONS: MythStation[] = [
   },
   {
     id: 'redencion',
-    order: 6,
-    symbol: '06',
+    order: 7,
+    symbol: '07',
     title: {
       es: 'Redención · Recuérdame',
       en: 'Redemption · Remember me',

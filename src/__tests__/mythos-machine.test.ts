@@ -2,14 +2,21 @@ import { expect, test } from 'vitest';
 import { ECHO_MYTH, MYTH_STATIONS, MYTH_PULSE, stationById } from '../lib/mythos';
 import { WORLD_NODES, worldsForStation, isExternalWorld } from '../lib/worlds-atlas';
 
-test('mythos has 8 stations with ES EN PT', () => {
-  expect(MYTH_STATIONS).toHaveLength(8);
+test('mythos has 7 stations with ES EN PT', () => {
+  expect(MYTH_STATIONS).toHaveLength(7);
   for (const s of MYTH_STATIONS) {
     expect(s.title.es.length).toBeGreaterThan(3);
     expect(s.title.en.length).toBeGreaterThan(3);
     expect(s.title.pt.length).toBeGreaterThan(3);
     expect(s.speak.es.length).toBeGreaterThan(3);
   }
+});
+
+test('supernova station exists', () => {
+  const t = stationById('supernova');
+  expect(t).toBeTruthy();
+  expect(t!.speak.es.toLowerCase()).toContain('estrella');
+  expect(t!.speak.es.toLowerCase()).toContain('voz');
 });
 
 test('romance pulse names Pedro and Judas', () => {
