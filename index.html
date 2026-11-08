@@ -1,98 +1,335 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Belentani — Artista</title>
-<meta name="description" content="Belentani: artista y compositor entre São Paulo y Barcelona.">
-
-<style>
-  :root{--red:#ff073a;--gold:#d4af37}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{min-height:100vh;display:grid;place-items:center;background:#030008;color:#f2e8ef;font-family:ui-monospace,'Share Tech Mono',Consolas,monospace;text-align:center;overflow-x:hidden;overflow-y:auto}
-  .ring{position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,7,58,.16),transparent 45%),radial-gradient(circle at 70% 70%,rgba(212,175,55,.10),transparent 45%);filter:blur(40px);animation:drift 12s ease-in-out infinite alternate}
-  @keyframes drift{to{transform:translate3d(4vw,-3vh,0) scale(1.08)}}
-  .wrap{position:relative;padding:24px}
-  .omega{font-size:clamp(96px,24vw,220px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;animation:breath 2.8s ease-in-out infinite}
-  @keyframes breath{0%,100%{filter:drop-shadow(0 0 18px rgba(255,7,58,.35))}50%{filter:drop-shadow(0 0 44px rgba(255,7,58,.75))}}
-  .word{margin-top:10px;font-size:clamp(14px,3vw,22px);letter-spacing:.5em;color:#fff;text-shadow:0 0 16px rgba(255,7,58,.7)}
-  .bar{margin:26px auto 0;width:min(280px,60vw);height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
-  .spin{width:54px;height:54px;margin:26px auto 0;border-radius:50%;border:1px solid rgba(255,7,58,.25);border-top-color:var(--red);animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .msg{margin-top:22px;font-size:11px;letter-spacing:.3em;color:#b3a8a5;text-transform:uppercase}
-  a{color:var(--red)}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-  .wrap{min-height:90svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .universe{position:relative;z-index:3;max-width:1020px;margin:0 auto;padding:4rem 1.3rem 7rem}
-  .universe h2{font-size:clamp(2rem,5vw,4.2rem);margin-bottom:1rem}
-  .universe p{line-height:1.7;color:#e2d5df}
-  .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem;margin:2rem 0}
-  .glass{background:linear-gradient(130deg,#ffffff1a,#ff17441b,#000d);border:1px solid #ff31596b;border-radius:22px;backdrop-filter:blur(18px);padding:2rem;box-shadow:0 0 34px #ff073a1d;text-align:left;display:block}
-  .glass strong{display:block;color:#fff;margin-bottom:.8rem;font-size:1.2rem}.glass:hover{border-color:#ff7994;box-shadow:0 0 40px #ff174467}
-  .glass input{width:100%;max-width:380px;padding:.8rem;color:white;background:#110610;border:1px solid #f75476;border-radius:8px}
-  .glass button{display:block;margin:1rem 0;padding:.85rem 1.2rem;border:1px solid #f75476;border-radius:8px;background:#ff17442a;color:white;cursor:pointer}
-  output{display:block;white-space:pre-wrap;color:#ffdfec;line-height:1.6}
-  @media(prefers-reduced-motion:reduce){.ring,.omega,.spin{animation:none}}
-</style>
-
-
-<!-- elevacion de calidad: SEO-02, WEB-22 (generado por _audit/elevar_calidad.py) -->
-<meta property="og:title" content="Belentani — Artista">
-<meta property="og:description" content="Belentani — Artista. Belentani — Artista ES EN CA FR IT PT DE NL JA Belentani — Artista Ω BELENTANI SÃO PAULO → BARCELONA · VOZ · MÚSICA · JUDAS ENTRAR EN EL">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>Belentani — Artista y Compositor</title>
+<meta name="description" content="Belentani es un artista y compositor multidisciplinar entre São Paulo y Barcelona. Pop oscuro, R&B, electrónica y el universo narrativo JUDAS.">
+<meta property="og:title" content="Belentani — Artista y Compositor">
+<meta property="og:description" content="São Paulo → Barcelona · voz · música · JUDAS. Pop oscuro, R&B y electrónica en un universo narrativo propio.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://belentani7.github.io/belentani.es/index.html">
+<meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Belentani — Artista y Compositor">
+<meta name="twitter:description" content="SÃO PAULO → BARCELONA · VOZ · MÚSICA · JUDAS">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000000'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%2300ff88' text-anchor='middle'%3E%CE%A9%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#000000;
+    --bg-2:#0a0a0a;
+    --bg-3:#111111;
+    --ink:#e8e8e8;
+    --ink-dim:#8a8a8a;
+    --accent:#00ff88;
+    --accent-2:#0066ff;
+    --accent-3:#ff0066;
+    --line:rgba(0,255,136,.12);
+    --glass:rgba(17,17,17,.6);
+    --glass-border:rgba(0,255,136,.25);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:ui-sans-serif,"Segoe UI",Inter,system-ui,-apple-system,sans-serif;
+    --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --measure:62ch;
+    --radius:14px;
+    --shadow:0 20px 40px -12px rgba(0,0,0,.6);
+  }
+  *,::before,::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduuced-motion:reduce){html{scroll-behavior:auto}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(900px 520px at 82% -10%,rgba(0,255,136,.06),transparent 60%),
+      radial-gradient(700px 480px at 5% 12%,rgba(0,102,255,.05),transparent 60%);
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.025;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .shell{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent);text-underline-offset:4px;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+  .skip{
+    position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden
+  }
+  .skip:focus{left:1rem;top:1rem;width:auto;height:auto;padding:8px 12px;background:var(--accent);color:#000;border-radius:6px;z-index:100}
+  .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;align-items:center
+  }
+  .kicker span:not(:last-child)::after{content:"/";margin-left:14px;color:var(--ink-dim);opacity:.5}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.03em}
+  h1{
+    margin:0;font-size:clamp(3rem,10vw,7rem);line-height:.92
+  }
+  h1 em{font-weight:400;color:var(--accent);font-style:normal}
+  h2{
+    margin:0 0 12px;font-size:clamp(2rem,4.5vw,4rem);line-height:1
+  }
+  h3{
+    margin:0 0 10px;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.1
+  }
+  p{margin:0 0 14px;max-width:var(--measure);color:var(--ink-dim)}
+  p strong{color:var(--ink)}
+  .lede{font-size:clamp(1.08rem,1.7vw,1.32rem)}
+  .lede strong{color:var(--ink)}
+  section{padding:clamp(58px,9vh,104px) 0;border-bottom:1px solid rgba(255,255,255,.04)}
+  .glass{
+    background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+  }
+  .button{
+    display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+    padding:0 18px;border:1px solid var(--accent);border-radius:999px;
+    color:#000;background:var(--accent);font-weight:700;text-decoration:none;
+    transition:filter .2s,transform .2s
+  }
+  .button:hover{filter:brightness(1.15);transform:translateY(-2px)}
+  .button.secondary{
+    color:var(--ink);background:transparent;border-color:rgba(255,255,255,.12)
+  }
+  .button.secondary:hover{border-color:var(--accent);color:var(--accent)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,html .reveal{opacity:1;transform:none;transition:none}
+  }
+  ::selection{background:var(--accent);color:#000}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:82svh;display:grid;align-content:end;gap:28px;
+    padding:clamp(72px,13vh,150px) 0 clamp(64px,10vh,120px);border-bottom:1px solid rgba(255,255,255,.04);overflow:hidden
+  }
+  .hero-glow{
+    position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(600px 300px at 80% 20%,rgba(0,255,136,.10),transparent 50%),
+      radial-gradient(500px 250px at 20% 80%,rgba(0,102,255,.08),transparent 50%);
+  }
+  .hero > *{position:relative;z-index:2}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- PRODUCTOS / CARTAS ---------- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+  .card{
+    position:relative;background:var(--glass);border:1px solid var(--glass-border);
+    border-radius:var(--radius);padding:26px 24px;overflow:hidden;transition:border-color .3s,transform .3s
+  }
+  .card:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .card::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s
+  }
+  .card:hover::before{opacity:1}
+  .card .idx{
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent-2);display:block;margin-bottom:10px
+  }
+  .card h3{color:var(--ink);margin-bottom:8px}
+  .card p{font-size:.94rem;color:var(--ink-dim);margin-bottom:16px}
+  .card .go{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin-top:auto;padding-top:8px
+  }
+
+  /* ---------- LORE ---------- */
+  .lore{
+    display:grid;grid-template-columns:minmax(0,1fr);gap:22px;margin-top:44px;
+    border:1px solid var(--glass-border);border-radius:var(--radius);
+    background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:clamp(24px,4vw,44px)
+  }
+  .lore h3{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0;letter-spacing:-.02em}
+  .lore p{max-width:var(--measure);color:var(--ink-dim);margin:0}
+  .lore a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    text-decoration:none;color:var(--accent);width:fit-content;
+    border-bottom:1px solid var(--glass-border);padding-bottom:6px
+  }
+  .lore a:hover{border-color:var(--accent)}
+
+  /* ---------- LABORATORIO ---------- */
+  .lab{margin-top:44px;border:1px solid var(--glass-border);border-radius:var(--radius);
+    background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:clamp(22px,3.4vw,34px);display:grid;gap:18px;max-width:840px}
+  .lab label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-2)}
+  .lab input{
+    width:100%;font-family:var(--sans);font-size:1rem;color:var(--ink);
+    background:#0d0c0b;border:1px solid var(--glass-border);border-radius:10px;padding:13px 15px
+  }
+  .lab input:focus-visible{border-color:var(--accent)}
+  .lab button{
+    justify-self:start;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:#000;background:var(--accent);border:0;
+    border-radius:999px;padding:13px 22px;cursor:pointer;transition:filter .2s,transform .2s
+  }
+  .lab button:hover{filter:brightness(1.15);transform:translateY(-1px)}
+  .lab output{
+    display:block;white-space:pre-wrap;font-family:var(--mono);font-size:13px;line-height:1.75;
+    color:#e7e0d5;border-top:1px solid var(--glass-border);padding-top:18px
+  }
+
+  /* ---------- CONTACTO ---------- */
+  .contacto{
+    display:grid;grid-template-columns:minmax(0,1fr);gap:34px;margin-top:44px;
+    border:1px solid var(--glass-border);border-radius:var(--radius);
+    background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:clamp(24px,4vw,44px)
+  }
+  .contacto h3{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0;letter-spacing:-.02em}
+  .contacto p{max-width:var(--measure);color:var(--ink-dim);margin:0 0 18px}
+  .contacto .datos{display:flex;flex-direction:column;gap:10px}
+  .contacto .dato{
+    display:flex;align-items:baseline;gap:12px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-dim)
+  }
+  .contacto .dato strong{color:var(--ink);font-family:var(--sans)}
+  .contacto .dato a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--glass-border);padding-bottom:2px}
+  .contacto .dato a:hover{border-color:var(--accent)}
+
+  /* ---------- PIE ---------- */
+  footer{
+    padding:56px 0 76px;color:var(--ink-dim);font-size:.9rem;
+    display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:baseline
+  }
+  footer .mono{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+
+  @media (max-width:760px){
+    .hero{min-height:60svh;padding-top:clamp(56px,10vh,100px)}
+    .cards{grid-template-columns:1fr}
+    .lore,.lab,.contacto{padding:clamp(18px,3vw,28px)}
+  }
+  @media (max-width:600px){
+    .hero .omega{font-size:56vw;opacity:.8}
+  }
+</style>
 </head>
 <body>
-<div id="lang-selector" style="position:fixed;top:1rem;right:1rem;z-index:9999;">
-  <select id="lang-switch" aria-label="Idioma">
-    <option value="es">ES</option>
-    <option value="en">EN</option>
-    <option value="ca">CA</option>
-    <option value="fr">FR</option>
-    <option value="it">IT</option>
-    <option value="pt">PT</option>
-    <option value="de">DE</option>
-    <option value="nl">NL</option>
-    <option value="ja">JA</option>
-  </select>
-</div>
-  <h1>Belentani — Artista</h1>
-<div class="ring" aria-hidden="true"></div>
-<div class="wrap">
-  <div class="omega" aria-hidden="true">Ω</div>
-  <div class="word">BELENTANI</div>
-  <div class="bar" aria-hidden="true"></div>
-  <div class="spin" aria-hidden="true"></div>
-  <p class="msg">SÃO PAULO → BARCELONA · VOZ · MÚSICA · JUDAS</p>
-  <p><a href="#universo">ENTRAR EN EL UNIVERSO ↓</a></p>
-</div>
-<section id="universo" class="universe" aria-label="Universo del artista">
-  <h2>BELENTANI · EXPERIENCIA VIVA</h2>
-  <p>Artista y compositor de São Paulo, basado en Barcelona. Pop oscuro, R&amp;B, electrónica y el universo narrativo JUDAS.</p>
-  <div class="panels">
-    <a class="glass" href="https://belentani.es/lore"><strong>GALAXIA INMERSIVA</strong><p>Una invitación a explorar la obra a través de planetas, historias y luz.</p></a>
-    <a class="glass" href="#laboratorio"><strong>CREAR UNA ESCENA</strong><p>Un pequeño instrumento creativo local, sin dependencias ni claves API.</p></a>
-    <a class="glass" href="https://open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener noreferrer"><strong>ESCUCHAR LA MÚSICA</strong><p>Mon Amour, Apaga a Luz, Heart Breaking y más.</p></a>
+
+  <a class="skip" href="#universo">Saltar al contenido</a>
+
+  <div class="shell">
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="omega" aria-hidden="true" style="position:absolute;right:-2vw;top:2vh;z-index:0;pointer-events:none;font-family:var(--serif);font-size:clamp(220px,44vw,560px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(0,255,136,.17);letter-spacing:-.04em;user-select:none">Ω</div>
+      <div class="kicker reveal"><span>São Paulo → Barcelona</span><span>Voz</span><span>Música</span><span>Judas</span></div>
+      <h1 class="reveal">Belentani<span class="thin" style="font-family:var(--sans);font-size:clamp(.78rem,1.7vw,1.02rem);font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);display:block;margin-top:1.1rem;line-height:1.7">Artista y compositor</span></h1>
+      <p class="lede reveal">Pop oscuro, R&amp;B, electrónica y el universo narrativo <strong>JUDAS</strong>. Una obra construida entre dos ciudades y una sola voz.</p>
+      <div class="actions reveal"><a class="button" href="#universo">Entrar en el universo <span aria-hidden="true">↓</span></a></div>
+    </header>
+
+    <section id="universo" class="wrap reveal" aria-labelledby="t-universo">
+      <h2 id="t-universo">Belentani · Experiencia viva</h2>
+      <p class="sub">Tres puertas de entrada a la obra</p>
+      <p class="prose">Artista y compositor de São Paulo, basado en Barcelona. Pop oscuro, R&amp;B, electrónica y el universo narrativo JUDAS.</p>
+
+      <ul class="cards" style="margin-top:38px">
+        <li>
+          <a class="card" href="//belentani.es/lore">
+            <span class="idx">Planetas · historias · luz</span>
+            <h3>Galaxia inmersiva</h3>
+            <p>Una invitación a explorar la obra a través de planetas, historias y luz.</p>
+            <span class="go">Explorar ↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="#laboratorio">
+            <span class="idx">Local · sin dependencias</span>
+            <h3>Crear una escena</h3>
+            <p>Un pequeño instrumento creativo local, sin dependencias ni claves API.</p>
+            <span class="go">Abrir laboratorio ↓</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="//open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener noreferrer">
+            <span class="idx">Discografía</span>
+            <h3>Escuchar la música</h3>
+            <p>Mon Amour, Apaga a Luz, Heart Breaking y más.</p>
+            <span class="go">Spotify ↗</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="lore reveal" id="galaxia">
+        <p class="sub" style="margin:0">Narrativa cinematográfica</p>
+        <h3>JUDAS</h3>
+        <p>La llave, el espejo y la voz. Viaja por una narrativa cinematográfica donde cada escena funciona como una constelación.</p>
+        <a href="//belentani.es/lore">Explorar el lore ↗</a>
+      </div>
+    </section>
+
+    <section id="laboratorio" class="wrap reveal" aria-labelledby="t-laboratorio">
+      <h2 id="t-laboratorio">Laboratorio de escenas</h2>
+      <p class="sub">Instrumento creativo local · sin red</p>
+      <div class="lab">
+        <label for="idea">Describe un símbolo</label>
+        <input id="idea" value="la llave y el espejo" maxlength="120">
+        <button id="generar" type="button">Generar concepto original</button>
+        <output id="resultado" aria-live="polite">El generador funciona directamente en tu navegador.</output>
+      </div>
+    </section>
+
+    <section class="wrap reveal" aria-labelledby="t-contacto">
+      <h2 id="t-contacto">Contacto y trabajo</h2>
+      <p class="sub">Booking, colaboraciones y consultas</p>
+      <div class="contacto">
+        <div>
+          <h3>Belentani</h3>
+          <p>Artista y compositor entre São Paulo y Barcelona. Pop oscuro, R&amp;B, electrónica y el universo narrativo JUDAS.</p>
+        </div>
+        <div class="datos">
+          <div class="dato"><strong>Ubicación</strong> Barcelona / São Paulo</div>
+          <div class="dato"><strong>Disciplina</strong> Voz · composición · producción</div>
+          <div class="dato"><strong>Géneros</strong> Pop oscuro · R&amp;B · electrónica</div>
+          <div class="dato"><strong>Universo</strong> <a href="//belentani.es/lore">JUDAS ↗</a></div>
+          <div class="dato"><strong>Música</strong> <a href="//open.spotify.com/artist/2bU5Ir70YHHuUnq2f3WCYl" target="_blank" rel="noopener noreferrer">Spotify ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <span>Belentani · Barcelona / São Paulo · 2026</span>
+      <span class="mono">Ω · voz · música · judas</span>
+    </footer>
   </div>
-  <div class="glass" id="galaxia"><strong><a href="https://belentani.es/lore">JUDAS / EXPLORAR EL LORE ↗</a></strong><p>La llave, el espejo y la voz. Viaja por una narrativa cinematográfica donde cada escena funciona como una constelación.</p></div>
-  <div class="glass" id="laboratorio" style="margin-top:1rem">
-    <strong>LABORATORIO DE ESCENAS</strong>
-    <label for="idea">Describe un símbolo</label>
-    <input id="idea" value="la llave y el espejo" maxlength="120">
-    <button id="generar" type="button">GENERAR CONCEPTO ORIGINAL</button>
-    <output id="resultado" aria-live="polite">El generador funciona directamente en tu navegador.</output>
-  </div>
-</section>
-<script>
-(function() {
-  let iteration=0;
-  const luces=['neón rojo vibrante','luz lechosa','reflejos granate','dorado tenue'];
-  document.getElementById('generar').addEventListener('click',function(){
-    iteration+=1;
-    const simbolo=document.getElementById('idea').value.trim().slice(0,120)||'el espejo';
-    document.getElementById('resultado').textContent='ESCENA '+String(iteration).padStart(2,'0')+' — '+simbolo+'\nUniverso visual: '+luces[iteration%luces.length]+', cristal negro ahumado, galaxia de partículas, cámara flotante suave, textura fotográfica natural y narrativa original. Generación procedural local; sin IA remota.';
-  });
-})();
-</script>
+
+  <script>
+    (() => {
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach((item) => item.classList.add('in'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach((item) => observer.observe(item));
+    })();
+
+    var iteration = 0;
+    var luces = ["neón rojo vibrante", "luz lechosa", "reflejos granate", "dorado tenue"];
+    var boton = document.getElementById("generar");
+    var campo = document.getElementById("idea");
+    var salida = document.getElementById("resultado");
+    boton.addEventListener("click", function () {
+      iteration += 1;
+      var simbolo = campo.value.trim().slice(0, 120) || "el espejo";
+      salida.textContent = "ESCENA " + String(iteration).padStart(2, "0") + " — " + simbolo +
+        "\nUniverso visual: " + luces[iteration % luces.length] +
+        ", cristal negro ahumado, galaxia de partículas, cámara flotante suave, textura fotográfica natural y narrativa original. Generación procedural local; sin IA remota.";
+    });
+  </script>
 </body>
 </html>
