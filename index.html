@@ -1,328 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Belentani — The Experience: universo artístico interactivo. Una galaxia navegable ordena música, imagen y relato en cuatro capítulos: Genesis, Traición, La deuda y Redención.">
-  <title>Belentani — The Experience</title>
-  <meta name="theme-color" content="#000000">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2364f0d2'/%3E%3Cstop offset='.5' stop-color='%236aa8ff'/%3E%3Cstop offset='1' stop-color='%23b98cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='5' fill='none' stroke='url(%23g)' stroke-width='1.2' transform='rotate(-24 16 16)'/%3E%3C/svg%3E">
-  <style>
-    :root{
-      --bg:#000000; --raise:#07080c;
-      --ink:#eef1ff; --dim:rgba(230,236,255,.68); --faint:rgba(230,236,255,.44);
-      --cyan:#64f0d2; --blue:#6aa8ff; --violet:#b98cff; --amber:#ffd27a;
-      --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.2);
-      --spectrum:linear-gradient(100deg,var(--cyan),var(--blue) 48%,var(--violet));
-      --sans:system-ui,-apple-system,"Segoe UI",Inter,sans-serif;
-      --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
-      --ease:cubic-bezier(.22,.75,.25,1);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    a{color:var(--cyan);text-underline-offset:4px}
-    a:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
-    .skip{position:absolute;left:-999px;top:10px;z-index:60;padding:10px 16px;background:var(--raise);border:1px solid var(--line-2);border-radius:8px;color:var(--ink);text-decoration:none}
-    .skip:focus{left:10px}
-    .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+<html lang="es" data-scene="0"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BELENTANI — The Judas Experience</title><meta name="description" content="A new sound is coming. Explora el universo JUDAS de Belentani: música, memoria y mundos inmersivos."><meta name="theme-color" content="#05030a"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'"><style>
+@font-face{font-family:Orbitron;src:url('public/assets/fonts/Orbitron.ttf') format('truetype');font-style:normal;font-weight:400 900;font-display:swap}
+:root{color-scheme:dark;--void:#05030a;--red:#ff073a;--gold:#d4af37;--cyan:#4de8e0;--ink:#f4f1f5;--dim:#c3bccb;--line:#ff315b38;--accent:#ff073a;--display:Orbitron,'Arial Black',Arial,sans-serif;--mono:ui-monospace,Consolas,monospace;--sans:Arial,Helvetica,sans-serif;--ease:cubic-bezier(.22,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:6rem}body{margin:0;background:var(--void);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}a,button,input{touch-action:manipulation}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer;color:inherit}p{max-width:65ch}h1,h2,h3,p{margin-top:0}a:focus-visible,button:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid var(--gold);outline-offset:5px}::selection{color:#fff;background:#bd0a35}.skip{position:fixed;left:1rem;top:1rem;z-index:50;background:var(--ink);color:#000;padding:1rem;transform:translateY(-200%)}.skip:focus{transform:none}.wrap{width:min(1440px,calc(100% - 6rem));margin:auto}.topbar{position:relative;z-index:10;min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border-bottom:1px solid var(--line)}.wordmark{display:inline-flex;align-items:center;gap:.8rem;min-height:44px;font:700 1rem var(--display);letter-spacing:.06em}.brand-core{display:grid;place-items:center;width:34px;height:36px;background:#ff073a12;border:1px solid #ff315b70;color:var(--red);font-size:1.1rem;box-shadow:inset 0 0 20px #ff073a15;clip-path:polygon(20% 0,100% 0,100% 80%,80% 100%,0 100%,0 20%)}.wordmark span:last-child{color:var(--red)}.topbar nav{display:flex;align-items:center;gap:1.8rem}.topbar nav a{display:flex;align-items:center;min-height:44px;color:#d6cbd6;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase}.topbar nav a:hover{color:#fff;text-shadow:0 0 18px #ff073a}.top-status{display:flex;align-items:center;gap:.7rem;font:9px var(--mono);letter-spacing:.08em;color:#e2b5c4}.status-dot{width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 13px var(--red)}.quiet-control{border:1px solid #ff315b42;min-height:44px;padding:.55rem .8rem;background:#100812b5;color:#d0c4ce;font:9px var(--mono);letter-spacing:.08em}.quiet-control:hover{border-color:var(--red);color:#fff}.small{font:10px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase}.fine{color:var(--dim)}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;min-height:52px;padding:.9rem 1.45rem;background:#d40036;border:1px solid var(--red);box-shadow:0 0 24px #ff073a25,inset 0 1px #ffffff33;font:700 10px/1.6 var(--display);letter-spacing:.07em;color:#fff;transition:background .25s,box-shadow .25s,transform .25s}.button:hover{background:#fb0b49;box-shadow:0 0 35px #ff073a45;transform:translateY(-2px)}.button.ghost{background:#08050dc4;border-color:#f5d1db4d;box-shadow:inset 0 0 18px #ff073a08;color:#f4e4eb}.button.ghost:hover{border-color:var(--red)}.button span{color:inherit;font-family:Arial,sans-serif}.actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}.text-link{display:inline-flex;align-items:center;gap:2rem;min-height:44px;font:10px var(--mono);letter-spacing:.1em;color:#ff809f;border-bottom:1px solid #ff315b66}.text-link:hover{color:#fff}.scene-shell{position:relative;isolation:isolate;overflow:hidden;background:#05030a}.scene-shell::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 76% 38%,#60102d3d,transparent 60%);pointer-events:none;z-index:0}.world-art{position:absolute;right:0;top:0;width:68%;height:100%;object-fit:cover;object-position:50% 36%;opacity:.83;z-index:0;mask-image:linear-gradient(90deg,transparent,#000 23%);transition:opacity .35s,filter .8s;filter:saturate(.82) contrast(1.04)}.world-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#05030a 0%,#05030ae0 25%,#05030a40 56%,#05030a20),linear-gradient(0deg,#05030a 0%,transparent 30%,#05030a60 100%)}.world-canvas{position:absolute;inset:0;z-index:2;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}.scan-texture{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.08;background:repeating-linear-gradient(0deg,transparent,transparent 3px,#000 3px,#000 4px)}.hero{position:relative;z-index:4;min-height:710px;padding:6rem 0 3.5rem;display:flex;flex-direction:column;justify-content:center}.hero-copy{position:relative;z-index:4;width:min(780px,64%)}.signal-line{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;color:#f58aa6;font:10px/1.6 var(--mono);letter-spacing:.2em;text-transform:uppercase}.signal-line::before{content:'';width:24px;height:2px;background:var(--red);box-shadow:0 0 15px #ff073a}.hero h1{margin:0 0 1.2rem;font:800 clamp(4.5rem,11vw,10.5rem)/.98 var(--display);letter-spacing:-.04em;color:#f4f1f5;text-shadow:0 0 45px #ff073a17,3px 3px 0 #250514}.hero h1 span{color:var(--red)}.hero h1 em{display:block;font-style:normal;font-size:.28em;letter-spacing:.2em;line-height:1.5;margin-top:.8rem;color:#e0c6d0}.hero-line{margin:0 0 .9rem;font:500 clamp(1rem,2vw,1.5rem)/1.5 var(--display);letter-spacing:.025em;color:#f7dfe8}.hero-description{margin:0;max-width:43ch;color:#cec0ce;font-size:1rem;line-height:1.8}.hero-signature{margin:2rem 0 0;color:#ad9eb3;font:9px/1.8 var(--mono);letter-spacing:.15em}.scene-hud{position:absolute;z-index:4;right:0;top:3.5rem;display:grid;gap:.5rem;width:190px;border:1px solid #ff315b35;background:#0a0712ad;backdrop-filter:blur(14px);padding:1rem;font:9px/1.7 var(--mono);letter-spacing:.06em;color:#c9bdcd;box-shadow:inset 0 0 25px #ff073a09}.scene-hud b{display:block;font-weight:400;color:#ff7899;margin-bottom:.3rem}.scene-hud span{display:flex;justify-content:space-between;gap:1rem}.scene-hud i{font-style:normal;color:#f4e8ed}.hero-coordinates{position:absolute;z-index:4;right:0;bottom:3.5rem;color:#bcb4c4;font:9px/1.9 var(--mono);letter-spacing:.15em;text-align:right}.artifact{position:absolute;z-index:3;right:29%;bottom:15%;width:90px;height:140px;pointer-events:none;filter:drop-shadow(0 0 22px #ff073a75)}.artifact svg{width:100%;height:100%;animation:levitate 7s ease-in-out infinite}.artifact::after{content:'';position:absolute;bottom:-20px;left:4%;width:92%;height:12px;border-radius:50%;background:#ff073a33;filter:blur(10px)}@keyframes levitate{0%,100%{transform:translateY(0) rotateY(-15deg)}50%{transform:translateY(-18px) rotateY(15deg)}}.story-console{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;padding:1.3rem 1.6rem;border:1px solid #ff315b55;background:linear-gradient(120deg,#250916cc,#080711e6);backdrop-filter:blur(20px);box-shadow:0 0 40px #ff073a0d,inset 0 1px #ff073a22;margin-bottom:2rem}.story-info{display:flex;align-items:center;gap:1.5rem}.story-number{font:800 1.8rem var(--display);color:#ff3f6f}.story-title{margin:0 0 .25rem;font:600 13px var(--display);letter-spacing:.07em;text-transform:uppercase}.story-description{margin:0;color:#bdb1c3;font-size:.88rem;max-width:52ch}.story-switch{display:flex;gap:.5rem}.story-switch button{width:46px;height:46px;min-width:46px;border:1px solid #ff315b55;background:#ff073a08;font-size:1.2rem}.story-switch button:hover{background:#ff073a26}.world-nav{position:relative;z-index:5;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #ff315b2a;margin-bottom:4.5rem;background:#08050c}.world-nav button{display:flex;align-items:center;gap:.8rem;min-height:67px;padding:1rem 1.4rem;border:0;border-right:1px solid #ff315b2a;background:transparent;text-align:left;font:10px var(--display);letter-spacing:.08em;color:#ab9eaf;transition:color .25s,background .25s}.world-nav button:last-child{border-right:0}.world-nav .index{font:9px var(--mono);color:#bf859c}.world-nav button[aria-pressed=true]{color:#fff;background:linear-gradient(180deg,#ff073a20,#ff073a06);box-shadow:inset 0 -2px var(--red)}.world-nav button[aria-pressed=true] .index{color:#ff6b91}.world-nav button:hover{color:#fff;background:#ff073a10}.realm-section{padding:5rem 0;border-top:1px solid #ff315b20}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:3rem;margin-bottom:2.5rem}.section-heading h2{margin:0;font:700 clamp(1.5rem,3.2vw,3rem)/1.2 var(--display);letter-spacing:-.025em;text-transform:uppercase}.section-heading h2 span{color:var(--red)}.section-heading p{margin:0;max-width:34ch;color:var(--dim);font-size:.95rem}.realms{display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem}.realm-card{position:relative;min-height:350px;padding:2rem;display:flex;flex-direction:column;justify-content:end;border:1px solid #ff315b40;overflow:hidden;isolation:isolate;box-shadow:0 0 30px #ff073a0b}.realm-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 27%;z-index:-2;opacity:.63;transition:transform .8s var(--ease),opacity .8s}.realm-card::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#08040ffa 0%,#05030a30 80%)}.realm-card:hover img{transform:scale(1.04);opacity:.84}.realm-card .small{color:#fc8eaa}.realm-card h3{font:700 clamp(1.2rem,2vw,1.9rem)/1.4 var(--display);letter-spacing:-.025em;margin:.8rem 0;text-transform:uppercase}.realm-card p{font-size:.9rem;margin:0;max-width:40ch;color:#cbbdce}.realm-card .arrow{position:absolute;right:1.5rem;top:1.4rem;color:#ff6d94;font-size:1.8rem}.artist-statement{display:grid;grid-template-columns:.7fr 1.3fr;gap:4rem;padding:5rem 0;border-top:1px solid #ff315b25}.artist-statement h2{font:700 clamp(1.6rem,3vw,2.6rem)/1.4 var(--display);letter-spacing:-.025em;margin:0}.artist-statement p{max-width:52ch;color:#c8baca;margin:0 0 1.2rem}.footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.8rem 0;border-top:1px solid #ff315b35;color:#a99baf;font:9px/1.7 var(--mono);letter-spacing:.1em}.footer a{display:flex;align-items:center;min-height:44px;color:#d4bdce}.archive-hero h1{font-size:clamp(3rem,7.4vw,7.2rem)}.archive-hero h1 em{font-size:.22em;line-height:1.9;letter-spacing:.13em}.archive-hero .hero-copy{max-width:750px}.archive-hero .world-art{width:63%;object-position:50% 25%}.featured{display:grid;grid-template-columns:1.4fr 1fr;gap:1.5rem;margin:2rem 0 4rem}.edition{position:relative;min-height:370px;padding:2rem;display:flex;flex-direction:column;justify-content:end;border:1px solid #ff315b40;background:#08050d;overflow:hidden;isolation:isolate}.edition img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:.7;transition:transform .7s}.edition::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#05030af5,#05030a10)}.edition:hover img{transform:scale(1.05)}.edition h3{font:700 clamp(1.3rem,2.3vw,2.2rem)/1.2 var(--display);margin:.8rem 0;text-transform:uppercase}.edition p{max-width:35ch;margin:0;color:#d4c8d5;font-size:.92rem}.edition .small{color:#ff7a9d}.edition-arrow{position:absolute;right:1.5rem;top:1rem;color:#ff6c94;font-size:1.8rem}.collection-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;margin-bottom:1.4rem}.collection-head h2{margin:0;font:600 clamp(1.2rem,2.5vw,2rem)/1.3 var(--display);text-transform:uppercase}.filter{min-height:44px;padding:.7rem .9rem;background:#ff073a05;border:1px solid #ff315b30;color:#baaabd;font:9px var(--mono);letter-spacing:.06em}.filter[aria-pressed=true]{border-color:#ff315b90;background:#ff073a20;color:#fff}.edition-row{display:grid;grid-template-columns:40px 1fr 180px 32px;align-items:center;gap:1.4rem;min-height:112px;padding:1.5rem 1rem;border-top:1px solid #ff315b25;transition:background .25s}.edition-row[hidden]{display:none}.edition-row:hover{background:#ff073a0c}.edition-row .index{font:600 15px var(--display);color:#ff648d}.edition-row h3{font:600 1rem/1.4 var(--display);margin:0 0 .5rem;text-transform:uppercase;letter-spacing:.02em}.edition-row p{font-size:.88rem;color:#b7a8bd;margin:0}.edition-row .small{color:#c49bad}.archive-note{max-width:70ch;color:#aa9bb0;font-size:.9rem;padding:3rem 0 4rem;margin:0}.archive-note a{color:#ff7c9f}.empty-count{color:#caa4b6}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1050px){.wrap{width:calc(100% - 3.5rem)}.topbar nav{gap:1rem}.topbar nav a{font-size:9px}.top-status{display:none}.hero{min-height:660px}.hero-copy{width:68%}.hero h1{font-size:clamp(4rem,11vw,8rem)}.scene-hud{width:158px;padding:.8rem;font-size:8px}.artifact{right:22%;bottom:16%;width:65px;height:110px}.world-nav button{padding:1rem .8rem;font-size:9px;gap:.6rem}.archive-hero h1{font-size:clamp(3rem,7vw,5.5rem)}}
+@media(max-width:700px){.wrap{width:calc(100% - 2.4rem)}.topbar{min-height:77px;gap:.8rem;flex-wrap:wrap;padding:.7rem 0}.wordmark{font-size:.78rem;gap:.55rem}.brand-core{width:27px;height:30px;font-size:.85rem}.topbar nav{gap:.85rem}.topbar nav a{font-size:8.5px;letter-spacing:.04em}.topbar nav .desktop{display:none}.topbar>.quiet-control{display:none}.hero{min-height:800px;padding:4rem 0 4rem;justify-content:flex-start}.hero-copy{width:100%;max-width:100%}.hero h1{font-size:clamp(3.5rem,18vw,7rem);letter-spacing:-.035em}.hero h1 em{font-size:.25em;letter-spacing:.13em}.hero-line{max-width:25ch;font-size:1rem}.hero-description{font-size:.95rem;max-width:34ch}.hero-signature{font-size:8px;margin-top:1.5rem}.hero-copy .actions{gap:.7rem;margin-top:1.5rem}.button{font-size:8.5px;letter-spacing:.04em;padding:.9rem 1rem;gap:1rem;min-height:49px}.world-art{top:18%;right:-13%;width:105%;height:84%;opacity:.65;object-position:50% 22%;mask-image:linear-gradient(90deg,transparent,#000 18%)}.world-shade{background:linear-gradient(90deg,#05030aeb,#05030a40),linear-gradient(0deg,#05030a 0%,transparent 50%,#05030a80)}.scene-hud{display:none}.hero-coordinates{bottom:2rem;font-size:8px}.artifact{right:20%;bottom:12%;width:62px;height:100px}.story-console{grid-template-columns:1fr auto;gap:1rem;padding:1.1rem;margin-bottom:1rem}.story-info{gap:1rem}.story-number{font-size:1.3rem}.story-title{font-size:10px;line-height:1.5}.story-description{font-size:.8rem}.story-switch{flex-direction:column;gap:.3rem}.story-switch button{width:44px;height:44px;min-width:44px}.world-nav{grid-template-columns:repeat(2,1fr);margin-bottom:3rem}.world-nav button{min-height:58px;padding:.9rem;font-size:8px}.world-nav button:nth-child(2){border-right:0}.world-nav button:nth-child(-n+2){border-bottom:1px solid #ff315b25}.realm-section{padding:3.5rem 0}.section-heading{display:block}.section-heading p{margin-top:1rem;max-width:40ch}.realms,.featured{grid-template-columns:1fr}.realm-card,.edition{min-height:330px;padding:1.5rem}.artist-statement{grid-template-columns:1fr;gap:1.6rem;padding:3.5rem 0}.artist-statement h2{font-size:1.6rem}.archive-hero h1{font-size:clamp(2.7rem,13vw,4.5rem)}.archive-hero .world-art{width:110%;right:-20%;top:25%;height:75%;opacity:.6}.archive-hero{min-height:730px}.edition-row{grid-template-columns:25px 1fr 20px;gap:.8rem;padding:1.3rem .2rem}.edition-row>.small{display:none}.edition-row h3{font-size:.87rem}.edition-row p{font-size:.82rem}.collection-head h2{font-size:1.1rem}.footer{font-size:8px;gap:.6rem}.filter{font-size:8px;padding:.6rem .65rem}.hero-coordinates{max-width:55%;line-height:2}.section-heading h2{font-size:1.45rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.artifact svg{animation:none}.realm-card:hover img,.edition:hover img{transform:none}}
 
-    /* ---- nav glass ---- */
-    .nav{
-      position:sticky;top:14px;z-index:50;margin:14px auto 0;max-width:1140px;
-      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-      padding:12px 20px;border:1px solid var(--line);border-radius:16px;
-      background:rgba(7,8,12,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
-      box-shadow:0 12px 40px rgba(0,0,0,.55);
-    }
-    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:700}
-    .brand small{display:block;font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
-    .nav nav{display:flex;gap:6px;flex-wrap:wrap}
-    .nav nav a{text-decoration:none;color:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:1px solid transparent;transition:color .25s,border-color .25s,background .25s}
-    .nav nav a:hover{color:var(--ink);border-color:var(--line);background:rgba(255,255,255,.035)}
+/* JUDAS / cinematic depth pass — progressive enhancement, no external assets */
+.scene-shell{perspective:1400px;transform-style:preserve-3d}
+.scene-shell::after{content:"";position:absolute;inset:-12%;z-index:2;pointer-events:none;background:radial-gradient(ellipse at 75% 35%,transparent 14%,#03020755 73%),linear-gradient(125deg,transparent 44%,#ff073a0c 50%,transparent 56%);mix-blend-mode:screen;animation:judasAtmosphere 17s ease-in-out infinite alternate}
+.world-art{transform:translate3d(0,0,-12px) scale(1.045);transform-origin:65% 45%;animation:judasLens 22s ease-in-out infinite alternate;will-change:transform}
+.world-shade{background:linear-gradient(90deg,#05030a 0%,#05030ae8 25%,#05030a38 62%,#05030a25),linear-gradient(0deg,#05030a 0%,transparent 38%,#05030a75 100%)}
+.hero-copy{transform:translateZ(32px);text-shadow:0 12px 38px #0008}
+.scene-hud,.story-console{box-shadow:0 18px 65px #0009,0 0 55px #ff073a14,inset 0 1px #ffffff24;border-image:linear-gradient(135deg,#ff718a90,#ff315b25,#d4af3766) 1}
+.world-nav button{position:relative;overflow:hidden}
+.world-nav button::after{content:"";position:absolute;inset:auto 14% 0;height:2px;background:linear-gradient(90deg,transparent,#ff3765,transparent);transform:scaleX(0);transition:transform .45s var(--ease);box-shadow:0 0 20px #ff073a}
+.world-nav button:hover::after,.world-nav button[aria-pressed="true"]::after{transform:scaleX(1)}
+@keyframes judasLens{from{transform:translate3d(-1.5%,0,-12px) scale(1.045)}to{transform:translate3d(1.5%,-1%,-12px) scale(1.095)}}
+@keyframes judasAtmosphere{from{opacity:.48;transform:translateX(-2%)}to{opacity:.9;transform:translateX(2%)}}
+@media(max-width:767px){.world-art{animation:none;transform:none}.scene-shell::after{animation:none;opacity:.4}.hero-copy{transform:none}}
+@media(prefers-reduced-motion:reduce){.world-art,.scene-shell::after{animation:none!important;transform:none!important}.world-nav button::after{transition:none}}
 
-    /* ---- hero con shader ---- */
-    .hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden}
-    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;
-      background:radial-gradient(60% 50% at 50% 30%,#0b1d2e 0%,#070812 55%,#000 100%)}
-    .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-      background:radial-gradient(90% 70% at 50% 40%,transparent 40%,rgba(0,0,0,.72) 100%)}
-    .hero-inner{position:relative;z-index:2;text-align:center;padding:110px 24px 130px;max-width:1000px}
-    .kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
-    .kicker i{width:7px;height:7px;border-radius:50%;background:var(--spectrum);box-shadow:0 0 12px var(--blue);animation:pulse 3.2s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
-    h1{font-size:clamp(2.7rem,9vw,6.8rem);line-height:.95;font-weight:800;letter-spacing:-.035em}
-    h1 .grad{background:var(--spectrum);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 9s var(--ease) infinite alternate}
-    @keyframes sheen{from{background-position:0% 0}to{background-position:100% 0}}
-    .hero p.lede{margin:26px auto 0;max-width:60ch;color:var(--dim);font-size:clamp(1.05rem,1.8vw,1.3rem)}
-    .hero p.lede strong{color:var(--ink);font-weight:600}
-    .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px}
-    .button{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.98rem;color:#001012;background:var(--spectrum);background-size:200% 100%;box-shadow:0 8px 30px rgba(106,168,255,.3);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-position .5s var(--ease)}
-    .button:hover{transform:translateY(-2px);background-position:100% 0;box-shadow:0 14px 44px rgba(106,168,255,.45)}
-    .button.ghost{color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none}
-    .button.ghost:hover{background:rgba(255,255,255,.09);box-shadow:0 10px 30px rgba(0,0,0,.5)}
-    .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+</style></head><body><a class="skip" href="#main">Saltar al contenido</a>
+<div class="scene-shell">
+ <img class="world-art" id="world-art" src="public/assets/buildai/portrait-red.jpg" width="832" height="1248" fetchpriority="high" alt="Belentani, cabello largo rizado y traje rojo, en el universo JUDAS">
+ <div class="world-shade" aria-hidden="true"></div><canvas class="world-canvas" aria-hidden="true"></canvas><div class="scan-texture" aria-hidden="true"></div>
+ <header class="topbar wrap"><a class="wordmark" href="https://belentani.es/"><span class="brand-core" aria-hidden="true">B</span>BELENTANI<span>.</span></a><nav aria-label="Navegación principal"><a href="#mundos">MUNDOS</a><a href="https://belentani.es/musica">MÚSICA ↗</a><a class="desktop" href="https://belentani.es/artista">THE ARTIST ↗</a></nav><button type="button" class="quiet-control" data-motion aria-pressed="false">ACTIVAR MOVIMIENTO</button></header>
+ <main id="main" class="wrap">
+  <section class="hero" aria-labelledby="title">
+   <div class="hero-copy"><p class="signal-line">BELENTANI / THE JUDAS EXPERIENCE</p><h1 id="title">JUDAS<span>.</span><em>A NEW SOUND IS COMING</em></h1><p class="hero-line">Will you kiss Judas again?</p><p class="hero-description">La música abre el portal. La memoria dibuja el mundo.<br>Bienvenido al universo de Belentani.</p><div class="actions"><a class="button" href="https://belentani.es/judas">ENTRAR EN LA EXPERIENCIA <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M4 3h9v9" stroke="currentColor" stroke-width="1.4"/></svg></a><a class="button ghost" href="https://belentani.es/musica">EXPLORAR MÚSICA <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M4 3h9v9" stroke="currentColor" stroke-width="1.4"/></svg></a></div><p class="hero-signature">DARK POP / R&amp;B / ELECTRONIC<br>SÃO PAULO ↔ BARCELONA</p></div>
+   <aside class="scene-hud" aria-label="Escena actual"><b>JUDAS.CORE / VISUAL LINK</b><span>ESCENA <i id="hud-scene">GÉNESIS</i></span><span>FRAGMENTO <i id="hud-number">01 / 04</i></span><span>ESTADO <i>EXPLORABLE</i></span></aside>
+   <div class="artifact" aria-hidden="true"><svg viewBox="0 0 100 160"><defs><linearGradient id="facet"><stop stop-color="#ff073a" stop-opacity=".7"/><stop offset=".5" stop-color="#f4dae1" stop-opacity=".18"/><stop offset="1" stop-color="#ff073a" stop-opacity=".75"/></linearGradient></defs><path d="M50 4 86 55 50 153 14 55Z" fill="url(#facet)" stroke="#ff5b83" stroke-width=".9"/><path d="m50 4 8 51-8 98-8-98Z" fill="#ffe9f4" fill-opacity=".12" stroke="#ffdce9" stroke-opacity=".6" stroke-width=".6"/><path d="m14 55 36 18 36-18M42 55h16L50 73Z" fill="none" stroke="#ffa7c0" stroke-width=".7"/></svg></div>
+   <div class="hero-coordinates" aria-hidden="true">JUDAS ERA / ARCHIVO VIVO<br>EL LORE MANDA <span style="color:#ff073a">✦</span></div>
+  </section>
+  <section id="mundos" aria-label="Mundos de JUDAS">
+   <div class="story-console" aria-live="polite" aria-atomic="true"><div class="story-info"><span class="story-number" id="story-number">01</span><div><h2 class="story-title" id="story-title">GÉNESIS / LA PRIMERA SEÑAL</h2><p class="story-description" id="story-description">Antes del símbolo, una voz. Antes del universo, el deseo de ser escuchado.</p></div></div><div class="story-switch"><button type="button" id="previous-scene" aria-label="Escena anterior">←</button><button type="button" id="next-scene" aria-label="Escena siguiente">→</button></div></div>
+   <div class="world-nav" role="group" aria-label="Elige una escena"><button type="button" data-scene="0" aria-pressed="true"><span class="index">01</span>GÉNESIS</button><button type="button" data-scene="1" aria-pressed="false"><span class="index">02</span>TRAICIÓN</button><button type="button" data-scene="2" aria-pressed="false"><span class="index">03</span>LA DEUDA</button><button type="button" data-scene="3" aria-pressed="false"><span class="index">04</span>REDENCIÓN</button></div>
+  </section>
+ </main>
+</div>
+<div class="wrap">
+ <section class="realm-section" aria-labelledby="realms-title"><div class="section-heading"><h2 id="realms-title">SONIC <span>WORLDS</span></h2><p>Música, memoria y creación. Cada puerta conduce a otra parte de la misma obra.</p></div><div class="realms"><a class="realm-card" href="https://belentani.es/musica"><img src="public/assets/buildai/memory-orb.jpg" loading="lazy" width="1159" height="1264" alt="Belentani sostiene una esfera de luz"><span class="arrow" aria-hidden="true">↗</span><span class="small">01 / EL ARCHIVO SONORO</span><h3>La frecuencia<br>de Belentani.</h3><p>Pop, R&amp;B y electrónica. La voz que atraviesa todas las versiones.</p></a><a class="realm-card" href="https://belentani.es/"><img src="public/assets/buildai/signal-blue.jpg" loading="lazy" width="842" height="1264" alt="Retrato de Belentani en un entorno holográfico"><span class="arrow" aria-hidden="true">↗</span><span class="small">02 / EL ATLAS VIVO</span><h3>Navega<br>el universo.</h3><p>Planetas, símbolos y mundos creativos. Traza tu propio recorrido.</p></a></div></section>
+ <section class="artist-statement" aria-labelledby="artist-title"><h2 id="artist-title">THE ARTIST.<br>THE ARTIFACT.<br><span style="color:#ff073a">THE HUMAN.</span></h2><div><p>Belentani es un artista y compositor nacido en São Paulo y establecido en Barcelona. Su universo conecta la voz, la imagen y la tecnología a través de JUDAS.</p><p>«Welcome to the fantasy world of Belentani.»</p><a class="text-link" href="https://belentani.es/artista">CONOCER AL ARTISTA <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M4 3h9v9" stroke="currentColor" stroke-width="1.4"/></svg></a></div></section>
+ <footer class="footer"><span>BELENTANI / JUDAS ERA</span><a href="https://belentani.es/lore">ENTRAR EN EL LORE ↗</a><span>VISUALS FROM THE ORIGINAL JUDAS ARCHIVE</span></footer>
+</div>
+<script>
+(() => {
+ const canvas=document.querySelector('.world-canvas');if(!canvas)return;
+ const ctx=canvas.getContext('2d');if(!ctx)return;
+ const media=matchMedia('(prefers-reduced-motion: reduce)'),button=document.querySelector('[data-motion]');
+ let paused=media.matches,raf=0,last=0,time=0,w=1,h=1,px=.5,py=.5,seed=20261108;
+ const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
+ const stars=Array.from({length:120},()=>({x:random(),y:random(),z:.2+random()*.8,p:random()*6.28}));
+ function render(){
+  ctx.clearRect(0,0,w,h);
+  const blue=document.documentElement.dataset.scene==='3',rgb=blue?'77,232,224':'255,7,58';
+  for(const s of stars){const x=(s.x*w+(px-.5)*s.z*18+w)%w,y=(s.y*h+time*s.z*2+(py-.5)*s.z*10+h)%h;ctx.fillStyle=`rgba(${s.z>.85?'230,204,140':rgb},${.12+s.z*.4})`;ctx.beginPath();ctx.arc(x,y,.4+s.z*.9,0,Math.PI*2);ctx.fill();}
+  ctx.lineWidth=.6;ctx.strokeStyle=`rgba(${rgb},.09)`;
+  const horizon=h*.75;for(let i=-5;i<=5;i++){ctx.beginPath();ctx.moveTo(w*.5+i*w*.04,horizon);ctx.lineTo(w*.5+i*w*.22,h);ctx.stroke();}
+  for(let i=0;i<6;i++){const t=(i/6+(time*.013)%1)%1,y=horizon+(h-horizon)*t*t;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+ }
+ function tick(now){if(!paused&&!document.hidden&&now-last>50){time+=.05;last=now;render();}raf=requestAnimationFrame(tick);}
+ function sync(){cancelAnimationFrame(raf);if(button){button.textContent=paused?'ACTIVAR MOVIMIENTO':'PAUSAR MOVIMIENTO';button.setAttribute('aria-pressed',String(!paused));}render();if(!paused&&!document.hidden)raf=requestAnimationFrame(tick);}
+ function resize(){const r=canvas.getBoundingClientRect();w=r.width;h=r.height;const d=Math.min(devicePixelRatio||1,1.5);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);render();}
+ button?.addEventListener('click',()=>{paused=!paused;sync();});media.addEventListener('change',()=>{paused=media.matches;sync();});document.addEventListener('visibilitychange',sync);window.addEventListener('resize',resize,{passive:true});canvas.parentElement.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();px=(e.clientX-r.left)/r.width;py=(e.clientY-r.top)/r.height;if(paused)render();},{passive:true});resize();sync();
+})();
 
-    .shell{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px}
-    section{padding:clamp(64px,10vh,118px) 0}
-    .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
-    .sec-head .no{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--faint)}
-    h2{font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1.02;letter-spacing:-.03em;font-weight:800}
-    .sec-copy{max-width:62ch;color:var(--dim);font-size:1.06rem}
-
-    /* ---- capítulos ---- */
-    .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;list-style:none}
-    .chapters figure{border:1px solid var(--line);border-radius:18px;background:linear-gradient(170deg,rgba(255,255,255,.05),rgba(255,255,255,.012));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;transition:transform .3s var(--ease),border-color .3s}
-    .chapters figure:hover{transform:translateY(-5px);border-color:var(--line-2)}
-    .chapters svg{display:block;width:100%;height:auto}
-    .chapters figcaption{padding:15px 17px}
-    .chapters b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
-    .chapters p{color:var(--dim);font-size:.92rem}
-
-    /* ---- universos / evidencia ---- */
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
-    .card{border:1px solid var(--line);border-radius:18px;padding:28px;background:linear-gradient(170deg,rgba(255,255,255,.05),rgba(255,255,255,.012));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-    .card h3{margin:0 0 10px;font-size:1.25rem;letter-spacing:-.01em}
-    .card p{margin:0;color:var(--dim);font-size:.98rem}
-    .card .tag{display:inline-block;margin:0 0 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
-    .card:nth-child(2) .tag{color:var(--violet)}
-    .stack-list{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;list-style:none;margin-top:36px}
-    .stack-list li{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035)}
-
-    footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:44px 0 64px;margin-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:.92rem}
-    footer .mono{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
-
-    .reveal{opacity:1;transform:none}
-    html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-    html.js .reveal.in{opacity:1;transform:none}
-
-    @media (max-width:880px){.chapters{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}
-    @media (max-width:560px){.sec-head{flex-direction:column;gap:8px;align-items:flex-start}.chapters{grid-template-columns:1fr}}
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .kicker i,h1 .grad,.button{animation:none}
-      .reveal,html.js .reveal{opacity:1;transform:none;transition:none}
-      .chapters figure,.button{transition:none}
-    }
-    ::selection{background:var(--violet);color:#000}
-  </style>
-  <script>document.documentElement.classList.add('js')</script>
-</head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <a class="skip" href="#main">Saltar al contenido</a>
-
-  <header class="nav">
-    <a class="brand" href="#top" aria-label="Belentani — The Experience, inicio">
-      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <defs><linearGradient id="nb" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#64f0d2"/><stop offset=".5" stop-color="#6aa8ff"/><stop offset="1" stop-color="#b98cff"/>
-        </linearGradient></defs>
-        <rect width="32" height="32" rx="8" fill="none" stroke="url(#nb)" stroke-width="1.4"/>
-        <circle cx="16" cy="16" r="6" fill="none" stroke="url(#nb)" stroke-width="1.8"/>
-        <ellipse cx="16" cy="16" rx="12.5" ry="4.6" fill="none" stroke="url(#nb)" stroke-width="1" transform="rotate(-24 16 16)"/>
-      </svg>
-      <span>Belentani<small>The Experience</small></span>
-    </a>
-    <nav aria-label="Navegación principal">
-      <a href="#capitulos">Capítulos</a>
-      <a href="#universo">El universo</a>
-      <a href="https://github.com/belentani7/belentani.es">Repositorio</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <span id="top"></span>
-    <section class="hero" aria-labelledby="hero-title">
-      <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero-inner">
-        <p class="kicker"><i aria-hidden="true"></i>Universo artístico interactivo</p>
-        <h1 id="hero-title">Una galaxia<br>que se <span class="grad">recorre.</span></h1>
-        <p class="lede"><strong>Belentani — The Experience</strong> convierte la era Judas en un espacio navegable: música, imagen y relato ordenados en cuatro capítulos dentro de una galaxia Three.js. La entrada presenta el mundo; la galaxia organiza su recorrido.</p>
-        <div class="actions">
-          <a class="button" href="#capitulos">Entrar en la galaxia
-            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="button ghost" href="https://github.com/belentani7/belentani.es">Ver repositorio</a>
-        </div>
-      </div>
-      <span class="scroll-hint" aria-hidden="true">Desliza</span>
-    </section>
-
-    <div class="shell">
-      <section id="capitulos" aria-labelledby="cap-t">
-        <div class="sec-head reveal"><span class="no">/ 01</span><h2 id="cap-t">Cuatro capítulos</h2></div>
-        <p class="sec-copy reveal">Cada escena mantiene el vínculo entre dirección creativa y navegación. El alcance público excluye masters, sesiones y material privado.</p>
-        <ul class="chapters" style="margin-top:38px" aria-label="Capítulos del universo">
-          <li class="reveal"><figure>
-            <svg viewBox="0 0 200 120" role="img" aria-label="Genesis: semilla de luz sobre negro">
-              <rect width="200" height="120" fill="#04050a"/>
-              <circle cx="100" cy="60" r="26" fill="none" stroke="#64f0d2" stroke-width="1.4"/>
-              <circle cx="100" cy="60" r="14" fill="#64f0d2" opacity=".85"/>
-              <circle cx="100" cy="60" r="42" fill="none" stroke="#64f0d2" opacity=".25"/>
-              <circle cx="100" cy="60" r="3.4" fill="#eafffb"/>
-            </svg>
-            <figcaption><b style="color:var(--cyan)">01 · Genesis</b><p>La semilla: el mundo se presenta y fija su tono.</p></figcaption>
-          </figure></li>
-          <li class="reveal"><figure>
-            <svg viewBox="0 0 200 120" role="img" aria-label="Traición: dos órbitas que se cruzan">
-              <rect width="200" height="120" fill="#04050a"/>
-              <ellipse cx="100" cy="60" rx="62" ry="24" fill="none" stroke="#6aa8ff" stroke-width="1.4"/>
-              <ellipse cx="100" cy="60" rx="24" ry="58" fill="none" stroke="#6aa8ff" opacity=".6"/>
-              <circle cx="124" cy="42" r="5" fill="#6aa8ff"/>
-              <circle cx="76" cy="78" r="3" fill="#dbeaff"/>
-            </svg>
-            <figcaption><b style="color:var(--blue)">02 · Traición</b><p>Las órbitas se cruzan; el relato se rompe.</p></figcaption>
-          </figure></li>
-          <li class="reveal"><figure>
-            <svg viewBox="0 0 200 120" role="img" aria-label="La deuda: arco que se cierra sobre sí mismo">
-              <rect width="200" height="120" fill="#04050a"/>
-              <path d="M50 88 A 54 54 0 1 1 150 88" fill="none" stroke="#b98cff" stroke-width="1.6"/>
-              <path d="M50 88 A 54 54 0 0 1 150 88" fill="none" stroke="#b98cff" opacity=".3" stroke-dasharray="3 6"/>
-              <circle cx="100" cy="34" r="5" fill="#b98cff"/>
-              <circle cx="100" cy="88" r="2.6" fill="#f2eaff"/>
-            </svg>
-            <figcaption><b style="color:var(--violet)">03 · La deuda</b><p>Un arco que se cierra sobre sí mismo.</p></figcaption>
-          </figure></li>
-          <li class="reveal"><figure>
-            <svg viewBox="0 0 200 120" role="img" aria-label="Redención: rayo espectral ascendente">
-              <rect width="200" height="120" fill="#04050a"/>
-              <defs><linearGradient id="rd" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0" stop-color="#64f0d2"/><stop offset="1" stop-color="#ffd27a"/>
-              </linearGradient></defs>
-              <path d="M100 96 L88 60 L100 64 L96 24 L114 58 L102 55 L112 96 Z" fill="url(#rd)" opacity=".9"/>
-              <circle cx="100" cy="18" r="2.6" fill="#ffe9c2"/>
-            </svg>
-            <figcaption><b style="color:var(--amber)">04 · Redención</b><p>La luz asciende; el viaje se completa.</p></figcaption>
-          </figure></li>
-        </ul>
-      </section>
-
-      <section id="universo" aria-labelledby="uni-t">
-        <div class="sec-head reveal"><span class="no">/ 02</span><h2 id="uni-t">El universo</h2></div>
-        <div class="grid-2">
-          <article class="card reveal">
-            <span class="tag">Obra interactiva</span>
-            <h3>Una galaxia navegable</h3>
-            <p>Three.js ordena capítulos, sonido y visión en un solo recorrido. La interfaz no explica la obra: la recorre contigo.</p>
-          </article>
-          <article class="card reveal">
-            <span class="tag">Ingeniería verificable</span>
-            <h3>Repositorio con evidencia</h3>
-            <p>Instalación, tests, build y comprobaciones de runtime documentadas en el repositorio. Lo que se publica, se puede ejecutar.</p>
-          </article>
-        </div>
-        <ul class="stack-list reveal" aria-label="Stack tecnológico">
-          <li>Three.js</li><li>React Three Fiber</li><li>Next.js</li><li>TypeScript</li><li>GSAP</li><li>WebGL</li><li>Vitest</li><li>GitHub Actions</li>
-        </ul>
-      </section>
-    </div>
-  </main>
-
-  <div class="shell">
-    <footer>
-      <span>© 2026 Belentani — The Experience</span>
-      <span class="mono">El alcance público excluye material privado</span>
-      <a href="https://github.com/belentani7/belentani.es">Repositorio</a>
-    </footer>
-  </div>
-
-  <script>
-    /* ---- shader nebular FBM, sin dependencias ---- */
-    (function () {
-      'use strict';
-      var canvas = document.getElementById('hero-canvas');
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (!gl) return; /* el fondo CSS del canvas mantiene la escena visible */
-      var vs = 'attribute vec2 position; void main(){ gl_Position = vec4(position,0.0,1.0); }';
-      var fs = [
-        'precision mediump float;',
-        'uniform vec2 u_resolution; uniform float u_time; uniform vec2 u_mouse;',
-        'float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }',
-        'float noise(vec2 p){ vec2 i=floor(p); vec2 f=fract(p); f=f*f*(3.0-2.0*f);',
-        '  float a=hash(i); float b=hash(i+vec2(1.0,0.0)); float c=hash(i+vec2(0.0,1.0)); float d=hash(i+vec2(1.0,1.0));',
-        '  return mix(mix(a,b,f.x),mix(c,d,f.x),f.y); }',
-        'float fbm(vec2 p){ float v=0.0; float a=0.5; for(int i=0;i<5;++i){ v+=a*noise(p); p=p*2.0+vec2(100.0); a*=0.5; } return v; }',
-        'void main(){',
-        '  vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
-        '  uv.x *= u_resolution.x / u_resolution.y;',
-        '  vec2 m = uv - u_mouse;',
-        '  float n = fbm(uv*2.6 + u_time*0.10);',
-        '  n += fbm(uv*5.0 - u_time*0.06)*0.5;',
-        '  n += length(m)*0.08;',
-        '  vec3 deep  = vec3(0.010,0.014,0.030);',
-        '  vec3 cyan  = vec3(0.160,0.360,0.320);',
-        '  vec3 blue  = vec3(0.130,0.230,0.480);',
-        '  vec3 viol  = vec3(0.290,0.180,0.460);',
-        '  vec3 color = mix(deep, cyan, smoothstep(0.15,0.55,n));',
-        '  color = mix(color, blue, smoothstep(0.45,0.80,n));',
-        '  color = mix(color, viol, smoothstep(0.70,1.00,n));',
-        '  float star = step(0.9985, hash(floor(gl_FragCoord.xy)));',
-        '  color += star * 0.55;',
-        '  float vignette = 1.0 - length(uv*2.0-1.0)*0.35;',
-        '  color *= vignette;',
-        '  gl_FragColor = vec4(color, 1.0);',
-        '}'
-      ].join('\n');
-      function sh(t, s){ var x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); return x; }
-      var prog = gl.createProgram();
-      gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
-      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
-      gl.linkProgram(prog);
-      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-      gl.useProgram(prog);
-      var buf = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
-      var pl = gl.getAttribLocation(prog, 'position');
-      gl.enableVertexAttribArray(pl);
-      gl.vertexAttribPointer(pl, 2, gl.FLOAT, false, 0, 0);
-      var rl = gl.getUniformLocation(prog, 'u_resolution');
-      var tl = gl.getUniformLocation(prog, 'u_time');
-      var ml = gl.getUniformLocation(prog, 'u_mouse');
-      var mouse = { x: 0.5, y: 0.5 };
-      window.addEventListener('mousemove', function (e) {
-        mouse.x = e.clientX / window.innerWidth;
-        mouse.y = 1.0 - e.clientY / window.innerHeight;
-      }, { passive: true });
-      var dprCap = 1.75;
-      function resize(){
-        var dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-        canvas.width = canvas.clientWidth * dpr;
-        canvas.height = canvas.clientHeight * dpr;
-        gl.viewport(0, 0, canvas.width, canvas.height);
-        gl.uniform2f(rl, canvas.width, canvas.height);
-        draw(reduce ? 120.0 : (performance.now() * 0.001));
-      }
-      var paused = false;
-      if ('IntersectionObserver' in window) {
-        new IntersectionObserver(function (es) { es.forEach(function (e) { paused = !e.isIntersecting; }); }, { threshold: 0.05 }).observe(canvas);
-      }
-      function draw(t){
-        gl.uniform1f(tl, t);
-        gl.uniform2f(ml, mouse.x, mouse.y);
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-      }
-      window.addEventListener('resize', resize);
-      resize();
-      if (reduce) return; /* un solo cuadro estático */
-      (function loop(t){ if (!paused) draw(t * 0.001); requestAnimationFrame(loop); })(performance.now());
-    })();
-
-    /* ---- reveals ---- */
-    (function () {
-      var items = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        items.forEach(function (i) { i.classList.add('in'); });
-        return;
-      }
-      var obs = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      items.forEach(function (i) { obs.observe(i); });
-    })();
-  </script>
-</body>
-</html>
+(() => {
+ const scenes=[
+  {name:'GÉNESIS',title:'GÉNESIS / LA PRIMERA SEÑAL',text:'Antes del símbolo, una voz. Antes del universo, el deseo de ser escuchado.',image:'portrait-red.jpg',alt:'Belentani de cabello largo y traje rojo, en el universo JUDAS'},
+  {name:'TRAICIÓN',title:'TRAICIÓN / EL BESO Y EL ESPEJO',text:'Un beso abre la herida. El espejo guarda las versiones que nadie quiso mirar.',image:'memory-orb.jpg',alt:'Belentani sostiene una esfera de luz en una escena nocturna'},
+  {name:'LA DEUDA',title:'LA DEUDA / LO QUE PERMANECE',text:'La ciudad queda atrás. Una figura atraviesa el desierto con la memoria que no pudo dejar.',image:'desert-return.jpg',alt:'Belentani con traje rojo en las dunas al atardecer'},
+  {name:'REDENCIÓN',title:'REDENCIÓN / LA SEÑAL REGRESA',text:'El archivo se abre al presente. Puedes irte tranquilo, pero recuerda mi nombre.',image:'signal-blue.jpg',alt:'Retrato de Belentani entre luz roja y azul en el universo digital'}
+ ];
+ const image=document.getElementById('world-art'),base=image.getAttribute('src').slice(0,image.getAttribute('src').lastIndexOf('/')+1),buttons=[...document.querySelectorAll('button[data-scene]')];let current=0;
+ function select(i){current=(i+scenes.length)%scenes.length;const s=scenes[current];document.documentElement.dataset.scene=String(current);buttons.forEach((b,n)=>b.setAttribute('aria-pressed',String(n===current)));image.src=base+s.image;image.alt=s.alt;document.getElementById('story-number').textContent=String(current+1).padStart(2,'0');document.getElementById('story-title').textContent=s.title;document.getElementById('story-description').textContent=s.text;document.getElementById('hud-scene').textContent=s.name;document.getElementById('hud-number').textContent=`0${current+1} / 04`;}
+ buttons.forEach(b=>b.addEventListener('click',()=>select(Number(b.dataset.scene))));document.getElementById('previous-scene').addEventListener('click',()=>select(current-1));document.getElementById('next-scene').addEventListener('click',()=>select(current+1));
+})();
+</script></body></html>
