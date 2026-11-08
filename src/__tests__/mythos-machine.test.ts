@@ -2,8 +2,8 @@ import { expect, test } from 'vitest';
 import { ECHO_MYTH, MYTH_STATIONS, MYTH_PULSE, stationById } from '../lib/mythos';
 import { WORLD_NODES, worldsForStation, isExternalWorld } from '../lib/worlds-atlas';
 
-test('mythos has 7 stations with ES EN PT', () => {
-  expect(MYTH_STATIONS).toHaveLength(7);
+test('mythos has 9 stations with ES EN PT', () => {
+  expect(MYTH_STATIONS).toHaveLength(9);
   for (const s of MYTH_STATIONS) {
     expect(s.title.es.length).toBeGreaterThan(3);
     expect(s.title.en.length).toBeGreaterThan(3);

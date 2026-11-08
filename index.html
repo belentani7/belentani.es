@@ -3,243 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="belentani.es - Producto completo con hero shader y animaciones">
-  <title>Belentani.Es</title>
-  <link rel="theme-color" content="#6366f1">
-  <style>/* Hero Shader */
-:root {
-  --primary: #6366f1;
-  --secondary: #818cf8;
-  --bg: #f8fafc;
-  --accent: #4f46e5;
-  --glow: 0 0 15px rgba(99, 102, 241, 0.3);
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: #ffffff;
-  font-family: system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-}
-.hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg);
-  overflow: hidden;
-}
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.hero-overlay {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 2rem;
-}
-.hero h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3));
-  animation: pulse 3s ease-in-out infinite;
-}
-.hero p {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-  filter: brightness(1.1);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.btn-secondary:hover {
-  background: var(--primary);
-  color: #ffffff;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 250px; text-align: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero { animation: none; }
-  .hero h1 { animation: none; }
-}
-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-  text-align: center;
-}
-section p {
-  font-size: 1.1rem;
-  color: #64748b;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-.stack-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-}
-.stack-list li {
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  color: #64748b;
-}
-footer {
-  padding: 3rem 2rem;
-  border-top: 1px solid rgba(128, 128, 128, 0.2);
-  text-align: center;
-  color: #64748b;
-  font-size: 0.9rem;
-}
-@media (max-width: 768px) {
-  .hero { min-height: 80vh; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 250px; text-align: center; }
-  section { padding: 2rem 1rem; }
-}
-</style>
+  <meta name="description" content="Belentani — The Experience: universo artístico interactivo. Una galaxia navegable ordena música, imagen y relato en cuatro capítulos: Genesis, Traición, La deuda y Redención.">
+  <title>Belentani — The Experience</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2364f0d2'/%3E%3Cstop offset='.5' stop-color='%236aa8ff'/%3E%3Cstop offset='1' stop-color='%23b98cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='5' fill='none' stroke='url(%23g)' stroke-width='1.2' transform='rotate(-24 16 16)'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#000000; --raise:#07080c;
+      --ink:#eef1ff; --dim:rgba(230,236,255,.68); --faint:rgba(230,236,255,.44);
+      --cyan:#64f0d2; --blue:#6aa8ff; --violet:#b98cff; --amber:#ffd27a;
+      --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.2);
+      --spectrum:linear-gradient(100deg,var(--cyan),var(--blue) 48%,var(--violet));
+      --sans:system-ui,-apple-system,"Segoe UI",Inter,sans-serif;
+      --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+      --ease:cubic-bezier(.22,.75,.25,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:var(--cyan);text-underline-offset:4px}
+    a:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+    .skip{position:absolute;left:-999px;top:10px;z-index:60;padding:10px 16px;background:var(--raise);border:1px solid var(--line-2);border-radius:8px;color:var(--ink);text-decoration:none}
+    .skip:focus{left:10px}
+    .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* ---- nav glass ---- */
+    .nav{
+      position:sticky;top:14px;z-index:50;margin:14px auto 0;max-width:1140px;
+      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+      padding:12px 20px;border:1px solid var(--line);border-radius:16px;
+      background:rgba(7,8,12,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
+      box-shadow:0 12px 40px rgba(0,0,0,.55);
+    }
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:700}
+    .brand small{display:block;font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
+    .nav nav{display:flex;gap:6px;flex-wrap:wrap}
+    .nav nav a{text-decoration:none;color:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:1px solid transparent;transition:color .25s,border-color .25s,background .25s}
+    .nav nav a:hover{color:var(--ink);border-color:var(--line);background:rgba(255,255,255,.035)}
+
+    /* ---- hero con shader ---- */
+    .hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden}
+    #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;
+      background:radial-gradient(60% 50% at 50% 30%,#0b1d2e 0%,#070812 55%,#000 100%)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+      background:radial-gradient(90% 70% at 50% 40%,transparent 40%,rgba(0,0,0,.72) 100%)}
+    .hero-inner{position:relative;z-index:2;text-align:center;padding:110px 24px 130px;max-width:1000px}
+    .kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+    .kicker i{width:7px;height:7px;border-radius:50%;background:var(--spectrum);box-shadow:0 0 12px var(--blue);animation:pulse 3.2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
+    h1{font-size:clamp(2.7rem,9vw,6.8rem);line-height:.95;font-weight:800;letter-spacing:-.035em}
+    h1 .grad{background:var(--spectrum);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 9s var(--ease) infinite alternate}
+    @keyframes sheen{from{background-position:0% 0}to{background-position:100% 0}}
+    .hero p.lede{margin:26px auto 0;max-width:60ch;color:var(--dim);font-size:clamp(1.05rem,1.8vw,1.3rem)}
+    .hero p.lede strong{color:var(--ink);font-weight:600}
+    .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+    .button{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.98rem;color:#001012;background:var(--spectrum);background-size:200% 100%;box-shadow:0 8px 30px rgba(106,168,255,.3);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-position .5s var(--ease)}
+    .button:hover{transform:translateY(-2px);background-position:100% 0;box-shadow:0 14px 44px rgba(106,168,255,.45)}
+    .button.ghost{color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none}
+    .button.ghost:hover{background:rgba(255,255,255,.09);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+    .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+
+    .shell{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:0 24px}
+    section{padding:clamp(64px,10vh,118px) 0}
+    .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
+    .sec-head .no{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--faint)}
+    h2{font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1.02;letter-spacing:-.03em;font-weight:800}
+    .sec-copy{max-width:62ch;color:var(--dim);font-size:1.06rem}
+
+    /* ---- capítulos ---- */
+    .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;list-style:none}
+    .chapters figure{border:1px solid var(--line);border-radius:18px;background:linear-gradient(170deg,rgba(255,255,255,.05),rgba(255,255,255,.012));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;transition:transform .3s var(--ease),border-color .3s}
+    .chapters figure:hover{transform:translateY(-5px);border-color:var(--line-2)}
+    .chapters svg{display:block;width:100%;height:auto}
+    .chapters figcaption{padding:15px 17px}
+    .chapters b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+    .chapters p{color:var(--dim);font-size:.92rem}
+
+    /* ---- universos / evidencia ---- */
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+    .card{border:1px solid var(--line);border-radius:18px;padding:28px;background:linear-gradient(170deg,rgba(255,255,255,.05),rgba(255,255,255,.012));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .card h3{margin:0 0 10px;font-size:1.25rem;letter-spacing:-.01em}
+    .card p{margin:0;color:var(--dim);font-size:.98rem}
+    .card .tag{display:inline-block;margin:0 0 14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
+    .card:nth-child(2) .tag{color:var(--violet)}
+    .stack-list{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;list-style:none;margin-top:36px}
+    .stack-list li{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim);padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035)}
+
+    footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:44px 0 64px;margin-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:.92rem}
+    footer .mono{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+
+    .reveal{opacity:1;transform:none}
+    html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    html.js .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:880px){.chapters{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}
+    @media (max-width:560px){.sec-head{flex-direction:column;gap:8px;align-items:flex-start}.chapters{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .kicker i,h1 .grad,.button{animation:none}
+      .reveal,html.js .reveal{opacity:1;transform:none;transition:none}
+      .chapters figure,.button{transition:none}
+    }
+    ::selection{background:var(--violet);color:#000}
+  </style>
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-canvas"></div>
-    <div class="hero-overlay">
-      <h1>Belentani.Es</h1>
-      <p>Producto completo con home hero, shader WebGL animado, y stack moderno listo para producción.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn-primary">Ver Características</a>
-        <a href="#stack" class="btn-secondary">Ver Stack</a>
+  <div class="grain" aria-hidden="true"></div>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Belentani — The Experience, inicio">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="nb" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#64f0d2"/><stop offset=".5" stop-color="#6aa8ff"/><stop offset="1" stop-color="#b98cff"/>
+        </linearGradient></defs>
+        <rect width="32" height="32" rx="8" fill="none" stroke="url(#nb)" stroke-width="1.4"/>
+        <circle cx="16" cy="16" r="6" fill="none" stroke="url(#nb)" stroke-width="1.8"/>
+        <ellipse cx="16" cy="16" rx="12.5" ry="4.6" fill="none" stroke="url(#nb)" stroke-width="1" transform="rotate(-24 16 16)"/>
+      </svg>
+      <span>Belentani<small>The Experience</small></span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#capitulos">Capítulos</a>
+      <a href="#universo">El universo</a>
+      <a href="https://github.com/belentani7/belentani.es">Repositorio</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="kicker"><i aria-hidden="true"></i>Universo artístico interactivo</p>
+        <h1 id="hero-title">Una galaxia<br>que se <span class="grad">recorre.</span></h1>
+        <p class="lede"><strong>Belentani — The Experience</strong> convierte la era Judas en un espacio navegable: música, imagen y relato ordenados en cuatro capítulos dentro de una galaxia Three.js. La entrada presenta el mundo; la galaxia organiza su recorrido.</p>
+        <div class="actions">
+          <a class="button" href="#capitulos">Entrar en la galaxia
+            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="button ghost" href="https://github.com/belentani7/belentani.es">Ver repositorio</a>
+        </div>
       </div>
+      <span class="scroll-hint" aria-hidden="true">Desliza</span>
+    </section>
+
+    <div class="shell">
+      <section id="capitulos" aria-labelledby="cap-t">
+        <div class="sec-head reveal"><span class="no">/ 01</span><h2 id="cap-t">Cuatro capítulos</h2></div>
+        <p class="sec-copy reveal">Cada escena mantiene el vínculo entre dirección creativa y navegación. El alcance público excluye masters, sesiones y material privado.</p>
+        <ul class="chapters" style="margin-top:38px" aria-label="Capítulos del universo">
+          <li class="reveal"><figure>
+            <svg viewBox="0 0 200 120" role="img" aria-label="Genesis: semilla de luz sobre negro">
+              <rect width="200" height="120" fill="#04050a"/>
+              <circle cx="100" cy="60" r="26" fill="none" stroke="#64f0d2" stroke-width="1.4"/>
+              <circle cx="100" cy="60" r="14" fill="#64f0d2" opacity=".85"/>
+              <circle cx="100" cy="60" r="42" fill="none" stroke="#64f0d2" opacity=".25"/>
+              <circle cx="100" cy="60" r="3.4" fill="#eafffb"/>
+            </svg>
+            <figcaption><b style="color:var(--cyan)">01 · Genesis</b><p>La semilla: el mundo se presenta y fija su tono.</p></figcaption>
+          </figure></li>
+          <li class="reveal"><figure>
+            <svg viewBox="0 0 200 120" role="img" aria-label="Traición: dos órbitas que se cruzan">
+              <rect width="200" height="120" fill="#04050a"/>
+              <ellipse cx="100" cy="60" rx="62" ry="24" fill="none" stroke="#6aa8ff" stroke-width="1.4"/>
+              <ellipse cx="100" cy="60" rx="24" ry="58" fill="none" stroke="#6aa8ff" opacity=".6"/>
+              <circle cx="124" cy="42" r="5" fill="#6aa8ff"/>
+              <circle cx="76" cy="78" r="3" fill="#dbeaff"/>
+            </svg>
+            <figcaption><b style="color:var(--blue)">02 · Traición</b><p>Las órbitas se cruzan; el relato se rompe.</p></figcaption>
+          </figure></li>
+          <li class="reveal"><figure>
+            <svg viewBox="0 0 200 120" role="img" aria-label="La deuda: arco que se cierra sobre sí mismo">
+              <rect width="200" height="120" fill="#04050a"/>
+              <path d="M50 88 A 54 54 0 1 1 150 88" fill="none" stroke="#b98cff" stroke-width="1.6"/>
+              <path d="M50 88 A 54 54 0 0 1 150 88" fill="none" stroke="#b98cff" opacity=".3" stroke-dasharray="3 6"/>
+              <circle cx="100" cy="34" r="5" fill="#b98cff"/>
+              <circle cx="100" cy="88" r="2.6" fill="#f2eaff"/>
+            </svg>
+            <figcaption><b style="color:var(--violet)">03 · La deuda</b><p>Un arco que se cierra sobre sí mismo.</p></figcaption>
+          </figure></li>
+          <li class="reveal"><figure>
+            <svg viewBox="0 0 200 120" role="img" aria-label="Redención: rayo espectral ascendente">
+              <rect width="200" height="120" fill="#04050a"/>
+              <defs><linearGradient id="rd" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#64f0d2"/><stop offset="1" stop-color="#ffd27a"/>
+              </linearGradient></defs>
+              <path d="M100 96 L88 60 L100 64 L96 24 L114 58 L102 55 L112 96 Z" fill="url(#rd)" opacity=".9"/>
+              <circle cx="100" cy="18" r="2.6" fill="#ffe9c2"/>
+            </svg>
+            <figcaption><b style="color:var(--amber)">04 · Redención</b><p>La luz asciende; el viaje se completa.</p></figcaption>
+          </figure></li>
+        </ul>
+      </section>
+
+      <section id="universo" aria-labelledby="uni-t">
+        <div class="sec-head reveal"><span class="no">/ 02</span><h2 id="uni-t">El universo</h2></div>
+        <div class="grid-2">
+          <article class="card reveal">
+            <span class="tag">Obra interactiva</span>
+            <h3>Una galaxia navegable</h3>
+            <p>Three.js ordena capítulos, sonido y visión en un solo recorrido. La interfaz no explica la obra: la recorre contigo.</p>
+          </article>
+          <article class="card reveal">
+            <span class="tag">Ingeniería verificable</span>
+            <h3>Repositorio con evidencia</h3>
+            <p>Instalación, tests, build y comprobaciones de runtime documentadas en el repositorio. Lo que se publica, se puede ejecutar.</p>
+          </article>
+        </div>
+        <ul class="stack-list reveal" aria-label="Stack tecnológico">
+          <li>Three.js</li><li>React Three Fiber</li><li>Next.js</li><li>TypeScript</li><li>GSAP</li><li>WebGL</li><li>Vitest</li><li>GitHub Actions</li>
+        </ul>
+      </section>
     </div>
-  </section>
-  <section id="stack">
-    <h2>Stack Tecnológico</h2>
-    <p>Tecnologías utilizadas en este repositorio.</p>
-    <ul class="stack-list">
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
-      <li>WebGL Shader</li>
-      <li>Responsive Design</li>
-    </ul>
-  </section>
-  <footer><p>© 2026 Belentani.Es - Parte del ecosistema Belentani</p></footer>
-/* Hero Shader WebGL */
-(function() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'hero-canvas';
-  canvas.style.position = 'absolute';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.width = '100%';
-  canvas.style.height = '100%';
-  canvas.style.zIndex = '1';
-  document.body.insertBefore(canvas, document.body.firstChild);
-  const gl = canvas.getContext('webgl');
-  if (!gl) return;
-  const vs = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vs, 'attribute vec2 position; void main() { gl_Position = vec4(position, 0.0, 1.0); }');
-  gl.compileShader(vs);
-  const fs = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fs, 'precision mediump float; uniform vec2 u_resolution; uniform float u_time; uniform vec2 u_mouse; float hash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y * p.z); } float noise(vec2 p) { vec2 i = floor(p); vec2 f = fract(p); f = f * f * (3.0 - 2.0 * f); float a = hash(i); float b = hash(i + vec2(1.0, 0.0)); float c = hash(i + vec2(0.0, 1.0)); float d = hash(i + vec2(1.0, 1.0)); return mix(mix(a, b, f.x), mix(c, d, f.x), f.y); } float fbm(vec2 p) { float v = 0.0; float a = 0.5; vec2 shift = vec2(100.0); for (int i = 0; i < 5; ++i) { v += a * noise(p); p = p * 2.0 + shift; a *= 0.5; } return v; } void main() { vec2 uv = gl_FragCoord.xy / u_resolution.xy; uv.x *= u_resolution.x / u_resolution.y; vec2 m = uv - u_mouse; float n = fbm(uv * 3.0 + u_time * 0.5); n += fbm(uv * 6.0 - u_time * 0.3) * 0.5; n += length(m) * 0.1; n = mod(n, 1.0); vec3 color = mix(vec3(0.0, 0.5, 1.0), vec3(1.0, 0.0, 0.5), n); float vignette = 1.0 - length(uv * 2.0 - 1.0) * 0.4; color *= vignette; gl_FragColor = vec4(color, 1.0); }');
-  gl.compileShader(fs);
-  const program = gl.createProgram();
-  gl.attachShader(program, vs);
-  gl.attachShader(program, fs);
-  gl.linkProgram(program);
-  gl.useProgram(program);
-  const pb = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, pb);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
-  const pl = gl.getAttribLocation(program, 'position');
-  gl.enableVertexAttribArray(pl);
-  gl.vertexAttribPointer(pl, 2, gl.FLOAT, false, 0, 0);
-  const rl = gl.getUniformLocation(program, 'u_resolution');
-  const tl = gl.getUniformLocation(program, 'u_time');
-  const ml = gl.getUniformLocation(program, 'u_mouse');
-  let mouse = {x: 0.5, y: 0.5};
-  window.addEventListener('mousemove', (e) => { mouse.x = e.clientX / window.innerWidth; mouse.y = 1.0 - e.clientY / window.innerHeight; });
-  function resize() { canvas.width = canvas.clientWidth * window.devicePixelRatio; canvas.height = canvas.clientHeight * window.devicePixelRatio; gl.viewport(0, 0, canvas.width, canvas.height); gl.uniform2f(rl, canvas.width, canvas.height); }
-  window.addEventListener('resize', resize);
-  resize();
-  function render(time) { gl.uniform1f(tl, time * 0.001); gl.uniform2f(ml, mouse.x, mouse.y); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); }
-  requestAnimationFrame(render);
-})();
+  </main>
+
+  <div class="shell">
+    <footer>
+      <span>© 2026 Belentani — The Experience</span>
+      <span class="mono">El alcance público excluye material privado</span>
+      <a href="https://github.com/belentani7/belentani.es">Repositorio</a>
+    </footer>
+  </div>
+
+  <script>
+    /* ---- shader nebular FBM, sin dependencias ---- */
+    (function () {
+      'use strict';
+      var canvas = document.getElementById('hero-canvas');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return; /* el fondo CSS del canvas mantiene la escena visible */
+      var vs = 'attribute vec2 position; void main(){ gl_Position = vec4(position,0.0,1.0); }';
+      var fs = [
+        'precision mediump float;',
+        'uniform vec2 u_resolution; uniform float u_time; uniform vec2 u_mouse;',
+        'float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }',
+        'float noise(vec2 p){ vec2 i=floor(p); vec2 f=fract(p); f=f*f*(3.0-2.0*f);',
+        '  float a=hash(i); float b=hash(i+vec2(1.0,0.0)); float c=hash(i+vec2(0.0,1.0)); float d=hash(i+vec2(1.0,1.0));',
+        '  return mix(mix(a,b,f.x),mix(c,d,f.x),f.y); }',
+        'float fbm(vec2 p){ float v=0.0; float a=0.5; for(int i=0;i<5;++i){ v+=a*noise(p); p=p*2.0+vec2(100.0); a*=0.5; } return v; }',
+        'void main(){',
+        '  vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
+        '  uv.x *= u_resolution.x / u_resolution.y;',
+        '  vec2 m = uv - u_mouse;',
+        '  float n = fbm(uv*2.6 + u_time*0.10);',
+        '  n += fbm(uv*5.0 - u_time*0.06)*0.5;',
+        '  n += length(m)*0.08;',
+        '  vec3 deep  = vec3(0.010,0.014,0.030);',
+        '  vec3 cyan  = vec3(0.160,0.360,0.320);',
+        '  vec3 blue  = vec3(0.130,0.230,0.480);',
+        '  vec3 viol  = vec3(0.290,0.180,0.460);',
+        '  vec3 color = mix(deep, cyan, smoothstep(0.15,0.55,n));',
+        '  color = mix(color, blue, smoothstep(0.45,0.80,n));',
+        '  color = mix(color, viol, smoothstep(0.70,1.00,n));',
+        '  float star = step(0.9985, hash(floor(gl_FragCoord.xy)));',
+        '  color += star * 0.55;',
+        '  float vignette = 1.0 - length(uv*2.0-1.0)*0.35;',
+        '  color *= vignette;',
+        '  gl_FragColor = vec4(color, 1.0);',
+        '}'
+      ].join('\n');
+      function sh(t, s){ var x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); return x; }
+      var prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+      gl.useProgram(prog);
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+      var pl = gl.getAttribLocation(prog, 'position');
+      gl.enableVertexAttribArray(pl);
+      gl.vertexAttribPointer(pl, 2, gl.FLOAT, false, 0, 0);
+      var rl = gl.getUniformLocation(prog, 'u_resolution');
+      var tl = gl.getUniformLocation(prog, 'u_time');
+      var ml = gl.getUniformLocation(prog, 'u_mouse');
+      var mouse = { x: 0.5, y: 0.5 };
+      window.addEventListener('mousemove', function (e) {
+        mouse.x = e.clientX / window.innerWidth;
+        mouse.y = 1.0 - e.clientY / window.innerHeight;
+      }, { passive: true });
+      var dprCap = 1.75;
+      function resize(){
+        var dpr = Math.min(window.devicePixelRatio || 1, dprCap);
+        canvas.width = canvas.clientWidth * dpr;
+        canvas.height = canvas.clientHeight * dpr;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.uniform2f(rl, canvas.width, canvas.height);
+        draw(reduce ? 120.0 : (performance.now() * 0.001));
+      }
+      var paused = false;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) { es.forEach(function (e) { paused = !e.isIntersecting; }); }, { threshold: 0.05 }).observe(canvas);
+      }
+      function draw(t){
+        gl.uniform1f(tl, t);
+        gl.uniform2f(ml, mouse.x, mouse.y);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+      if (reduce) return; /* un solo cuadro estático */
+      (function loop(t){ if (!paused) draw(t * 0.001); requestAnimationFrame(loop); })(performance.now());
+    })();
+
+    /* ---- reveals ---- */
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(function (i) { i.classList.add('in'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      items.forEach(function (i) { obs.observe(i); });
+    })();
+  </script>
 </body>
 </html>
