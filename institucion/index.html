@@ -1,245 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="belentani.es - Producto completo con hero shader y animaciones">
-  <title>Belentani.Es</title>
-  <link rel="theme-color" content="#6366f1">
-  <style>/* Hero Shader */
-:root {
-  --primary: #6366f1;
-  --secondary: #818cf8;
-  --bg: #f8fafc;
-  --accent: #4f46e5;
-  --glow: 0 0 15px rgba(99, 102, 241, 0.3);
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: #ffffff;
-  font-family: system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-}
-.hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg);
-  overflow: hidden;
-}
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.hero-overlay {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 2rem;
-}
-.hero h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3));
-  animation: pulse 3s ease-in-out infinite;
-}
-.hero p {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-  filter: brightness(1.1);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  border: 2px solid var(--primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.btn-secondary:hover {
-  background: var(--primary);
-  color: #ffffff;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 250px; text-align: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero { animation: none; }
-  .hero h1 { animation: none; }
-}
-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-  text-align: center;
-}
-section p {
-  font-size: 1.1rem;
-  color: #64748b;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-.stack-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-}
-.stack-list li {
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  color: #64748b;
-}
-footer {
-  padding: 3rem 2rem;
-  border-top: 1px solid rgba(128, 128, 128, 0.2);
-  text-align: center;
-  color: #64748b;
-  font-size: 0.9rem;
-}
-@media (max-width: 768px) {
-  .hero { min-height: 80vh; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .btn-primary, .btn-secondary { width: 100%; max-width: 250px; text-align: center; }
-  section { padding: 2rem 1rem; }
-}
-</style>
-</head>
-<body>
-  <section class="hero">
-    <div class="hero-canvas"></div>
-    <div class="hero-overlay">
-      <h1>Belentani.Es</h1>
-      <p>Producto completo con home hero, shader WebGL animado, y stack moderno listo para producción.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn-primary">Ver Características</a>
-        <a href="#stack" class="btn-secondary">Ver Stack</a>
-      </div>
-    </div>
-  </section>
-  <section id="stack">
-    <h2>Stack Tecnológico</h2>
-    <p>Tecnologías utilizadas en este repositorio.</p>
-    <ul class="stack-list">
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
-      <li>WebGL Shader</li>
-      <li>Responsive Design</li>
-    </ul>
-  </section>
-  <footer><p>© 2026 Belentani.Es - Parte del ecosistema Belentani</p></footer>
-/* Hero Shader WebGL */
-(function() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'hero-canvas';
-  canvas.style.position = 'absolute';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.width = '100%';
-  canvas.style.height = '100%';
-  canvas.style.zIndex = '1';
-  document.body.insertBefore(canvas, document.body.firstChild);
-  const gl = canvas.getContext('webgl');
-  if (!gl) return;
-  const vs = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vs, 'attribute vec2 position; void main() { gl_Position = vec4(position, 0.0, 1.0); }');
-  gl.compileShader(vs);
-  const fs = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fs, 'precision mediump float; uniform vec2 u_resolution; uniform float u_time; uniform vec2 u_mouse; float hash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y * p.z); } float noise(vec2 p) { vec2 i = floor(p); vec2 f = fract(p); f = f * f * (3.0 - 2.0 * f); float a = hash(i); float b = hash(i + vec2(1.0, 0.0)); float c = hash(i + vec2(0.0, 1.0)); float d = hash(i + vec2(1.0, 1.0)); return mix(mix(a, b, f.x), mix(c, d, f.x), f.y); } float fbm(vec2 p) { float v = 0.0; float a = 0.5; vec2 shift = vec2(100.0); for (int i = 0; i < 5; ++i) { v += a * noise(p); p = p * 2.0 + shift; a *= 0.5; } return v; } void main() { vec2 uv = gl_FragCoord.xy / u_resolution.xy; uv.x *= u_resolution.x / u_resolution.y; vec2 m = uv - u_mouse; float n = fbm(uv * 3.0 + u_time * 0.5); n += fbm(uv * 6.0 - u_time * 0.3) * 0.5; n += length(m) * 0.1; n = mod(n, 1.0); vec3 color = mix(vec3(0.0, 0.5, 1.0), vec3(1.0, 0.0, 0.5), n); float vignette = 1.0 - length(uv * 2.0 - 1.0) * 0.4; color *= vignette; gl_FragColor = vec4(color, 1.0); }');
-  gl.compileShader(fs);
-  const program = gl.createProgram();
-  gl.attachShader(program, vs);
-  gl.attachShader(program, fs);
-  gl.linkProgram(program);
-  gl.useProgram(program);
-  const pb = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, pb);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
-  const pl = gl.getAttribLocation(program, 'position');
-  gl.enableVertexAttribArray(pl);
-  gl.vertexAttribPointer(pl, 2, gl.FLOAT, false, 0, 0);
-  const rl = gl.getUniformLocation(program, 'u_resolution');
-  const tl = gl.getUniformLocation(program, 'u_time');
-  const ml = gl.getUniformLocation(program, 'u_mouse');
-  let mouse = {x: 0.5, y: 0.5};
-  window.addEventListener('mousemove', (e) => { mouse.x = e.clientX / window.innerWidth; mouse.y = 1.0 - e.clientY / window.innerHeight; });
-  function resize() { canvas.width = canvas.clientWidth * window.devicePixelRatio; canvas.height = canvas.clientHeight * window.devicePixelRatio; gl.viewport(0, 0, canvas.width, canvas.height); gl.uniform2f(rl, canvas.width, canvas.height); }
-  window.addEventListener('resize', resize);
-  resize();
-  function render(time) { gl.uniform1f(tl, time * 0.001); gl.uniform2f(ml, mouse.x, mouse.y); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); }
-  requestAnimationFrame(render);
-})();
-</body>
-</html>
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050507"><meta name="description" content="Belentani — visión, proceso y principios del proyecto artístico."><title>Belentani — Visión</title><style>
+:root{color-scheme:dark;--bg:#050507;--panel:rgba(20,16,19,.72);--line:rgba(255,255,255,.12);--ink:#f5f0ef;--muted:#aaa0a2;--red:#ff244c;--deep:#7a0014;--ease:cubic-bezier(.2,.75,.25,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 5%,rgba(122,0,20,.34),transparent 48%),radial-gradient(ellipse at 85% 75%,rgba(255,36,76,.09),transparent 38%),#050507}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.15;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid #ff7189;outline-offset:4px;border-radius:8px}.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:9;background:#111;padding:10px 14px}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.topbar{position:sticky;top:14px;z-index:5;width:min(1120px,calc(100% - 28px));margin:14px auto 0;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--line);border-radius:18px;background:rgba(10,8,10,.72);backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 16px 50px #0008}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.12em;font-size:13px}.sigil{width:30px;height:30px;border:1px solid #ff4768;border-radius:10px;display:grid;place-items:center;color:#ff4768;box-shadow:inset 0 0 16px #ff244c30,0 0 22px #ff244c20}
+nav{display:flex;gap:5px;flex-wrap:wrap}nav a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:9px 12px;border-radius:999px;transition:.25s}nav a:hover{color:white;background:#ffffff10}
+.hero{min-height:min(850px,calc(100svh - 70px));display:grid;align-items:center;position:relative;padding:100px 0 120px}.hero:before{content:"";position:absolute;width:min(65vw,660px);aspect-ratio:1;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 50% 50%,#ff244c20 0 8%,#7a00143a 24%,transparent 68%);filter:blur(12px);animation:breath 9s ease-in-out infinite alternate}
+.hero-inner{position:relative;max-width:850px;margin:auto;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid #ff244c55;border-radius:999px;background:#ff244c0d;color:#ff9aaa;font:10px ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase}.dot{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 14px var(--red)}
+h1{font-size:clamp(3.5rem,10vw,8.5rem);line-height:.88;letter-spacing:-.075em;margin:30px 0 24px;font-weight:850}h1 span{display:block;color:transparent;background:linear-gradient(105deg,#fff 5%,#ffb0bd 42%,#ff244c 78%,#7a0014);background-clip:text;-webkit-background-clip:text}
+.lede{max-width:650px;margin:0 auto;color:#c3b9bb;font-size:clamp(1rem,2vw,1.2rem)}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;letter-spacing:.04em;transition:transform .25s var(--ease),box-shadow .25s,background .25s}.btn:hover{transform:translateY(-3px)}.btn.primary{background:linear-gradient(115deg,#ff244c,#9b001d);border-color:#ff536e;box-shadow:0 10px 34px #ff244c35}.btn.secondary{background:#ffffff08;backdrop-filter:blur(12px)}
+.section{padding:88px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}.overline{color:#ff7189;font:10px ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase}.section h2{font-size:clamp(2rem,5vw,3.6rem);line-height:1;letter-spacing:-.055em;margin:10px 0 0}.section-head p{max-width:430px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{min-height:230px;padding:25px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#ffffff0c,#ffffff03);backdrop-filter:blur(16px);position:relative;overflow:hidden;transition:transform .35s var(--ease),border-color .35s,background .35s}.card:after{content:"";position:absolute;width:180px;height:180px;right:-70px;bottom:-95px;border-radius:50%;background:#ff244c1c;filter:blur(20px);transition:transform .5s}.card:hover{transform:translateY(-6px);border-color:#ff526b77;background:linear-gradient(145deg,#ff244c12,#ffffff04)}.card:hover:after{transform:scale(1.5)}.num{color:#ff7189;font:11px ui-monospace,monospace;letter-spacing:.16em}.card h3{font-size:1.45rem;letter-spacing:-.04em;margin:32px 0 8px}.card p{color:var(--muted);margin:0;max-width:34ch;font-size:.94rem}.card a{display:inline-block;margin-top:18px;color:#ff9aaa;font-size:12px;font-weight:700}
+.statement{border:1px solid #ff244c40;border-radius:26px;padding:clamp(28px,6vw,58px);background:linear-gradient(120deg,#7a00142c,#ffffff05 60%);box-shadow:inset 0 1px #ffffff0b}.statement p{font-size:clamp(1.4rem,3.5vw,2.5rem);line-height:1.2;letter-spacing:-.04em;max-width:850px;margin:0}.statement strong{color:#ff7189}
+footer{padding:28px 0 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#81777a;font:10px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+@keyframes breath{from{opacity:.55;transform:translate(-50%,-50%) scale(.88)}to{opacity:1;transform:translate(-50%,-50%) scale(1.12)}}
+@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.topbar nav{width:100%}.topbar nav a{padding:7px 9px}.hero{min-height:720px;padding:80px 0}.section-head{display:block}.section-head p{margin-top:14px}.cards{grid-template-columns:1fr}.card{min-height:190px}.section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style></head>
+<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="topbar"><a class="brand" href="../index.html"><span class="sigil">B</span><span>BELENTANI</span></a><nav aria-label="Navegación principal"><a href="../index.html">Experiencia</a><a href="../site/index.html">Universo creativo</a><a href="#principios">Principios</a></nav></header>
+<main id="contenido"><section class="hero"><div class="wrap hero-inner"><p class="eyebrow"><i class="dot"></i> Belentani · Nota institucional</p><h1>UNA OBRA.<br><span>MUCHAS FORMAS.</span></h1><p class="lede">Belentani es un proyecto artístico independiente que cruza música, imagen y narración. Su identidad se construye como un universo en evolución, no como una colección de piezas aisladas.</p><div class="actions"><a class="btn primary" href="../index.html">Conocer la experiencia ↗</a><a class="btn secondary" href="#principios">Leer los principios</a></div></div></section>
+<section class="section wrap" id="principios"><div class="section-head"><div><span class="overline">01 / Enfoque</span><h2>Una identidad con continuidad.</h2></div><p>El diseño acompaña al contenido: no lo sustituye. La experiencia debe ser clara, accesible y reconocible en cada pantalla.</p></div><div class="cards"><article class="card"><span class="num">A — AUTORÍA</span><h3>Voz propia</h3><p>La música y el relato parten de una perspectiva personal y mantienen una dirección artística reconocible.</p></article><article class="card"><span class="num">B — SISTEMA</span><h3>Coherencia</h3><p>Un sistema visual compartido conecta las páginas sin convertirlas en copias unas de otras.</p></article><article class="card"><span class="num">C — EXPERIENCIA</span><h3>Acceso</h3><p>Navegación comprensible, adaptación móvil y respeto por las preferencias de movimiento.</p></article></div></section>
+<section class="section wrap"><div class="statement"><span class="overline">02 / Dirección</span><p>Profundidad sin ruido. <strong>Emoción sin artificio. Tecnología al servicio de la obra.</strong></p></div></section></main>
+<footer class="wrap"><span>© 2026 BELENTANI</span><span>VISIÓN · PRINCIPIOS · DIRECCIÓN ARTÍSTICA</span><a href="../index.html">Volver al inicio ↗</a></footer></body></html>
