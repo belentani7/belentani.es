@@ -82,8 +82,8 @@ export default function GalaxyVoyage() {
       <ShipTrailCanvas />
       <div className={styles.vignette} aria-hidden="true" />
       <header className={styles.header}>
-        <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">B<span>7</span>.</Link>
-        <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
+        <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">BELENTANI<span>.</span></Link>
+        <span className={styles.headerName}>JUDAS ERA / THE EXPERIENCE</span>
         <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/lore">LORE</Link><Link href="/musica">MÚSICA</Link><Link href="/maquina">ANTIGRAVITY</Link><Link href="/ai-lab">AI LAB</Link><Link href="/noiacore">NOIACORE</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
         <details className={styles.mobileMenu} onKeyDown={(event) => {
           if (event.key === 'Escape') {
@@ -112,7 +112,7 @@ export default function GalaxyVoyage() {
       </header>
       <section className={styles.intro} aria-labelledby="voyage-title">
         <p className={styles.kicker}>01 / UNIVERSO NAVEGABLE · {String(VOYAGE_PLACES.length).padStart(2, '0')} SISTEMAS</p>
-        <h1 id="voyage-title">ATRAVIESA<br /><em>LA GALAXIA.</em></h1>
+        <h1 id="voyage-title">JUDAS<br /><em>EXPERIENCE.</em></h1>
         <p>Belentani: artista y compositor de São Paulo, establecido en Barcelona. Pop oscuro, R&amp;B, electrónica y JUDAS EXPERIENCE. Un universo de música, imagen y mundos creativos que puedes recorrer.</p>
         <div className={styles.actions}>
           <button type="button" onClick={toggleMap} aria-controls="galaxy-cosmos-map" aria-pressed={webgl}>
