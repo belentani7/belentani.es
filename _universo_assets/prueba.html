@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Prueba motor universo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Prueba motor universo · Belentani</title>
 <style>html,body{margin:0;height:100%;background:#000}#fondo{position:fixed;inset:0}
-.info{position:relative;z-index:2;color:#4de8e0;font:14px monospace;padding:20px}</style></head>
+.info{position:relative;z-index:2;color:#4de8e0;font:14px monospace;padding:20px}</style><meta name="description" content="Prueba motor universo.. Información, recursos y contacto en un solo sitio, sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prueba motor universo · Belentani">
+<meta property="og:description" content="Prueba motor universo.. Información, recursos y contacto en un solo sitio, sin registro.">
+<meta property="og:image" content="brand/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
 <body>
+<main>
+
   <h1>Prueba motor universo</h1><div id="fondo"></div><div class="info" id="salida">cargando...</div>
 <script src="belentani-universe.js"></script>
 <script>
@@ -19,4 +28,7 @@ try{
     salida.textContent='OK modo='+u.modo+' canvas='+c.width+'x'+c.height+' pixelesConLuz='+noNegros+'/'+total+' modos='+BelentaniUniverse.modos.join(',');
   },900);
 }catch(e){salida.textContent='ERROR: '+e.message;}
-</script></body></html>
+</script></main>
+<footer><p>© 2026 Belentani · Parte del ecosistema Belentani</p></footer>
+<!-- page-fix:1 -->
+</body></html>

@@ -39,3 +39,24 @@ Use the supplied `advanced-frontend-skill` principles when implementing interfac
 2. Map verified artist facts, lore stations, releases and professional destinations to a compact content model; resolve contradictions and label unknowns instead of guessing.
 3. Recommend one canonical entry point and a migration/linking sequence; do not delete or merge source sites as part of the audit.
 4. Prototype one end-to-end narrative path, check responsive/accessibility/reduced-motion behavior, and validate the existing project's build/check commands before expanding.
+
+<!-- repo-forge:agents:inicio -->
+# AGENTS.md — instrucciones para agentes
+
+Cualquier agente que toque **Belentani** debe:
+
+1. Leer `BIBLIA.md` y `plataforma/FICHA.md` antes de escribir.
+2. Ejecutar `python scripts/doctor.py` al empezar y al terminar.
+3. Respetar el techo de alcance: no añadir módulos que la ficha no describa.
+4. No borrar archivos, no reescribir historia, no hacer push sin pedido explícito.
+5. Declarar en el informe qué se ejecutó y qué no; lo no ejecutado no se afirma.
+
+## Comandos seguros
+
+| Comando | Efecto |
+|---|---|
+| `python scripts/doctor.py` | Solo lectura; devuelve el estado de reglas |
+| `python -m unittest discover -s tests` | Pruebas locales |
+
+<!-- repo-forge:agents -->
+<!-- repo-forge:agents:fin -->
