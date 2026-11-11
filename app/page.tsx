@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import GalaxyVoyage from '@/components/voyage/GalaxyVoyage';
+import HomeClient from './home-client';
 
 export const metadata: Metadata = { alternates: { canonical: '/' } };
 
 export default function Home() {
-  return <GalaxyVoyage />;
+  return <HomeClient />;
 }

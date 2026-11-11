@@ -62,7 +62,7 @@
       " color = vec4(c,1.); }"].join("\n")
   };
   function acento(){ var b=document.body; var c=getComputedStyle(b).getPropertyValue("--acento").trim()||"#ff2d55";
-    var m=/#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i.exec(c); 
+    var m=/#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i.exec(c);
     return m?[parseInt(m[1],16)/255,parseInt(m[2],16)/255,parseInt(m[3],16)/255]:[1.,.18,.33]; }
   function compilar(gl, tipo, src){ var s=gl.createShader(tipo); gl.shaderSource(s,src); gl.compileShader(s);
     if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ throw gl.getShaderInfoLog(s); } return s; }

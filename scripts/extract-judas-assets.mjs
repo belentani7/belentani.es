@@ -44,4 +44,4 @@ try {
 await Promise.allSettled(pending);
 await browser.close();
 await fs.writeFile(path.join(archive, 'manifest.json'), JSON.stringify({ origin, captured: new Date().toISOString(), status, error, assets, design }, null, 2));
-console.log(JSON.stringify({ status, error, assets: assets.length, archive }));
+console.debug(JSON.stringify({ status, error, assets: assets.length, archive }));

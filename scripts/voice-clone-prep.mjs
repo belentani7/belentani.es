@@ -72,8 +72,8 @@ if (!fs.existsSync(PRIVATE)) {
 }
 fs.writeFileSync(OUT, JSON.stringify(manifest, null, 2), 'utf8');
 
-console.log(`voice-clone-prep: ${samples.length} muestras · ${manifest.totalBytes} bytes`);
-console.log(`manifiesto: ${path.relative(ROOT, OUT)}`);
+console.debug(`voice-clone-prep: ${samples.length} muestras · ${manifest.totalBytes} bytes`);
+console.debug(`manifiesto: ${path.relative(ROOT, OUT)}`);
 if (samples.length === 0) {
-  console.log('Aviso: no hay audio aún en _private_audio_no_web/. Añade WAV/MP3 tuyos (PT-BR / ES / EN).');
+  console.debug('Aviso: no hay audio aún en _private_audio_no_web/. Añade WAV/MP3 tuyos (PT-BR / ES / EN).');
 }

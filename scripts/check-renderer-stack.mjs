@@ -69,6 +69,6 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     console.error('[Renderer compatibility] FAIL:\n- ' + errors.join('\n- '));
     process.exitCode = 1;
   } else {
-    console.log('[Renderer compatibility] PASS: React/Fiber/Drei/Next.js + Tailwind package majors aligned');
+    console.debug('[Renderer compatibility] PASS: React/Fiber/Drei/Next.js + Tailwind package majors aligned');
   }
 }

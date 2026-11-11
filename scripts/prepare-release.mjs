@@ -31,4 +31,4 @@ pkg.name = 'belentani-the-experience';
 for (const command of ['assets:download', 'assets:process', 'assets', 'test:e2e', 'test:visual', 'lint']) delete pkg.scripts[command];
 pkg.scripts['test:visual'] = 'node scripts/verify-experience.mjs';
 fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
-console.log('Prepared curated release:', target);
+console.debug('Prepared curated release:', target);

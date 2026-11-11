@@ -1,0 +1,15 @@
+.git
+.github
+.vscode
+node_modules
+.next
+.pnpm-store
+coverage
+playwright-report
+test-results
+.lighthouseci
+.vercel
+*.log
+*.tsbuildinfo
+.env
+.env.*

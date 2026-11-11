@@ -12,4 +12,4 @@ for (const asset of selected) {
   records.push({ file: 'belentani-mon-amour.png', type: asset.type, origin: asset.origin, bytes: bytes.length, sha256: crypto.createHash('sha256').update(bytes).digest('hex'), role: 'Historical artist wordmark. Preserved as an asset; not presented as Judas cover art.' });
 }
 await fs.writeFile(`${target}/manifest.json`, JSON.stringify({ canon: capture.origin, captured: capture.captured, assets: records, archive: 'Raw network responses and screenshots retained privately, outside public build.' }, null, 2));
-console.log(`Curated public visual assets: ${records.length}`);
+console.debug(`Curated public visual assets: ${records.length}`);

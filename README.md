@@ -72,3 +72,27 @@ npm run build
 ```
 
 Consulta `package.json` para la lista completa de scripts disponibles.
+
+## Scripts
+
+| Script | Que hace |
+|---|---|
+| prebuild | Ejecuta las comprobaciones de límites y de la pila del renderizador mediante Node |
+| check:boundaries | Ejecuta la comprobación de límites mediante Node |
+| dev | Inicia el servidor de desarrollo de Next.js |
+| build | Compila la aplicación para producción con Next.js |
+| start | Inicia el servidor de producción de Next.js |
+| lint | Ejecuta ESLint en todo el proyecto |
+| typecheck | Ejecuta la comprobación de tipos de TypeScript sin emitir archivos |
+| test | Ejecuta las pruebas unitarias una vez con Vitest |
+| test:watch | Ejecuta las pruebas unitarias en modo interactivo/vigilancia con Vitest |
+| test:e2e | Ejecuta las pruebas end-to-end con Playwright |
+| test:visual | Ejecuta la validación visual mediante el script de Node |
+| audit:machine | Ejecuta la auditoría de la máquina consciente mediante Node |
+| voice:prep | Ejecuta la preparación de clonación de voz mediante Node |
+| lighthouse | Ejecuta las auditorías de rendimiento y accesibilidad con LHCI |
+| format | Formatea todos los archivos del proyecto utilizando Prettier |
+| assets:download | Descarga los recursos externos mediante un script de Node |
+| assets:process | Procesa los recursos mediante un script de Node |
+| assets | Descarga y procesa los recursos ejecutando los scripts correspondientes en secuencia con pnpm |
+| check:renderer | Comprueba la pila del renderizador ejecutando el script y sus pruebas nativas con Node |

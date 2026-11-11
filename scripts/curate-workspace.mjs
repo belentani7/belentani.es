@@ -21,7 +21,7 @@ if (!apply) {
   }
   inventory(root);
   fs.writeFileSync(path.join(bucket, 'preflight.json'), JSON.stringify({ root, backup, audio: files }, null, 2));
-  console.log(JSON.stringify({ backup, audioFiles: files.length, audioBytes: files.reduce((sum, file) => sum + file.bytes, 0) }));
+  console.debug(JSON.stringify({ backup, audioFiles: files.length, audioBytes: files.reduce((sum, file) => sum + file.bytes, 0) }));
   process.exit(0);
 }
 if (!fs.existsSync(path.join(bucket, 'preflight.json'))) throw new Error('Run preflight first');
@@ -73,4 +73,4 @@ function clean(dir) {
 }
 ['app', 'src'].forEach((dir) => clean(path.join(root, dir)));
 for (const directory of ['_satellites/noiacore', '_satellites/education', '_satellites/consultoria', '_satellites/duck', 'public/assets/judas-canon']) fs.mkdirSync(directory, { recursive: true });
-console.log('Curation complete. Reversible manifest:', manifest);
+console.debug('Curation complete. Reversible manifest:', manifest);

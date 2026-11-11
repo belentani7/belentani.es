@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portada — 139 programas REA · Instituto Belentani</title>
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:title" content="Portada — 139 programas REA · Instituto Belentani">
+  <meta name="twitter:description" content="Tu navegador no ejecuta JavaScript: puedes leer todo el contenido de esta página; solo se pierde la animación generativa.">
+  <meta name="description" content="Instituto Belentani: educación abierta con WebGL. 139 programas en 6 instituciones.">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="canonical" href="https://belentani.es/institucion/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Instituto Belentani">
+  <meta property="og:title" content="Portada — 139 programas REA">
+  <meta property="og:description" content="Instituto Belentani: educación abierta con WebGL. 139 programas en 6 instituciones.">
+  <meta property="og:url" content="https://belentani.es/institucion/index.html">
+  <meta property="og:image" content="https://belentani.es/institucion/assets/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/institucion.css">
+  <script type="application/ld+json">[{"@type": "EducationalOrganization", "name": "Instituto Belentani", "url": "https://belentani.es/institucion/", "description": "Institución educativa abierta con 139 programas REA.", "founder": {"@type": "Person", "name": "Pedro Belentani"}, "foundingDate": "2026", "areaServed": "ES·BR·PT", "sameAs": ["https://github.com/belentani7"]}]</script>
+</head>
+<body class="pagina-portada" data-shader="nebulosa-cristal">
+<div id="lang-selector" style="position:fixed;top:1rem;right:1rem;z-index:9999;">
+  <select id="lang-switch" aria-label="Idioma">
+    <option value="es">ES</option>
+    <option value="en">EN</option>
+    <option value="ca">CA</option>
+    <option value="fr">FR</option>
+    <option value="it">IT</option>
+    <option value="pt">PT</option>
+    <option value="de">DE</option>
+    <option value="nl">NL</option>
+    <option value="ja">JA</option>
+  </select>
+</div>
+<a class="salto" href="#contenido">Saltar al contenido principal</a>
+<header class="cabecera" role="banner">
+  <p class="marca"><a href="index.html">Instituto Belentani<span aria-hidden="true"> ◆</span></a></p>
+  <nav class="principal" aria-label="Principal">
+      <ul><li><a href="index.html" aria-current="page">Instituto</a></li>
+      <li><a href="institucion/arte-musica.html">Instituciones</a></li>
+      <li><a href="programas.html">Programas REA</a></li>
+      <li><a href="experiencias.html">Experiencias</a></li>
+      <li><a href="campus/admision.html">Campus</a></li>
+      <li><a href="institucional/historia.html">Institucional</a></li>
+      <li class="buscar"><a href="buscar.html">Buscar</a></li>
+    </ul></nav>
+</header>
+<main id="contenido">
+<canvas id="lienzo-nebulosa-cristal" class="lienzo" role="img"
+  aria-label="Nebulosa de cristal: visualización generativa en tiempo real del Instituto Belentani">
+</canvas>
+<noscript><p class="lienzo-fallback">Tu navegador no ejecuta JavaScript: puedes leer todo el
+contenido de esta página; solo se pierde la animación generativa.</p></noscript>
+  <section class="heroe" aria-labelledby="h1-portada">
+    <p class="kicker">Institución educativa abierta · Barcelona ↔ Aracaju</p>
+    <h1 id="h1-portada">El saber como obra de arte inmersiva</h1>
+    <p class="entradilla">Instituto Belentani reúne 139 programas reales del ecosistema Belentani
+    en seis instituciones. Todo el contenido es un Recurso Educativo Abierto: se puede
+    estudiar, remezclar y republicar. La interfaz respira: cada escuela tiene su propia
+    escena WebGL generativa, calculada en tu navegador, sin dependencias.</p>
+    <p class="acciones">
+      <a class="boton" href="programas.html">Explorar los 139 programas</a>
+      <a class="boton secundario" href="institucional/historia.html">Conocer la historia</a>
+    </p>
+  </section>
+  <section class="rejilla" aria-labelledby="h2-instituciones">
+    <h2 id="h2-instituciones">Seis instituciones, un archivo vivo</h2>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#ff2d55">
+        <h3><a href="institucion/arte-musica.html">Academia de Arte y Música</a></h3>
+        <p class="lema">Donde el sonido se vuelve materia</p>
+        <p>La academia fundacional del universo Belentani: producción musical, identidad visual, WebGL creativo y portfolios narrativos. Nace de los estudios DUCK/Zion y la era Judas/Omega.</p>
+        <p class="meta"><strong>22</strong> programas REA · escena
+        <code>lengua-de-fuego</code></p>
+      </article>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#31d0aa">
+        <h3><a href="institucion/educacion.html">Universidad Abierta Belentani</a></h3>
+        <p class="lema">Saber libre, puertas abiertas</p>
+        <p>Educación sin barreras para comunidades brasileñas y latinoamericanas en Cataluña: idiomas, ciudadanía digital, empleo y bienestar. Manos Abiertas, Lingua Aberta, William School y Secure-T viven aquí.</p>
+        <p class="meta"><strong>14</strong> programas REA · escena
+        <code>constelacion-aula</code></p>
+      </article>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#58a6ff">
+        <h3><a href="institucion/herramientas.html">Escuela de Herramientas y Agentes</a></h3>
+        <p class="lema">Forja tus propios ingenieros</p>
+        <p>Ingeniería de herramientas, agentes de IA, skills y automatización local: de MetaSkill a los registros de skills del ecosistema.</p>
+        <p class="meta"><strong>30</strong> programas REA · escena
+        <code>forja-neon</code></p>
+      </article>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#d29922">
+        <h3><a href="institucion/infra-docs.html">Instituto de Infraestructura y Documentación</a></h3>
+        <p class="lema">Sistemas que se explican solos</p>
+        <p>La columna vertebral: gobernanza de repos, documentación viva, auditoría continua y protocolos oficiales.</p>
+        <p class="meta"><strong>18</strong> programas REA · escena
+        <code>reactor-omega</code></p>
+      </article>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#a371f7">
+        <h3><a href="institucion/negocio.html">Escuela de Negocio y Cliente</a></h3>
+        <p class="lema">Cada cliente, una institución</p>
+        <p>Webs y sistemas reales para clientes reales: del Racó de Patricia a CARQUIDEC, pasando por CV con IA y fiscalidad.</p>
+        <p class="meta"><strong>14</strong> programas REA · escena
+        <code>mercado-vidrio</code></p>
+      </article>
+      <article class="tarjeta institucion-tarjeta" style="--acento:#8b949e">
+        <h3><a href="institucion/varios.html">Centro de Estudios Abiertos</a></h3>
+        <p class="lema">Lo que no cabe en una sola escuela</p>
+        <p>Investigación transversal: cognición, ensayo, análisis, utilidades y experimentos del ecosistema.</p>
+        <p class="meta"><strong>41</strong> programas REA · escena
+        <code>campo-abierto</code></p>
+      </article>
+  </section>
+  <section class="bandea" aria-labelledby="h2-rea">
+    <h2 id="h2-rea">¿Qué es un REA aquí?</h2>
+    <p>Un <strong>Recurso Educativo Abierto</strong> del Instituto nace de un proyecto
+    real: su programa incluye fundamentos, práctica guiada sobre el proyecto, taller de
+    creación, crítica por pares y publicación. Nada de contenido de relleno: cada ficha
+    procede del archivo consolidado del ecosistema.</p>
+  </section>
+  <section class="prosa" aria-labelledby="h2-manifiesto">
+    <h2 id="h2-manifiesto">Manifiesto del Instituto</h2>
+    <ol class="niveles">
+      <li><h3>El archivo es el temario</h3><p>Se enseña sobre proyectos reales
+      conservados con procedencia, no sobre ejemplos de manual.</p></li>
+      <li><h3>Nada se borra, todo es reversible</h3><p>Las decisiones del Instituto se
+      documentan como el archivo: con motivo, alcance y forma de deshacerse.</p></li>
+      <li><h3>La crítica es pública</h3><p>Las rúbricas y las actas se publican; el
+      mérito sin evidencia no cuenta.</p></li>
+      <li><h3>Accesible por diseño</h3><p>WCAG 2.2 AA, movimiento reducido respetado y
+      funcionamiento offline: la barrera técnica no es pedagógica.</p></li>
+      <li><h3>Abierto de verdad</h3><p>CC BY-SA para contenido, MIT para código, sin
+      plataformas cerradas ni matrículas.</p></li>
+      <li><h3>Quien construye, enseña</h3><p>El equipo docente procede de los propios
+      proyectos del archivo.</p></li>
+      <li><h3>La belleza no es decorado</h3><p>Las escenas generativas son parte del
+      mensaje: el medio explica el método.</p></li>
+      <li><h3>Constancia verificable</h3><p>El hash de tu pieza final vale más que
+      cualquier certificado impreso.</p></li>
+    </ol>
+  </section>
+  <section class="prosa" aria-labelledby="h2-faq-portada">
+    <h2 id="h2-faq-portada">Preguntas frecuentes del Instituto</h2>
+    <details class="faq"><summary>¿Cuánto cuesta estudiar aquí?</summary>
+    <p>Nada: todos los programas son REA bajo CC BY-SA. Si alguien te cobró por este
+    material, te cobraron por el vaso, no por el agua.</p></details>
+    <details class="faq"><summary>¿Necesito cuenta o instalar algo?</summary>
+    <p>No. El sitio funciona en cualquier navegador moderno y tras la primera visita
+    puede usarse offline, incluidas las escenas generativas.</p></details>
+    <details class="faq"><summary>¿Hay certificados?</summary>
+    <p>Constancias verificables por hash del proyecto final, emitidas en el acta del
+    ciclo. Nada que caduque cuando una plataforma cierre.</p></details>
+    <details class="faq"><summary>¿Quién mantiene el Instituto?</summary>
+    <p>Pedro Belentani y el equipo docente del archivo del ecosistema, con gobernanza
+    documentada en la sección institucional.</p></details>
+    <details class="faq"><summary>¿Puedo reutilizarlo para enseñar?</summary>
+    <p>Sí: es el punto. Cita, comparte igual y avisa: los alumnos que enseñan son la
+    mejor constancia del método.</p></details>
+    <details class="faq"><summary>¿Por qué WebGL si es una escuela?</summary>
+    <p>Porque el medio es mensaje: cada institución tiene su escena generativa propia,
+    calculada en tu navegador, y porque la usabilidad sigue siendo el 30% de la
+    nota.</p></details>
+  </section>
+  <section class="prosa" aria-labelledby="h2-cifras">
+    <h2 id="h2-cifras">El Instituto en cifras</h2>
+    <div class="tabla-scroll">
+    <table class="lectura-tabla">
+      <caption>Datos del archivo consolidado · octubre de 2026</caption>
+      <thead><tr><th scope="col">Indicador</th><th scope="col">Valor</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Programas REA publicados</th><td>139</td></tr>
+        <tr><th scope="row">Instituciones</th><td>6 academias + campus + gobierno</td></tr>
+        <tr><th scope="row">Experiencias inmersivas del archivo</th><td>24</td></tr>
+        <tr><th scope="row">Proyectos reales preservados en el archivo</th><td>623</td></tr>
+        <tr><th scope="row">Páginas del Instituto</th><td>219</td></tr>
+        <tr><th scope="row">Coste de matrícula</th><td>0 € · CC BY-SA 4.0 · MIT</td></tr>
+        <tr><th scope="row">Dependencias externas del sitio</th><td>ninguna · WebGL2 local</td></tr>
+        <tr><th scope="row">Escenas generativas del Instituto</th><td>7 shaders GLSL propios</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+</main>
+<footer class="pie" role="contentinfo">
+  <div class="pie-columnas">
+    <section aria-labelledby="pie-instituto">
+      <h2 id="pie-instituto">Instituto Belentani</h2>
+      <p>Institución educativa abierta del ecosistema Belentani. Contenido bajo
+      <a href="institucional/licencias.html">CC BY-SA 4.0</a> · código bajo MIT.</p>
+    </section>
+    <nav aria-labelledby="pie-navegacion">
+      <h2 id="pie-navegacion">Navegación</h2>
+      <ul class="pie-lista">
+        <li><a href="mapa.html">Mapa del sitio</a></li>
+        <li><a href="buscar.html">Buscar</a></li>
+        <li><a href="institucional/contacto.html">Contacto</a></li>
+        <li><a href="institucional/transparencia.html">Transparencia</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="pie-legal">
+      <h2 id="pie-legal">Legal</h2>
+      <ul class="pie-lista">
+        <li><a href="institucional/privacidad.html">Privacidad</a></li>
+        <li><a href="institucional/terminos.html">Términos</a></li>
+        <li><a href="institucional/accesibilidad.html">Accesibilidad</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="pie-final">© 2026 Pedro Belentani · Barcelona · <span lang="en">432&nbsp;Hz</span></p>
+</footer>
+<script src="assets/js/webgl/motor.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

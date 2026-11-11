@@ -1,22 +1,27 @@
-# Multi-stage build for production
-FROM node:20-alpine AS base
-WORKDIR /app
+# Multi-stage production image for the Next.js application.
+FROM node:24-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="${PNPM_HOME}:${PATH}"
-RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
+WORKDIR /app
+RUN corepack enable && corepack prepare pnpm@10.17.1 --activate
 
-FROM base AS builder
+FROM base AS deps
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
+
+FROM deps AS builder
 COPY . .
 RUN pnpm build
 
 FROM base AS runner
-WORKDIR /app
 ENV NODE_ENV=production
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/pnpm-lock.yaml ./
+ENV HOSTNAME=0.0.0.0
+COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
+RUN chown -R node:node /app
+USER node
 EXPOSE 3000
-CMD ["node", "dist/index.js"]
+CMD ["pnpm", "start"]

@@ -9,3 +9,7 @@ Raw original-site captures: local archive, excluded from publication.
 
 Historical HTML, R3F prototypes and resource banks remain available as sources.
 The production application does not import these directories.
+
+
+## Producto
+Véase `plataforma/OFERTA.md`.

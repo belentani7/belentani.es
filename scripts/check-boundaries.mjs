@@ -49,4 +49,4 @@ if (failures.length) {
   console.error([...new Set(failures)].join('\n'));
   process.exit(1);
 }
-console.log('Artist boundaries verified: no private audio, satellite imports or retired branding.');
+console.debug('Artist boundaries verified: no private audio, satellite imports or retired branding.');

@@ -1,0 +1,2 @@
+REPO = "locales"
+FAMILIA = "herramienta"

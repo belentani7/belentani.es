@@ -1,0 +1,5 @@
+Contact: mailto:security@belentani.es
+Expires: 2027-12-31T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://belentani.es/.well-known/security.txt
+Policy: https://github.com/belentani7/belentani.es/blob/main/SECURITY.md

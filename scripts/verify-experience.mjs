@@ -43,7 +43,7 @@ try {
     const response = await page.goto(base + route);
     if (response.status() !== 200) throw new Error(`Failed route ${route}`);
   }
-  console.log(JSON.stringify(report, null, 2));
+  console.debug(JSON.stringify(report, null, 2));
 } finally {
   await fs.writeFile('.local-archive/verification/report.json', JSON.stringify(report, null, 2));
   await browser.close();

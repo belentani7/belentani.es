@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Providers } from '@/components/Providers';
+import BelentaniI18nProvider from '@/components/I18nProvider';
 
 
 export const metadata: Metadata = {
@@ -53,7 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-body antialiased bg-void text-ink">
-        <Providers>{children}</Providers>
+        <Providers>
+          <BelentaniI18nProvider>{children}</BelentaniI18nProvider>
+        </Providers>
       </body>
     </html>
   );

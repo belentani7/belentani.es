@@ -137,10 +137,10 @@ if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 const outPath = path.join(outDir, 'AUDIT_CONSCIOUS_MACHINE.json');
 fs.writeFileSync(outPath, JSON.stringify(report, null, 2));
 
-console.log(`\nAUDITORÍA MÁQUINA CONSCIENTE · ${passed}/${checks.length} OK`);
-console.log(`Cobertura: ${report.coverageFiles} rutas de fichero inspeccionadas`);
+console.debug(`\nAUDITORÍA MÁQUINA CONSCIENTE · ${passed}/${checks.length} OK`);
+console.debug(`Cobertura: ${report.coverageFiles} rutas de fichero inspeccionadas`);
 for (const c of checks) {
-  console.log(`${c.pass ? '✓' : '✗'} ${c.id} — ${c.msg}`);
+  console.debug(`${c.pass ? '✓' : '✗'} ${c.id} — ${c.msg}`);
 }
-console.log(`\nInforme: ${path.relative(ROOT, outPath)}`);
+console.debug(`\nInforme: ${path.relative(ROOT, outPath)}`);
 process.exit(failed.length ? 1 : 0);

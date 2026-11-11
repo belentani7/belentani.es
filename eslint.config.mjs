@@ -14,6 +14,7 @@ export default [
       '**/belentani.es.worktrees/**',
       '**/_private_audio_no_web/**',
       '**/_satellites/**',
+      '**/legacy/**',
       '**/.local-archive/**',
       'public/**',
     ],

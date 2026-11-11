@@ -1,0 +1,2 @@
+# PAYWALL — locales
+Familia: herramienta
