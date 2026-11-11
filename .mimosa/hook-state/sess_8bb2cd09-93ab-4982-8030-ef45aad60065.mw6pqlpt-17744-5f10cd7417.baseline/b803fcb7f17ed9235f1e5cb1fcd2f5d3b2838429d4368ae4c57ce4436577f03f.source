@@ -1,0 +1,230 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Match Vercel project's verified Node.js 24.x runtime to catch production-only issues.
+  NODE_VERSION: 24
+
+jobs:
+  lint:
+    name: Lint & TypeCheck
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Typecheck
+        run: pnpm run typecheck
+      - name: Lint
+        run: pnpm run lint
+      - name: Validate artist/project boundaries
+        run: pnpm run check:boundaries
+      - name: Validate renderer and CSS package compatibility
+        run: pnpm run check:renderer
+      - name: Verify production dependency boundary
+        run: node --test scripts/check-vercel-install.test.mjs
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Test
+        run: pnpm run test --reporter=dot
+        env:
+          CI: true
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Build
+        run: pnpm run build
+
+  browser-journeys:
+    name: Mobile and desktop marketing navigation (Chromium)
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install exact application dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build the actual Next.js application
+        run: pnpm build
+      - name: Install Chromium for browser journeys
+        run: node node_modules/@playwright/test/cli.js install --with-deps chromium
+      - name: Verify desktop and mobile navigation, focus and route changes
+        run: node node_modules/@playwright/test/cli.js test tests/e2e/marketing-navigation.spec.ts tests/e2e/artist-editorial.spec.ts tests/e2e/galaxy-upgrade.spec.ts --project=chromium --project="Mobile Chrome"
+        env:
+          CI: true
+      - name: Retain screenshots, traces and reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-navigation-browser-evidence
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Reject committed Next.js build output
+        shell: bash
+        run: |
+          if git ls-files -- '.next/' | grep -q .; then
+            echo "::error::Generated .next/ output must never be committed. Remove tracked build artifacts."
+            exit 1
+          fi
+      - name: Run Gitleaks
+        id: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-path: .gitleaks.toml
+          report-format: sarif
+          report-path: results.sarif
+        continue-on-error: true
+      - name: Upload SARIF
+        if: always() && hashFiles('results.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
+      - name: Fail if Gitleaks detected secrets or failed
+        if: steps.gitleaks.outcome == 'failure'
+        run: exit 1
+
+  lighthouse:
+    name: Lighthouse Audit
+    runs-on: ubuntu-latest
+    needs: build
+    # Audit PR previews before merging; do not discover regressions only on main.
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Build
+        run: pnpm run build
+      - name: Run Lighthouse against the configured production-like server
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request' && vars.ENABLE_VERCEL_PREVIEW == 'true'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: pnpm/action-setup@v4
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Build for preview
+        run: pnpm run build
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: "--prebuilt"
+          vercel-scope: ${{ secrets.VERCEL_ORG_ID }}
+
+  sync-lockfile:
+    name: Synchronize pnpm lockfile (manual)
+    if: github.event_name == 'workflow_dispatch' && github.actor == 'belentani7' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+      - name: Regenerate dependency lockfile safely
+        run: pnpm install --lockfile-only --no-frozen-lockfile --ignore-scripts
+      - name: Commit corrected lockfile
+        run: |
+          if git diff --quiet -- pnpm-lock.yaml; then
+            echo "Lockfile already synchronized"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- pnpm-lock.yaml
+          git commit -m "fix(deps): synchronize pnpm lockfile"
+          git push origin HEAD:main

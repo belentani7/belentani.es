@@ -1,84 +1,523 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>farm__belentani.es — Repositorio farm__belentani.es — parte del ecosistema Belentani</title>
-  <meta name="description" content="Repositorio farm__belentani.es — parte del ecosistema Belentani">
-  <link rel="stylesheet" href="hero.css">
-  <meta name="theme-color" content="#0ea5e9">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <script defer src="hero.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belentani — The Experience · Universo del artista</title>
+<meta name="description" content="Hub unificado del artista Belentani: portfolio 3D inmersivo, catálogo musical y universo narrativo en cuatro capítulos. Judas Era es el Canon 0.">
+<meta name="generator" content="repo-superpowers-audit-v1">
+<meta property="og:title" content="Belentani — The Experience · Universo del artista">
+<meta property="og:description" content="Hub unificado del artista Belentani: portfolio 3D inmersivo, catálogo musical y universo narrativo en cuatro capítulos. Judas Era es el Canon 0.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0a09'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23e61ed1'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b0a09;--bg2:#131110;--ink:#f4efe7;--dim:#a89f92;--accent:#e0a35c;
+--accent2:#7fa88b;--line:rgba(244,239,231,.14);--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+--sans:ui-sans-serif,"Segoe UI",Inter,system-ui,-apple-system,sans-serif;
+--mono:ui-monospace,"Cascadia Mono",Consolas,monospace;--measure:62ch;--radius:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;
+-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,40px);position:relative;z-index:1}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#12100e;padding:10px 16px;z-index:9}
+.skip:focus{left:12px;top:12px}
+header.site{border-bottom:1px solid var(--line);padding:22px 0;display:flex;gap:18px;
+align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:1.05rem;letter-spacing:.01em}
+.brand span{color:var(--dim)}
+nav.site{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;
+letter-spacing:.14em;text-transform:uppercase}
+nav.site a{color:var(--dim);text-decoration:none}
+nav.site a:hover,nav.site a[aria-current=page]{color:var(--ink)}
+main{padding:clamp(48px,9vh,104px) 0}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 18px}
+h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,5.2rem);line-height:.95;
+letter-spacing:-.03em;margin:0 0 24px;font-weight:500;text-wrap:balance}
+h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.15;
+letter-spacing:-.02em;margin:64px 0 18px;font-weight:500}
+h3{font-size:1.02rem;margin:28px 0 10px;letter-spacing:-.01em}
+p,li{max-width:var(--measure);color:var(--ink)}
+.lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--dim);max-width:56ch}
+hr{border:0;border-top:1px solid var(--line);margin:clamp(40px,8vh,80px) 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;
+background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:32px 0}
+.cell{background:var(--bg2);padding:22px 20px}
+.cell h3{margin-top:0}
+.cell p{font-size:.9rem;color:var(--dim);margin:0}
+code,kbd{font-family:var(--mono);font-size:.86em;background:rgba(244,239,231,.07);
+padding:2px 6px;border-radius:5px}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+padding:18px;overflow:auto;max-width:100%}
+pre code{background:none;padding:0}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.pill{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+text-transform:uppercase;border:1px solid var(--line);color:var(--dim);padding:3px 9px;border-radius:999px}
+footer.site{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--dim);font-size:.8rem}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+.reveal{opacity:1;transform:none;transition:none}}
+::selection{background:var(--accent);color:#12100e}
+.webgl-canvas{width:100%;height:400px;background:var(--bg2);border:1px solid var(--line);
+border-radius:var(--radius);margin:24px 0;display:block}
+.superpowers-badge{display:inline-block;font-family:var(--mono);font-size:.65rem;
+letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--accent2);
+color:var(--accent2);padding:4px 10px;border-radius:999px;margin:10px 0}
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="#" class="logo">farm__belentani.es</a>
-    <ul class="nav-links">
-      <li><a href="#features">Características</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#about">Acerca de</a></li>
-    </ul>
-    <a href="#" class="cta">Empezar</a>
-  </nav>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
+<div class="brand">farm__belentani.es <span>· ecosistema Belentani · WebGL online</span></div>
+<nav class="site" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="docs.html">Documentación</a><a href="accesibilidad.html">Accesibilidad</a><a href="privacidad.html">Privacidad</a><a href="404.html">404</a></nav>
+</div></header>
+<main id="contenido"><div class="wrap">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
+<div class="brand">farm__belentani.es <span>· ecosistema Belentani · WebGL online</span></div>
+<nav class="site" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="docs.html">Documentación</a><a href="accesibilidad.html">Accesibilidad</a><a href="privacidad.html">Privacidad</a><a href="404.html">404</a></nav>
+</div></header>
+<main id="contenido"><div class="wrap">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
+<div class="brand">farm__belentani.es <span>· ecosistema Belentani · WebGL online</span></div>
+<nav class="site" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="docs.html">Documentación</a><a href="accesibilidad.html">Accesibilidad</a><a href="privacidad.html">Privacidad</a><a href="404.html">404</a></nav>
+</div></header>
+<main id="contenido"><div class="wrap">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
+<div class="brand">farm__belentani.es <span>· ecosistema Belentani · WebGL online</span></div>
+<nav class="site" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="docs.html">Documentación</a><a href="accesibilidad.html">Accesibilidad</a><a href="privacidad.html">Privacidad</a><a href="404.html">404</a></nav>
+</div></header>
+<main id="contenido"><div class="wrap">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap" style="display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap">
+<div class="brand">farm__belentani.es <span>· ecosistema Belentani · WebGL online</span></div>
+<nav class="site" aria-label="Navegación principal"><a href="index.html" aria-current="page">Inicio</a><a href="docs.html">Documentación</a><a href="accesibilidad.html">Accesibilidad</a><a href="privacidad.html">Privacidad</a><a href="404.html">404</a></nav>
+</div></header>
+<main id="contenido"><div class="wrap">
+<div data-ux-progress aria-hidden="true"></div>
+  <a class="ux-skip" href="#main">Saltar al contenido</a>
 
-  <section class="hero">
-    <div class="hero-canvas-wrapper">
-      <canvas id="hero-canvas"></canvas>
-    </div>
-    <div class="hero-overlay">
-      <h1>farm__belentani.es</h1>
-      <p>Repositorio farm__belentani.es — parte del ecosistema Belentani</p>
-      <div class="hero-actions">
-        <a href="#features" class="btn-primary">Ver características</a>
-        <a href="#stack" class="btn-secondary">Ver stack</a>
+  <header class="ux-nav">
+    <div class="ux-container ux-nav__inner">
+      <a class="ux-nav__brand" href="#top">
+        <span class="ux-nav__brand-dot" aria-hidden="true"></span> BELENTANI
+      </a>
+      <nav aria-label="Principal">
+        <ul class="ux-nav__links">
+          <li><a href="#capitulos">Capítulos</a></li>
+          <li><a href="#universo">El universo</a></li>
+          <li><a href="#institucion">Institución</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="ux-nav__actions">
+        <button class="ux-btn ux-btn--ghost" data-ux-theme-toggle type="button" aria-pressed="false">
+          <i data-lucide="moon" aria-hidden="true"></i><span class="sr-only">Tema</span>
+        </button>
+        <a class="ux-btn ux-btn--primary" data-ux-magnet  rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.66.41.36.77 1.05.77 2.13 0 1.54-.01 2.78-.01 3.16 0 .3.2.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg> GitHub
+        </a>
+        <button class="ux-menu-btn" data-ux-menu-btn type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="features">
-    <h2>Características</h2>
-    <p>Producto completo con landing page hero, shader WebGL animado, y stack moderno listo para producción.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>🚀 Hero con Shader WebGL</h3>
-        <p>Fondo animado con FBM (Fractal Brownian Motion), parallax de ratón y modo de bajo consumo.</p>
-      </div>
-      <div class="card">
-        <h3>📱 Responsive</h3>
-        <p>Diseño adaptable a móvil, tableta y desktop con Tailwind CSS.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Rápido</h3>
-        <p>Sin dependencias pesadas para el hero. Carga instantánea y DPR limitado.</p>
-      </div>
-      <div class="card">
-        <h3>🔒 Seguro</h3>
-        <p>Sin secretos hardcodeados. Variables de entorno para claves sensibles.</p>
-      </div>
+    <div data-ux-menu id="menu-movil">
+      <a href="#capitulos">Capítulos</a>
+      <a href="#universo">El universo</a>
+      <a href="#institucion">Institución</a>
+      <a href="#faq">FAQ</a>
+      <a  rel="noopener">GitHub ↗</a>
     </div>
-  </section>
+  </header>
 
-  <section class="section" id="stack">
-    <h2>Stack Tecnológico</h2>
-    <p>Tecnologías utilizadas en este repositorio.</p>
-    <ul class="stack-list">
-      
-    </ul>
-  </section>
+  <main id="main">
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="ux-hero" id="top" data-ux-hero>
+      <div class="ux-hero__canvas" aria-hidden="true"><canvas id="hero-canvas"></canvas></div>
+      <div class="ux-mesh" aria-hidden="true"></div>
+      <div class="ux-container">
+        <p class="ux-eyebrow" data-ux-hero-badge><i data-lucide="sparkles" aria-hidden="true" style="width:14px;height:14px"></i> Judas Era · Canon 0</p>
+        <h1 class="ux-hero__title" data-ux-hero-title>Belentani<br><span class="ux-accent">The Experience</span></h1>
+        <p class="ux-hero__sub" data-ux-hero-sub>
+          Hub unificado del artista: portfolio 3D inmersivo, catálogo musical y universo
+          narrativo. Una galaxia interactiva de Three.js cuenta la historia en cuatro capítulos.
+        </p>
+        <div class="ux-hero__cta" data-ux-hero-cta>
+          <a class="ux-btn ux-btn--primary" data-ux-magnet href="institucion/index.html">
+            <i data-lucide="orbit" aria-hidden="true"></i> Entrar al universo
+          </a>
+          <a class="ux-btn ux-btn--ghost" href="institucion/experiencias.html">
+            <i data-lucide="library" aria-hidden="true"></i> Ver experiencias
+          </a>
+        </div>
+        <div class="ux-hero__meta" data-ux-hero-meta>
+          <span><i data-lucide="box" aria-hidden="true"></i> Galaxia Three.js</span>
+          <span><i data-lucide="book-open" aria-hidden="true"></i> 4 capítulos canónicos</span>
+          <span><i data-lucide="badge-euro" aria-hidden="true"></i> Coste cero al navegar</span>
+          <span><i data-lucide="scale" aria-hidden="true"></i> MIT</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="about">
-    <h2>Acerca de farm__belentani.es</h2>
-    <p>Este repositorio forma parte del ecosistema Belentani. Código abierto bajo licencia MIT. Documentación completa y tests incluidos.</p>
-  </section>
+    <!-- ── TIRA DEL ECOSISTEMA ──────────────────────────── -->
+    <section class="strip" aria-label="Ecosistema">
+      <div class="ux-container strip__inner" data-ux-reveal>
+        <a  rel="noopener"><i data-lucide="globe" aria-hidden="true"></i> www.belentani.es</a>
+        <a  rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.66.41.36.77 1.05.77 2.13 0 1.54-.01 2.78-.01 3.16 0 .3.2.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg> belentani7 · GitHub</a>
+        <a href="institucion/mapa.html"><i data-lucide="map" aria-hidden="true"></i> Mapa del sitio</a>
+        <a href="institucion/buscar.html"><i data-lucide="search" aria-hidden="true"></i> Buscador</a>
+        <span><i data-lucide="git-branch" aria-hidden="true"></i> Ecosistema Belentani</span>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2026 farm__belentani.es — Parte del ecosistema Belentani / NOIACORE</p>
+    <!-- ── CAPÍTULOS ────────────────────────────────────── -->
+    <section class="ux-section" id="capitulos">
+      <div class="ux-container">
+        <p class="ux-eyebrow" data-ux-reveal><i data-lucide="clapperboard" aria-hidden="true" style="width:14px;height:14px"></i> La historia</p>
+        <h2 data-ux-reveal>Cuatro capítulos,<br>un solo canon.</h2>
+        <p class="ux-lead" data-ux-reveal style="margin-bottom: var(--space-l);">
+          El punto de entrada canónico es una galaxia interactiva que narra el universo
+          Belentani de principio a fin. La Judas Experience original queda como referencia
+          histórica.
+        </p>
+        <div class="chapters">
+          <article class="ux-card chapter" data-ux-reveal>
+            <div class="chapter__glyph"><i data-lucide="sunrise" aria-hidden="true"></i></div>
+            <h3>Genesis</h3>
+            <p>El origen: donde el universo Belentani comienza a existir y se establecen sus reglas.</p>
+          </article>
+          <article class="ux-card chapter" data-ux-reveal>
+            <div class="chapter__glyph"><i data-lucide="venetian-mask" aria-hidden="true"></i></div>
+            <h3>Traición</h3>
+            <p>La quiebra de la confianza que transforma el relato y define a sus personajes.</p>
+          </article>
+          <article class="ux-card chapter" data-ux-reveal>
+            <div class="chapter__glyph"><i data-lucide="coins" aria-hidden="true"></i></div>
+            <h3>La Deuda</h3>
+            <p>El peso de las consecuencias: todo lo pactado se cobra más adelante.</p>
+          </article>
+          <article class="ux-card chapter" data-ux-reveal>
+            <div class="chapter__glyph"><i data-lucide="sparkle" aria-hidden="true"></i></div>
+            <h3>Redención</h3>
+            <p>El cierre del ciclo: la posibilidad de volver a empezar con lo aprendido.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EL UNIVERSO ──────────────────────────────────── -->
+    <section class="ux-section" id="universo">
+      <div class="ux-container">
+        <p class="ux-eyebrow" data-ux-reveal><i data-lucide="telescope" aria-hidden="true" style="width:14px;height:14px"></i> El universo</p>
+        <h2 data-ux-reveal>Construido para durar,<br>verificado para no fallar.</h2>
+        <p class="ux-lead" data-ux-reveal style="margin-bottom: var(--space-l);">
+          Experiencia pública, histórico preservado y cero dependencia de APIs de pago.
+        </p>
+        <div class="ux-grid ux-bento">
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="orbit" aria-hidden="true"></i></div>
+            <h3>Galaxia interactiva</h3>
+            <p>Three.js como lienzo: navegación por capítulos dentro de una galaxia viva, con verificación visual automatizada en desktop y móvil.</p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
+            <h3>Calidad verificada</h3>
+            <p>Tipos, tests y build verificados en cada entrega: typecheck, vitest, boundaries y comprobación visual con Chrome real.</p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="piggy-bank" aria-hidden="true"></i></div>
+            <h3>Coste cero</h3>
+            <p>La experiencia principal no llama a ninguna API de pago: navegación libre sin créditos, suscripciones ni rutas de pago.</p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="lock" aria-hidden="true"></i></div>
+            <h3>Alcance público definido</h3>
+            <p>Artista, música, narrativa y assets curados. El audio privado, másters y sesiones quedan fuera del repositorio por diseño.</p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="archive" aria-hidden="true"></i></div>
+            <h3>Historial intacto</h3>
+            <p>Los proyectos históricos se preservan fuera del lanzamiento público: nada se reescribe, nada se pierde.</p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="terminal" aria-hidden="true"></i></div>
+            <h3>Stack moderno</h3>
+            <p>Next.js + TypeScript + Tailwind, pnpm anclado y CI con presupuestos de Lighthouse. Listo para producción.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INSTITUCIÓN ──────────────────────────────────── -->
+    <section class="ux-section" id="institucion">
+      <div class="ux-container">
+        <p class="ux-eyebrow" data-ux-reveal><i data-lucide="landmark" aria-hidden="true" style="width:14px;height:14px"></i> Institución</p>
+        <h2 data-ux-reveal>Explora el archivo<br>del ecosistema.</h2>
+        <p class="ux-lead" data-ux-reveal style="margin-bottom: var(--space-l);">
+          El sitio interno indexa las experiencias, programas y repos del universo completo.
+        </p>
+        <div class="ux-grid">
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="map" aria-hidden="true"></i></div>
+            <h3>Mapa</h3>
+            <p>Vista completa de la institución y sus zonas.</p>
+            <p style="margin-top:.8rem"><a class="inst__arrow" href="institucion/mapa.html">Abrir mapa <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="library" aria-hidden="true"></i></div>
+            <h3>Experiencias</h3>
+            <p>Índice de las experiencias del ecosistema Belentani.</p>
+            <p style="margin-top:.8rem"><a class="inst__arrow" href="institucion/experiencias.html">Ver experiencias <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="graduation-cap" aria-hidden="true"></i></div>
+            <h3>Programas</h3>
+            <p>Programas y rutas del universo formativo.</p>
+            <p style="margin-top:.8rem"><a class="inst__arrow" href="institucion/programas.html">Ver programas <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
+          </article>
+          <article class="ux-card" data-ux-reveal>
+            <div class="ux-card__icon"><i data-lucide="search" aria-hidden="true"></i></div>
+            <h3>Buscar</h3>
+            <p>Búsqueda global por todo el archivo.</p>
+            <p style="margin-top:.8rem"><a class="inst__arrow" href="institucion/buscar.html">Buscar ahora <i data-lucide="arrow-right" aria-hidden="true"></i></a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ──────────────────────────────────────────── -->
+    <section class="ux-section" id="faq">
+      <div class="ux-container">
+        <p class="ux-eyebrow" data-ux-reveal><i data-lucide="circle-help" aria-hidden="true" style="width:14px;height:14px"></i> FAQ</p>
+        <h2 class="text-center mx-auto" data-ux-reveal>Preguntas frecuentes</h2>
+        <div class="ux-faq" style="margin-top: var(--space-l);">
+          <details data-ux-reveal>
+            <summary>¿Cómo ejecuto la experiencia en local?</summary>
+            <p>Necesitas Node ≥ 18.17 y pnpm (anclado vía corepack): <code>pnpm install --frozen-lockfile</code> y <code>pnpm dev</code>. Para verificar todo: <code>pnpm typecheck && pnpm test && pnpm build</code>.</p>
+          </details>
+          <details data-ux-reveal>
+            <summary>¿Navegar cuesta dinero?</summary>
+            <p>No. La experiencia principal no llama a ningún modelo de IA ni API de pago: no hay créditos, suscripciones ni servicios de enrutado necesarios para verla.</p>
+          </details>
+          <details data-ux-reveal>
+            <summary>¿Qué incluye el alcance público?</summary>
+            <p>Artista, enlaces de música, narrativa, assets visuales curados y canales de contacto. NoiaCore, educación, consultoría y Duck son proyectos independientes; el audio privado queda fuera de Git y del build.</p>
+          </details>
+          <details data-ux-reveal>
+            <summary>¿Dónde está la Judas Experience original?</summary>
+            <p>Se conserva como referencia histórica en <a  rel="noopener">judas-experience-13898.buildaispace.app</a>. El canon actual vive aquí.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ────────────────────────────────────── -->
+    <section class="ux-section" id="empezar">
+      <div class="ux-container">
+        <div class="ux-cta-band" data-ux-reveal="zoom">
+          <h2>Empieza por el principio:<br>Genesis.</h2>
+          <p class="ux-lead mx-auto" style="margin-bottom: var(--space-l);">
+            Una galaxia, cuatro capítulos y todo el archivo del ecosistema esperando.
+          </p>
+          <a class="ux-btn ux-btn--primary" data-ux-magnet href="institucion/index.html">
+            <i data-lucide="rocket" aria-hidden="true"></i> Entrar ahora
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ux-footer">
+    <div class="ux-container ux-footer__inner">
+      <span>© <span data-ux-year>2026</span> Belentani — The Experience · MIT · Ecosistema belentani7</span>
+      <span style="display:inline-flex;gap:1.2rem;align-items:center">
+        <a  rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.66.41.36.77 1.05.77 2.13 0 1.54-.01 2.78-.01 3.16 0 .3.2.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>GitHub</a>
+        <a  rel="noopener">belentani.es</a>
+        <a href="institucion/mapa.html">Mapa</a>
+      </span>
+    </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      window.initHeroShader('hero-canvas', '#0ea5e9', '#7c3aed');
+      if (window.initHeroShader) {
+        window.initHeroShader('hero-canvas', '#0ea5e9', '#7c3aed');
+      }
     });
   </script>
+<!-- belentani-ampliacion:start -->
+<a href="ampliacion.html" data-belentani-ampliacion="1" aria-label="Abrir la ampliación de farm__belentani.es" style="position:fixed;right:16px;bottom:16px;z-index:2147483647;display:inline-flex;align-items:center;gap:.45rem;padding:.62rem .85rem;border-radius:999px;background:#0f172a;color:#f8fafc;font:600 13px/1.2 system-ui,-apple-system,Segoe UI,sans-serif;text-decoration:none;border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 24px rgba(0,0,0,.28);white-space:nowrap;">Ampliación <span aria-hidden="true">&#8599;</span></a>
+<!-- belentani-ampliacion:end -->
+</div></main>
+<footer class="site"><div class="wrap">
+<p>farm__belentani.es · WebGL listo para servir online · <a href="index.html">Inicio</a> · <a href="accesibilidad.html">Accesibilidad</a> · <a href="privacidad.html">Privacidad</a></p>
+</div></footer>
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.className = 'webgl-canvas';
+  var container = document.getElementById('contenido');
+  if(container){ container.appendChild(canvas); }
+  try{
+    var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if(!gl){ canvas.innerHTML = '<p style="color:var(--dim);font-family:var(--mono);padding:12px">WebGL no disponible en este navegador.</p>'; return; }
+    gl.clearColor(0.047,0.043,0.039,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    var vs = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vs, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}');
+    gl.compileShader(vs);
+    var fs = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fs, 'precision mediump float;uniform vec4 c;void main(){gl_FragColor=c;}');
+    gl.compileShader(fs);
+    var prog = gl.createProgram();
+    gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    gl.useProgram(prog);
+    var loc = gl.getUniformLocation(prog,'c');
+    gl.uniform4f(loc, 0.549, 0.659, 0.545, 1.0);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var attr = gl.getAttribLocation(prog,'p');
+    gl.enableVertexAttribArray(attr);
+    gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }catch(e){ console.log('WebGL init:', e.message); }
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>farm__belentani.es · WebGL listo para servir online · <a href="index.html">Inicio</a> · <a href="accesibilidad.html">Accesibilidad</a> · <a href="privacidad.html">Privacidad</a></p>
+</div></footer>
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.className = 'webgl-canvas';
+  var container = document.getElementById('contenido');
+  if(container){ container.appendChild(canvas); }
+  try{
+    var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if(!gl){ canvas.innerHTML = '<p style="color:var(--dim);font-family:var(--mono);padding:12px">WebGL no disponible en este navegador.</p>'; return; }
+    gl.clearColor(0.047,0.043,0.039,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    var vs = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vs, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}');
+    gl.compileShader(vs);
+    var fs = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fs, 'precision mediump float;uniform vec4 c;void main(){gl_FragColor=c;}');
+    gl.compileShader(fs);
+    var prog = gl.createProgram();
+    gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    gl.useProgram(prog);
+    var loc = gl.getUniformLocation(prog,'c');
+    gl.uniform4f(loc, 0.549, 0.659, 0.545, 1.0);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var attr = gl.getAttribLocation(prog,'p');
+    gl.enableVertexAttribArray(attr);
+    gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }catch(e){ console.log('WebGL init:', e.message); }
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>farm__belentani.es · WebGL listo para servir online · <a href="index.html">Inicio</a> · <a href="accesibilidad.html">Accesibilidad</a> · <a href="privacidad.html">Privacidad</a></p>
+</div></footer>
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.className = 'webgl-canvas';
+  var container = document.getElementById('contenido');
+  if(container){ container.appendChild(canvas); }
+  try{
+    var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if(!gl){ canvas.innerHTML = '<p style="color:var(--dim);font-family:var(--mono);padding:12px">WebGL no disponible en este navegador.</p>'; return; }
+    gl.clearColor(0.047,0.043,0.039,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    var vs = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vs, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}');
+    gl.compileShader(vs);
+    var fs = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fs, 'precision mediump float;uniform vec4 c;void main(){gl_FragColor=c;}');
+    gl.compileShader(fs);
+    var prog = gl.createProgram();
+    gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    gl.useProgram(prog);
+    var loc = gl.getUniformLocation(prog,'c');
+    gl.uniform4f(loc, 0.549, 0.659, 0.545, 1.0);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var attr = gl.getAttribLocation(prog,'p');
+    gl.enableVertexAttribArray(attr);
+    gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }catch(e){ console.log('WebGL init:', e.message); }
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>farm__belentani.es · WebGL listo para servir online · <a href="index.html">Inicio</a> · <a href="accesibilidad.html">Accesibilidad</a> · <a href="privacidad.html">Privacidad</a></p>
+</div></footer>
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.className = 'webgl-canvas';
+  var container = document.getElementById('contenido');
+  if(container){ container.appendChild(canvas); }
+  try{
+    var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if(!gl){ canvas.innerHTML = '<p style="color:var(--dim);font-family:var(--mono);padding:12px">WebGL no disponible en este navegador.</p>'; return; }
+    gl.clearColor(0.047,0.043,0.039,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    var vs = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vs, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}');
+    gl.compileShader(vs);
+    var fs = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fs, 'precision mediump float;uniform vec4 c;void main(){gl_FragColor=c;}');
+    gl.compileShader(fs);
+    var prog = gl.createProgram();
+    gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    gl.useProgram(prog);
+    var loc = gl.getUniformLocation(prog,'c');
+    gl.uniform4f(loc, 0.549, 0.659, 0.545, 1.0);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var attr = gl.getAttribLocation(prog,'p');
+    gl.enableVertexAttribArray(attr);
+    gl.vertexAttribPointer(attr,2,gl.FLOAT,false,0,0);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }catch(e){ console.log('WebGL init:', e.message); }
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>farm__belentani.es · WebGL listo para servir online · <a href="index.html">Inicio</a> · <a href="accesibilidad.html">Accesibilidad</a> · <a href="privacidad.html">Privacidad</a></p>
+</div></footer>
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.className = 'webgl-canvas';
+  var container = document.getElementById('contenido');
+  if(container){ container.appendChild(canvas); }
+  try{
+    var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if(!gl){ canvas.innerHTML = '<p style="color:var(--dim);font-family:var(--mono);padding:12px">WebGL no disponible.</p>'; return; }
+    gl.clearColor(0.047,0.043,0.039,1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }catch(e){ console.log('WebGL:', e.message); }
+})();
+</script>
 </body>
 </html>

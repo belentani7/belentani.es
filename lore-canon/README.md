@@ -9,3 +9,7 @@ betrayal, an unpayable debt and the closing invitation to leave but remember.
 
 The key remains an abstract poetic image. No institutions or identifying details.
 NoiaCore, education, consulting and Duck are independent satellites.
+
+
+## Producto
+Véase `plataforma/OFERTA.md`.
