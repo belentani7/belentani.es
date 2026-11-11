@@ -114,7 +114,7 @@ async function streamResponse(
     writer.close().catch(() => {});
   };
 
-  openrouterStream.on('data', (chunk: { choices?: Array<{ delta?: { content?: string } }> } | null) => {
+  openrouterStream.on('data', (chunk: unknown) => {
     const delta = chunk?.choices?.[0]?.delta?.content || '';
     if (delta) {
       safeWrite(delta);

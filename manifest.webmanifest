@@ -1,0 +1,17 @@
+{
+  "name": "Belentani",
+  "short_name": "Belentani",
+  "description": "casa artística (marca musical)",
+  "lang": "es",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0a12",
+  "theme_color": "#a488f7",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

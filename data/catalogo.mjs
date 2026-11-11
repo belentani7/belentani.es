@@ -1,0 +1,33 @@
+// Banco de datos canónico. Generado por repo-forge.
+export const catalogo = {
+  "nombre": "belentani.es",
+  "remoto": "https://github.com/belentani7/belentani.es",
+  "tipo": "web-app",
+  "modelo": "casa artística (marca musical)",
+  "publico": "público musical y prensa",
+  "licencia": "MIT",
+  "medido": {
+    "archivos": 782,
+    "lineas": 294624,
+    "bytes": 32109841,
+    "html": 380,
+    "tests": 25
+  },
+  "modulos": [
+    "Obra",
+    "Escucha",
+    "Directo",
+    "Prensa",
+    "Entidad"
+  ],
+  "paleta": {
+    "bg": "#0b0a12",
+    "ink": "#f2eefc",
+    "accent": "#a488f7"
+  },
+  "fuente": {
+    "ruta": "repos\\belentani.es",
+    "fecha": "2026-11-10"
+  }
+};
+export default catalogo;
