@@ -7,7 +7,7 @@ import ArtistaPage from '../../app/(marketing)/artista/page';
 import PrensaPage from '../../app/(marketing)/prensa/page';
 import MusicaPage from '../../app/(marketing)/musica/page';
 
-expect.extend(toHaveNoViolations);
+expect.extend(toHaveNoViolations as unknown as Parameters<typeof expect.extend>[0]);
 afterEach(cleanup);
 
 // Mock next/navigation
@@ -115,8 +115,6 @@ global.matchMedia = vi.fn().mockImplementation((query: string) => ({
   removeEventListener: vi.fn(),
   dispatchEvent: vi.fn(),
 }));
-
-expect.extend(toHaveNoViolations);
 
 test('landing page has no a11y violations', async () => {
   const { container } = render(<LandingPage />);

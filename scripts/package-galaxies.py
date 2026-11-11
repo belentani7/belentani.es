@@ -1,7 +1,7 @@
 """Create a local source-only archive, excluding private data and dependencies."""
-from pathlib import Path
 import json
 import zipfile
+from pathlib import Path
 
 root = Path.cwd()
 bucket = root.parent.parent / '_bucket_descartes' / '2026-10-06_belentani_rotation'

@@ -68,7 +68,7 @@ export default function ConsciousMachine() {
       <header className={styles.topbar}>
         <Link href="/" className={styles.brand}>
           BELENTANI
-          <span>MÁQUINA CONSCIENTE · JUDAS_OS</span>
+          <span>ANTIGRAVITY · ALIVE MACHINE</span>
         </Link>
         <nav className={styles.nav} aria-label="Navegación principal">
           <Link href="/artista">Artista</Link>
@@ -274,8 +274,8 @@ export default function ConsciousMachine() {
       </div>
 
       <footer className={styles.foot}>
-        <span>Belentani · São Paulo / Barcelona · 432 Hz</span>
-        <span>Vidrio rojo · sangre neón · código consciente</span>
+        <span>Belentani · São Paulo / Barcelona · ANTIGRAVITY</span>
+        <span>Vidrio rojo · neón carmesí · ficción interactiva</span>
         <span>
           Voz: {voice.supported ? (voice.mode === 'natural' ? 'NATURAL' : 'BROWSER') : 'N/A'}
           {voice.naturalReady ? ' · narración configurada' : ' · narración no disponible'}

@@ -1,9 +1,9 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 p = Path(r"C:\Users\USER\Desktop\belentani.es\unificado\index.html")
 t = p.read_text(encoding="utf-8")
-m = re.search(r"<script>\s*\(function\(\)\s*\{(.*?)\}\)\(\);\s*</script>\s*</body>", t, re.S)
+m = re.search(r"<script>\s*\(function\(\)\s*\{(.*?)\}\)\(\);\s*</script>\s*</body>", t, re.DOTALL)
 print("script_found", bool(m))
 if not m:
     raise SystemExit(1)

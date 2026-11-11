@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 generar_sitio.py — Genera la INSTITUCIÓN BELLENTANI completa dentro de
 belentani.es (sin crear ningún repo nuevo).
@@ -446,7 +445,7 @@ def pag_index(programas: list[dict]) -> str:
         <code>{d['shader']}</code></p>
       </article>""")
     return "\n".join([
-        head(f"Portada — {total} programas REA", 
+        head(f"Portada — {total} programas REA",
              f"{MARCA}: educación abierta con WebGL. {total} programas en 6 instituciones.",
              "index.html", jd, 0),
         f"""<body class="pagina-portada" data-shader="nebulosa-cristal">
@@ -2178,7 +2177,7 @@ MOTOR_JS = """/* motor.js — motor WebGL2 del Instituto Belentani (sin dependen
       " color = vec4(c,1.); }"].join("\\n")
   };
   function acento(){ var b=document.body; var c=getComputedStyle(b).getPropertyValue("--acento").trim()||"#ff2d55";
-    var m=/#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i.exec(c); 
+    var m=/#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i.exec(c);
     return m?[parseInt(m[1],16)/255,parseInt(m[2],16)/255,parseInt(m[3],16)/255]:[1.,.18,.33]; }
   function compilar(gl, tipo, src){ var s=gl.createShader(tipo); gl.shaderSource(s,src); gl.compileShader(s);
     if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ throw gl.getShaderInfoLog(s); } return s; }
@@ -2352,7 +2351,8 @@ FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 
 def og_png() -> bytes:
     """PNG 1200x630 con degradado vertical simple (solo stdlib, sin escapes raros)."""
-    import struct, zlib
+    import struct
+    import zlib
     W, H = 1200, 630
     filas = bytearray()
     for y in range(H):
