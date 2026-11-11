@@ -1,6 +1,6 @@
 {
   "universo": "BELENTANI — COSMOS UNIFICADO",
-  "version": "2026-10-02",
+  "version": "2026-10-28",
   "frecuencia_firma": "432 Hz",
   "lenguaje_visual": "Red Glass · Obsidian · Oro Viejo",
   "arquetipo": "Soberano Melancólico / Guardián Poético",
@@ -79,56 +79,56 @@
         "id": "judas-experience-web",
         "nombre": "The Judas Experience",
         "tipo": "Experiencia 3D",
-        "url": "https://belentani7.github.io/judas-experience-web/",
+        "url": "https://www.belentani.es/belentani-judas-web/",
         "descripcion": "Planeta, diamante y llave dorada. Traición y recorrido cinemático Three.js."
       },
       {
         "id": "judas-experience-unificado",
         "nombre": "Judas Cósmico Unificado",
         "tipo": "Motor 3D & Códice",
-        "url": "https://belentani7.github.io/judas-experience-unificado/",
+        "url": "https://www.belentani.es/judas-experience-unificado/",
         "descripcion": "La obra reunida: reliquia, códice, motor 3D y firma sonora."
       },
       {
         "id": "omega-immersive-portal",
         "nombre": "Omega Immersive Portal",
         "tipo": "Portal 3D OMEGA",
-        "url": "https://belentani7.github.io/belentani-omega-immersive-portal/",
+        "url": "https://www.belentani.es/belentani-omega-immersive-portal/",
         "descripcion": "Entrada inmersiva al sistema estelar del artefacto OMEGA."
       },
       {
         "id": "belentani-judas-era-omega",
         "nombre": "Judas Era · Omega Core",
         "tipo": "Experiencia Inmersiva",
-        "url": "https://belentani7.github.io/belentani-judas-era-omega/",
+        "url": "https://www.belentani.es/belentani-portfolio/",
         "descripcion": "La noche litúrgica del dark pop. Sonido y arquitectura visual."
       },
       {
         "id": "belentani-judas-web",
         "nombre": "Judas Creative OS",
         "tipo": "Creative OS",
-        "url": "https://belentani7.github.io/belentani-judas-web/",
+        "url": "https://www.belentani.es/belentani-judas-web/",
         "descripcion": "Sistema operativo creativo Vite + SEO cinemático."
       },
       {
         "id": "fullstack-20",
         "nombre": "XX Mundos Visuales (Fullstack)",
         "tipo": "Canon Editorial",
-        "url": "https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/",
+        "url": "https://www.belentani.es/BELENTANI-JUDAS-ERA-FULLSTACK/",
         "descripcion": "Un canon editorial renderizado a través de veinte mundos visuales."
       },
       {
         "id": "belent-cad",
         "nombre": "Belent-CAD 3D",
         "tipo": "Herramienta Arquitectura",
-        "url": "https://belentani7.github.io/belent-cad/",
+        "url": "https://belent-cad.pages.dev/",
         "descripcion": "Digitalización de bocetos a 3D, renders fotorrealistas con React 19 + Three.js."
       },
       {
         "id": "3d-portfolio",
         "nombre": "3D Portfolio",
         "tipo": "Portfolio Three.js",
-        "url": "https://belentani7.github.io/3d-portfolio/",
+        "url": "https://www.belentani.es/belentani-portfolio/",
         "descripcion": "Escena interactiva, animaciones y navegación inmersiva."
       },
       {

@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import os
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -33,11 +33,11 @@ SKIP_DIR_NAMES = {
 EFFECT_HINTS = re.compile(
     r"(shader|galaxy|star|nebula|particle|bloom|post|vanta|three|webgl|globe|"
     r"halo|rings|ascii|raymarch|volumetric|cloud|planet|space|fx|effect)",
-    re.I,
+    re.IGNORECASE,
 )
 TOOL_HINTS = re.compile(
     r"(tool|forge|player|terminal|session|universe|catalog|biblia|judas|omega)",
-    re.I,
+    re.IGNORECASE,
 )
 ASSET_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".glb", ".gltf", ".hdr", ".exr", ".mp3", ".wav", ".ogg", ".mp4", ".webm"}
 CODE_EXTS = {".js", ".jsx", ".ts", ".tsx", ".html", ".css", ".glsl", ".vert", ".frag", ".wgsl"}
@@ -202,7 +202,7 @@ def main() -> None:
     for r in files:
         by_kind[r["kind"]] = by_kind.get(r["kind"], 0) + 1
     payload = {
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "root": str(ROOT),
         "lore": lore_spine(),
         "ciclona_projects": ciclona_projects(),

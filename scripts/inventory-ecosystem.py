@@ -1,9 +1,7 @@
 """Bounded metadata inventory. Never reads credentials, legal cases or audio."""
-import csv
 import json
-import os
-from pathlib import Path
 import subprocess
+from pathlib import Path
 
 home = Path.home()
 output = home / '_bucket_descartes' / '2026-10-06_belentani_rotation' / '_MANIFESTS'

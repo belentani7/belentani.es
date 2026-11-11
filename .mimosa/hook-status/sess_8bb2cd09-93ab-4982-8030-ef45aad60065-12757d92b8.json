@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mimosa-hook-status/v1",
+  "recordedAt": "2026-11-07T17:54:42.492Z",
+  "sessionId": "sess_8bb2cd09-93ab-4982-8030-ef45aad60065",
+  "event": "PostToolUse",
+  "toolName": "Edit",
+  "file": "C:\\Users\\USER\\workspace\\ux-toolkit\\inyectar_ux.py",
+  "outcome": "inconclusive",
+  "coverage": "partial",
+  "findingCount": 0,
+  "durationMs": 23,
+  "hostState": "hook_complete",
+  "reportHint": ".mimosa/reports/"
+}

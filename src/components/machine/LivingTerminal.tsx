@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import type { MythLang } from '@/lib/mythos';
-import { BOOT_LINES, MYTH_PULSE, MYTH_STATIONS, stationById } from '@/lib/mythos';
+import { BOOT_LINES, ECHO_MYTH, MYTH_PULSE, MYTH_STATIONS, stationById } from '@/lib/mythos';
 import { WORLD_NODES, worldHref, isExternalWorld } from '@/lib/worlds-atlas';
 import styles from './LivingTerminal.module.css';
 
@@ -87,16 +87,20 @@ export function LivingTerminal({
       push(
         'sys',
         [
-          'COMANDOS VIVOS',
-          '  MYTH / MITO [id]   — estación del romance',
+          'ANTIGRAVITY · COMANDOS VIVOS',
+          '  MYTH / MITO [id]   — estación del relato',
+          '  ECHO / ECO         — mito completo de la galaxia guardada',
+          '  STRINGS / CUERDAS  — la regla de resonancia',
+          '  GALAXY / GALAXIA   — abrir la maqueta cósmica',
+          '  VOICE / VOZ        — escuchar la llave vocal',
           '  SPEAK / FALA       — narrar estación actual',
-          '  STOP              — silenciar narrador',
-          '  ATLAS / MUNDOS    — listar mundos',
-          '  WARP <id>         — saltar a un mundo',
-          '  KISS / BESO       — el núcleo del romance',
-          '  BLOOD / SANGUE    — pulso de la máquina',
-          '  CLEAR             — limpiar log',
-          '  LANG es|en|pt     — (usa controles de voz arriba)',
+          '  STOP               — silenciar narrador',
+          '  ATLAS / MUNDOS     — listar mundos',
+          '  WARP <id>          — saltar a un mundo',
+          '  KISS / BESO        — el núcleo del romance',
+          '  BLOOD / SANGUE     — pulso de la máquina',
+          '  CLEAR              — limpiar log',
+          '  LANG es|en|pt      — (usa controles de voz arriba)',
         ].join('\n')
       );
       return;
@@ -105,6 +109,45 @@ export function LivingTerminal({
     if (head === 'clear' || head === 'cls') {
       setLines([]);
       push('sys', 'Log limpio. La memoria del beso permanece.');
+      return;
+    }
+
+    if (head === 'echo' || head === 'eco') {
+      const echo = ECHO_MYTH[lang];
+      push('myth', echo.opening);
+      push('myth', echo.galaxy);
+      push('myth', echo.lock);
+      push('myth', echo.singer);
+      push('myth', echo.reveal);
+      push('sys', echo.scienceNote);
+      onNavigateStation('eco');
+      return;
+    }
+
+    if (head === 'strings' || head === 'cuerdas' || head === 'cordas') {
+      const echo = ECHO_MYTH[lang];
+      push('myth', echo.reveal);
+      push('sys', echo.scienceNote);
+      onNavigateStation('eco');
+      onSpeak(MYTH_STATIONS.find((s) => s.id === 'eco')?.speak[lang] ?? echo.opening);
+      return;
+    }
+
+    if (head === 'galaxy' || head === 'galaxia' || head === 'galáxia') {
+      const station = stationById('archivo-galactico');
+      if (station) {
+        push('myth', station.title[lang] + '\n' + station.body[lang]);
+        onNavigateStation(station.id);
+        onSpeak(station.speak[lang]);
+      }
+      return;
+    }
+
+    if (head === 'voice' || head === 'voz' || head === 'chave' || head === 'key') {
+      const echo = ECHO_MYTH[lang];
+      push('blood', echo.lock);
+      onNavigateStation('archivo-galactico');
+      onSpeak(MYTH_STATIONS.find((s) => s.id === 'archivo-galactico')?.speak[lang] ?? echo.lock);
       return;
     }
 
@@ -180,12 +223,12 @@ export function LivingTerminal({
   };
 
   return (
-    <section className={styles.term} aria-label="Terminal vivo JUDAS_OS">
+    <section className={styles.term} aria-label="ANTIGRAVITY, terminal narrativa interactiva">
       <header className={styles.head}>
         <span className={styles.dots} aria-hidden>
           <i /><i /><i />
         </span>
-        <span className={styles.title}>JUDAS_OS · TERMINAL VIVO</span>
+        <span className={styles.title}>ANTIGRAVITY · ALIVE MACHINE</span>
         <span className={styles.pulse} aria-hidden />
       </header>
       <div ref={logRef} className={styles.log} role="log" aria-live="polite">
@@ -200,7 +243,7 @@ export function LivingTerminal({
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className={styles.input}
-          placeholder="KISS · MYTH traicion · WARP judas-web · HELP"
+          placeholder="ECHO · STRINGS · GALAXY · VOICE · HELP"
           aria-label="Comando del terminal"
           autoComplete="off"
           spellCheck={false}
@@ -208,7 +251,7 @@ export function LivingTerminal({
         <button type="submit" className={styles.go}>ENTER</button>
       </form>
       <div className={styles.quick}>
-        {['KISS', 'MYTH traicion', 'BLOOD', 'ATLAS', 'SPEAK', 'HELP'].map((q) => (
+        {['ECHO', 'STRINGS', 'GALAXY', 'VOICE', 'KISS', 'HELP'].map((q) => (
           <button key={q} type="button" onClick={() => run(q)}>{q}</button>
         ))}
       </div>

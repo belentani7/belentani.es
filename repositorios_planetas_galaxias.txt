@@ -7,38 +7,36 @@ Link del repo: https://github.com/belentani7/belent-cad
 Link Vercel: https://belent-cad.pages.dev/
 Estado: ACTIVO — enlace válido
 
-================================================================================
+REPOSITORIO: belentani-portfolio
+Descripción: Portfolio personal en 3D construido con Three.js: escena interactiva, animaciones y navegación inmersiva.
+Link del repo: https://github.com/belentani7/belentani-portfolio
+Link GitHub Pages: https://www.belentani.es/belentani-portfolio/
+Estado: ACTIVO — enlace restaurado (desarchivado, público, Pages habilitado)
 
---- GALAXIAS ROTAS / FALTANTES (enlaces no resueltos) ---
+REPOSITORIO: belentani-omega-immersive-portal
+Descripción: BELENTANI OMEGA — immersive 3D creative portal experience
+Link del repo: https://github.com/belentani7/belentani-omega-immersive-portal
+Link GitHub Pages: https://www.belentani.es/belentani-omega-immersive-portal/
+Estado: ACTIVO — enlace restaurado (desarchivado, público, Pages habilitado)
 
-Las siguientes galaxias tenían enlace a GitHub Pages pero el repositorio está
-archivado o no existe. GitHub Pages no publica repos privados archivados.
+REPOSITORIO: judas-experience-unificado
+Descripción: BELENTANI // JUDAS ERA - Omega Core Experience 10/10
+Link del repo: https://github.com/belentani7/judas-experience-unificado
+Link GitHub Pages: https://www.belentani.es/judas-experience-unificado/
+Estado: ACTIVO — enlace restaurado (desarchivado, público, Pages habilitado)
 
-1. REPOSITORIO: 3d-portfolio
-   Link del repo: https://github.com/belentani7/3d-portfolio (archivado, privado)
-   Link GitHub Pages: https://belentani7.github.io/3d-portfolio/ — ROTO (no publica)
-   Motivo: Repo archivado, sin GitHub Pages habilitado.
+REPOSITORIO: belentani-judas-web
+Descripción: Judas Experience Creative OS - web (Vite) + SEO
+Link del repo: https://github.com/belentani7/belentani-judas-web
+Link GitHub Pages: https://www.belentani.es/belentani-judas-web/
+Estado: ACTIVO — enlace restaurado (creado, público, Pages habilitado)
 
-2. REPOSITORIO: belentani-omega-immersive-portal
-   Link del repo: https://github.com/belentani7/belentani-omega-immersive-portal (archivado, privado)
-   Link Vercel: https://belentani-omega-immersive-portal.vercel.app — válido
-   Link GitHub Pages: https://belentani7.github.io/belentani-omega-immersive-portal/ — ROTO (no publica)
-   Motivo: Repo archivado, solo despliega en Vercel.
-
-3. REPOSITORIO: belentani-judas-era-omega
-   Link del repo: https://github.com/belentani7/belentani-judas-era-omega (archivado, privado)
-   Link GitHub Pages: https://belentani7.github.io/belentani-judas-era-omega/ — ROTO (no publica)
-   Motivo: Repo archivado, sin GitHub Pages habilitado.
-
-4. REPOSITORIO: belentani-judas-web
-   Link del repo: https://github.com/belentani7/belentani-judas-web (archivado, privado)
-   Link GitHub Pages: https://belentani7.github.io/belentani-judas-web/ — ROTO (no publica)
-   Motivo: Repo archivado, sin GitHub Pages habilitado.
-
-5. REPOSITORIO: BELENTANI-JUDAS-ERA-FULLSTACK
-   Link del repo: https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK — FALTANTE (404, no existe)
-   Link GitHub Pages: https://belentani7.github.io/BELENTANI-JUDAS-ERA-FULLSTACK/ — ROTO
-   Motivo: Repositorio no encontrado en GitHub.
+REPOSITORIO: BELENTANI-JUDAS-ERA-FULLSTACK
+Descripción: Creative web system rendering one editorial canon across twenty visual worlds
+Link del repo: https://github.com/belentani7/BELENTANI-JUDAS-ERA-FULLSTACK
+Link GitHub Pages: https://www.belentani.es/BELENTANI-JUDAS-ERA-FULLSTACK/
+Estado: ACTIVO — enlace restaurado (creado, público, Pages habilitado)
 
 ================================================================================
-Archivo corregido por GitAutoHeal — enlaces rotos documentados, galaxias faltantes identificadas.
+Archivo corregido por GitAutoHeal — enlaces rotos reparados, galaxias creadas y Pages habilitado.
+Todos los enlaces apuntan a GitHub Pages activo bajo el dominio belentani.es.

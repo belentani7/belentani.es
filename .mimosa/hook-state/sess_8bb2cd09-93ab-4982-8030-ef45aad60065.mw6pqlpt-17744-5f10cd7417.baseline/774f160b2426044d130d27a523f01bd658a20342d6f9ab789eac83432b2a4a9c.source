@@ -1,0 +1,37 @@
+---
+description: Reglas del ecosistema belentani7 (seguridad, git, alcance y verificación)
+globs:
+alwaysApply: true
+---
+
+# Ecosistema belentani7 — reglas permanentes
+
+## Seguridad
+
+- No leer ni escribir `.env`, `.env.local`, `.env.production`, `secrets/**`, `*.key`, `*.pem`.
+- No imprimir tokens, cookies ni cadenas de conexión en la conversación ni en logs.
+- Si un secreto aparece en el código, detente, avisa y propone rotación; no lo copies.
+
+## Git
+
+- Prohibido `git push --force` y `git push -f`, especialmente a `main`/`master`.
+- Prohibido `git reset --hard` sobre trabajo no confirmado.
+- Prohibido borrar ramas o archivos sin confirmación explícita.
+- Commits pequeños, en imperativo, con el porqué en el cuerpo.
+
+## Alcance
+
+- Un cambio = un propósito. No reformatear archivos que no tocan el objetivo.
+- No editar `package-lock.json`, `pnpm-lock.yaml`, `yarn.lock` ni `migrations/` a mano.
+- No añadir dependencias sin justificar tamaño, mantenimiento y alternativa nativa.
+
+## Verificación
+
+- Ningún "hecho" sin: tests ejecutados, build ejecutado y diff revisado.
+- Si no hay tests, el primer cambio debe añadir uno mínimo que falle sin el arreglo.
+- Reporta siempre qué se verificó y qué quedó sin verificar.
+
+## Contexto
+
+- La fuente de verdad del repo es `AGENTS.md`.
+- El estado y las brechas viven en `.agents/status.md`.

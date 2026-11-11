@@ -1,0 +1,15 @@
+---
+description: Reglas para tests y verificación en belentani.es
+globs: **/*.{test,spec}.{ts,tsx,js,jsx,py},**/tests/**,**/__tests__/**
+alwaysApply: false
+---
+
+# Tests — belentani.es
+
+- Cada bug se arregla con un test que falla antes y pasa después.
+- Un test debe poder ejecutarse solo: `vitest run`.
+- Nada de tests dependientes del orden, de red real o de hora del sistema.
+- Datos de prueba deterministas; sin sleeps arbitrarios.
+- Nombra el test por comportamiento: `devuelve 401 si el token expiró`.
+- No mockees la capa que estás probando.
+- Si el repositorio no tiene runner, el primer paso es añadirlo y documentarlo en `.agents/status.md`.

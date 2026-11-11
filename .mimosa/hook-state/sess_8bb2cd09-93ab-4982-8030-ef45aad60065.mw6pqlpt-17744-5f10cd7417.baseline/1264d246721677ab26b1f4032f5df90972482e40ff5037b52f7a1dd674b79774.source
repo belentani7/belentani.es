@@ -1,0 +1,51 @@
+---
+description: Convenciones del stack detectado en belentani.es
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Convenciones de stack — Node.js (pnpm) · TypeScript · next · react · tailwindcss · playwright · vitest
+
+## Estructura
+
+```text
+_universo_assets/
+.agents/
+.claude/
+.devcontainer/
+.git/
+.github/
+.lighthouseci/
+.vscode/
+app/
+app-web-nextjs/
+banco-recursos-galacticos/
+docs/
+institucion/
+lore-canon/
+```
+
+## Comandos
+
+```
+text
+pnpm install
+next build
+vitest run
+eslint .
+```
+
+## Reglas
+
+- Respeta el estilo existente antes de introducir uno nuevo.
+- Tipado estricto donde el proyecto ya lo usa; no lo relajes para "que compile".
+- Rutas de importación absolutas si el proyecto ya las usa.
+- No dupliques lógica de negocio en componentes de UI.
+- Manejo de errores explícito: nada de `catch {}` vacío.
+- Accesibilidad mínima en UI: foco visible, contraste AA, texto funcional ≥ 11px.
+
+## Antes de terminar
+
+1. `next build` debe pasar.
+2. `vitest run` debe pasar o quedar documentado por qué no.
+3. Revisa que no hay secretos ni rutas absolutas de tu máquina.
