@@ -25,3 +25,28 @@ test('galaxy navigation remains usable after Three.js dependency upgrades', asyn
   await expect(page.getByRole('navigation', { name: 'Sistemas de la galaxia' })).toBeAttached();
   expect(runtimeErrors, 'The galaxy should not crash at runtime').toEqual([]);
 });
+
+
+test('homepage links retain readable contrast, touch targets and visible brand names', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('link', { name: /^B7.*página del artista/i })).toBeVisible();
+  const listen = page.getByRole('link', { name: 'Escuchar', exact: true });
+  const appearance = await listen.evaluate((element) => {
+    const style = getComputedStyle(element);
+    const luminance = (rgb: string) => {
+      const values = rgb.match(/[\d.]+/g)!.slice(0, 3).map(Number).map(value => {
+        const channel = value / 255;
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+      });
+      return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722;
+    };
+    const foreground = luminance(style.color);
+    const background = luminance(style.backgroundColor);
+    return {
+      contrast: (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05),
+      height: element.getBoundingClientRect().height,
+    };
+  });
+  expect(appearance.contrast).toBeGreaterThanOrEqual(4.5);
+  expect(appearance.height).toBeGreaterThanOrEqual(44);
+});

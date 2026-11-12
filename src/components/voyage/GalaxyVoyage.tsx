@@ -82,7 +82,7 @@ export default function GalaxyVoyage() {
       <ShipTrailCanvas />
       <div className={styles.vignette} aria-hidden="true" />
       <header className={styles.header}>
-        <Link href="/artista" className={styles.brand} aria-label="Ir a la página del artista">B<span>7</span>.</Link>
+        <Link href="/artista" className={styles.brand} aria-label="B7. · Página del artista">B<span>7</span>.</Link>
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
         <nav className={styles.headerLinks} aria-label="Accesos principales"><Link href="/artista">ARTISTA</Link><Link href="/lore">LORE</Link><Link href="/musica">MÚSICA</Link><Link href="/maquina">ANTIGRAVITY</Link><Link href="/ai-lab">AI LAB</Link><Link href="/noiacore">NOIACORE</Link><Link href="/studio-creativo" className={styles.return}>CREAR <span aria-hidden="true">↗</span></Link></nav>
         <details className={styles.mobileMenu} onKeyDown={(event) => {

@@ -6,5 +6,20 @@
   "estado": "estructurado",
   "producto_completo": false,
   "generado": "2026-11-10T18:58:34.613463+00:00",
-  "motor": "repo_forge.py"
+  "motor": "repo_forge.py",
+  "nombre": "belentani.es",
+  "tipo": "nextjs-artist-universe",
+  "medido": {
+    "archivos": 1351,
+    "lineas_texto": 411431,
+    "bytes": 33322104,
+    "html": 385,
+    "archivos_test": 30
+  },
+  "fuente_medicion": {
+    "commit": "7b566f56cc26e351f765c23d62414486ecb11882",
+    "fecha": "2026-11-12",
+    "metodo": "git ls-files; archivos existentes; líneas de archivos decodificables como UTF-8; .test., .spec. y test_ para archivos de pruebas"
+  },
+  "nota_medicion": "Inventario del commit de origen; no acredita funcionalidades, pruebas aprobadas ni finalización del producto."
 }
