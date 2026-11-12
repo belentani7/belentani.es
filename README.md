@@ -96,3 +96,7 @@ Consulta `package.json` para la lista completa de scripts disponibles.
 | assets:process | Procesa los recursos mediante un script de Node |
 | assets | Descarga y procesa los recursos ejecutando los scripts correspondientes en secuencia con pnpm |
 | check:renderer | Comprueba la pila del renderizador ejecutando el script y sus pruebas nativas con Node |
+
+## Contexto de plataforma
+
+Consulta la [ficha del producto](plataforma/FICHA.md) y el [plan de verificación del catálogo](docs/plans/2026-11-12-catalogo-verificable.md). Las cifras del inventario no equivalen a funcionalidades verificadas.
