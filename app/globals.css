@@ -53,6 +53,8 @@
   --font-rajdhani: "Rajdhani";
   --font-share-tech-mono: "Share Tech Mono";
 }
+/* Base rules must not override Tailwind utility colors, spacing or type. */
+@layer base {
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { background: var(--color-void); color: var(--color-ink); font-family: var(--font-body); overflow-x: hidden; min-height: 100vh; }
@@ -66,6 +68,7 @@ iframe:focus-visible { outline: 2px solid rgba(255, 119, 119, .8); outline-offse
 ::-webkit-scrollbar-track { background: #0A0A0A; }
 ::-webkit-scrollbar-thumb { background: var(--color-redDim); border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
+}
 
 .hud-glass {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 7, 58, 0.06) 45%, rgba(0, 0, 0, 0.72));

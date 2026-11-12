@@ -14,3 +14,6 @@ El CI del commit de origen falla en Jarvis: no se puede acceder a choices sobre 
 
 ## Resultado local
 Instalación con pnpm 10.17.1 y lockfile congelado; TypeScript estricto aprobado; 65 pruebas Vitest y 9 contratos Node aprobados; ESLint con cero errores y cuatro advertencias; Next.js 15.5.28 compilado para producción; doctor 44/44. No se ejecutaron recorridos E2E locales; los ejecuta CI.
+
+## Accesibilidad revelada por Lighthouse
+El primer CI completo detectó contraste 2.57:1 en Escuchar y el nombre accesible de B7 no incluía el texto visible. Las reglas globales sin capa anulaban las utilidades de Tailwind (color y espaciado); se llevan a la capa base y se conserva la identidad visible en aria-label. Se añade regresión E2E de contraste y tamaño real, sin reducir el umbral de Lighthouse.
