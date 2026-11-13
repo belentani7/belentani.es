@@ -115,7 +115,8 @@ async function streamResponse(
   };
 
   openrouterStream.on('data', (chunk: unknown) => {
-    const delta = chunk?.choices?.[0]?.delta?.content || '';
+    const delta = (chunk as { choices?: Array<{ delta?: { content?: string } }> })
+      ?.choices?.[0]?.delta?.content || '';
     if (delta) {
       safeWrite(delta);
     }
