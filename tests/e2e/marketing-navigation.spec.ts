@@ -8,6 +8,7 @@ const marketingRoutes = [
   ['Galaxia', '/galaxia'],
   ['AI Lab', '/ai-lab'],
   ['Estudio', '/studio-creativo'],
+  ['Academia', '/school'],
 ] as const;
 
 test('every marketing destination returns a real document instead of a 404', async ({ request }) => {
