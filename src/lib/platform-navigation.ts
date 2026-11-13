@@ -10,6 +10,7 @@ export const PLATFORM_NAVIGATION = [
   { label: 'Galaxia', href: '/galaxia' },
   { label: 'AI Lab', href: '/ai-lab' },
   { label: 'Estudio', href: '/studio-creativo' },
+  { label: 'Academia', href: '/school' },
 ] as const;
 
 export type PlatformNavigationItem = (typeof PLATFORM_NAVIGATION)[number];
