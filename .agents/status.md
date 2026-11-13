@@ -1,3 +1,16 @@
+## Verificación del 12 de noviembre de 2026
+
+- pnpm 10.17.1: instalación reproducible con lockfile congelado, sin cambiar dependencias.
+- TypeScript estricto: aprobado tras validar los eventos desconocidos del stream de Jarvis.
+- Vitest: 65 pruebas aprobadas; contratos Node del renderizador y Vercel: 9 aprobados.
+- ESLint: cero errores y cuatro advertencias existentes.
+- Compilación Next.js 15.5.28 de producción: aprobada.
+- Límites artísticos y compatibilidad del renderizador: aprobados.
+- Doctor: 44/44, con inventario ligado al commit de origen.
+- La verificación local no acredita disponibilidad del proveedor de IA ni finalización de todas las funciones.
+
+El registro automático previo queda a continuación como histórico.
+
 <!-- generated-by: belentani7-finish-kit | date: 2026-11-03 -->
 # Estado — belentani.es
 

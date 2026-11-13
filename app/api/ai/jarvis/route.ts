@@ -3,6 +3,7 @@ import { OpenRouter, OpenRouterStream } from 'openrouter-client';
 import { getSystemPrompt } from '@/lib/lore-prompts';
 import { fallbacks } from '@/lib/ai-fallbacks';
 import { rateLimit } from '@/lib/rate-limit';
+import { readStreamDelta } from '@/lib/stream-delta';
 
 const MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free';
 const MAX_TOKENS = 2048;
@@ -115,8 +116,7 @@ async function streamResponse(
   };
 
   openrouterStream.on('data', (chunk: unknown) => {
-    const delta = (chunk as { choices?: Array<{ delta?: { content?: string } }> })
-      ?.choices?.[0]?.delta?.content || '';
+    const delta = readStreamDelta(chunk);
     if (delta) {
       safeWrite(delta);
     }

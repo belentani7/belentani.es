@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { PLATFORM_NAVIGATION } from '@/lib/platform-navigation';
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,12 +39,16 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             <Link href="/" className="font-serif text-xl font-semibold tracking-[-.04em] text-[#f2eee8]">
               BELENTANI<span className="ml-2 align-middle font-mono text-[.55em] font-medium tracking-[.13em] text-[#c6a789]">THE EXPERIENCE</span>
             </Link>
-            <nav className="hidden md:flex items-center gap-6">
-              <Link href="/judas-era" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Judas Era</Link>
-              <Link href="/artista" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Artista</Link>
-              <Link href="/prensa" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Prensa</Link>
-              <Link href="/musica" className="font-mono text-xs tracking-widest uppercase text-mute hover:text-cyan transition-colors">Música</Link>
-              <Link href="/galaxia" className="font-mono text-xs tracking-widest uppercase text-red hover:text-ink transition-colors">Galaxia</Link>
+            <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-5">
+              {PLATFORM_NAVIGATION.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`font-mono text-xs tracking-widest uppercase transition-colors ${item.href === '/galaxia' ? 'text-red hover:text-ink' : 'text-mute hover:text-cyan'}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
             <button
               ref={mobileMenuButton}
@@ -64,11 +69,16 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             hidden={!mobileMenuOpen}
             className={`${mobileMenuOpen ? 'flex' : 'hidden'} flex-col gap-1 border-t border-border pb-4 pt-3 md:hidden`}
           >
-              <Link onClick={closeMobileMenu} href="/judas-era" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Judas Era</Link>
-              <Link onClick={closeMobileMenu} href="/artista" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Artista</Link>
-              <Link onClick={closeMobileMenu} href="/prensa" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Prensa</Link>
-              <Link onClick={closeMobileMenu} href="/musica" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-mute hover:bg-white/5 hover:text-white focus-visible:outline-red">Música</Link>
-              <Link onClick={closeMobileMenu} href="/galaxia" className="rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest text-red hover:bg-white/5 hover:text-white focus-visible:outline-red">Galaxia</Link>
+            {PLATFORM_NAVIGATION.map((item) => (
+              <Link
+                key={item.href}
+                onClick={closeMobileMenu}
+                href={item.href}
+                className={`rounded-md px-3 py-3 font-mono text-sm uppercase tracking-widest hover:bg-white/5 hover:text-white focus-visible:outline-red ${item.href === '/galaxia' ? 'text-red' : 'text-mute'}`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
       </header>

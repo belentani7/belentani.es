@@ -26,6 +26,7 @@ describe('GPU-safe interactive galaxy homepage', () => {
       } as never));
 
     render(<GalaxyVoyage />);
+    expect(screen.getByRole('link', { name: /B7.*página del artista/i }).textContent).toBe('B7.');
     const toggle = screen.getByRole('button', { name: /explorar en 3d/i });
     expect(toggle.getAttribute('aria-pressed')).toBe('false');
     expect(screen.queryByTestId('webgl-map-mounted')).toBeNull();

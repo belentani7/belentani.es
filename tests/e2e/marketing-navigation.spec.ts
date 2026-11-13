@@ -1,11 +1,14 @@
 import { expect, test } from '@playwright/test';
 
 const marketingRoutes = [
-  ['Judas Era', '/judas-era'],
+  ['Judas', '/judas'],
   ['Artista', '/artista'],
   ['Prensa', '/prensa'],
   ['Música', '/musica'],
   ['Galaxia', '/galaxia'],
+  ['AI Lab', '/ai-lab'],
+  ['Estudio', '/studio-creativo'],
+  ['Academia', '/school'],
 ] as const;
 
 test('every marketing destination returns a real document instead of a 404', async ({ request }) => {

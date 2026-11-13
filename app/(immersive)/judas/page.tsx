@@ -38,7 +38,7 @@ export default function JudasEraPage() {
   const appendices = judasChapters.filter(c => c.kind === 'appendix');
 
   return (
-    <div className="spectral-art-direction max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <main className="spectral-art-direction max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <ScrollSection variant="hero" className="block w-full">
         <header className="spectral-editorial-hero" aria-labelledby="judas-title">
           <div className="spectral-hero-copy">
@@ -137,6 +137,6 @@ export default function JudasEraPage() {
           <p className="spectral-access-note">Las escenas conservan sus controles originales; la disponibilidad de audio y 3D depende del navegador y del dispositivo.</p>
         </footer>
       </ScrollSection>
-    </div>
+    </main>
   );
 }
