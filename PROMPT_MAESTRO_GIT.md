@@ -116,8 +116,9 @@ Hecho y verificado en esta sesión:
 
 Tercera pasada (homepages y ramas):
 
-- 14 homepages públicas comprobadas con curl; solo una muerta (`fazluiz3d-ecosystem` → 404),
-  limpiada. `kepler` tenía demo viva en GitHub Pages sin enlazar: ahora sí.
+- 17 homepages públicas comprobadas con curl. Una muerta (`fazluiz3d-ecosystem` → 404): no se
+  limpió a secas, se sustituyó por su demo real en Pages (200). `kepler` y `belentani-judas-web`
+  tenían demo viva sin enlazar: ahora la enlazan.
 - 5 conjuntos de topics más limpiados (`assurance-pvcu`, `qr-pro-enterprise`, `opendesign`,
   `Steven-renovation`, `music-os-pedro-belentani`).
 - Rama por defecto `fix/ui-tailwind-format-y-aider-gitignore` corregida en **5 de 6** repos:
