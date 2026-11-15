@@ -142,6 +142,15 @@ Quinta pasada (barrido de los 58 públicos):
 - 7 conjuntos de topics nuevos, incluido `OmniRoute` (fork de Diego Souza).
 - `belentani-omega-immersive-portal` ganó homepage: la demo Vercel responde 200.
 
+Sexta pasada (perfil publicado de verdad):
+
+- Descubrimiento: la reescritura del README del perfil **nunca llegó a GitHub**. Estaba
+  modificada y sin commitear en el clon local; el remoto seguía sirviendo la tabla antigua.
+  Publicada por API (commit 3586b308, 6.209 bytes, 8 secciones).
+- Añadidos dos sistemas verificados con demo en 200: `Cruzando-el-charco` (07) y `open-school` (08).
+- Los 8 enlaces internos del README comprobados uno a uno: todos 200.
+- Clon local sincronizado con fast-forward (el único cambio perdido era la fecha del pie).
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
