@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import LoreEngine from './LoreEngine';
 import { ECHO_MYTH } from '@/lib/mythos';
+import { PLATFORM_NAVIGATION, PLATFORM_NAV_UTILITY } from '@/lib/platform-navigation';
 import styles from './lore.module.css';
 
 export const metadata: Metadata = {
@@ -31,11 +32,12 @@ export default function LorePage() {
       <header className={styles.topbar}>
         <Link href="/" className={styles.logo} aria-label="BELENTANI — Inicio">B<span>7</span> / BELENTANI</Link>
         <nav aria-label="Navegación de la obra" className={styles.navigation}>
-          <Link href="/">GALAXIA</Link>
-          <Link href="/artista">ARTISTA</Link>
-          <Link href="/musica">MÚSICA</Link>
-          <Link href="/maquina">ANTIGRAVITY</Link>
-          <Link href="/studio-creativo">ESTUDIO</Link>
+          {PLATFORM_NAVIGATION.map((item) => (
+            <Link key={item.href} href={item.href}>{item.label.toUpperCase()}</Link>
+          ))}
+          {PLATFORM_NAV_UTILITY.map((item) => (
+            <Link key={item.href} href={item.href}>{item.label.toUpperCase()}</Link>
+          ))}
         </nav>
       </header>
 

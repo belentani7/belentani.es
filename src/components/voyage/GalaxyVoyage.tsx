@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { VOYAGE_PLACES } from '@/lib/voyage-places';
-import { PLATFORM_NAVIGATION } from '@/lib/platform-navigation';
+import { PLATFORM_NAVIGATION, PLATFORM_NAV_UTILITY } from '@/lib/platform-navigation';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import styles from './GalaxyVoyage.module.css';
 
@@ -87,9 +87,8 @@ export default function GalaxyVoyage() {
         <span className={styles.headerName}>BELENTANI / ATLAS VIVO</span>
         <nav className={styles.headerLinks} aria-label="Accesos principales">
           {PLATFORM_NAVIGATION.map((item) => (
-            <Link key={item.href} href={item.href} className={item.href === '/studio-creativo' ? styles.return : undefined}>
+            <Link key={item.href} href={item.href}>
               {item.label.toUpperCase()}
-              {item.href === '/studio-creativo' && <span aria-hidden="true"> ↗</span>}
             </Link>
           ))}
         </nav>
@@ -108,6 +107,9 @@ export default function GalaxyVoyage() {
           }}>
             <Link href="#destinos">PLANETAS</Link>
             {PLATFORM_NAVIGATION.map((item) => (
+              <Link key={item.href} href={item.href}>{item.label.toUpperCase()}</Link>
+            ))}
+            {PLATFORM_NAV_UTILITY.map((item) => (
               <Link key={item.href} href={item.href}>{item.label.toUpperCase()}</Link>
             ))}
           </nav>
