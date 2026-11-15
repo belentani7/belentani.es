@@ -192,6 +192,20 @@ Novena pasada (sesión de estudio de front-end y aplicación masiva):
 - Media de topics: 6,4 → 7,39. Repos con 8 o más: 13 → 26 de 57. Sin topics de relleno.
 - Estudio completo en `archivo-fuentes/estudio-frontend-2026-11-16.md`.
 
+Décima pasada (convención superpowers aplicada):
+
+- Referencia: `obra/superpowers` (318k estrellas) — `skills/<nombre>/SKILL.md` con frontmatter
+  `name` + `description` ("Use when…"), manifests por harness y un `plugin.json` por ecosistema.
+- Hallazgo: `skills-registry` documentaba en su README `registry.json`, `cli/`, `skills/`,
+  `SCHEMA.md` y "23+ skills". **Los cuatro ficheros daban 404** y no hay ni una skill dentro.
+  Un registro vacío que se anuncia como catálogo.
+- Creado `registry.json` con **una** entrada verificada (`meta-skill`, cuyo SKILL.md existe y se
+  abre en 200) y `SCHEMA.md` con el contrato y el estado real. No se inventaron 23 skills.
+- `meta-skill` ya cumplía el formato exacto de superpowers: frontmatter `name` + `description`
+  con "Use first to classify…". No se tocó.
+- El README de skills-registry sigue diciendo "23+": corregirlo exige reescribir el fichero
+  entero por API y no compensa el riesgo de corromperlo. Queda anotado.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
