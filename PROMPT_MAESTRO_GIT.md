@@ -130,6 +130,18 @@ Tercera pasada (homepages y ramas):
   commits nuevos (MIT, limpieza, resolver-todo, tailwind) que `main` no tiene. No se toca:
   requiere una fusión con criterio, no un `force`.
 
+Quinta pasada (barrido de los 58 públicos):
+
+- Auditoría completa con `curl` + `python` sobre `users/belentani7/repos`: licencia, longitud de
+  descripción, homepage, topics y estado de archivo. Huecos: 3 sin descripción, 8 sin topics,
+  10 sin licencia reconocida (la mayoría `NOASSERTION`: hay fichero, GitHub no lo identifica).
+- Corregidas 5 descripciones, dos de ellas porque **filtraban notas internas al perfil público**:
+  `Cruzando-el-charco` y `open-school` decían literalmente "recuperado desde copia local
+  verificada". También `aprende-brasil`, `belentani-omega-immersive-portal` y
+  `BELENTANI-JUDAS-ERA-FULLSTACK`.
+- 7 conjuntos de topics nuevos, incluido `OmniRoute` (fork de Diego Souza).
+- `belentani-omega-immersive-portal` ganó homepage: la demo Vercel responde 200.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
