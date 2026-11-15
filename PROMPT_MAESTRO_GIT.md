@@ -180,6 +180,18 @@ Octava pasada (tres familias: API, MCP y assets de front-end):
 - Familia API: tras revisar cuatro repos, solo `qr-pro-enterprise` expone una API (Express);
   los demás no tienen endpoints, así que no se les pone vocabulario de API.
 
+Novena pasada (sesión de estudio de front-end y aplicación masiva):
+
+- Estudiados 26 repos de referencia; vocabulario dominante: `react` (10), `javascript` (7),
+  `css` (6), `components` (5), `ui`/`vue` (4).
+- 31 repos actualizados con una regla verificable: topic del lenguaje que GitHub declara +
+  `web` solo si hay demo desplegada.
+- 9 repos descartados del plan automático porque GitHub marca `HTML` en CLIs que no son web
+  (`keyrotor`, `safe-exec`, `neural-git-tui`, `skills-registry`, `agent-linux`, `open-manus`,
+  `gpu-cost-optimizer`, `OmniRoute`, `secure-t`).
+- Media de topics: 6,4 → 7,39. Repos con 8 o más: 13 → 26 de 57. Sin topics de relleno.
+- Estudio completo en `archivo-fuentes/estudio-frontend-2026-11-16.md`.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
