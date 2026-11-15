@@ -164,6 +164,22 @@ Séptima pasada (referencia medida contra repos famosos):
 - Homepages comprobadas: la de `belentani7.github.io` (`belentani7githubio.vercel.app`) responde 200
   aunque el nombre parezca roto.
 
+Octava pasada (tres familias: API, MCP y assets de front-end):
+
+- Vocabulario medido en repos de referencia por familia:
+  - MCP: `mcp`, `mcp-server`, `mcp-client` (modelcontextprotocol/python-sdk); `ai`, `mcp`
+    (awesome-mcp-servers). modelcontextprotocol/servers no tiene ni un topic.
+  - API: `api`, `rest`, `rest-api`, `openapi`, `json`, `async`, `pydantic`, `sse`, `websockets`
+    (fastapi); `http-client`, `api-testing`, `rest-api` (hoppscotch).
+  - Assets: `icons`, `svg`, `svg-icons`, `iconset`, `icon-pack` (lucide, tabler); `ui-components`,
+    `components`, `design-system`, `figma` (shadcn).
+- Aplicado solo donde el código lo sostiene: 5 conjuntos de topics.
+- **No aplicado y por qué**: `meta-skill` y `skills-registry` no mencionan MCP ni una vez, y
+  `belentani-forge` solo lo nombra como plantilla que sabe generar. Etiquetarlos `mcp-server`
+  habría sido mentir para ganar búsqueda.
+- Familia API: tras revisar cuatro repos, solo `qr-pro-enterprise` expone una API (Express);
+  los demás no tienen endpoints, así que no se les pone vocabulario de API.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
