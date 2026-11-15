@@ -1,6 +1,7 @@
 /** @vitest-environment jsdom */
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import { PLATFORM_NAVIGATION } from '../src/lib/platform-navigation';
 import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 import MarketingLayout from '../app/(marketing)/layout';
 
@@ -23,15 +24,9 @@ describe('cabecera de la web del artista en móvil', () => {
     expect(screen.getByRole('button', { name: 'Cerrar menú' }).getAttribute('aria-expanded')).toBe('true');
 
     const nav = screen.getByRole('navigation', { name: 'Navegación móvil' });
-    const expected = [
-      ['Judas Era', '/judas-era'],
-      ['Artista', '/artista'],
-      ['Prensa', '/prensa'],
-      ['Música', '/musica'],
-      ['Galaxia', '/galaxia'],
-    ] as const;
-    for (const [label, destination] of expected) {
-      expect(within(nav).getByRole('link', { name: label }).getAttribute('href')).toBe(destination);
+    const expected = PLATFORM_NAVIGATION;
+    for (const { label, href } of expected) {
+      expect(within(nav).getByRole('link', { name: label }).getAttribute('href')).toBe(href);
     }
 
     // Navigating to the current route must not strand focus in a hidden link.

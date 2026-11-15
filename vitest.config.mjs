@@ -7,8 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   test: {
     environment: 'jsdom',
-    include: ['src/**/*.test.{ts,tsx}', 'app/**/*.test.{ts,tsx}'],
-    exclude: ['node_modules/', '_clones/', '_ARCHIVO/', 'Ciclona/', 'masters/', 'viaje-r3f/', 'espacio-3d/', 'unificado/', 'banco-recursos-galacticos/', 'Belentani/', 'lore-canon/', 'app-web-nextjs/', '.pnpm/'],
+    include: ['src/**/*.test.{ts,tsx}', 'app/**/*.test.{ts,tsx}', 'tests/**/*.test.{ts,tsx}'],
+    exclude: ['node_modules/', '_clones/', '_ARCHIVO/', 'Ciclona/', 'masters/', 'viaje-r3f/', 'espacio-3d/', 'unificado/', 'banco-recursos-galacticos/', 'Belentani/', 'lore-canon/', 'app-web-nextjs/', '.pnpm/', 'tests/worlds.test.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
