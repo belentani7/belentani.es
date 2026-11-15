@@ -151,6 +151,19 @@ Sexta pasada (perfil publicado de verdad):
 - Los 8 enlaces internos del README comprobados uno a uno: todos 200.
 - Clon local sincronizado con fast-forward (el único cambio perdido era la fecha del pie).
 
+Séptima pasada (referencia medida contra repos famosos):
+
+- Benchmark con 8 repos de referencia (three.js, next.js, react-three-fiber, awesome, public-apis,
+  fastapi, ollama, shadcn-ui): descripción media 73 caracteres y **11,9 topics de media**.
+- Los repos de belentani7 estaban en 5-6 topics: la mitad de superficie de búsqueda.
+- 14 conjuntos de topics reescritos para llegar a 8, incluidos los que tenían relleno que nadie
+  busca: `prometedora`, `descubres`, `interes`, `privado` (en un repo público), `negocio`.
+- 6 descripciones sustituidas porque filtraban metadatos internos o cortaban una frase a medias:
+  `safe-exec`, `premium-factory-api`, `mimo_patch`, `trama-trans-bcn`, `belentani7.github.io`,
+  `cuidar-conecta-marcia` (esta última solo decía su propio nombre).
+- Homepages comprobadas: la de `belentani7.github.io` (`belentani7githubio.vercel.app`) responde 200
+  aunque el nombre parezca roto.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
