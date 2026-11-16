@@ -206,6 +206,24 @@ Décima pasada (convención superpowers aplicada):
 - El README de skills-registry sigue diciendo "23+": corregirlo exige reescribir el fichero
   entero por API y no compensa el riesgo de corromperlo. Queda anotado.
 
+Undécima pasada (proyectos que solo tienen sentido conectados):
+
+- Creado `belentani7/belentani7/ECOSISTEMA.md` (5.531 bytes): seis conglomerados con su puerta de
+  entrada verificada (200 con curl) y la dependencia concreta entre piezas.
+  1. Universo del artista: belentani.es · omega-web · portal inmersivo · studio-motion · visual-engine ·
+     hbo-noir-icons · premium-effects-registry · kepler.
+  2. Canon Judas: judas-web · judas-experience-unificado · BELENTANI-JUDAS-ERA-FULLSTACK (marcador de
+     posición de 564 bytes) · belentani.es.
+  3. Agentes: meta-skill (router) + skills-registry (catálogo con 1 entrada) — el caso puro de «no
+     funcionan por separado».
+  4. Educación abierta: open-school · aprende-brasil · ManosAbiertas · secure-t.
+  5. Barcelona comunitaria: Cruzando-el-charco · trama-trans-bcn.
+  6. Herramientas de inspección: profile-lint · safe-exec · neural-git-tui · keyrotor.
+- Enlazado desde el README del perfil (dos puntos: prosa y lista de evidencias). Verificado por diff
+  contra el commit anterior: 0 líneas borradas, 6 añadidas, 6.209 -> 6.637 bytes.
+- Siguiente paso real (no hecho): mover las 23 skills a `skills-registry/skills/<nombre>/SKILL.md` y
+  que `meta-skill` lea ese índice. Sin eso, el router sigue sin catálogo.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
