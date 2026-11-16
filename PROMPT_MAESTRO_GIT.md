@@ -224,6 +224,20 @@ Undécima pasada (proyectos que solo tienen sentido conectados):
 - Siguiente paso real (no hecho): mover las 23 skills a `skills-registry/skills/<nombre>/SKILL.md` y
   que `meta-skill` lea ese índice. Sin eso, el router sigue sin catálogo.
 
+Duodécima pasada (instituciones educativas al máximo):
+
+- Las cuatro (open-school, aprende-brasil, ManosAbiertas, secure-t) alineadas como institución:
+  descripciones con alcance medido, 8 topics cada una con `open-education`/`open-access`, y
+  reporte privado de vulnerabilidades activado y verificado (`enabled: true` ×4).
+- Creado `belentani7/belentani7/EDUCACION.md` (2.906 bytes): carta de cinco reglas en tabla
+  comparada, alcance de cada una y las tres cosas que faltan.
+- Hallazgo de la carta: **dos de las cuatro no declaran nada** (open-school, ManosAbiertas no dicen
+  «sin matrícula» ni «sin datos»); las otras dos sí. Una institución que solo lo dice en dos de sus
+  cuatro facultades no tiene carta, tiene costumbre.
+- Demos: open-school 200 y ManosAbiertas 200 (Vercel). `aprende-brasil` y `secure-t` **sin demo
+  pública**: se sirven clonando. Es el hueco más caro de la familia.
+- ECOSISTEMA.md enlaza EDUCACION.md; verificado por diff: 0 líneas borradas, +86 bytes.
+
 Pendiente y por qué:
 - Forks públicos (`OmniRoute`, `ace-step-ui`): solo se ocultan desde la web.
 - Repos pinned: solo desde la web.
