@@ -40,3 +40,7 @@ Ruta nueva `/archivo`: separa lanzamientos, escenario y obras en estudio. Reutil
 Origen: `belentani-omega-immersive-portal/js/07-portal.js`, cinco gemas, cinco estados e invitación a explorar. El archivo anterior dependía de THREE/GSAP/Tone y almacenaba el progreso en localStorage. La **adaptación segura** usa `artist-os/portal.html`, `portal.css` y `portal.js` con cinco facetas orientadas a obras: Origen→Música, Fuego→JUDAS, Vuelo→OMEGA, Eco→Sound Lab, Memoria→Archivo. El avance solo vive en memoria durante la visita, sin rastreo ni enlaces externos. Solo CSS procedural (sin imágenes), teclado 1–5 y flechas, `prefers-reduced-motion` y alternativa sin JavaScript. Las cinco puertas están abiertas desde el inicio; completar el recorrido no bloquea nada.
 
 El ordenador enlaza la Pentada desde la portada; `scripts/publish-artist-os.mjs` publica sus tres assets y la incorpora al catálogo HTTP público de **14 rutas**. Ningún archivo privado de Drive o PC se importa.
+
+## Recuperación segura del PC desconectado
+
+Se incorpora scripts/sync-pc-git-safe.ps1 para inventario de los repos locales, fetch opcional sin tocar working trees y una vista previa aislada opcional de PR #92. El PC no estaba conectado en esta sesión y **no se ha ejecutado este script en Windows**. Uso y garantía de no sobrescritura en docs/plans/2026-11-17-safe-pc-git-sync.md. El chequeo estático obligatorio en builds es scripts/check-pc-sync-contract.mjs.
