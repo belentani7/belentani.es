@@ -5,6 +5,19 @@ const own=document.currentScript&&document.currentScript.src;
 if(!own)return;
 const home=new URL('./index.html',own);
 if(location.pathname.endsWith('/artist-os/index.html')||document.getElementById('belentani-os-access'))return;
+// The same material travels with the visitor: browser-native ruby metal, not imagery.
+document.documentElement.setAttribute('data-belentani-os-skin','ruby-v1');
+const material=document.createElement('link');
+material.rel='stylesheet';material.href=new URL('./material.css',own).href;
+material.setAttribute('data-belentani-os-material','ruby-v1');document.head.append(material);
+const veil=document.createElement('div');veil.id='belentani-ruby-material';veil.setAttribute('aria-hidden','true');document.body.append(veil);
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ let next=0;document.addEventListener('pointermove',e=>{
+  if(e.pointerType==='touch'||performance.now()-next<90)return;next=performance.now();
+  document.documentElement.style.setProperty('--bel-ruby-pointer-x',Math.round(e.clientX/Math.max(1,innerWidth)*100)+'%');
+  document.documentElement.style.setProperty('--bel-ruby-pointer-y',Math.round(e.clientY/Math.max(1,innerHeight)*100)+'%');
+ },{passive:true});
+}
 const host=document.createElement('div');host.id='belentani-os-access';
 const shadow=host.attachShadow({mode:'open'});
 const style=document.createElement('style');

@@ -52,15 +52,16 @@
  }
  function makeEntry(x){
   const anchor=document.createElement('a');anchor.className='entry';anchor.href=x.href;
+  const localHtml=x.kind==='source'&&x.href.startsWith('../../');
   if(x.kind!=='page'){anchor.target='_blank';anchor.rel='noopener noreferrer'}
-  anchor.title=x.kind==='page'?'Abrir página del sitio':x.kind==='drive'?'Abrir archivo de Drive':'Ver archivo en el repositorio GitHub';
+  anchor.title=x.kind==='page'?'Abrir página del sitio':x.kind==='drive'?'Abrir archivo de Drive':localHtml?'Abrir HTML local en otra pestaña':'Ver archivo en GitHub';
   const left=document.createElement('span'),right=document.createElement('span');
   left.style.minWidth='0';
   const name=document.createElement('span');name.className='entry-title';name.textContent=escapeTag(x.title);
   const meta=document.createElement('span');meta.className='entry-meta';meta.textContent=x.repo+' / '+x.path+(x.red?' / RUBY':'');
   left.append(name,meta);
   right.className='entry-tag';
-  const tag=document.createElement('span');tag.textContent=x.kind==='page'?'PÁGINA':x.kind==='drive'?'DRIVE':'GITHUB';
+  const tag=document.createElement('span');tag.textContent=x.kind==='page'?'PÁGINA':x.kind==='drive'?'DRIVE':localHtml?'LOCAL':'GITHUB';
   const arrow=document.createElement('span');arrow.className='entry-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent=x.kind==='page'?'↗':'↗';
   right.append(tag,arrow);anchor.append(left,right);
   anchor.addEventListener('click',()=>{
@@ -88,7 +89,7 @@
   more.textContent='VER MÁS ARCHIVOS  ↓  ('+(matches.length-state.limit)+' RESTANTES)';
   const mode=state.query?'INDEX / SEARCH':z.label+' / '+matches.length+' ENTRADAS';
   status.textContent='BELENTANI OS / '+mode;
-  summary.textContent=(catalog.total||items.length)+' ENTRADAS · '+items.filter(x=>x.kind==='page').length+' PÁGINAS LOCALES · GITHUB · DRIVE';
+  summary.textContent=(catalog.total||items.length)+' ENTRADAS · '+items.filter(x=>x.kind==='page').length+' PÁGINAS DEL SITIO'+(items.some(x=>x.kind==='source'&&x.href.startsWith('../../'))?' · HTML LOCALES · DRIVE':' · CATÁLOGO PÚBLICO');
  }
  document.querySelectorAll('button[data-zone]').forEach(button=>button.addEventListener('click',()=>selectZone(button.dataset.zone)));
  window.addEventListener('hashchange',()=>selectZone(cleanZone(),false));
@@ -102,6 +103,7 @@
    if(state.on)render();
  });
  const help=$('help-dialog');$('help-button').addEventListener('click',()=>help.showModal());
+ if(location.pathname.endsWith('/private.html')){const paras=help.querySelectorAll('p');if(paras[1])paras[1].textContent='La vista privada abre los HTML de otros repositorios directamente desde el disco, en una pestaña nueva; el ordenador sigue abierto para volver. Drive permanece externo. No publiques este inventario.'}
  document.addEventListener('keydown',e=>{
    if(e.key==='Escape'&&help.open)return;
    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(!state.on)power.click();search.focus();search.select();return}

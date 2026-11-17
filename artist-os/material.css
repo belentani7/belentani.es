@@ -1,0 +1,83 @@
+/* BELENTANI / RUBY ALLOY — shared procedural material for legacy artistic HTML.
+   This is real browser CSS: no images, fonts, pseudo-URLs or external libraries.
+   The layer is intentionally additive: existing layouts and artwork remain intact. */
+html[data-belentani-os-skin="ruby-v1"]{
+ --bel-ruby-light:#ffb0c6;
+ --bel-ruby-hot:#e34c77;
+ --bel-ruby-mid:#a72d53;
+ --bel-ruby-dark:#340918;
+ --bel-ruby-black:#090307;
+ --bel-ruby-pointer-x:50%;
+ --bel-ruby-pointer-y:35%;
+ --bel-ruby-chrome:linear-gradient(174deg,
+  #ffe0e8 0%,#f8698f 13%,#ae2e58 27%,#ff84a0 39%,
+  #622039 49%,#f96388 61%,#b82e56 76%,#ffc0d0 90%,#7e2142 100%);
+ accent-color:#de4773;
+ scrollbar-color:#722444 #0c0711;
+}
+html[data-belentani-os-skin="ruby-v1"] ::selection{
+ background:#a72d53;
+ color:#fff0f3;
+}
+html[data-belentani-os-skin="ruby-v1"] a:focus-visible,
+html[data-belentani-os-skin="ruby-v1"] button:focus-visible{
+ outline:2px solid #f06f94;
+ outline-offset:3px;
+}
+html[data-belentani-os-skin="ruby-v1"] :is(main h1,main h2,.hero h1,.hero-title):not([data-belentani-plain-title]){
+ background-image:var(--bel-ruby-chrome);
+ background-size:100% 100%;
+ background-position:50% 38%;
+ -webkit-background-clip:text;
+ background-clip:text;
+ -webkit-text-fill-color:transparent;
+ color:#ed7297;
+ filter:drop-shadow(0 2px 12px rgba(151,18,56,.12));
+}
+html[data-belentani-os-skin="ruby-v1"] :is(main h1,main h2,.hero h1,.hero-title):not([data-belentani-plain-title])::selection{
+ -webkit-text-fill-color:#fff2f5;
+ background:#8b1c41;
+}
+html[data-belentani-os-skin="ruby-v1"] a:hover{
+ text-decoration-color:#d6587c;
+}
+#belentani-ruby-material{
+ position:fixed;
+ inset:0;
+ z-index:15;
+ pointer-events:none;
+ overflow:hidden;
+ opacity:.62;
+ isolation:isolate;
+ background:
+  radial-gradient(ellipse 48vw 34vh at var(--bel-ruby-pointer-x) var(--bel-ruby-pointer-y),
+    rgba(196,24,78,.058),transparent 74%),
+  linear-gradient(90deg,rgba(179,40,78,.06),transparent 7%,transparent 93%,rgba(172,26,73,.055));
+}
+#belentani-ruby-material::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ pointer-events:none;
+ background:repeating-linear-gradient(111deg,
+  rgba(242,107,147,.018) 0 1px,
+  transparent 1px 7px,
+  rgba(6,1,5,.012) 7px 8px,
+  transparent 8px 15px);
+ opacity:.48;
+ mix-blend-mode:screen;
+}
+#belentani-ruby-material::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ border:1px solid rgba(220,76,115,.07);
+ box-shadow:inset 0 0 60px rgba(100,12,43,.06);
+ pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+ #belentani-ruby-material{background:linear-gradient(90deg,rgba(170,30,64,.025),transparent 8%,transparent 92%,rgba(170,30,64,.025))}
+}
+@media(max-width:700px){
+ #belentani-ruby-material{opacity:.35}
+}

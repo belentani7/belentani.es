@@ -15,7 +15,7 @@ La metáfora organiza las obras:
 
 ## Entrada y preservación
 
-La **rama de trabajo** usa el root /index.html como puerta de entrada a /artist-os/index.html. La antigua portada se conserva **completa** y accesible en /legacy-home.html. Las otras 13 páginas artísticas HTML del repo principal incorporan un acceso discreto al ordenador, aislado mediante Shadow DOM.
+La **rama de trabajo** usa el root /index.html como puerta de entrada a /artist-os/index.html. La antigua portada se conserva **completa** y accesible en /legacy-home.html. Las otras 13 páginas artísticas HTML del repo principal incorporan un acceso discreto al ordenador, aislado mediante Shadow DOM. Las 14 páginas originales, incluida legacy-home, comparten la capa procedural /artist-os/material.css: reflejos de rubí, títulos cromados, bordes y textura ligera. Sin imágenes.
 
 La rama de trabajo NO está fusionada en main y NO está desplegada en producción.
 
@@ -27,7 +27,7 @@ La rama de trabajo NO está fusionada en main y NO está desplegada en producci�
   C:\Users\USER\Documents\00_REPOS\_PRIVATE_BELENTANI_OS
 - Su generador separado es build-private-catalog.mjs, también fuera de Git; incluye referencias a repositorios privados y archivos de Drive, así que NO debe publicarse.
 - /artist-os/private.html es el explorador local completo y está excluido de Git mediante .gitignore; se abre únicamente en el equipo autorizado.
-- Los HTML que utilizan rojo son **candidatos a clasificar**, no material autorizado automáticamente para su publicación. Antes de integrar una edición se revisan contenido, licencias, secretos y estado de accesibilidad.
+- En la vista privada, las entradas HTML se abren como archivos locales reales desde los otros repositorios, en pestaña aparte para conservar el ordenador como referencia. Algunos HTML históricos que dependen de servidores o servicios externos pueden necesitar su propio entorno de ejecución.\n- Los HTML que utilizan rojo son **candidatos a clasificar**, no material autorizado automáticamente para su publicación. Antes de integrar una edición se revisan contenido, licencias, secretos y estado de accesibilidad.
 
 ## Navegación reversible
 
