@@ -63,3 +63,17 @@ __pycache__/
 # repo-forge
 .venv/
 *.log
+
+# metadatos de desarrollo: locales, no versionados
+.cursor/
+.vscode/
+.aider*
+BIO.md
+REPO.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.next/
