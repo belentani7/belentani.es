@@ -15,7 +15,7 @@ test('runtime catalog includes curated first-party destinations without local or
   const response = await request.get('/artist-os/catalog.json');
   expect(response.status()).toBe(200);
   const data = await response.json();
-  expect(data.total).toBe(14);
+  expect(data.total).toBe(15);
   expect(data.items.every((item: {href: string}) => /^\.\.\/[a-z0-9/-]+(?:\.html)?$/.test(item.href))).toBe(true);
   expect(data.source).toBe('Curated first-party Next.js routes; not the private vault');
   expect(data.items.every((item: {kind: string}) => item.kind === 'page')).toBe(true);
@@ -65,10 +65,26 @@ test('PENTADA has five accessible, same-origin doors with keyboard navigation', 
   await expect(page.locator('#detail-link')).toHaveAttribute('href', '../judas');
   await expect(page.locator('#progress-count')).toHaveText('1 / 5');
   await page.keyboard.press('3');
-  await expect(page.locator('#detail-link')).toHaveAttribute('href', '../omega-living.html');
+  await expect(page.locator('#detail-link')).toHaveAttribute('href', '../omega-cosmos.html');
   await expect(page.locator('#progress-count')).toHaveText('2 / 5');
   for (const i of [0, 3, 4]) await page.locator('button[data-gem="' + i + '"]').click();
   await expect(page.locator('#progress-count')).toHaveText('5 / 5');
   await expect(page.getByRole('status')).toContainText('PENTADA COMPLETA');
   await expect(page.getByRole('link', { name: 'REGRESAR A LA MÁQUINA' })).toHaveAttribute('href','./index.html');
+});
+
+test('OMEGA COSMOS from Drive is autonomous and retains first-party exits', async ({ request, page }) => {
+  const response = await request.get('/omega-cosmos.html');
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('text/html');
+  const html = await response.text();
+  expect(html).toContain('50 GALÁXIAS');
+  expect(html).not.toContain('drive.google.com');
+  expect(html).not.toContain('localStorage');
+  expect(html).not.toContain('data:image/svg+xml');
+  await page.goto('/omega-cosmos.html', { waitUntil: 'domcontentloaded', timeout: 45000 });
+  await expect(page.locator('#world-canvas')).toHaveCount(1);
+  await expect(page.locator('#galaxy-list')).toHaveCount(1);
+  await expect(page.locator('a.identity')).toHaveAttribute('href', '/');
+  await expect(page.locator('#classic-link')).toHaveAttribute('href', '/atlas');
 });

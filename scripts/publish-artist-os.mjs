@@ -14,6 +14,7 @@ const records = [
   { key: 'music', title: 'Escuchar la obra · Discografía', url: '/musica', zone: 'music' },
   { key: 'judas-era', title: 'JUDAS · La era', url: '/judas-era', zone: 'world' },
   { key: 'judas', title: 'JUDAS · Experiencia', url: '/judas', zone: 'world' },
+  { key: 'omega-cosmos', title: 'OMEGA COSMOS · 50 galaxias autónomas', url: '/omega-cosmos.html', zone: 'world' },
   { key: 'omega', title: 'OMEGA · Universo vivo', url: '/omega-living.html', zone: 'world' },
   { key: 'pentada', title: 'PENTADA · Cinco puertas narrativas', url: '/artist-os/portal.html', zone: 'world' },
   { key: 'atlas', title: 'Atlas vivo · Galaxia original', url: '/atlas', zone: 'world' },
@@ -36,6 +37,7 @@ for (const filename of assets) {
   if (!fs.existsSync(path.join(source, filename))) throw Error('Missing artist OS source: ' + filename);
 }
 if (!fs.existsSync(path.join(root, 'public', 'omega-living.html'))) throw Error('OMEGA scene missing');
+if (!fs.existsSync(path.join(root, 'public', 'omega-cosmos.html'))) throw Error('OMEGA COSMOS scene missing');
 if (!fs.existsSync(path.join(root, 'app', 'atlas', 'page.tsx'))) throw Error('Atlas page missing');
 if (!fs.existsSync(path.join(root, 'app', 'archivo', 'page.tsx'))) throw Error('Archive page missing');
 const items = records.map(({ key, title, url, zone }) => ({

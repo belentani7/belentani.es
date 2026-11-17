@@ -44,3 +44,11 @@ El ordenador enlaza la Pentada desde la portada; `scripts/publish-artist-os.mjs`
 ## Recuperación segura del PC desconectado
 
 Se incorpora scripts/sync-pc-git-safe.ps1 para inventario de los repos locales, fetch opcional sin tocar working trees y una vista previa aislada opcional de PR #92. El PC no estaba conectado en esta sesión y **no se ha ejecutado este script en Windows**. Uso y garantía de no sobrescritura en docs/plans/2026-11-17-safe-pc-git-sync.md. El chequeo estático obligatorio en builds es scripts/check-pc-sync-contract.mjs.
+
+## OMEGA COSMOS — Selección de Drive y conversión autónoma
+
+Fuente: BELENTANI_OMEGA_COSMOS_ABRIR.html. Comparación con BELENTANI_BOSQUE_CRISTAL.html (363 KB), dos Bosques de Cristal WebGL de aproximadamente 1,8 MB y OMEGA_MERGED.html (143 KB y varias dependencias externas). La opción autónoma tiene 8 mundos y 50 galaxias con motor Canvas/WebGL empaquetado, y pesa aproximadamente 197 KB.
+
+Ruta nueva /omega-cosmos.html: enlaces relativos corregidos a / y /atlas, almacenamiento sessionStorage efímero y textura SVG reemplazada por un degradado CSS. Fuente Drive original intacta. La auditoría no encontró credenciales, correos, nombres personales sensibles ni URLs de red en el código adaptado.
+
+OMEGA Living sigue en paralelo. PENTADA abre Cosmos desde la gema VUELO. El catálogo contiene 15 destinos HTTP, comprobados por Playwright.

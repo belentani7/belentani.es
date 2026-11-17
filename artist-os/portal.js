@@ -5,7 +5,7 @@
   const gates = Object.freeze([
     { name: 'ORIGEN', title: 'LA VOZ', description: 'La música es el principio: una voz, canciones, fechas y ediciones que anteceden a todos los mundos.', coordinate: 'CANAL 01 · MÚSICA / DISCOGRAFÍA', href: '../musica', action: 'ENTRAR EN LA MÚSICA', color: '#ff769a' },
     { name: 'FUEGO', title: 'JUDAS', description: 'El fuego de una era. Música oscura, símbolos y un relato que se cuenta a través de distintas estancias.', coordinate: 'CANAL 02 · JUDAS / EXPERIENCIA', href: '../judas', action: 'ATRAVESAR JUDAS', color: '#ff3b59' },
-    { name: 'VUELO', title: 'OMEGA', description: 'La obra deja el suelo: planeta, diamante, luz y movimiento en el universo inmersivo.', coordinate: 'CANAL 03 · OMEGA / ESCENA', href: '../omega-living.html', action: 'VIAJAR A OMEGA', color: '#7be3e9' },
+    { name: 'VUELO', title: 'OMEGA', description: 'La obra deja el suelo: planeta, diamante, luz y movimiento en el universo inmersivo.', coordinate: 'CANAL 03 · OMEGA / ESCENA', href: '../omega-cosmos.html', action: 'VIAJAR A OMEGA', color: '#7be3e9' },
     { name: 'ECO', title: 'STUDIO', description: 'Una máquina que responde al tacto. Experimenta con la síntesis sonora y compón una pequeña secuencia.', coordinate: 'CANAL 04 · STUDIO / SOUND LAB', href: './lab.html', action: 'ABRIR SOUND LAB', color: '#e2b869' },
     { name: 'MEMORIA', title: 'ARCHIVO', description: 'Las primeras canciones, los escenarios y las ideas que todavía esperan su edición. El pasado no desaparece.', coordinate: 'CANAL 05 · ARCHIVO / EDICIONES', href: '../archivo', action: 'ENTRAR EN EL ARCHIVO', color: '#d9bbf6' }
   ]);

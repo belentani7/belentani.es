@@ -55,8 +55,12 @@ La raíz de Git contiene 386 HTML históricos, pero no todos corresponden a ruta
 
 ## Instrumento integrado · Sound Lab
 
-Una adaptación funcional y libre de credenciales del motor de WebAudio de Studio (belentani-artista-unified, commit 50dc183) vive en la ruta pública `/artist-os/lab.html`: síntesis original en tres materiales, teclado accesible, secuenciador de ocho pasos y visualizador de audio. No solicita micrófono, no guarda claves ni llama a servicios externos. El catálogo público contiene ahora 14 destinos publicables seleccionados. Las fuentes completas del Studio y su sistema de AI permanecen separados.
+Una adaptación funcional y libre de credenciales del motor de WebAudio de Studio (belentani-artista-unified, commit 50dc183) vive en la ruta pública `/artist-os/lab.html`: síntesis original en tres materiales, teclado accesible, secuenciador de ocho pasos y visualizador de audio. No solicita micrófono, no guarda claves ni llama a servicios externos. El catálogo público contiene ahora 15 destinos publicables seleccionados. Las fuentes completas del Studio y su sistema de AI permanecen separados.
 
 ## PENTADA · Origen OMEGA
 
-Se incorpora una nueva experiencia de cinco gemas desde `belentani-omega-immersive-portal/js/07-portal.js`, con rutas propias publicadas, teclado y estado efímero: `artist-os/portal.html`, `portal.css` y `portal.js`. Es una adaptación técnica ligera; no se copia el motor Three.js/GSAP/Tone del portal original. El acceso aparece también en la introducción del ordenador. El catálogo público curado contiene 14 destinos y todos se verifican por HTTP en Playwright.
+Se incorpora una nueva experiencia de cinco gemas desde `belentani-omega-immersive-portal/js/07-portal.js`, con rutas propias publicadas, teclado y estado efímero: `artist-os/portal.html`, `portal.css` y `portal.js`. Es una adaptación técnica ligera; no se copia el motor Three.js/GSAP/Tone del portal original. El acceso aparece también en la introducción del ordenador. El catálogo público curado contiene 15 destinos publicables seleccionados y todos se verifican por HTTP en Playwright.
+
+## OMEGA COSMOS recuperado desde Drive
+
+Experiencia autónoma de 8 mundos y 50 galaxias, revisada y adaptada sin secretos, externas ni texturas de imagen. Archivo público /omega-cosmos.html, accesible en PENTADA y en el catálogo de 15 destinos. El OMEGA Living previo se conserva. Las versiones WebGL de Bosque de Cristal (1,8 MB) permanecen en Drive pendientes de optimización y revisión antes de publicarse.
