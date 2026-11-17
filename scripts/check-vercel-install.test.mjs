@@ -64,11 +64,24 @@ test('Vercel bundle keeps mandatory local build modules, PostCSS and canonical a
     ['scripts/check-renderer-stack.mjs', '*.mjs'],
     ['postcss.config.mjs', '*.mjs'],
     ['public/assets/judas-canon/manifest.json', '*.json'],
+    ['src/locales/*.json', '*.json'],
+    ['data/*.json', '*.json'],
+    ['data/*.mjs', '*.mjs'],
   ];
   for (const [file, wildcard] of required) {
     const ignoreAt = lines.indexOf(wildcard);
     const allowAt = lines.indexOf('!' + file);
     assert.ok(ignoreAt >= 0, 'Missing wildcard boundary: ' + wildcard);
     assert.ok(allowAt > ignoreAt, 'Vercel excludes required build resource: ' + file);
+  }
+});
+
+
+test('all shipped locale JSON files are parseable and covered by Vercel exceptions', () => {
+  const localeDir = new URL('../src/locales/', import.meta.url);
+  const localeFiles = readdirSync(localeDir).filter((file) => file.endsWith('.json'));
+  assert.ok(localeFiles.length >= 9, 'Expected the shipped locale JSON files');
+  for (const locale of localeFiles) {
+    assert.doesNotThrow(() => JSON.parse(readFileSync(new URL(locale, localeDir), 'utf8')), `Malformed locale: ${locale}`);
   }
 });
