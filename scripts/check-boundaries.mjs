@@ -29,9 +29,18 @@ function walk(dir, rootName) {
     // Universo procedural heredado (paleta/canon en blob grande): no bloquea el shell.
     if (/BelentaniUniverse\.jsx$/i.test(file)) continue;
     // No leer HTML/JS gigantes del vault público
-    const stat = fs.statSync(file);
-    if (stat.size > 400_000) continue;
-    const text = fs.readFileSync(file, 'utf8');
+    // Check size and read from the same open descriptor to avoid a stat/read race.
+    const fd = fs.openSync(file, 'r');
+    let text;
+    try {
+      const size = fs.fstatSync(fd).size;
+      if (size > 400_000) continue;
+      const buffer = Buffer.alloc(size);
+      const bytes = fs.readSync(fd, buffer, 0, size, 0);
+      text = buffer.toString('utf8', 0, bytes);
+    } finally {
+      fs.closeSync(fd);
+    }
     if (/\.[jt]sx?$/.test(file) && !file.endsWith('boundaries.ts')) {
       const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true);
       const visit = (node) => {

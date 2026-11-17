@@ -26,9 +26,12 @@ for(const item of catalog.items.filter(x=>x.kind==='page'&&x.repo==='belentani.e
  const injection='<script '+marker+' data-belentani-os-theme="'+theme+'" src="'+link+'" defer></script>';
  if(mode==='undo'){
   if(!source.includes(marker)||!fs.existsSync(backup)){skipped++;continue}
-  const after=source.replace(new RegExp('(?:\\r?\\n)?<script[^>]+data-belentani-os="ruby-v1"[^>]*></script>(?:\\r?\\n)?','i'),'');
-  if(after!==fs.readFileSync(backup,'utf8')){console.log('SKIP: changed since integration:',relative);skipped++;continue}
-  fs.writeFileSync(file,fs.readFileSync(backup));changed++;continue;
+  const original=fs.readFileSync(backup,'utf8');
+  const originalBodyEnd=original.toLowerCase().lastIndexOf('</body>');
+  if(originalBodyEnd<0){errors++;continue}
+  const expected=original.slice(0,originalBodyEnd)+'\n'+injection+'\n'+original.slice(originalBodyEnd);
+  if(source!==expected){console.log('SKIP: changed since integration:',relative);skipped++;continue}
+  fs.writeFileSync(file,original,'utf8');changed++;continue;
  }
  if(source.includes(marker)){skipped++;continue}
  const bodyEnd=source.toLowerCase().lastIndexOf('</body>');
