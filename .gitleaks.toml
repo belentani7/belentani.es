@@ -25,6 +25,7 @@ keywords = ["vercel_"]
 
 # Narrow exact allowlist for this audited NON-secret state namespace.
 # Match only the literal extracted by generic-api-key; all other keys remain scanned.
-[[allowlists]]
-description = "Exact OMEGA COSMOS public session namespace, no other values"
+[allowlist]
+# Gitleaks 8.24 uses a singular top-level allowlist table.
+regexTarget = "secret"
 regexes = ['''^belentani_omega_cosmos_v2$''']
