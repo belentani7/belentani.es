@@ -100,3 +100,10 @@ Consulta `package.json` para la lista completa de scripts disponibles.
 ## Contexto de plataforma
 
 Consulta la [ficha del producto](plataforma/FICHA.md) y el [plan de verificación del catálogo](docs/plans/2026-11-12-catalogo-verificable.md). Las cifras del inventario no equivalen a funcionalidades verificadas.
+
+## Verificacion
+
+```bash
+npm install
+npm test
+```
