@@ -4,7 +4,7 @@ test('galaxy navigation remains usable after Three.js dependency upgrades', asyn
   const runtimeErrors: string[] = [];
   page.on('pageerror', (error) => runtimeErrors.push(error.message));
 
-  await page.goto('/');
+  await page.goto('/atlas');
 
   await expect(page.getByRole('heading', { level: 1, name: /atraviesa.*la galaxia/i })).toBeVisible();
   await expect(page.getByRole('link', { name: 'ESCUCHAR LA OBRA', exact: true })).toHaveAttribute('href', '/musica');
@@ -28,7 +28,7 @@ test('galaxy navigation remains usable after Three.js dependency upgrades', asyn
 
 
 test('homepage links retain readable contrast, touch targets and visible brand names', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/atlas');
   await expect(page.getByRole('link', { name: /^B7.*página del artista/i })).toBeVisible();
   const listen = page.getByRole('link', { name: 'ESCUCHAR LA OBRA', exact: true });
   const appearance = await listen.evaluate((element) => {

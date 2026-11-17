@@ -46,3 +46,8 @@ Informe privado: `_PRIVATE_BELENTANI_OS/INFORME_INVENTARIO_AMPLIADO_2026-11-17.m
 - La escena WebGL pesada `public/omega-living.html` no terminó la navegación de prueba headless dentro del tiempo asignado; requiere verificación en navegador normal.
 
 **Esta rama y PR siguen en borrador. No se ha reemplazado la web pública actual ni se ha fusionado en main.**
+
+
+## Entrada pública real con Next.js
+
+La raíz de Git contiene 386 HTML históricos, pero no todos corresponden a rutas HTTP publicadas. La nueva integración copia el ordenador a `public/artist-os/` durante `predev`/`prebuild` y genera un catálogo público **reducido a 11 destinos artísticos reales**. El inventario completo, los HTML técnicos y los archivos privados de Drive permanecen separados de la portada pública. `/` abre el ordenador; la galaxia original se conserva en `/atlas`. Los reflejos y cantos cromados de `belentani-artista-unified` se han adaptado a `studio-reflections.css` sin importar la configuración de claves AI del estudio. Comprobación sin escribir: `node scripts/publish-artist-os.mjs --check`. Validación HTTP: `tests/e2e/artist-os-runtime.spec.ts`.

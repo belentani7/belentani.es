@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "prebuild": "node scripts/check-boundaries.mjs && node scripts/check-renderer-stack.mjs",
+    "prebuild": "node scripts/publish-artist-os.mjs && node scripts/check-boundaries.mjs && node scripts/check-renderer-stack.mjs",
     "check:boundaries": "node scripts/check-boundaries.mjs",
     "dev": "next dev",
     "build": "next build",
@@ -21,7 +21,9 @@
     "assets:download": "node scripts/download-assets.js",
     "assets:process": "node scripts/process-assets.js",
     "assets": "pnpm assets:download && pnpm assets:process",
-    "check:renderer": "node scripts/check-renderer-stack.mjs && node --test scripts/check-renderer-stack.test.mjs"
+    "check:renderer": "node scripts/check-renderer-stack.mjs && node --test scripts/check-renderer-stack.test.mjs",
+    "predev": "node scripts/publish-artist-os.mjs",
+    "check:artist-os": "node scripts/publish-artist-os.mjs --check"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",
