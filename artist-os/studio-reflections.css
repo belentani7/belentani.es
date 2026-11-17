@@ -1,0 +1,40 @@
+/* Selective visual synthesis of BELENTANI Studio, commit 50dc183.
+   Chrome by CSS gradients and physical reflections; no images, fonts, tokens or AI key handling. */
+:root {
+  --studio-rim: linear-gradient(148deg,#ffe9ef,#ff8daa 11%,#811c3f 34%,#1d0714 49%,#fb8ca7 65%,#fff0f3 81%,#79152f);
+}
+.workstation .hardware {
+  background:
+    radial-gradient(ellipse 110% 60% at var(--mx,50%) var(--my,24%),rgba(255,170,201,.11),transparent 58%),
+    repeating-linear-gradient(103deg,rgba(255,201,214,.023) 0 1px,rgba(3,0,0,.02) 1px 4px,transparent 4px 10px),
+    linear-gradient(140deg,#521726 0%,#120b12 12%,#39121f 25%,#1a1017 46%,#090609 50%,#421122 66%,#1b0b15 85%,#5d1a30 100%);
+  box-shadow:0 22px 54px rgba(0,0,0,.65),0 3px 0 rgba(255,215,228,.15) inset,0 -26px 50px rgba(186,20,73,.095) inset,0 0 24px rgba(245,56,109,.09);
+}
+.workstation .monitor-cradle {
+  background:var(--studio-rim);
+  border:1px solid rgba(255,180,204,.27);
+  box-shadow:0 0 0 1px rgba(97,22,45,.9),inset 0 2px 5px rgba(255,241,245,.24),0 8px 15px rgba(0,0,0,.7);
+}
+.workstation .screen-rim {
+  border:1px solid rgba(255,152,187,.21);
+  background:linear-gradient(147deg,#040204,#561a32 8%,#080409 18%,#040204 75%,#8c2f4b 96%,#13050f);
+}
+.workstation .screen-top {
+  background:radial-gradient(ellipse 75% 130% at var(--mx,50%) -15%,rgba(241,111,158,.16),transparent),linear-gradient(180deg,rgba(120,30,60,.32),rgba(20,9,19,.52));
+  box-shadow:0 1px rgba(255,199,220,.12) inset;
+}
+.workstation .entry {
+  background:radial-gradient(ellipse 110% 80% at 6% -30%,rgba(255,224,234,.08),transparent 60%),linear-gradient(110deg,rgba(52,15,35,.75),rgba(12,8,15,.83));
+  box-shadow:0 1px 0 rgba(255,217,232,.10) inset,0 10px 24px rgba(0,0,0,.17);
+  backdrop-filter:blur(14px) saturate(145%);
+}
+.workstation .entry:hover,.workstation .entry:focus-visible {
+  border-color:rgba(255,151,191,.67);
+  box-shadow:0 1px 0 rgba(255,230,240,.18) inset,0 0 26px rgba(253,62,117,.11);
+}
+.workstation .keyboard button:focus-visible,.workstation .tower button:focus-visible {outline:2px solid #ffd5e1;outline-offset:4px}
+@media(max-width:700px) {
+  .workstation .entry {backdrop-filter:none}
+  .workstation .hardware {box-shadow:0 14px 35px rgba(0,0,0,.5),0 1px rgba(255,213,228,.15) inset}
+}
+@media(prefers-reduced-transparency:reduce) {.workstation .entry {background:#160c14;backdrop-filter:none}}
