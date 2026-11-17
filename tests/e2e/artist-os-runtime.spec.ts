@@ -17,10 +17,16 @@ test('runtime catalog includes curated first-party destinations without local or
   const data = await response.json();
   expect(data.total).toBe(11);
   expect(data.items.every((item: {href: string}) => /^\.\.\/[a-z0-9/-]+(?:\.html)?$/.test(item.href))).toBe(true);
-  expect(JSON.stringify(data)).not.toMatch(/C:\\Users|drive\.google\.com|_PRIVATE_BELENTANI_OS/);
-  const omega = await request.get('/omega-living.html');
-  expect(omega.status()).toBe(200);
-  expect(omega.headers()['content-type']).toContain('text/html');
+  expect(data.source).toBe('Curated first-party Next.js routes; not the private vault');
+  expect(data.items.every((item: {kind: string}) => item.kind === 'page')).toBe(true);
+  const base = 'https://belentani.es/artist-os/index.html';
+  for (const entry of data.items as Array<{title: string; href: string}>) {
+    const url = new URL(entry.href, base);
+    expect(url.origin, 'Only same-origin artist destinations are public').toBe('https://belentani.es');
+    const linked = await request.get(url.pathname);
+    expect(linked.status(), 'Broken artist destination: ' + entry.title).toBe(200);
+    expect(linked.headers()['content-type']).toContain('text/html');
+  }
 });
 
 test('the legacy interactive atlas is preserved at its own route', async ({ page }) => {
