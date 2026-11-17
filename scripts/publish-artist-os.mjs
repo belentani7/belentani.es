@@ -20,6 +20,7 @@ const records = [
   { key: 'gallery', title: 'Galería · Escenas del universo', url: '/galeria', zone: 'visual' },
   { key: 'studio', title: 'Estudio creativo · Sonido y materia', url: '/studio-creativo', zone: 'studio' },
   { key: 'sound-lab', title: 'Sound Lab · Sintetizador en directo', url: '/artist-os/lab.html', zone: 'studio' },
+  { key: 'archive', title: 'Archivo · Música y ediciones', url: '/archivo', zone: 'archive' },
   { key: 'lore', title: 'Archivo vivo · El relato', url: '/lore', zone: 'archive' },
   { key: 'press', title: 'Prensa · Canales oficiales', url: '/prensa', zone: 'archive' }
 ];
@@ -35,6 +36,7 @@ for (const filename of assets) {
 }
 if (!fs.existsSync(path.join(root, 'public', 'omega-living.html'))) throw Error('OMEGA scene missing');
 if (!fs.existsSync(path.join(root, 'app', 'atlas', 'page.tsx'))) throw Error('Atlas page missing');
+if (!fs.existsSync(path.join(root, 'app', 'archivo', 'page.tsx'))) throw Error('Archive page missing');
 const items = records.map(({ key, title, url, zone }) => ({
   id: 'artist-canon/' + key,
   title, zone, kind: 'page', href: '..' + url,

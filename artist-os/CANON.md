@@ -30,3 +30,7 @@ El controlador WebAudio del Studio original se redujo a síntesis local de tres 
 ## Lighthouse
 
 El informe de la auditoría del 17-11-2026 marcó contraste insuficiente en `.help` y divergencia entre las etiquetas visibles y los nombres accesibles de tres botones físicos. Se ajustó el contraste y se eliminó el aria-label redundante de esos botones: sus nombres accesibles proceden ahora del texto visible. Reejecutar Lighthouse antes de aprobar.
+
+## Archivo editorial (de belentani-webs-historicas a un canon de músico)
+
+Ruta nueva `/archivo`: separa lanzamientos, escenario y obras en estudio. Reutiliza la idea de navegación histórica del archivo de webs de BELENTANI, pero **no copia sus HTML en masa**. Beautiful Skies (2020) y Therapist/Terapeuta (2023) se identifican como publicados; Cassandra y O Avesso do Mar como procesos en desarrollo. Mantiene rutas hacia música, JUDAS y estudio sin presentar bocetos como singles estrenados. El catálogo del ordenador pasa a 13 destinos, exclusivamente públicos.

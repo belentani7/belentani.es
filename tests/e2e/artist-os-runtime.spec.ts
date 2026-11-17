@@ -15,7 +15,7 @@ test('runtime catalog includes curated first-party destinations without local or
   const response = await request.get('/artist-os/catalog.json');
   expect(response.status()).toBe(200);
   const data = await response.json();
-  expect(data.total).toBe(12);
+  expect(data.total).toBe(13);
   expect(data.items.every((item: {href: string}) => /^\.\.\/[a-z0-9/-]+(?:\.html)?$/.test(item.href))).toBe(true);
   expect(data.source).toBe('Curated first-party Next.js routes; not the private vault');
   expect(data.items.every((item: {kind: string}) => item.kind === 'page')).toBe(true);
@@ -44,4 +44,14 @@ test('the original Sound Lab plays only after user activation and keeps a return
   await page.getByRole('button', { name: 'INICIAR SECUENCIA' }).click();
   await expect(page.getByRole('button', { name: 'DETENER SECUENCIA' })).toBeVisible();
   await page.getByRole('button', { name: 'DETENER SECUENCIA' }).click();
+});
+
+test('the artist archive separates confirmed releases from work in development', async ({ page }) => {
+  await page.goto('/archivo');
+  await expect(page.getByRole('heading', {level:1,name:/La memoria también/i})).toBeVisible();
+  await expect(page.getByRole('heading', {name:'Beautiful Skies'})).toBeVisible();
+  await expect(page.getByRole('heading', {name:'Therapist / Terapeuta'})).toBeVisible();
+  await expect(page.locator('article[data-status="draft"]')).toHaveCount(2);
+  await expect(page.getByRole('heading', {name:'Cassandra'})).toBeVisible();
+  await expect(page.getByRole('link', {name:/Escuchar la discografía/i})).toHaveAttribute('href','/musica');
 });

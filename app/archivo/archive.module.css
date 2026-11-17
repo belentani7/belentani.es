@@ -1,0 +1,39 @@
+:root{color-scheme:dark}
+.page{min-height:100vh;color:#f5e4ea;background:radial-gradient(ellipse at 48% -12%,#51142b,#0b060c 42%,#070508 80%);font-family:"Segoe UI",Arial,sans-serif;padding:0 max(18px,5vw)}
+.page a{color:inherit;text-decoration:none}
+.skip{position:absolute;top:-80px;left:15px;background:#fff;color:#17050c!important;padding:12px;z-index:100}.skip:focus{top:12px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid #78364c;font:11px Consolas,monospace;letter-spacing:.12em;color:#d5a8b8}
+.return,.topMusic{border:1px solid #8f425d;border-radius:4px;padding:11px 15px;min-height:44px;display:inline-flex;align-items:center}
+.return:hover,.topMusic:hover{background:#622039}
+.hero{max-width:950px;padding:clamp(60px,12vw,135px) 0 75px}
+.eyebrow{color:#ff8bac;font:12px Consolas,monospace;letter-spacing:.24em}
+.hero h1{font:900 clamp(48px,8.3vw,118px)/.93 "Arial Narrow",Impact,"Segoe UI",sans-serif;letter-spacing:-.065em;margin:18px 0 30px;color:#ffcadb}
+.hero h1 em{font-style:normal;background:linear-gradient(164deg,#fff4f5,#ff739b 23%,#7c183e 48%,#ffc0d2 75%,#8e2146);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero p:not(.eyebrow){max-width:710px;color:#dfbbc9;font-size:16px;line-height:1.85}
+.heroLinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.heroLinks a{display:inline-flex;align-items:center;min-height:48px;padding:12px 19px;border:1px solid #b45b7b;background:linear-gradient(145deg,#6e1d41,#190a17);border-radius:8px;font:12px Consolas,monospace}
+.heroLinks a:hover{filter:brightness(1.18)}
+.collection{border-top:1px solid #753149;padding:35px 0 80px}
+.sectionTop{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:24px;flex-wrap:wrap}
+.sectionTop p,.sectionTop span{font:11px Consolas,monospace;letter-spacing:.12em;color:#e29bb5}
+.sectionTop h2{font:700 clamp(26px,4vw,44px) "Segoe UI",sans-serif;margin:0}
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.work{position:relative;min-width:0;overflow:hidden;border-radius:12px;border:1px solid #85405b;background:radial-gradient(ellipse at 8% -25%,#ffced714,transparent 54%),linear-gradient(142deg,#2f1022e8,#0c0711e8);box-shadow:inset 0 1px #ffe9ed22,0 16px 32px #0005}
+.work::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;border:1px solid #fff8}
+.workMeta{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #6a2c46;padding:16px 20px;color:#e99fba;font:10px Consolas,monospace;letter-spacing:.13em}
+.work[data-status="draft"] .workMeta span:last-child{color:#ffd3a1}
+.workBody{padding:26px 20px 24px}
+.work h3{font-size:clamp(23px,2.8vw,34px);letter-spacing:-.045em;margin:0 0 15px;color:#ffe1e9}
+.work p{color:#cbaab8;line-height:1.75;max-width:55ch;font-size:14px;min-height:86px}
+.work a{display:inline-flex;align-items:center;gap:14px;border-bottom:1px solid #e681a4;padding:9px 2px;color:#ffbdd0;font-size:13px;min-height:44px}
+.work a:hover{color:#fff}
+.closing{border-top:1px solid #85415c;padding:66px 0 75px;text-align:center}
+.closing>p:first-child{color:#f48bae;font:11px Consolas,monospace;letter-spacing:.24em}
+.closing h2{font-size:clamp(38px,7vw,70px);line-height:1.1;letter-spacing:-.05em;margin:12px}
+.closing p:not(:first-child){color:#d3b2c1;max-width:640px;margin:0 auto;line-height:1.8}
+.closing div{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin:25px 0}
+.closing div a{border:1px solid #9e4c68;border-radius:5px;min-height:44px;padding:10px 18px}
+.closing div a:hover{background:#5c1b37}
+.footer{padding:24px 0 35px;border-top:1px solid #5c263d;text-align:center;color:#ca8ca5;font:11px Consolas,monospace;letter-spacing:.12em}
+@media(max-width:740px){.works{grid-template-columns:1fr}.work p{min-height:0}.hero{padding:65px 0}.sectionTop{align-items:start}.sectionTop h2{flex-basis:100%}}
+@media(max-width:420px){.top{font-size:9px;gap:5px}.return,.topMusic{padding:10px 8px}.page{padding:0 14px}.workMeta{padding:14px}.workBody{padding:18px}.hero h1{font-size:50px}}
