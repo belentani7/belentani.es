@@ -50,3 +50,8 @@ _universo_assets
 !scripts/check-renderer-stack.mjs
 !postcss.config.mjs
 !public/assets/judas-canon/manifest.json
+# Mandatory runtime/build data: the blanket JSON/MJS ignores above must not
+# remove translations or the local catalogue from Vercel deployments.
+!src/locales/*.json
+!data/*.json
+!data/*.mjs
