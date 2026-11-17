@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090407">
+  <meta name="description" content="BELENTANI OS — ordenador retrofuturista y mapa navegable del universo artístico. Metal rubí procedural, HTML/CSS/JavaScript, sin imágenes.">
+  <title>BELENTANI OS — El universo tiene una puerta</title>
+  <link rel="stylesheet" href="./os.css">
+  <script src="./catalog.js" defer></script>
+  <script src="./os.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#display-content">Saltar al contenido</a>
+  <div class="ambient a1" aria-hidden="true"></div><div class="ambient a2" aria-hidden="true"></div>
+  <div class="scene">
+    <header class="outside-header">
+      <a class="brand outside-mark" href="#home" aria-label="BELENTANI OS inicio">BELENTANI<span class="period">.</span></a>
+      <div class="outside-center">THE ARTIST'S UNIVERSE <span>/</span> AN INTERCONNECTED WORK</div>
+      <div class="outside-version">EST. 2026 <span>•</span> SYSTEM 01</div>
+    </header>
+
+    <div class="intro">
+      <div class="intro-left"><span class="ident-line"></span>BIENVENIDO AL INTERIOR</div>
+      <h1 class="chrome-title">Todo tiene <i>un lugar.</i></h1>
+      <p>Un ordenador, infinitas puertas. La música se guarda en el disco; los mundos viven en la pantalla; las memorias esperan en la unidad de archivo.</p>
+    </div>
+
+    <main class="workstation" aria-label="Ordenador de navegación BELENTANI">
+      <div class="monitor-column">
+        <div class="monitor hardware" id="monitor">
+          <div class="bolt tl" aria-hidden="true"></div><div class="bolt tr" aria-hidden="true"></div>
+          <div class="monitor-cradle">
+            <div class="screen-rim">
+              <div class="screen" id="computer-screen">
+                <div class="crt-reflection" aria-hidden="true"></div>
+                <header class="screen-top">
+                  <div class="screen-signature"><span class="ruby-mini">B</span> BELENTANI<span class="screen-dot">.</span><small>OPERATING UNIVERSE</small></div>
+                  <div class="screen-path" id="screen-path">B:\UNIVERSE\HOME</div>
+                  <div class="system-online"><i></i> INDEX READY</div>
+                </header>
+                <div class="screen-body" id="screen-body">
+                  <nav class="screen-nav" aria-label="Directorios del universo">
+                    <button type="button" data-zone="home" class="folder is-active"><span class="folder-glyph">⌂</span><span>INICIO</span><kbd>01</kbd></button>
+                    <button type="button" data-zone="music" class="folder"><span class="folder-glyph">♫</span><span>MÚSICA</span><kbd>02</kbd></button>
+                    <button type="button" data-zone="world" class="folder"><span class="folder-glyph">◇</span><span>MUNDOS</span><kbd>03</kbd></button>
+                    <button type="button" data-zone="visual" class="folder"><span class="folder-glyph">✧</span><span>VISUAL</span><kbd>04</kbd></button>
+                    <button type="button" data-zone="studio" class="folder"><span class="folder-glyph">≋</span><span>ESTUDIO</span><kbd>05</kbd></button>
+                    <button type="button" data-zone="archive" class="folder"><span class="folder-glyph">▤</span><span>ARCHIVO</span><kbd>06</kbd></button>
+                    <div class="nav-bottom"><span class="red-led"></span> ALL SYSTEMS <b>INTERLINKED</b></div>
+                  </nav>
+                  <div class="screen-content" id="display-content" tabindex="-1">
+                    <div class="panel-intro">
+                      <div class="panel-overline" id="panel-id">DIRECTORIO / 01</div>
+                      <h2 id="panel-heading">Tu punto de origen.</h2>
+                      <p id="panel-description">Desde aquí puedes entrar en cualquier parte del universo sin perder el camino de vuelta.</p>
+                    </div>
+                    <div class="search-row">
+                      <label class="search-box" for="search"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Buscar un mundo, una canción o un archivo" autocomplete="off" aria-label="Buscar en todo el índice"><kbd>⌘ K</kbd></label>
+                      <button id="red-filter" class="filter-button" type="button" aria-pressed="false" title="Filtrar las páginas con señales de identidad roja">SOLO ROJOS</button>
+                    </div>
+                    <div class="result-bar"><span id="result-label">INDEXANDO SISTEMA</span><span id="count-label">—</span></div>
+                    <div class="item-list" id="item-list" aria-live="polite"></div>
+                    <button type="button" id="load-more" class="load-more" hidden>VER MÁS ARCHIVOS <span aria-hidden="true">↓</span></button>
+                  </div>
+                </div>
+                <footer class="screen-bottom"><span class="signal">■</span><span id="status-text">BELENTANI OS / INICIADO</span><span class="screen-time">BEYOND THE SCREEN</span></footer>
+                <div class="screen-off" id="screen-off" aria-hidden="true"><div>B<span>.</span></div><p>STANDBY / PRESS POWER</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="monitor-face"><div class="face-stamp">BELENTANI <span>OS</span></div><div class="face-legend">MULTIVERSE TERMINAL / 2000</div><button id="power" class="power-switch" type="button" aria-label="Apagar pantalla" aria-pressed="true"><span>⏻</span></button></div>
+          <div class="bolt bl" aria-hidden="true"></div><div class="bolt br" aria-hidden="true"></div>
+        </div>
+        <div class="monitor-neck" aria-hidden="true"></div>
+        <div class="monitor-foot" aria-hidden="true"><div class="foot-reflect"></div></div>
+      </div>
+
+      <aside class="tower hardware" aria-label="Unidades físicas del ordenador">
+        <div class="tower-heading"><span>THE</span><strong>VAULT</strong><small>ARTIST / WORKSTATION</small></div>
+        <button type="button" class="tower-drive" data-zone="music" aria-label="Abrir discografía"><span class="drive-mark">01 — AUDIO</span><span class="drive-slot"><i></i></span><span class="drive-label">DISC / MUSIC</span></button>
+        <button type="button" class="tower-drive" data-zone="world" aria-label="Abrir mundos narrativos"><span class="drive-mark">02 — WORLDS</span><span class="drive-slot"><i></i></span><span class="drive-label">OPTICAL / WORLDS</span></button>
+        <div class="tower-view" aria-hidden="true"><canvas id="alloy" width="200" height="290"></canvas><div class="tower-view-fallback"></div><span>RUBY ALLOY<br>REAL-TIME SURFACE</span></div>
+        <button type="button" class="floppy" data-zone="archive" aria-label="Abrir archivo histórico"><span>ARCHIVE DISK</span><i></i><b>3.5"</b></button>
+        <div class="tower-ports"><button type="button" data-zone="studio" aria-label="Estudio">STUDIO <i>▣</i></button><button type="button" data-zone="visual" aria-label="Arte visual">VISUAL <i>◈</i></button></div>
+        <div class="tower-bottom"><span class="tower-lamp"></span> MEMORY IS NEVER LOST</div>
+      </aside>
+    </main>
+
+    <div class="desk">
+      <div class="keyboard" role="group" aria-label="Teclas de acceso directo">
+        <span class="keyboard-word">QUICK ACCESS / FUNCTION KEYS</span>
+        <button type="button" data-zone="home"><small>F1</small>HOME</button>
+        <button type="button" data-zone="music"><small>F2</small>MUSIC</button>
+        <button type="button" data-zone="world"><small>F3</small>WORLDS</button>
+        <button type="button" data-zone="visual"><small>F4</small>VISUAL</button>
+        <button type="button" data-zone="studio"><small>F5</small>STUDIO</button>
+        <button type="button" data-zone="archive"><small>F6</small>ARCHIVE</button>
+        <div class="keyboard-ending"><span>B</span><span>ESC / HOME</span></div>
+      </div>
+      <div class="help">HAZ CLIC EN UNA PARTE DEL ORDENADOR O USA LAS TECLAS <span>1–6</span> <span>·</span> <button id="help-button" type="button">CÓMO NAVEGAR ?</button></div>
+    </div>
+
+    <footer class="outside-footer"><span>BELENTANI / ONE WORK. MANY WORLDS.</span><span id="catalog-summary">INDEX / LOADING</span><span>BUILT IN CODE <span class="footer-spark">✦</span> NOT IN PIXELS</span></footer>
+  </div>
+  <dialog id="help-dialog" class="help-dialog">
+    <h2>El mapa del ordenador</h2>
+    <p><b>Pantalla</b> — busca y abre páginas reales. <b>Unidad de audio</b> — música. <b>Unidad óptica</b> — mundos. <b>Disquete</b> — archivo. <b>Puertos</b> — estudio y visuales. <b>Teclado</b> — accesos rápidos. <b>POWER</b> — enciende o suspende la pantalla.</p>
+    <p>Las páginas del repositorio principal se abren aquí. Las referencias de otros repositorios se abren en GitHub y las de Drive en Drive: están claramente señalizadas. El inventario puede regenerarse sin modificar las páginas originales.</p>
+    <form method="dialog"><button>CERRAR AYUDA</button></form>
+  </dialog>
+</body>
+</html>
