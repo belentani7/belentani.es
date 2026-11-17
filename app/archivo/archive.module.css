@@ -1,4 +1,4 @@
-:root{color-scheme:dark}
+.page{color-scheme:dark}
 .page{min-height:100vh;color:#f5e4ea;background:radial-gradient(ellipse at 48% -12%,#51142b,#0b060c 42%,#070508 80%);font-family:"Segoe UI",Arial,sans-serif;padding:0 max(18px,5vw)}
 .page a{color:inherit;text-decoration:none}
 .skip{position:absolute;top:-80px;left:15px;background:#fff;color:#17050c!important;padding:12px;z-index:100}.skip:focus{top:12px}
