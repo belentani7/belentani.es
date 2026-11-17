@@ -38,3 +38,8 @@
   .workstation .hardware {box-shadow:0 14px 35px rgba(0,0,0,.5),0 1px rgba(255,213,228,.15) inset}
 }
 @media(prefers-reduced-transparency:reduce) {.workstation .entry {background:#160c14;backdrop-filter:none}}
+
+/* Physical portal lever: an accessible shortcut on the computer's opening panel. */
+.intro .pentada-launch{display:inline-flex;align-items:center;justify-content:space-between;gap:13px;min-height:44px;padding:11px 17px;margin-top:10px;border:1px solid #df7496;border-radius:6px;color:#ffe9f0;text-decoration:none;background:linear-gradient(120deg,#7e2747,#1d0b1b 58%,#54203b);box-shadow:inset 0 1px #ffcce155,0 3px 0 #150611;font:700 11px Consolas,monospace;letter-spacing:.1em}
+.intro .pentada-launch:hover{border-color:#ffbfd3;background:linear-gradient(125deg,#a33059,#210c1a)}
+.intro .pentada-launch:focus-visible{outline:3px solid #ffe3ed;outline-offset:5px}

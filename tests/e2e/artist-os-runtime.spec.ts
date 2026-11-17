@@ -15,7 +15,7 @@ test('runtime catalog includes curated first-party destinations without local or
   const response = await request.get('/artist-os/catalog.json');
   expect(response.status()).toBe(200);
   const data = await response.json();
-  expect(data.total).toBe(13);
+  expect(data.total).toBe(14);
   expect(data.items.every((item: {href: string}) => /^\.\.\/[a-z0-9/-]+(?:\.html)?$/.test(item.href))).toBe(true);
   expect(data.source).toBe('Curated first-party Next.js routes; not the private vault');
   expect(data.items.every((item: {kind: string}) => item.kind === 'page')).toBe(true);
@@ -54,4 +54,21 @@ test('the artist archive separates confirmed releases from work in development',
   await expect(page.locator('article[data-status="draft"]')).toHaveCount(2);
   await expect(page.getByRole('heading', {name:'Cassandra'})).toBeVisible();
   await expect(page.getByRole('link', {name:/Escuchar la discografía/i})).toHaveAttribute('href','/musica');
+});
+
+test('PENTADA has five accessible, same-origin doors with keyboard navigation', async ({ page }) => {
+  await page.goto('/artist-os/portal.html');
+  await expect(page.getByRole('heading', { level: 1, name: /Las cinco puertas/i })).toBeVisible();
+  await expect(page.locator('button[data-gem]')).toHaveCount(5);
+  await expect(page.locator('#progress-count')).toHaveText('0 / 5');
+  await page.locator('button[data-gem="1"]').click();
+  await expect(page.locator('#detail-link')).toHaveAttribute('href', '../judas');
+  await expect(page.locator('#progress-count')).toHaveText('1 / 5');
+  await page.keyboard.press('3');
+  await expect(page.locator('#detail-link')).toHaveAttribute('href', '../omega-living.html');
+  await expect(page.locator('#progress-count')).toHaveText('2 / 5');
+  for (const i of [0, 3, 4]) await page.locator('button[data-gem="' + i + '"]').click();
+  await expect(page.locator('#progress-count')).toHaveText('5 / 5');
+  await expect(page.getByRole('status')).toContainText('PENTADA COMPLETA');
+  await expect(page.getByRole('link', { name: 'REGRESAR A LA MÁQUINA' })).toHaveAttribute('href','./index.html');
 });

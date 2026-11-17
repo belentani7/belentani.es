@@ -8,13 +8,14 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'artist-os');
 const destination = path.join(root, 'public', 'artist-os');
 const checkOnly = process.argv.includes('--check');
-const assets = ['index.html', 'os.css', 'os.js', 'studio-reflections.css', 'lab.html', 'lab.css', 'lab.js'];
+const assets = ['index.html', 'os.css', 'os.js', 'studio-reflections.css', 'lab.html', 'lab.css', 'lab.js', 'portal.html', 'portal.css', 'portal.js'];
 const records = [
   { key: 'artist', title: 'BELENTANI · Artista y compositor', url: '/artista', zone: 'home' },
   { key: 'music', title: 'Escuchar la obra · Discografía', url: '/musica', zone: 'music' },
   { key: 'judas-era', title: 'JUDAS · La era', url: '/judas-era', zone: 'world' },
   { key: 'judas', title: 'JUDAS · Experiencia', url: '/judas', zone: 'world' },
   { key: 'omega', title: 'OMEGA · Universo vivo', url: '/omega-living.html', zone: 'world' },
+  { key: 'pentada', title: 'PENTADA · Cinco puertas narrativas', url: '/artist-os/portal.html', zone: 'world' },
   { key: 'atlas', title: 'Atlas vivo · Galaxia original', url: '/atlas', zone: 'world' },
   { key: 'galaxy', title: 'Galaxia · Viaje inmersivo', url: '/galaxia', zone: 'world' },
   { key: 'gallery', title: 'Galería · Escenas del universo', url: '/galeria', zone: 'visual' },

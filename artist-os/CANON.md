@@ -34,3 +34,9 @@ El informe de la auditoría del 17-11-2026 marcó contraste insuficiente en `.he
 ## Archivo editorial (de belentani-webs-historicas a un canon de músico)
 
 Ruta nueva `/archivo`: separa lanzamientos, escenario y obras en estudio. Reutiliza la idea de navegación histórica del archivo de webs de BELENTANI, pero **no copia sus HTML en masa**. Beautiful Skies (2020) y Therapist/Terapeuta (2023) se identifican como publicados; Cassandra y O Avesso do Mar como procesos en desarrollo. Mantiene rutas hacia música, JUDAS y estudio sin presentar bocetos como singles estrenados. El catálogo del ordenador pasa a 13 destinos, exclusivamente públicos.
+
+## OMEGA PENTADA — cinco gemas y navegación guiada
+
+Origen: `belentani-omega-immersive-portal/js/07-portal.js`, cinco gemas, cinco estados e invitación a explorar. El archivo anterior dependía de THREE/GSAP/Tone y almacenaba el progreso en localStorage. La **adaptación segura** usa `artist-os/portal.html`, `portal.css` y `portal.js` con cinco facetas orientadas a obras: Origen→Música, Fuego→JUDAS, Vuelo→OMEGA, Eco→Sound Lab, Memoria→Archivo. El avance solo vive en memoria durante la visita, sin rastreo ni enlaces externos. Solo CSS procedural (sin imágenes), teclado 1–5 y flechas, `prefers-reduced-motion` y alternativa sin JavaScript. Las cinco puertas están abiertas desde el inicio; completar el recorrido no bloquea nada.
+
+El ordenador enlaza la Pentada desde la portada; `scripts/publish-artist-os.mjs` publica sus tres assets y la incorpora al catálogo HTTP público de **14 rutas**. Ningún archivo privado de Drive o PC se importa.

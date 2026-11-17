@@ -1,0 +1,83 @@
+/* BELENTANI PENTADA — built from the OMEGA five-gem navigation concept.
+   1995–2005 industrial chrome, procedural facets; no images, fonts or runtime libraries. */
+:root{color-scheme:dark;--bg:#050307;--ink:#f8e8ee;--active:#ff769a;--muted:#d2b7c3;--ruby:#b42b56;font-family:"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% -12%,#60152c 0,#140910 36%,#060307 72%),#060307;color:var(--ink);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:repeating-radial-gradient(ellipse at 45% 40%,transparent 0 90px,#ffb6cd04 91px 92px,transparent 93px 155px);opacity:.9}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #ffe3ec;outline-offset:5px}
+.skip{position:absolute;top:-90px;left:20px;z-index:30;padding:12px;background:#fff;color:#18030c}
+.skip:focus{top:12px}
+.visually-hidden{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+.shell{width:min(1380px,calc(100% - 52px));margin:0 auto}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 0;border-bottom:1px solid #79324b;font:10px Consolas,"Courier New",monospace;letter-spacing:.13em;color:#f0b5c9}
+.topline a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:10px 14px;border:1px solid #99506c;border-radius:6px;background:linear-gradient(137deg,#641c39,#150b15)}
+.topline a:hover{border-color:#ff8dac;background:#4d1b34}
+.signature{text-align:center;color:#d9acbe}
+.intro{max-width:850px;margin:62px 0 28px}
+.eyebrow{display:inline-block;color:#ff9cba;font:11px Consolas,monospace;letter-spacing:.2em}
+h1{margin:16px 0 19px;font:900 clamp(48px,8vw,100px)/.95 "Arial Narrow",Impact,system-ui,sans-serif;letter-spacing:-.06em;color:#ffe0e9}
+h1 em{font-style:normal;background:linear-gradient(160deg,#fff7f9,#ffc9d8 17%,#df6086 35%,#501126 51%,#ffa8c1 76%,#ffdeea);color:transparent;background-clip:text;-webkit-background-clip:text}
+.intro p{font-size:15px;line-height:1.85;color:#dec0cc;max-width:740px}
+.installation{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:23px;align-items:stretch}
+.orbitFrame{position:relative;isolation:isolate;min-height:590px;overflow:hidden;border-radius:26px;border:1px solid #ad5c7b;background:radial-gradient(circle at 50% 50%,#5a193235 0,#140918 32%,#0d080f 62%,#250d18 100%),linear-gradient(145deg,#3e1525,#08040a 15%,#100913 84%,#5a1c35);box-shadow:0 30px 70px #0008,inset 0 2px #ffd3e755,inset 0 -35px 70px #ff52771a}
+.orbitFrame::before,.orbitFrame::after{content:"";position:absolute;pointer-events:none;inset:4px;border:1px solid #fff1;border-radius:22px}
+.orbitFrame::after{inset:auto 0 0;top:0;border:0;border-radius:0;background:linear-gradient(160deg,#fff3 0,transparent 13%,transparent 71%,#fd668d11);z-index:1}
+.orbit,.orbitSmall{position:absolute;left:50%;top:50%;width:min(68%,445px);aspect-ratio:1;border-radius:50%;border:1px solid #b846714b;transform:translate(-50%,-50%) rotate(-18deg);box-shadow:0 0 24px #fa315512,inset 0 0 33px #d8364a0c;pointer-events:none}
+.orbit::before,.orbit::after{content:"";position:absolute;inset:12%;border:1px dashed #ed78ad35;border-radius:50%}
+.orbit::after{inset:-14%;border:1px solid #c64c6b1b}
+.orbitSmall{width:min(46%,275px);border-color:#feadca25;transform:translate(-50%,-50%) rotate(23deg)}
+.orbitSmall::before,.orbitSmall::after{display:none}
+.axisX,.axisY{position:absolute;pointer-events:none;background:#ff8ba517;z-index:0}
+.axisX{height:1px;left:7%;right:7%;top:50%}
+.axisY{width:1px;top:10%;bottom:10%;left:50%}
+.core{position:absolute;left:50%;top:50%;width:clamp(118px,23%,166px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:1;background:radial-gradient(circle at 37% 19%,#f8adc740,#8c254a 29%,#200912 68%,#110710 75%);border:3px solid #ae4b73;box-shadow:0 0 0 4px #1c0a16,0 0 0 5px #ad5c7b73,0 0 35px #ff2d6144,inset 0 2px #fff8}
+.coreMark{font:900 clamp(48px,7vw,79px)/.85 Impact,sans-serif;color:#ffe1ea;text-shadow:0 3px 1px #7a2340,0 0 21px #ff5b8a44}
+.coreText{font:800 11px Consolas,monospace;letter-spacing:.14em;margin-top:9px}
+.coreSub{font:8px Consolas,monospace;letter-spacing:.09em;color:#ffc2d5;margin-top:4px}
+.gems{position:absolute;inset:0;z-index:2}
+.gem{position:absolute;min-width:102px;min-height:110px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;border:0;border-radius:12px;background:transparent;color:#f3cede;transform:translate(-50%,-50%);transition:filter .2s,transform .2s}
+.gem:nth-child(1){left:50%;top:13%}
+.gem:nth-child(2){left:84%;top:35%}
+.gem:nth-child(3){left:73%;top:80%}
+.gem:nth-child(4){left:27%;top:80%}
+.gem:nth-child(5){left:16%;top:35%}
+.gem:hover,.gem.is-selected{transform:translate(-50%,-50%) scale(1.06);filter:brightness(1.14)}
+.gemShape{position:relative;display:block;width:65px;height:65px;clip-path:polygon(50% 0,89% 24%,100% 53%,50% 100%,0 53%,11% 24%);background:linear-gradient(132deg,#fff6fa,#f699bb 13%,#c22b57 40%,#511127 51%,#fa7499 77%,#fdd4e4);box-shadow:inset 0 0 18px #32020d}
+.gemShape::before{content:"";position:absolute;inset:4px;clip-path:inherit;background:conic-gradient(from 90deg at 50% 53%,#f9cddc,#ff6693,#3d0b22,#e36592,#ffa9c4,#78152d,#f9cddc);opacity:.94}
+.gemShape::after{content:"";position:absolute;top:0;left:48%;width:2px;height:100%;background:#fff8;transform:rotate(28deg);transform-origin:center}
+.gemShape span{position:absolute;inset:0;clip-path:polygon(50% 0,89% 24%,50% 53%,11% 24%);background:#ffffff4d}
+.gemIndex{font:10px Consolas,monospace;color:#ffc2d4;margin-top:3px}
+.gemName{font:800 11px Consolas,monospace;letter-spacing:.14em;text-shadow:0 2px 4px #000}
+.gem.is-selected .gemShape{outline:none;filter:drop-shadow(0 0 18px var(--active))}
+.gem.is-selected .gemName{color:#fff}
+.gem.is-discovered::after{content:"●";position:absolute;top:0;right:5px;font-size:12px;color:#a3ffee;text-shadow:0 0 8px #54ffd1}
+.coordinates{position:absolute;left:20px;bottom:18px;font:10px Consolas,monospace;letter-spacing:.12em;color:#d38ba8;z-index:2}
+.readout{min-width:0;display:flex;flex-direction:column;border-radius:23px;border:1px solid #9b4864;overflow:hidden;background:linear-gradient(155deg,#451729,#120b16 29%,#0b0810 75%,#240e20);box-shadow:inset 0 2px #ffe8f428,0 20px 60px #0007}
+.readoutTop{display:flex;gap:15px;align-items:center;justify-content:space-between;padding:19px 21px;border-bottom:1px solid #77324a;font:10px Consolas,monospace;letter-spacing:.1em;color:#ffc9d9}
+.statusLight{color:#dbbbc9;text-align:right}
+.statusLight i{display:inline-block;width:7px;height:7px;background:#5ceeb8;border-radius:50%;box-shadow:0 0 9px #5ceeb888;margin-right:5px}
+.readoutBody{flex:1;padding:clamp(22px,3.2vw,43px) clamp(20px,3.1vw,40px)}
+.readout h2{font:900 clamp(31px,4.1vw,57px)/1.12 "Arial Narrow",Impact,sans-serif;letter-spacing:-.03em;color:#fff1f5;min-height:100px;margin:22px 0 22px}
+.readout h2 span{display:block;color:var(--active);font-size:.67em;letter-spacing:-.015em;margin-top:9px}
+.readoutBody>p:not(.coordinate){max-width:42ch;line-height:1.8;color:#e0bdcb;font-size:15px;min-height:112px}
+.coordinate{font:10px Consolas,monospace;letter-spacing:.11em;color:#e9a4bc;margin:26px 0 21px}
+.enter{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:54px;padding:14px 19px;border:1px solid #ff7ea4;background:linear-gradient(132deg,#ae315e,#310f29 60%,#7d2d4d);border-radius:7px;box-shadow:inset 0 1px #ffccdb6f,0 5px #10050d;font:700 12px Consolas,monospace;letter-spacing:.11em}
+.enter:hover{filter:brightness(1.17)}
+.progress{padding:23px 24px 29px;border-top:1px solid #77324a;background:#09060a73}
+.progressHeader{display:flex;justify-content:space-between;font:10px Consolas,monospace;letter-spacing:.12em;color:#e0b5c8}
+.progressTrack{height:7px;border-radius:6px;margin:17px 0 14px;background:#290f21;border:1px solid #60233d;overflow:hidden}
+.progressTrack span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e44272,#ffc1d5);transition:width .22s}
+.progress p{color:#caacb9;font:11px/1.6 Consolas,monospace;min-height:30px;margin:0}
+.instructions{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:26px 0 45px;color:#b990a5;font:10px/1.5 Consolas,monospace;letter-spacing:.06em}
+.instructions p{max-width:470px}
+.fallback{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:35px}
+.fallback a{padding:12px;border:1px solid #ac4e70;min-height:44px}
+.footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:25px 0 35px;border-top:1px solid #79324b;color:#c99eaf;font:10px Consolas,monospace;letter-spacing:.13em}
+.footer a{color:#ffd5e3}
+@media(max-width:1000px){.installation{grid-template-columns:1fr}.orbitFrame{min-height:570px}.readout h2{min-height:0}.readoutBody>p:not(.coordinate){min-height:0}}
+@media(max-width:620px){.shell{width:calc(100% - 20px)}.topline{padding:12px 0}.topline .signature{display:none}.intro{margin:36px 8px 25px}.intro h1{font-size:52px}.orbitFrame{min-height:480px;border-radius:15px}.gem{min-width:72px;min-height:88px}.gemShape{width:48px;height:48px}.gemName{font-size:9px}.gem:nth-child(1){top:13%}.gem:nth-child(2){left:82%;top:36%}.gem:nth-child(5){left:18%;top:36%}.gem:nth-child(3){left:73%;top:81%}.gem:nth-child(4){left:27%;top:81%}.core{width:116px}.coordinates{font-size:8px;left:12px;bottom:12px}.readout h2{font-size:41px}.readoutBody{padding:28px 22px}.instructions{margin:22px 6px 35px}}
+@media(max-width:370px){.orbitFrame{min-height:400px}.gem{min-width:67px;min-height:79px}.gemShape{width:43px;height:43px}.gemName{font-size:8px}.core{width:103px}.coreMark{font-size:54px}.orbit{width:75%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gem,.progressTrack span{transition:none}}

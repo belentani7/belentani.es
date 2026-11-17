@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050307">
+  <meta name="description" content="BELENTANI PENTADA: cinco puertas para atravesar música, JUDAS, OMEGA, estudio y memoria en una constelación interactiva.">
+  <title>BELENTANI — PENTADA / Cinco puertas</title>
+  <link rel="stylesheet" href="./portal.css">
+  <script src="./portal.js" defer></script>
+</head>
+<body>
+  <a href="#pentada" class="skip">Saltar a las cinco puertas</a>
+  <div class="shell">
+    <header class="topline">
+      <a class="home" href="./index.html#world">← BELENTANI OS</a>
+      <span class="signature">OMEGA SYSTEM / PENTADA 05</span>
+      <a class="music" href="../musica">MÚSICA ↗</a>
+    </header>
+    <main id="pentada">
+      <section class="intro" aria-labelledby="portal-title">
+        <span class="eyebrow">UNA MÁQUINA / CINCO DESTINOS</span>
+        <h1 id="portal-title">Las cinco <em>puertas.</em></h1>
+        <p>Una constelación para entrar en la obra, no un mapa de repositorios. Cada gema corresponde a una parte del universo BELENTANI. Elige una, descubre su significado y viaja. No hay órdenes obligatorias.</p>
+      </section>
+      <div class="installation">
+        <section class="orbitFrame" aria-labelledby="map-title">
+          <h2 id="map-title" class="visually-hidden">Constelación de cinco gemas navegables</h2>
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="orbit orbitSmall" aria-hidden="true"></div>
+          <div class="core" aria-hidden="true">
+            <span class="coreMark">B</span>
+            <span class="coreText">PENTADA</span>
+            <span class="coreSub">CINCO VÉRTICES</span>
+          </div>
+          <div class="gems" role="group" aria-label="Selecciona una de las cinco puertas">
+            <button type="button" class="gem is-selected" data-gem="0" aria-pressed="true">
+              <span class="gemShape" aria-hidden="true"><span></span></span>
+              <span class="gemIndex">01</span><span class="gemName">ORIGEN</span>
+            </button>
+            <button type="button" class="gem" data-gem="1" aria-pressed="false">
+              <span class="gemShape" aria-hidden="true"><span></span></span>
+              <span class="gemIndex">02</span><span class="gemName">FUEGO</span>
+            </button>
+            <button type="button" class="gem" data-gem="2" aria-pressed="false">
+              <span class="gemShape" aria-hidden="true"><span></span></span>
+              <span class="gemIndex">03</span><span class="gemName">VUELO</span>
+            </button>
+            <button type="button" class="gem" data-gem="3" aria-pressed="false">
+              <span class="gemShape" aria-hidden="true"><span></span></span>
+              <span class="gemIndex">04</span><span class="gemName">ECO</span>
+            </button>
+            <button type="button" class="gem" data-gem="4" aria-pressed="false">
+              <span class="gemShape" aria-hidden="true"><span></span></span>
+              <span class="gemIndex">05</span><span class="gemName">MEMORIA</span>
+            </button>
+          </div>
+          <div class="axisX" aria-hidden="true"></div><div class="axisY" aria-hidden="true"></div>
+          <div class="coordinates" aria-hidden="true">SÃO PAULO ↔ BARCELONA / UNIVERSE 01</div>
+        </section>
+        <section class="readout" aria-labelledby="detail-title">
+          <div class="readoutTop"><span id="readout-serial">GEMA 01 / 05</span><span class="statusLight"><i aria-hidden="true"></i> ENLACE DISPONIBLE</span></div>
+          <div class="readoutBody">
+            <span class="eyebrow">SEÑAL ARTÍSTICA SELECCIONADA</span>
+            <h2 id="detail-title">ORIGEN <span>/ LA VOZ</span></h2>
+            <p id="detail-description">La música es el principio: una voz, canciones, fechas y ediciones que anteceden a todos los mundos.</p>
+            <p class="coordinate" id="detail-coordinate">CANAL 01 · MÚSICA / DISCOGRAFÍA</p>
+            <a id="detail-link" class="enter" href="../musica">ENTRAR EN LA MÚSICA <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="progress">
+            <div class="progressHeader"><span>GEMAS DESCUBIERTAS</span><output id="progress-count" aria-live="polite">0 / 5</output></div>
+            <div class="progressTrack" aria-hidden="true"><span id="progress-bar"></span></div>
+            <p id="progress-message" role="status">El recorrido comienza aquí. Las cinco puertas están disponibles desde el principio.</p>
+          </div>
+        </section>
+      </div>
+      <div class="instructions">
+        <p>PULSA UNA GEMA PARA VER SU DESTINO · TECLAS 1–5 · FLECHAS PARA CAMBIAR DE GEMA</p>
+        <p>El progreso se mantiene solo durante esta visita. No se guardan datos ni se envían a servidores.</p>
+      </div>
+      <noscript>
+        <nav class="fallback" aria-label="Destinos sin JavaScript">
+          <a href="../musica">Origen · Música</a>
+          <a href="../judas">Fuego · JUDAS</a>
+          <a href="../omega-living.html">Vuelo · OMEGA</a>
+          <a href="./lab.html">Eco · Studio</a>
+          <a href="../archivo">Memoria · Archivo</a>
+        </nav>
+      </noscript>
+    </main>
+    <footer class="footer"><span>BELENTANI / PENTADA · OMEGA</span><a href="./index.html">REGRESAR A LA MÁQUINA</a><span>HTML · CSS · JAVASCRIPT</span></footer>
+  </div>
+</body>
+</html>
