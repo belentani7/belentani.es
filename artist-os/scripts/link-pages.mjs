@@ -16,7 +16,8 @@ for(const item of catalog.items.filter(x=>x.kind==='page'&&x.repo==='belentani.e
  const marker='data-belentani-os="ruby-v1"';
  const source=fs.readFileSync(file,'utf8');
  const link=path.relative(path.dirname(file),path.join(site,'artist-os','bridge.js')).replaceAll('\\','/');
- const injection='<script '+marker+' src="'+link+'" defer></script>';
+ const theme=item.zone==='archive'?'nav':'ruby';
+ const injection='<script '+marker+' data-belentani-os-theme="'+theme+'" src="'+link+'" defer></script>';
  if(mode==='undo'){
   if(!source.includes(marker)||!fs.existsSync(backup)){skipped++;continue}
   const after=source.replace(new RegExp('(?:\\r?\\n)?<script[^>]+data-belentani-os="ruby-v1"[^>]*></script>(?:\\r?\\n)?','i'),'');

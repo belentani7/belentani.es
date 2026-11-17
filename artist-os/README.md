@@ -1,47 +1,48 @@
-# BELENTANI OS — ordenador artístico 1995–2005
+# BELENTANI OS — ordenador como origen de un universo
 
-## Propósito
+## Dirección artística
 
-Un ordenador retrofuturista robusto construido mediante HTML, CSS, JavaScript y un shader WebGL opcional. La textura no utiliza imágenes, PNG, JPG, SVG, dependencias externas ni imágenes de respaldo. La versión sin WebGL sigue utilizando CSS procedural.
+La página principal de esta rama es un ordenador retrofuturista robusto (1995–2005) con metal rubí procedural, pantalla con explorador de contenidos, unidades de audio y mundos, puertos para estudio y visual, y disquete de archivo. Está generado con HTML, CSS y JavaScript; no contiene imágenes usadas como texturas ni bibliotecas externas obligatorias. El pequeño shader WebGL es opcional y tiene un respaldo CSS, también procedural.
 
-La metáfora organiza las obras:
-- Monitor = buscador y explorador de páginas.
-- Unidad de audio = música.
-- Unidad óptica = mundos narrativos.
-- Puertos = visual y estudio.
-- Disquete = archivo y versiones históricas.
-- Teclado 1–6 = navegación por categorías (botones interactivos y teclas numéricas).
-- Encendido = suspender/reanudar la pantalla.
+## Estructura de páginas públicas
 
-## Entrada y preservación
+- /index.html dirige al ordenador /artist-os/index.html, **solo en esta rama de trabajo**.
+- /legacy-home.html preserva la web anterior.
+- /artist-os/catalog.js y catalog.json indexan **386 páginas HTML públicas** del propio repositorio belentani.es, generadas exclusivamente a partir de archivos ya versionados en Git.
+- /artist-os/bridge.js crea un botón fijo que permite regresar al ordenador o entrar en otros directorios; está instalado de forma reversible en esas 386 páginas.
+- /artist-os/material.css aplica la estética rubí compartida solamente cuando el HTML tiene identidad artística. Las páginas técnicas, institucionales o de academia conservan su apariencia.
+- /artist-os/scripts/build-catalog.mjs genera el índice público seguro a partir de `git ls-files` del propio repositorio. No lee Drive ni repositorios privados.
+- /artist-os/scripts/link-pages.mjs --dry-run / --apply / --undo permite aplicar o revertir el botón de acceso. Hace backups de los HTML originales fuera del repositorio.
 
-La **rama de trabajo** usa el root /index.html como puerta de entrada a /artist-os/index.html. La antigua portada se conserva **completa** y accesible en /legacy-home.html. Las otras 13 páginas artísticas HTML del repo principal incorporan un acceso discreto al ordenador, aislado mediante Shadow DOM. Las 14 páginas originales, incluida legacy-home, comparten la capa procedural /artist-os/material.css: reflejos de rubí, títulos cromados, bordes y textura ligera. Sin imágenes.
+## Dos exploradores privados, fuera de Git
 
-La rama de trabajo NO está fusionada en main y NO está desplegada en producción.
+Para explorar los HTML de las demás fuentes sin publicarlos, existen localmente:
 
-## Privacidad y catálogos
+- `C:\Users\USER\Documents\00_REPOS\belentani.es\artist-os\private.html` — **2.756 entradas artísticas/candidatas**, incluidas referencias identificadas en Drive.
+- `C:\Users\USER\Documents\00_REPOS\belentani.es\artist-os\all-html.html` — **46.823 entradas HTML** del PC y de Drive.
 
-- /artist-os/catalog.js y catalog.json contienen SOLO las 14 páginas HTML propias del repositorio público belentani.es. No contienen información de Drive, de repositorios privados ni direcciones privadas.
-- /artist-os/scripts/build-catalog.mjs es el generador público seguro y contiene únicamente una lista de HTML públicos seleccionados.
-- El índice de investigación completo (413 candidatos en esta revisión) se almacena exclusivamente fuera del repositorio en:
-  C:\Users\USER\Documents\00_REPOS\_PRIVATE_BELENTANI_OS
-- Su generador separado es build-private-catalog.mjs, también fuera de Git; incluye referencias a repositorios privados y archivos de Drive, así que NO debe publicarse.
-- /artist-os/private.html es el explorador local completo y está excluido de Git mediante .gitignore; se abre únicamente en el equipo autorizado.
-- En la vista privada, las entradas HTML se abren como archivos locales reales desde los otros repositorios, en pestaña aparte para conservar el ordenador como referencia. Algunos HTML históricos que dependen de servidores o servicios externos pueden necesitar su propio entorno de ejecución.\n- Los HTML que utilizan rojo son **candidatos a clasificar**, no material autorizado automáticamente para su publicación. Antes de integrar una edición se revisan contenido, licencias, secretos y estado de accesibilidad.
+Ambas páginas están excluidas en /artist-os/.gitignore; cargan catálogos del directorio privado `C:\Users\USER\Documents\00_REPOS\_PRIVATE_BELENTANI_OS`. En ellas se puede filtrar por proyecto, por color rojo, por duplicado, buscar y abrir cada HTML del disco desde el ordenador. Los archivos Drive se abren en Drive. El catálogo público no incluye IDs privados de Drive ni rutas de repositorios privados.
 
-## Navegación reversible
+La marca «rojo» es una hipótesis de afiliación artística, nunca una instrucción de publicación automática. Algunos prototipos requieren su propio servidor y no funcionan completos como archivos `file:`.
 
-/artist-os/bridge.js integra navegación entre las páginas sin alterar sus estilos. El integrador /artist-os/scripts/link-pages.mjs admite --dry-run, --apply y --undo. Se guardan copias originales fuera de Git en C:\Users\USER\Documents\00_REPOS\_SNAPSHOTS\BELENTANI_OS_20261117\belentani.es antes de insertar un script.
+## Estadísticas de la investigación, 17/11/2026
 
-## Pruebas
+- 404 carpetas de proyectos inspeccionadas.
+- 45.266 HTML/HTM locales, además de 4.761 archivos de componentes o páginas de frameworks.
+- 1.959 HTML en 83 repositorios cuyo nombre se relaciona con Belentani, Judas, OMEGA u otras familias creativas.
+- 1.557 HTML de Drive identificados por búsquedas amplias, pero **no exhaustivas**.
+- 2.756 referencias en la vista artística privada y 46.823 en la vista completa.
+- 386 enlaces de HTML públicos al ordenador; 372 enlazados en la ampliación y 14 ya enlazados anteriormente.
+- Ninguna copia original privada eliminada, movida o publicada.
 
-- Validación de JavaScript con node --check.
-- Test de navegación Playwright en Chromium: selección de directorios, búsqueda, filtro de rojo, pantalla apagada/encendida, enlaces.
-- Vuelta desde antigua portada y páginas HTML a BELENTANI OS.
-- Pruebas móviles y de pantalla estrecha: 390 y 320 píxeles, sin scroll horizontal.
-- Catálogo público verificado sin enlaces a Drive o repositorios privados; índice local completo carga correctamente.
-- Animación GPU real pendiente de verificar en el equipo de producción; existe respaldo CSS procedural.
+Informe privado: `_PRIVATE_BELENTANI_OS/INFORME_INVENTARIO_AMPLIADO_2026-11-17.md`.
 
-## Estado
+## Estado de validación
 
-Implementación y pruebas locales y rama GitHub de trabajo. Falta revisión artística, integración selectiva de más HTML y aprobación de la publicación/merge. No borrar el historial de trabajo ni sustituir todas las páginas automáticamente.
+- JS validado con `node --check`.
+- Navegación, filtros y diseño responsive comprobados con Playwright en Windows; sin errores de ejecución en el ordenador y los exploradores.
+- Los 386 archivos del catálogo público tienen destino existente y script de retorno; verificador: `node artist-os/scripts/verify-public.mjs`.
+- Pruebas de páginas de distintos tipos: material artístico activado y material técnico desactivado.
+- La escena WebGL pesada `public/omega-living.html` no terminó la navegación de prueba headless dentro del tiempo asignado; requiere verificación en navegador normal.
+
+**Esta rama y PR siguen en borrador. No se ha reemplazado la web pública actual ni se ha fusionado en main.**

@@ -14,7 +14,22 @@
  const items=Array.isArray(catalog.items)?catalog.items:[];
  const $=id=>document.getElementById(id);
  const path=$('screen-path'), heading=$('panel-heading'),desc=$('panel-description'),pid=$('panel-id'),list=$('item-list'),results=$('result-label'),counts=$('count-label'),status=$('status-text'),summary=$('catalog-summary'),search=$('search'),filter=$('red-filter'),more=$('load-more'),power=$('power');
- const state={zone:'home',query:'',red:false,limit:11,on:true};
+ const state={zone:'home',query:'',red:false,limit:11,on:true,repo:'*',unique:false};
+ const isPrivate=!!catalog.local;
+ let selectRepo=null, uniqueButton=null;
+ if(isPrivate){
+  const toolbar=document.createElement('div');toolbar.className='library-toolbar';toolbar.setAttribute('aria-label','Filtros del archivo local');
+  selectRepo=document.createElement('select');selectRepo.setAttribute('aria-label','Filtrar por proyecto o repositorio');
+  const counts=new Map();for(const x of items)counts.set(x.repo,(counts.get(x.repo)||0)+1);
+  const allOption=document.createElement('option');allOption.value='*';allOption.textContent='TODOS LOS PROYECTOS · '+items.length;selectRepo.append(allOption);
+  for(const [name,count] of [...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))){
+   const opt=document.createElement('option');opt.value=name;opt.textContent=name+' · '+count;selectRepo.append(opt);
+  }
+  uniqueButton=document.createElement('button');uniqueButton.className='filter-button';uniqueButton.type='button';uniqueButton.setAttribute('aria-pressed','false');uniqueButton.textContent='OCULTAR COPIAS';
+  toolbar.append(selectRepo,uniqueButton);document.querySelector('.search-row').after(toolbar);
+  selectRepo.addEventListener('change',()=>{state.repo=selectRepo.value;state.limit=11;render()});
+  uniqueButton.addEventListener('click',()=>{state.unique=!state.unique;state.limit=11;uniqueButton.setAttribute('aria-pressed',String(state.unique));render()});
+ }
  const escapeTag=t=>String(t||'').replace(/\s+/g,' ').slice(0,110);
  const cleanZone=()=>{const s=location.hash.replace(/^#\/?/,'').toLowerCase();return zones[s]?s:'home'};
  function selectZone(zone,updateHash=true){
@@ -26,7 +41,7 @@
   render();
  }
  function entryWeight(x){
-  let s=x.kind==='page'?0:x.kind==='drive'?8:13;
+  let s=x.kind==='page'?0:x.kind==='drive'?8:13; if(x.featured)s-=100;
   if(x.repo==='belentani-Omega')s-=2;
   if(x.repo==='belentani-webs-historicas')s-=1;
   if(x.path==='index.html')s-=10;
@@ -44,8 +59,10 @@
  }
  function getEntries(){
   const q=state.query.trim().toLocaleLowerCase('es');
-  let values=q?items.filter(x=>[x.title,x.path,x.repo,x.zone,x.collection].some(v=>String(v||'').toLocaleLowerCase('es').includes(q))):state.zone==='home'?homeEntries():items.filter(x=>x.zone===state.zone);
+  let values=q?items.filter(x=>[x.title,x.path,x.repo,x.zone,x.collection].some(v=>String(v||'').toLocaleLowerCase('es').includes(q))):state.zone==='home'?(state.repo==='*'?homeEntries():items.slice()):items.filter(x=>x.zone===state.zone);
   if(state.red)values=values.filter(x=>x.red);
+  if(state.repo!=='*')values=values.filter(x=>x.repo===state.repo);
+  if(state.unique)values=values.filter(x=>!x.duplicates);
   if(!q&&state.zone!=='home')values.sort((a,b)=>entryWeight(a)-entryWeight(b)||a.title.localeCompare(b.title,'es'));
   else if(q)values.sort((a,b)=>entryWeight(a)-entryWeight(b)||a.title.localeCompare(b.title,'es'));
   return values;
