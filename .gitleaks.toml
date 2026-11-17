@@ -22,3 +22,12 @@ keywords = ["vercel_"]
 
 # No global path allowlists: they suppress entire directories by default.
 # Add only narrowly scoped per-rule exceptions after verifying a false positive.
+
+# Exact audited false positive: an unprivileged OMEGA COSMOS session-state
+# storage namespace, NOT a credential. No global secret exclusion.
+[[allowlists]]
+description = "OMEGA COSMOS nonsecret session-state namespace (single exact match)"
+targetRules = ["generic-api-key"]
+regexTarget = "line"
+paths = ['''^public/omega-cosmos\.html$''']
+regexes = ['''^exports\.STORAGE_KEY = 'belentani_omega_cosmos_v2';$''']
