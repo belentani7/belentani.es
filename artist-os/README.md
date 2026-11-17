@@ -51,3 +51,8 @@ Informe privado: `_PRIVATE_BELENTANI_OS/INFORME_INVENTARIO_AMPLIADO_2026-11-17.m
 ## Entrada pública real con Next.js
 
 La raíz de Git contiene 386 HTML históricos, pero no todos corresponden a rutas HTTP publicadas. La nueva integración copia el ordenador a `public/artist-os/` durante `predev`/`prebuild` y genera un catálogo público **reducido a 11 destinos artísticos reales**. El inventario completo, los HTML técnicos y los archivos privados de Drive permanecen separados de la portada pública. `/` abre el ordenador; la galaxia original se conserva en `/atlas`. Los reflejos y cantos cromados de `belentani-artista-unified` se han adaptado a `studio-reflections.css` sin importar la configuración de claves AI del estudio. Comprobación sin escribir: `node scripts/publish-artist-os.mjs --check`. Validación HTTP: `tests/e2e/artist-os-runtime.spec.ts`.
+
+
+## Instrumento integrado · Sound Lab
+
+Una adaptación funcional y libre de credenciales del motor de WebAudio de Studio (belentani-artista-unified, commit 50dc183) vive en la ruta pública `/artist-os/lab.html`: síntesis original en tres materiales, teclado accesible, secuenciador de ocho pasos y visualizador de audio. No solicita micrófono, no guarda claves ni llama a servicios externos. El catálogo público contiene ahora 12 destinos validados. Las fuentes completas del Studio y su sistema de AI permanecen separados.

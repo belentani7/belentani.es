@@ -22,3 +22,11 @@ Esta rama es una integración funcional de fuentes, no una copia de todos los re
 
 Usar `node scripts/publish-artist-os.mjs --check`, `pnpm build`, `pnpm test` y `pnpm test:e2e`.
 Comprobar manualmente el comportamiento de OMEGA WebGL en máquinas modestas y el contraste real de los materiales antes de fusionar.
+
+## Sound Lab (adaptación funcional)
+
+El controlador WebAudio del Studio original se redujo a síntesis local de tres presets, teclado y secuenciador: `artist-os/lab.js`. Su interfaz está en `lab.html` y `lab.css`, con carga bajo demanda al abrir la unidad de estudio. No se han importado el almacenamiento de tokens en localStorage, proveedor IA, micrófono ni los servicios privados. El manifest público cuenta **12 rutas**, incluida `/artist-os/lab.html`.
+
+## Lighthouse
+
+El informe de la auditoría del 17-11-2026 marcó contraste insuficiente en `.help` y divergencia entre las etiquetas visibles y los nombres accesibles de tres botones físicos. Se ajustó el contraste y se eliminó el aria-label redundante de esos botones: sus nombres accesibles proceden ahora del texto visible. Reejecutar Lighthouse antes de aprobar.

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080407">
+  <meta name="description" content="BELENTANI Sound Lab — sintetizador, teclado y secuenciador originales ejecutados con WebAudio. Sin cuenta ni servidores.">
+  <title>BELENTANI · SOUND LAB</title>
+  <link rel="stylesheet" href="./lab.css">
+  <script src="./lab.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#studio-content">Saltar al instrumento</a>
+  <div class="shell">
+    <header class="top">
+      <strong>BELENTANI<span aria-hidden="true">.</span> STUDIO</strong>
+      <a href="./index.html#studio" aria-label="Regresar al ordenador BELENTANI OS">← VOLVER AL ORDENADOR</a>
+    </header>
+    <p class="eyebrow">SONIDO / UNA MÁQUINA QUE RESPIRA</p>
+    <h1>Haz sonar<br>el cristal.</h1>
+    <p class="lead">Un instrumento experimental nacido del Studio de BELENTANI. Toca el teclado, diseña una secuencia y observa la onda. Todo el audio se genera aquí, en tu navegador. No necesita cuentas, micrófono ni conexión con una IA.</p>
+    <main id="studio-content">
+      <section class="console" aria-label="Sintetizador BELENTANI">
+        <div class="deck">
+          <div class="display">
+            <div class="statusline"><span><span class="led" aria-hidden="true"></span> SIGNAL / LIVE SYNTHESIS</span><span>8 STEPS · WEB AUDIO</span></div>
+            <div class="wave-wrap"><canvas id="signal" aria-hidden="true"></canvas></div>
+            <div class="readout"><span id="lab-status" role="status" aria-live="polite">Apagado · Enciende el motor para escuchar</span><span>OUTPUT / LOCAL</span></div>
+          </div>
+          <div class="panel">
+            <h2>CONTROL / MOTOR</h2>
+            <label class="control" for="instrument">Materia sonora
+              <select id="instrument">
+                <option value="crystal">CRYSTAL / Triángulo</option>
+                <option value="pulse">JUDAS / Pulso</option>
+                <option value="sub">OMEGA / Sub</option>
+              </select>
+            </label>
+            <label class="control" for="bpm">Velocidad
+              <input id="bpm" type="range" min="65" max="180" step="1" value="95">
+              <output id="bpm-value" for="bpm">95 BPM</output>
+            </label>
+            <label class="control" for="volume">Volumen
+              <input id="volume" type="range" min="0" max="100" step="1" value="45">
+            </label>
+            <button id="power" class="action primary" type="button" aria-pressed="false">ENCENDER AUDIO</button>
+          </div>
+        </div>
+        <section class="keys-section" aria-label="Teclado musical">
+          <h2>01 / TECLADO · NOTAS C4–B4</h2>
+          <div id="keyboard" class="keyboard" role="group" aria-label="Doce teclas musicales"></div>
+          <p class="hint">Pulsa con el ratón o utiliza las teclas A W S E D F T G Y H U J. Mantén pulsado para sostener la nota.</p>
+        </section>
+        <section class="seq-section" aria-label="Secuenciador musical">
+          <h2>02 / SECUENCIA · 8 PASOS</h2>
+          <div id="steps" class="steps" role="group" aria-label="Pasos del secuenciador"></div>
+          <p class="hint">Selecciona una nota en el teclado y activa pasos para crear tu patrón. Un paso vacío es silencio.</p>
+          <div class="control-row">
+            <button id="transport" type="button" class="action primary" aria-pressed="false">INICIAR SECUENCIA</button>
+            <button id="clear" type="button" class="action">BORRAR PASOS</button>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="bottom">
+      <span>BELENTANI OS / CREATIVE AUDIO DRIVE</span>
+      <span>GENERATIVE SOUND · NO TRACKERS · NO SAMPLES · NO CREDENTIALS</span>
+    </footer>
+  </div>
+</body>
+</html>

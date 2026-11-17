@@ -8,7 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'artist-os');
 const destination = path.join(root, 'public', 'artist-os');
 const checkOnly = process.argv.includes('--check');
-const assets = ['index.html', 'os.css', 'os.js', 'studio-reflections.css'];
+const assets = ['index.html', 'os.css', 'os.js', 'studio-reflections.css', 'lab.html', 'lab.css', 'lab.js'];
 const records = [
   { key: 'artist', title: 'BELENTANI · Artista y compositor', url: '/artista', zone: 'home' },
   { key: 'music', title: 'Escuchar la obra · Discografía', url: '/musica', zone: 'music' },
@@ -19,6 +19,7 @@ const records = [
   { key: 'galaxy', title: 'Galaxia · Viaje inmersivo', url: '/galaxia', zone: 'world' },
   { key: 'gallery', title: 'Galería · Escenas del universo', url: '/galeria', zone: 'visual' },
   { key: 'studio', title: 'Estudio creativo · Sonido y materia', url: '/studio-creativo', zone: 'studio' },
+  { key: 'sound-lab', title: 'Sound Lab · Sintetizador en directo', url: '/artist-os/lab.html', zone: 'studio' },
   { key: 'lore', title: 'Archivo vivo · El relato', url: '/lore', zone: 'archive' },
   { key: 'press', title: 'Prensa · Canales oficiales', url: '/prensa', zone: 'archive' }
 ];

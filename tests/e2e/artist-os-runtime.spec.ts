@@ -15,7 +15,7 @@ test('runtime catalog includes curated first-party destinations without local or
   const response = await request.get('/artist-os/catalog.json');
   expect(response.status()).toBe(200);
   const data = await response.json();
-  expect(data.total).toBe(11);
+  expect(data.total).toBe(12);
   expect(data.items.every((item: {href: string}) => /^\.\.\/[a-z0-9/-]+(?:\.html)?$/.test(item.href))).toBe(true);
   expect(data.source).toBe('Curated first-party Next.js routes; not the private vault');
   expect(data.items.every((item: {kind: string}) => item.kind === 'page')).toBe(true);
@@ -32,4 +32,16 @@ test('runtime catalog includes curated first-party destinations without local or
 test('the legacy interactive atlas is preserved at its own route', async ({ page }) => {
   await page.goto('/atlas');
   await expect(page.getByRole('heading', { level: 1, name: /atraviesa.*la galaxia/i })).toBeVisible();
+});
+
+test('the original Sound Lab plays only after user activation and keeps a return route', async ({ page }) => {
+  await page.goto('/artist-os/lab.html');
+  await expect(page.getByRole('heading', { level: 1, name: /Haz sonar/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: /VOLVER AL ORDENADOR/i })).toHaveAttribute('href', './index.html#studio');
+  await expect(page.locator('[data-note]')).toHaveCount(12);
+  await page.getByRole('button', { name: 'ENCENDER AUDIO' }).click();
+  await expect(page.getByRole('status')).toContainText('Audio listo');
+  await page.getByRole('button', { name: 'INICIAR SECUENCIA' }).click();
+  await expect(page.getByRole('button', { name: 'DETENER SECUENCIA' })).toBeVisible();
+  await page.getByRole('button', { name: 'DETENER SECUENCIA' }).click();
 });
