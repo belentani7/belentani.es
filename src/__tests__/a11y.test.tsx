@@ -2,7 +2,7 @@ import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { afterEach, test, expect, vi } from 'vitest';
-import LandingPage from '../../app/page';
+import AtlasPage from '../../app/atlas/page';
 import ArtistaPage from '../../app/(marketing)/artista/page';
 import PrensaPage from '../../app/(marketing)/prensa/page';
 import MusicaPage from '../../app/(marketing)/musica/page';
@@ -116,8 +116,8 @@ global.matchMedia = vi.fn().mockImplementation((query: string) => ({
   dispatchEvent: vi.fn(),
 }));
 
-test('landing page has no a11y violations', async () => {
-  const { container } = render(<LandingPage />);
+test('original atlas has no a11y violations', async () => {
+  const { container } = render(<AtlasPage />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
 });
