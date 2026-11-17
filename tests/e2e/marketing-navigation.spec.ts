@@ -1,18 +1,24 @@
 import { expect, test } from '@playwright/test';
 
+// Keep this test aligned with src/lib/platform-navigation.ts: main chapters
+// differ intentionally from tools/satellites in the secondary navigation.
 const marketingRoutes = [
-  ['Judas', '/judas'],
+  ['Inicio', '/'],
   ['Artista', '/artista'],
-  ['Prensa', '/prensa'],
   ['Música', '/musica'],
-  ['Galaxia', '/galaxia'],
+  ['Judas', '/judas'],
+  ['Portal', '/galaxia'],
+  ['Galería', '/galeria'],
+  ['Contacto', '/prensa'],
+] as const;
+const satelliteRoutes = [
   ['AI Lab', '/ai-lab'],
   ['Estudio', '/studio-creativo'],
   ['Academia', '/school'],
 ] as const;
 
 test('every marketing destination returns a real document instead of a 404', async ({ request }) => {
-  for (const [, destination] of marketingRoutes) {
+  for (const [, destination] of [...marketingRoutes, ...satelliteRoutes]) {
     const response = await request.get(destination);
     expect(response.status(), `Broken route ${destination}`).toBe(200);
     expect(response.headers()['content-type']).toContain('text/html');

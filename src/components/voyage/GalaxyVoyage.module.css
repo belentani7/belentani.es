@@ -49,7 +49,7 @@
 .reactiveStatus span{color:#ff3568;animation:galaxySignal 2.7s ease-in-out infinite}
 @keyframes galaxySignal{50%{opacity:.38;text-shadow:0 0 28px #ff073a}}
 @media(max-width:850px){.headerLinks a:not(.return){display:none}.portalActions{max-width:470px}}
-@media(max-width:600px){.portalActions{display:grid;grid-template-columns:1fr;margin-bottom:1.5rem}.portalActions a{min-height:43px}.intro{margin-bottom:9rem}.reactiveStatus{position:relative;left:auto;bottom:auto;padding:1.2rem;font-size:.57rem;background:#0a040dd9}.headerLinks .return{font-size:.57rem}.active{margin-top:0}}
+@media(max-width:600px){.portalActions{display:grid;grid-template-columns:1fr;margin-bottom:1.5rem}.portalActions a{min-height:44px}.intro{margin-bottom:9rem}.reactiveStatus{position:relative;left:auto;bottom:auto;padding:1.2rem;font-size:.57rem;background:#0a040dd9}.headerLinks .return{font-size:.57rem}.active{margin-top:0}}
 @media(prefers-reduced-motion:reduce){.reactiveStatus span{animation:none}}
 
 

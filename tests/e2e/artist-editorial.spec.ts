@@ -20,7 +20,7 @@ test('editorial press page provides biography and official contact without fabri
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Una obra hecha');
   await expect(page.getByRole('heading', { name: 'Canales oficiales' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Instagram' })).toHaveAttribute('href', 'https://www.instagram.com/belentani_/');
+  await expect(page.getByRole('main').getByRole('link', { name: /instagram/i })).toHaveAttribute('href', 'https://www.instagram.com/belentani_/');
   await expect(page.getByRole('main').getByRole('link', { name: 'Spotify' })).toHaveAttribute('href', /open.spotify.com\/artist\//);
 });
 

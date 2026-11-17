@@ -7,7 +7,7 @@ test('galaxy navigation remains usable after Three.js dependency upgrades', asyn
   await page.goto('/');
 
   await expect(page.getByRole('heading', { level: 1, name: /atraviesa.*la galaxia/i })).toBeVisible();
-  await expect(page.getByRole('link', { name: /escuchar la obra/i })).toHaveAttribute('href', '/musica');
+  await expect(page.getByRole('link', { name: 'ESCUCHAR LA OBRA', exact: true })).toHaveAttribute('href', '/musica');
   await expect(page.getByRole('navigation', { name: 'Sistemas de la galaxia' })).toBeAttached();
 
   const activate = page.getByRole('button', { name: /explorar en 3d/i });
@@ -30,7 +30,7 @@ test('galaxy navigation remains usable after Three.js dependency upgrades', asyn
 test('homepage links retain readable contrast, touch targets and visible brand names', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('link', { name: /^B7.*página del artista/i })).toBeVisible();
-  const listen = page.getByRole('link', { name: 'Escuchar', exact: true });
+  const listen = page.getByRole('link', { name: 'ESCUCHAR LA OBRA', exact: true });
   const appearance = await listen.evaluate((element) => {
     const style = getComputedStyle(element);
     const luminance = (rgb: string) => {
