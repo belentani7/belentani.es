@@ -11,11 +11,17 @@ const mode=process.argv.includes('--apply')?'apply':process.argv.includes('--und
 const catalog=JSON.parse(fs.readFileSync(path.join(site,'artist-os','catalog.json'),'utf8'));
 let changed=0,skipped=0,errors=0;
 for(const item of catalog.items.filter(x=>x.kind==='page'&&x.repo==='belentani.es')){
- const relative=item.path;const file=path.join(site,...relative.split('/'));
+ const relative=item.path;
+ // Catalog entries are data: accept only safe, relative first-party HTML paths.
+ if(!/^[a-zA-Z0-9_.\/-]+$/.test(relative)||relative.split('/').some(s=>s==='.'||s==='..')){errors++;continue}
+ const file=path.resolve(site,...relative.split('/'));
+ if(!file.startsWith(site+path.sep)){errors++;continue}
  const backup=path.join(backupRoot,...relative.split('/'));
  const marker='data-belentani-os="ruby-v1"';
  const source=fs.readFileSync(file,'utf8');
  const link=path.relative(path.dirname(file),path.join(site,'artist-os','bridge.js')).replaceAll('\\','/');
+ // Only the exact bridge asset can become a script URL; no quoted HTML attributes.
+ if(!/^(?:\.\.\/)*artist-os\/bridge\.js$/.test(link)){errors++;continue}
  const theme=item.zone==='archive'?'nav':'ruby';
  const injection='<script '+marker+' data-belentani-os-theme="'+theme+'" src="'+link+'" defer></script>';
  if(mode==='undo'){
@@ -25,11 +31,12 @@ for(const item of catalog.items.filter(x=>x.kind==='page'&&x.repo==='belentani.e
   fs.writeFileSync(file,fs.readFileSync(backup));changed++;continue;
  }
  if(source.includes(marker)){skipped++;continue}
- if(!/<\/body>/i.test(source)){errors++;console.log('SKIP: no </body>:',relative);continue}
+ const bodyEnd=source.toLowerCase().lastIndexOf('</body>');
+ if(bodyEnd<0){errors++;console.log('SKIP: no </body>:',relative);continue}
  if(mode==='apply'){
   fs.mkdirSync(path.dirname(backup),{recursive:true});
   if(!fs.existsSync(backup))fs.copyFileSync(file,backup);
-  const edited=source.replace(/<\/body>/i,'\n'+injection+'\n</body>');
+  const edited=source.slice(0,bodyEnd)+'\n'+injection+'\n'+source.slice(bodyEnd);
   fs.writeFileSync(file,edited,'utf8');
  }
  console.log((mode==='apply'?'LINK ':'WOULD LINK ')+relative+' -> '+link);

@@ -3,7 +3,6 @@ import path from 'node:path';
 import ts from 'typescript';
 
 const forbidden = /(?:_private_audio_no_web|_satellites|_bucket|\.(?:wav|mp3|aiff?|flac|m4a|ogg|logicx|als|flp)(?:$|[?#]))/i;
-const retired = new RegExp('ome' + 'ga|\u03a9', 'i');
 /** Mundos HTML heredados / junctions: se escanean aparte; no bloquean el build del shell. */
 const SKIP_PUBLIC = new Set([
   'mundos',
@@ -33,7 +32,6 @@ function walk(dir, rootName) {
     const stat = fs.statSync(file);
     if (stat.size > 400_000) continue;
     const text = fs.readFileSync(file, 'utf8');
-    if (retired.test(file) || retired.test(text)) failures.push(`${file}: retired brand`);
     if (/\.[jt]sx?$/.test(file) && !file.endsWith('boundaries.ts')) {
       const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true);
       const visit = (node) => {
@@ -49,4 +47,4 @@ if (failures.length) {
   console.error([...new Set(failures)].join('\n'));
   process.exit(1);
 }
-console.debug('Artist boundaries verified: no private audio, satellite imports or retired branding.');
+console.debug('Artist boundaries verified: no private audio or satellite imports. Named artistic worlds remain allowed.');

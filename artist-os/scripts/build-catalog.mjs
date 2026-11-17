@@ -29,7 +29,7 @@ for(const p of tracked){
  if(!full.startsWith(root+path.sep)||!fs.existsSync(full))continue;
  const source=fs.readFileSync(full,'utf8');
  const match=source.match(/<title[^>]*>([\s\S]{0,230}?)<\/title>/i);
- let title=match?match[1].replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&mdash;/g,'—').replace(/\s+/g,' ').trim():'';
+ let title=match?match[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim():'';
  if(!title)title=path.basename(p,'.html').replace(/[-_]+/g,' ');
  const red=/#(?:ff073a|ff0033|ff1a4a|8c0119|e11d48|f43f5e)\b|chrome red|rub[yí]|cromo rojo|ne[oó]n rojo/i.test(source.slice(0,180000));
  items.push({id:'belentani.es/'+p,title:title.slice(0,115),zone:zone(p),kind:'page',href:'../'+p.split('/').map(encodeURIComponent).join('/'),repo:'belentani.es',path:p,red:red?1:0,featured:featured.has(p)});
