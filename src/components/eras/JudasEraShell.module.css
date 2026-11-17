@@ -42,3 +42,19 @@
   .chapters button { font-size: 11px; } .chapters button span { display: block; margin-bottom: 7px; }
   .story { grid-template-columns: 1fr; gap: 20px; padding: 35px 20px; } .story div > p { font-size: 20px; } .footer { padding: 25px 20px; }
 }
+
+/* --- mejora universal: movimiento reducido --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- mejora universal: foco visible --- */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}

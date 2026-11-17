@@ -40,6 +40,15 @@
           "value": "off"
         }
       ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
+      ]
     }
   ],
   "$schema": "https://openapi.vercel.sh/vercel.json"
