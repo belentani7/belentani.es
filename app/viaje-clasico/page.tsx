@@ -1,8 +1,10 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const VoyageCinema = dynamic(() => import('@/components/voyage/VoyageCinema'), {
+import { default as dynamicImport } from 'next/dynamic';
+
+const VoyageCinema = dynamicImport(() => import('@/components/voyage/VoyageCinema'), {
   ssr: false,
   loading: () => <main style={{ minHeight: '100svh', background: '#030008', color: '#ff174d', display: 'grid', placeItems: 'center' }}>BELENTANI</main>,
 });

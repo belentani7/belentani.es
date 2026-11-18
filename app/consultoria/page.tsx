@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/consultoria' },
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function ConsultoriaPage() {
   return <NoiacoreConsultancy entry="consultoria" />;
 }

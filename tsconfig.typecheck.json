@@ -1,0 +1,36 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    ".next",
+    "node_modules",
+    "_private_audio_no_web",
+    "_satellites",
+    "_bucket",
+    ".local-archive",
+    "_clones",
+    "_ARCHIVO",
+    "Ciclona",
+    "masters",
+    "viaje-r3f",
+    "espacio-3d",
+    "unificado",
+    "banco-recursos-galacticos",
+    "Belentani",
+    "lore-canon",
+    "app-web-nextjs",
+    "belentani.es.worktrees",
+    "public/mundos",
+    "public/viaje3d",
+    "public/viaje",
+    "public/galaxia-shell",
+    "public/unificado-live",
+    "vitest.setup.ts",
+    "legacy",
+    "legacy/**"
+  ]
+}

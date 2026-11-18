@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-dynamic';
+
 /** Escenas que se pueden visitar. El orden es el de la obra, no el del catálogo. */
 const WORLD_IDS = [
   'viaje3d',

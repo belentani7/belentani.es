@@ -14,5 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-dynamic';
+
 import JudasEraShell from '@/components/eras/JudasEraShell';
 export default function JudasEraPage() { return <JudasEraShell />; }

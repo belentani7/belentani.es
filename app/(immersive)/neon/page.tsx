@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './NeonEdition.module.css';
 
+export const dynamic = 'force-dynamic';
+
 const stages = [
   { number: '01', label: 'INPUT', title: 'La señal', body: 'Una fractura atraviesa el sistema. El relato empieza cuando alguien decide escucharla.' },
   { number: '02', label: 'DATA', title: 'El archivo', body: 'La memoria conserva las piezas sin confundir la máscara de JUDAS con la vida del artista.' },

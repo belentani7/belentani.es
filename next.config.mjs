@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // C:\Users tiene un package.json suelto (playwright): sin esto Next infiere
+  // la raíz del workspace en C:\Users y rompe el trazado de .next.
+  outputFileTracingRoot: process.cwd(),
   eslint: {
     ignoreDuringBuilds: true,
   },

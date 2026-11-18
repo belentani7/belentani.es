@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/maquina' },
 };
 
+export const dynamic = 'force-dynamic';
+
 /** Terminal narrativa, atlas y mito interactivo. */
 export default function MaquinaPage() {
   return <ConsciousMachine />;

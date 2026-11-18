@@ -17,6 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ capitulo:
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 import ChapterContent from './ChapterContent';
 
 export default async function ChapterPage({ params }: { params: Promise<{ capitulo: string }> }) {

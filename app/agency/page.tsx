@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Consultoria premium de IA, SaaS, terminales y sistemas noir de Pedro Belentani.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function AgencyPage() {
   return <NoiacoreConsultancy entry="agency" />;
 }

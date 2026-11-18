@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Producción musical, beat sequencer y catálogo de DUCK STUDIO.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function DuckPage() {
   return <DuckPortal />;
 }

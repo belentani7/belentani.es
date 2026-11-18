@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: 'Explora Open School, LinguaForge y Manos Abiertas desde el universo Belentani.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function SchoolPage() {
   return <main><Link href="/" style={{ position: 'absolute', zIndex: 5, top: 16, left: 16, padding: '8px 12px', background: '#141024', color: '#f6ebdc' }}>← Universo Belentani</Link><SchoolPortal /></main>;
 }

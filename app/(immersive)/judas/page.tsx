@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 import { judasChapters } from '@/lib/judas-data';
 import { ScrollSection, Card, Button } from '@/design-system';

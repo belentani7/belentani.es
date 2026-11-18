@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 
 const CANCIONES = [

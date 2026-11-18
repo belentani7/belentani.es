@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-dynamic';
+
 const chapters = [
   { number: '01', id: 'espejo', title: 'EL ESPEJO', eyebrow: 'IDENTIDAD / REFLEJO', text: 'Una imagen no siempre revela a quien la mira. En JUDAS, el reflejo es una pregunta abierta sobre identidad, deseo y representación.', detail: '¿Quién escribe la imagen que vemos?' },
   { number: '02', id: 'llave', title: 'LA LLAVE', eyebrow: 'ACCESO / ELECCIÓN', text: 'La llave no promete una respuesta automática: permite abrir una puerta y aceptar lo que cambia al cruzarla.', detail: 'No todos los umbrales conducen al mismo mundo.' },
