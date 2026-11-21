@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Belentani">
+  <rect width="1200" height="630" fill="#0b0a12"/>
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="none" stroke="#a488f7" stroke-width="2" opacity="0.45"/>
+  <text x="96" y="300" font-family="Georgia, serif" font-size="86" fill="#f2eefc">Belentani</text>
+  <text x="96" y="372" font-family="system-ui, sans-serif" font-size="34" fill="#9a97a3">casa artística (marca musical)</text>
+  <rect x="96" y="430" width="120" height="6" fill="#a488f7"/>
+  <text x="96" y="520" font-family="ui-monospace, monospace" font-size="24" fill="#a488f7">belentani7 · 2026</text>
+</svg>

@@ -1,0 +1,80 @@
+{
+  "projectName": "BELENTANI — The Experience",
+  "repoName": "belentani.es",
+  "bioSource": "README.md",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Visión General y Bio",
+      "description": "Universo artístico interactivo de Pedro Belentani. Música, narrativa, arte digital y código conectados en una experiencia visual.",
+      "buttons": []
+    },
+    {
+      "id": "deliverables",
+      "title": "Entregables y Archivos",
+      "description": "Recursos locales conectados directamente a la interfaz.",
+      "buttons": [
+        {
+          "label": "Abrir bug_report.md",
+          "target": ".github/ISSUE_TEMPLATE/bug_report.md",
+          "type": "file"
+        },
+        {
+          "label": "Abrir feature_request.md",
+          "target": ".github/ISSUE_TEMPLATE/feature_request.md",
+          "type": "file"
+        },
+        {
+          "label": "Abrir pull_request_template.md",
+          "target": ".github/pull_request_template.md",
+          "type": "file"
+        },
+        {
+          "label": "Abrir app-build-manifest.json",
+          "target": ".next/app-build-manifest.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir app-path-routes-manifest.json",
+          "target": ".next/app-path-routes-manifest.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir build-manifest.json",
+          "target": ".next/build-manifest.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir build-diagnostics.json",
+          "target": ".next/diagnostics/build-diagnostics.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir framework.json",
+          "target": ".next/diagnostics/framework.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir export-marker.json",
+          "target": ".next/export-marker.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir images-manifest.json",
+          "target": ".next/images-manifest.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir next-minimal-server.js.nft.json",
+          "target": ".next/next-minimal-server.js.nft.json",
+          "type": "file"
+        },
+        {
+          "label": "Abrir next-server.js.nft.json",
+          "target": ".next/next-server.js.nft.json",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}

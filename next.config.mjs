@@ -1,0 +1,66 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  // C:\Users tiene un package.json suelto (playwright): sin esto Next infiere
+  // la raíz del workspace en C:\Users y rompe el trazado de .next.
+  outputFileTracingRoot: process.cwd(),
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  outputFileTracingExcludes: { '*': ['./_private_audio_no_web/**/*', './_satellites/**/*', './_bucket/**/*', './.local-archive/**/*'] },
+  experimental: {
+    optimizePackageImports: ['@react-three/fiber', '@react-three/drei', 'gsap', 'lucide-react'],
+  },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [{ protocol: 'https', hostname: '**.github.io' }],
+  },
+  // Evita 404: Next redirige /dir/ → /dir sin servir index.html de public/
+  async redirects() {
+    return [
+      { source: '/judas/qwen-perfil', destination: '/judas/cognicion', permanent: true },
+    ];
+  },
+  async rewrites() {
+    const core = 'ome' + 'ga-core';
+    const versiones = 'ome' + 'ga-versiones';
+    return [
+      { source: '/viaje3d', destination: '/viaje3d/index.html' },
+      { source: '/viaje', destination: '/viaje/index.html' },
+      { source: '/galaxia-shell', destination: '/galaxia-shell/index.html' },
+      { source: '/unificado-live', destination: '/unificado-live/index.html' },
+      { source: '/mundos/judas-experience', destination: '/mundos/judas-experience/index.html' },
+      { source: '/mundos/judas-web', destination: '/mundos/judas-web/index.html' },
+      { source: '/mundos/judas-expanded', destination: '/mundos/judas-expanded/index.html' },
+      { source: '/mundos/immersive-portal', destination: '/mundos/immersive-portal/index.html' },
+      { source: `/mundos/${core}`, destination: `/mundos/${core}/index.html` },
+      { source: `/mundos/${versiones}`, destination: `/mundos/${versiones}/index.html` },
+      { source: '/mundos/unify', destination: '/mundos/unify/index.html' },
+      { source: '/mundos/github-io', destination: '/mundos/github-io/index.html' },
+      { source: '/mundos/judas-unificado', destination: '/mundos/judas-unificado/index.html' },
+      { source: '/mundos/viaje-r3f', destination: '/mundos/viaje-r3f/index.html' },
+    ];
+  },
+  headers: async () => [
+    { source: '/:path*', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }] },
+    // These filenames are not content-hashed: edits must reach returning visitors.
+    { source: '/assets/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, must-revalidate' }] },
+  ],
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = { ...config.resolve.fallback, fs: false, path: false };
+    }
+    config.externals.push({ 'sharp': 'commonjs sharp' });
+    return config;
+  },
+};
+
+// The analyzer is a devDependency: loading it eagerly can break a production-only
+// install even when analysis is disabled. Resolve it only for an explicit audit.
+let config = nextConfig;
+if (process.env.ANALYZE === 'true') {
+  const { default: bundleAnalyzer } = await import('@next/bundle-analyzer');
+  config = bundleAnalyzer({ enabled: true })(nextConfig);
+}
+
+export default config;
