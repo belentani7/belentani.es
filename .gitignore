@@ -1,3 +1,9 @@
+# Generated OS metadata, Python bytecode, and HTML reports
+*.pyc
+*.pyo
+htmlcov/
+playwright-report/
+
 
 
 .DS_Store
