@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-11-18T06:44:41.195Z",
+  "repo": "belentani.es",
+  "totalFiles": 1448,
+  "links": [
+    {
+      "label": "Abrir bug_report.md",
+      "target": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir feature_request.md",
+      "target": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir pull_request_template.md",
+      "target": ".github/pull_request_template.md",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir app-build-manifest.json",
+      "target": ".next/app-build-manifest.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir app-path-routes-manifest.json",
+      "target": ".next/app-path-routes-manifest.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir build-manifest.json",
+      "target": ".next/build-manifest.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir build-diagnostics.json",
+      "target": ".next/diagnostics/build-diagnostics.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir framework.json",
+      "target": ".next/diagnostics/framework.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir export-marker.json",
+      "target": ".next/export-marker.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir images-manifest.json",
+      "target": ".next/images-manifest.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir next-minimal-server.js.nft.json",
+      "target": ".next/next-minimal-server.js.nft.json",
+      "type": "file",
+      "exists": true
+    },
+    {
+      "label": "Abrir next-server.js.nft.json",
+      "target": ".next/next-server.js.nft.json",
+      "type": "file",
+      "exists": true
+    }
+  ]
+}

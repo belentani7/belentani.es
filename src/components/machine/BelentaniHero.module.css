@@ -1,0 +1,213 @@
+.page {
+  position: relative;
+  min-height: 100svh;
+  color: #f2e8ef;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #030008;
+}
+
+.cosmos {
+  position: absolute;
+  inset: 0;
+}
+
+.cosmos canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 55% 42%, rgba(255, 7, 58, 0.38), transparent 58%),
+    radial-gradient(ellipse 45% 35% at 30% 70%, rgba(138, 3, 3, 0.4), transparent 55%),
+    radial-gradient(ellipse 30% 25% at 75% 25%, rgba(212, 175, 55, 0.1), transparent 50%),
+    #030008;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 0, 8, 0.35) 0%, transparent 28%, transparent 55%, rgba(3, 0, 8, 0.75) 100%),
+    radial-gradient(ellipse at center, transparent 35%, rgba(3, 0, 8, 0.55) 100%);
+  pointer-events: none;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 40px;
+  gap: 24px;
+}
+
+.mark {
+  font-family: var(--font-display), monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: transparent;
+  /* brand lives in the hero H1; nav mark stays for screen readers / skip */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.top nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 15px;
+}
+
+.top a {
+  color: rgba(242, 232, 239, 0.72);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.top a:hover {
+  color: #ff073a;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px 40px;
+  max-width: 960px;
+}
+
+.brand {
+  font-family: var(--font-display), monospace;
+  font-weight: 900;
+  font-size: clamp(64px, 14vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: #f2e8ef;
+  text-shadow:
+    0 0 80px rgba(255, 7, 58, 0.45),
+    0 8px 40px rgba(3, 0, 8, 0.95);
+  margin: 0 0 22px;
+}
+
+.line {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  line-height: 1.5;
+  color: rgba(242, 232, 239, 0.82);
+  max-width: 28ch;
+  margin: 0 0 36px;
+  text-shadow: 0 2px 16px rgba(3, 0, 8, 0.9);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary {
+  background: #ff073a;
+  color: #030008;
+  font-weight: 700;
+  border: 1px solid #ff073a;
+}
+
+.primary:hover {
+  box-shadow: 0 0 28px rgba(255, 7, 58, 0.45);
+}
+
+.ghost {
+  background: transparent;
+  color: #f2e8ef;
+  border: 1px solid rgba(242, 232, 239, 0.35);
+}
+
+.ghost:hover {
+  border-color: #ff073a;
+  color: #ff073a;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 40px 28px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(154, 138, 150, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.foot a {
+  color: rgba(154, 138, 150, 0.9);
+  text-decoration: none;
+}
+
+.foot a:hover {
+  color: #ff073a;
+}
+
+.page a:focus-visible,
+.page button:focus-visible {
+  outline: 2px solid #ff073a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .top {
+    padding: 20px;
+  }
+  .hero {
+    padding: 0 20px 48px;
+  }
+  .brand {
+    font-size: clamp(48px, 18vw, 72px);
+  }
+  .foot {
+    padding: 16px 20px 24px;
+  }
+  .top nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .ghost {
+    transition: none;
+  }
+}

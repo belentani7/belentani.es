@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@import '../src/styles/redglass.css';
+@import '../src/styles/spectral-art-direction.css';
+@source '../src';
+@source './';
+
+@theme {
+  /* CANON Design Tokens - WCAG AAA verified on #050505 */
+  --color-void: #050505;
+  --color-voidElevated: #0A0A0A;
+  --color-ink: #FFFFFF;
+  --color-mute: #B3B3B3;
+  --color-red: #FF7777;
+  --color-redDim: #FF4444;
+  --color-blood: #FF2222;
+  --color-gold: #FDE047;
+  --color-goldDim: #F59E0B;
+  --color-violet: #D8B4FE;
+  --color-violetLight: #E9D5FF;
+  --color-violetDark: #A855F7;
+  --color-border: rgba(255, 119, 119, 0.28);
+  --font-display: var(--font-orbitron), "Share Tech Mono", ui-monospace, monospace;
+  --font-body: var(--font-rajdhani), "Share Tech Mono", system-ui, sans-serif;
+  --font-mono: var(--font-share-tech-mono), ui-monospace, Consolas, monospace;
+  --shadow-glowRed: 0 4px 24px rgba(0,0,0,.35), inset 0 0 12px rgba(255,255,255,.1);
+  --shadow-glowGold: 0 4px 24px rgba(0,0,0,.35);
+  --shadow-glowViolet: 0 4px 24px rgba(0,0,0,.35);
+  --shadow-elevation: 0 20px 52px -30px #000, 0 8px 32px rgba(0,0,0,.4);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --ease-spring: cubic-bezier(.22,1,.36,1);
+  --z-hud: 10;
+  --z-dock: 20;
+  --z-modal: 100;
+  --z-toast: 200;
+  --z-boot: 300;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+}
+
+/* Matching families are requested at runtime, never during the Next.js build.
+   Local system fallbacks remain usable when the font CDN is unavailable. */
+:root {
+  --font-orbitron: "Orbitron";
+  --font-rajdhani: "Rajdhani";
+  --font-share-tech-mono: "Share Tech Mono";
+}
+/* Base rules must not override Tailwind utility colors, spacing or type. */
+@layer base {
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--color-void); color: var(--color-ink); font-family: var(--font-body); overflow-x: hidden; min-height: 100vh; }
+::selection { background: var(--color-red); color: #000; }
+a { color: var(--color-red); text-decoration: none; }
+button { font-family: var(--font-mono); cursor: pointer; }
+input, select, textarea { font-family: var(--font-mono); }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+iframe:focus-visible { outline: 2px solid rgba(255, 119, 119, .8); outline-offset: -2px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: var(--color-redDim); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
+}
+
+.hud-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 7, 58, 0.06) 45%, rgba(0, 0, 0, 0.72));
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 7, 58, 0.45);
+  box-shadow: 0 4px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 0 18px rgba(255, 255, 255, 0.08);
+  animation: hud-milky-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes hud-milky-pulse {
+  0%, 100% { box-shadow: 0 4px 18px rgba(0,0,0,.3), inset 0 1px 0 rgba(255, 255, 255, 0.10), inset 0 0 14px rgba(255, 255, 255, 0.08); }
+  50% { box-shadow: 0 8px 36px rgba(0,0,0,.4), inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 0 26px rgba(255, 255, 255, 0.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

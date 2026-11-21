@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-21",
+  "source": "Local recovered belentani.es worktree",
+  "sourceBranch": "repair/public-navigation",
+  "target": "belentani7/belentani.es",
+  "copiedFiles": 298,
+  "bytes": 3743334,
+  "excluded": "Legacy institution HTML, archives, chats, duplicate backups",
+  "note": "Build verification required before merge"
+}
