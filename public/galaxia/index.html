@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belentani · Galaxia Inmersiva 3D</title>
+<style>
+  :root { --bg:#03040a; --text:#e8ecff; --muted:#9aa5d8; --accent:#4de3ff; --line:rgba(120,140,255,.25); }
+  * { box-sizing: border-box; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--text); overflow:hidden; font-family:"Segoe UI", system-ui, sans-serif; }
+  canvas { position:fixed; inset:0; display:block; width:100%; height:100%; }
+  .topbar { position:fixed; top:0; left:0; right:0; display:flex; align-items:center; gap:14px; padding:14px 20px; background:linear-gradient(180deg, rgba(3,4,10,.85), transparent); z-index:5; }
+  .topbar h1 { font-size:16px; margin:0; letter-spacing:.08em; }
+  .topbar h1 span { color:var(--accent); }
+  .topbar .hint { margin-left:auto; font-size:12px; color:var(--muted); }
+  .lore { position:fixed; left:20px; bottom:64px; width:min(420px, 90vw); border:1px solid var(--line); border-radius:14px; background:rgba(5,6,15,.78); backdrop-filter:blur(8px); padding:16px 18px; z-index:5; }
+  .lore h2 { margin:0 0 8px; font-size:15px; color:var(--accent); }
+  .lore p { margin:0; font-size:13px; line-height:1.65; color:#c7cff0; }
+  .easter { position:fixed; inset:0; display:none; place-items:center; background:rgba(3,4,10,.9); z-index:9; text-align:center; backdrop-filter:blur(2px); }
+  .easter.show { display:grid; }
+  .easter h2 { font-size:34px; color:var(--accent); margin:0 0 12px; }
+  .easter p { color:var(--muted); }
+  .easter button { margin-top:22px; background:linear-gradient(135deg, var(--accent), #4f6cff); color:#03040a; font-weight:800; border:0; border-radius:10px; padding:12px 26px; font-size:15px; cursor:pointer; }
+  .vignette { position:fixed; inset:0; pointer-events:none; z-index:4; background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%); }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="vignette"></div>
+<div class="topbar"><h1>BEL<span>ENTANI</span> · GALAXIA INMERSIVA 3D</h1><div class="hint">mueve el raton: paralaje · scroll: zoom · easter egg: escribe "belentani"</div></div>
+<div class="lore"><h2>Universo Belentani · Lore</h2><p>La galaxia de Belentani nacio como un susurro cosmico entre el Bosque de Cristal y la Catedral del Archivo Vivo. Los OMEGA son los susurros activados por la conciencia colectiva. Cada estrella apagada guarda una memoria; cada brazo es una era.</p></div>
+<div class="easter" id="easter"><div><h2>✦ CONSECUENCIA ACTIVADA</h2><p>Estas dentro del nucleo. La flota se ha enterado.</p><button id="easterBtn">Volver a la galaxia</button></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  const canvas = document.getElementById("gl");
+  const easterEl = document.getElementById("easter");
+  const easterBtn = document.getElementById("easterBtn");
+  if (!window.THREE) { easterEl.innerHTML = '<div><h2>Error</h2><p>No se pudo cargar Three.js desde el CDN.</p></div>'; easterEl.classList.add("show"); return; }
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x03040a);
+  scene.fog = new THREE.Fog(0x03040a, 2200, 7000);
+  const camera = new THREE.PerspectiveCamera(70, 1, 0.1, 12000);
+  camera.position.set(0, 140, 1500);
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  function randn(){ let u=0,v=0; while(u===0) u=Math.random(); while(v===0) v=Math.random(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); }
+  function makeGalaxy(count, arms, radius, thickness){
+    const pos = new Float32Array(count*3);
+    const col = new Float32Array(count*3);
+    const palette = [[1,1,1],[0.75,0.89,1],[0.30,0.89,1],[0.56,0.48,1],[1,0.48,0.84],[0.24,0.86,0.59]];
+    for (let i=0;i<count;i++){
+      const arm=i%arms;
+      const t=Math.pow(Math.random(),0.72);
+      const r=40+t*radius;
+      const th=arm*(Math.PI*2/arms)+t*2.8+randn()*0.16;
+      const spread=1+t*0.35;
+      const x=Math.cos(th)*r+randn()*60*spread;
+      const z=Math.sin(th)*r+randn()*60*spread;
+      const y=randn()*thickness*(1.1-t*0.6);
+      pos[i*3]=x; pos[i*3+1]=y; pos[i*3+2]=z-1500;
+      const c=palette[i%palette.length];
+      const f=0.6+0.4*t;
+      col[i*3]=c[0]*f; col[i*3+1]=c[1]*f; col[i*3+2]=c[2]*f;
+    }
+    const g=new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(pos,3));
+    g.setAttribute("color", new THREE.BufferAttribute(col,3));
+    return g;
+  }
+  const galaxy = new THREE.Points(makeGalaxy(32000,7,1700,170), new THREE.PointsMaterial({size:1.8,vertexColors:true,sizeAttenuation:true,transparent:true,opacity:0.95,blending:THREE.AdditiveBlending,depthWrite:false}));
+  scene.add(galaxy);
+  const bright = new THREE.Points(makeGalaxy(2600,7,1700,170), new THREE.PointsMaterial({size:4.5,vertexColors:true,sizeAttenuation:true,transparent:true,opacity:0.9,blending:THREE.AdditiveBlending,depthWrite:false}));
+  scene.add(bright);
+  const bgCount=4000;
+  const bgPos=new Float32Array(bgCount*3);
+  const bgCol=new Float32Array(bgCount*3);
+  for (let i=0;i<bgCount;i++){
+    bgPos[i*3]=(Math.random()-0.5)*12000;
+    bgPos[i*3+1]=(Math.random()-0.5)*8000;
+    bgPos[i*3+2]=(Math.random()-0.5)*12000;
+    const b=0.4+Math.random()*0.6;
+    bgCol[i*3]=b*0.8; bgCol[i*3+1]=b*0.9; bgCol[i*3+2]=b;
+  }
+  const bgGeo=new THREE.BufferGeometry();
+  bgGeo.setAttribute("position", new THREE.BufferAttribute(bgPos,3));
+  bgGeo.setAttribute("color", new THREE.BufferAttribute(bgCol,3));
+  const bgStars=new THREE.Points(bgGeo, new THREE.PointsMaterial({size:2.4,vertexColors:true,sizeAttenuation:true,transparent:true,opacity:0.75,blending:THREE.AdditiveBlending,depthWrite:false}));
+  scene.add(bgStars);
+  const coreGeo=new THREE.BufferGeometry();
+  const corePos=new Float32Array([0,0,0,40,10,-20,-30,-15,25,10,-40,-10,-20,30,15]);
+  coreGeo.setAttribute("position", new THREE.BufferAttribute(corePos,3));
+  const coreMat=new THREE.PointsMaterial({size:120,color:0xbfe8ff,transparent:true,opacity:0.95,blending:THREE.AdditiveBlending,depthWrite:false});
+  const core=new THREE.Points(coreGeo,coreMat);
+  scene.add(core);
+  let raf=0;
+  const clock=new THREE.Clock();
+  const mouse={x:0,y:0,tx:0,ty:0};
+  const render=function(){
+    const t=clock.getElapsedTime();
+    galaxy.rotation.y=t*0.045;
+    galaxy.rotation.x=0.35+Math.sin(t*0.03)*0.08;
+    bright.rotation.y=t*0.045;
+    bright.rotation.x=galaxy.rotation.x;
+    core.rotation.y=-t*0.03;
+    mouse.x+=(mouse.tx-mouse.x)*0.05;
+    mouse.y+=(mouse.ty-mouse.y)*0.05;
+    camera.position.x=mouse.x*260;
+    camera.position.y=140+mouse.y*180;
+    camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+    raf=requestAnimationFrame(render);
+  };
+  render();
+  window.addEventListener("mousemove",function(e){ mouse.tx=(e.clientX/window.innerWidth)*2-1; mouse.ty=-((e.clientY/window.innerHeight)*2-1); });
+  canvas.addEventListener("wheel",function(e){ camera.position.z=Math.max(300,Math.min(4500,camera.position.z+e.deltaY*0.6)); },{passive:true});
+  window.addEventListener("resize",function(){ camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth,window.innerHeight); });
+  const EASTER="belentani";
+  let seq="";
+  let warp=false;
+  window.addEventListener("keydown",function(e){
+    if(e.key==="Escape"){ warp=false; easterEl.classList.remove("show"); return; }
+    seq=(seq+(e.key||"")).toLowerCase().slice(-EASTER.length);
+    if(seq===EASTER){
+      warp=true;
+      easterEl.classList.add("show");
+      seq="";
+      let start=performance.now();
+      const anim=function(){
+        if(!warp) return;
+        const k=Math.min(1,(performance.now()-start)/2500);
+        galaxy.rotation.y+=(0.5-0.045)*0.1;
+        camera.fov=70+k*40;
+        camera.updateProjectionMatrix();
+        if(k<1) requestAnimationFrame(anim);
+      };
+      anim();
+    }
+  });
+  easterBtn.addEventListener("click",function(){ warp=false; easterEl.classList.remove("show"); camera.fov=70; camera.updateProjectionMatrix(); });
+})();
+</script>
+</body>
+</html>
