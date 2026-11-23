@@ -15,3 +15,7 @@ __pycache__/
 # Generated operating-system metadata
 Desktop.ini
 ._*
+
+node_modules/
+.next/
+
