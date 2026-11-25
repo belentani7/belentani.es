@@ -20,15 +20,17 @@ export default function HomeClient() {
           </div>
           <div className={styles.constellation} aria-label="Tres símbolos de la obra: Espejo, Llave y Diamante">
             <span className={styles.ring} aria-hidden="true" />
-            <div className={styles.symbol}><span aria-hidden="true">◈</span><strong>Espejo</strong><small>IDENTIDAD</small></div>
-            <div className={styles.symbol}><span aria-hidden="true">✦</span><strong>Llave</strong><small>UMBRAL</small></div>
-            <div className={styles.symbol}><span aria-hidden="true">◇</span><strong>Diamante</strong><small>TRANSFORMACIÓN</small></div>
+            <a className={styles.symbol} href="/lore#espejo" aria-label="El espejo: identidad"><span aria-hidden="true">◈</span><strong>Espejo</strong><small>IDENTIDAD</small></a>
+            <a className={styles.symbol} href="/lore#llave" aria-label="La llave: umbral"><span aria-hidden="true">✦</span><strong>Llave</strong><small>UMBRAL</small></a>
+            <a className={styles.symbol} href="/galeria" aria-label="Diamante: explorar la galería de mundos"><span aria-hidden="true">◇</span><strong>Diamante</strong><small>TRANSFORMACIÓN</small></a>
           </div>
           <nav className={styles.routes} aria-label="Recorrer la obra">
             <a href="/lore"><span>01 / RELATO</span><strong>Entrar en el lore</strong><b aria-hidden="true">↗</b></a>
             <a href="/musica"><span>02 / SONIDO</span><strong>Escuchar la obra</strong><b aria-hidden="true">↗</b></a>
             <a href="/artista"><span>03 / PERSONA</span><strong>Conocer al artista</strong><b aria-hidden="true">↗</b></a>
             <a href="/omega-living.html"><span>04 / MUNDO RECUPERADO</span><strong>Entrar en OMEGA Living</strong><b aria-hidden="true">↗</b></a>
+            <a href="/galeria"><span>05 / IMAGEN</span><strong>Explorar los mundos</strong><b aria-hidden="true">↗</b></a>
+            <a href="/ai-lab"><span>06 / EXPERIMENTACIÓN</span><strong>Entrar en el laboratorio</strong><b aria-hidden="true">↗</b></a>
           </nav>
           <p className={styles.signature}>{t('home.hero.title')} <span aria-hidden="true">·</span> {t('home.hero.sub')}</p>
         </div>
