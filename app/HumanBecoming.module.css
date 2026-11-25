@@ -13,3 +13,16 @@
 @media(max-width:900px){.inner{grid-template-columns:1fr}.constellation{min-height:400px;width:min(100%,560px);margin:auto}.routes{grid-template-columns:1fr}.routes a{min-height:82px}.heading h2{font-size:clamp(3.5rem,12vw,7rem)}}
 @media(max-width:520px){.scene{padding-top:5rem}.constellation{min-height:330px}.symbol{width:112px}.symbol:nth-child(2){left:0}.symbol:nth-child(3){right:0}.symbol:nth-child(4){left:20%}.routes strong{font-size:1.15rem}}
 @media(prefers-reduced-motion:reduce){.symbol{animation:none}.routes a{transition:none}}
+
+/* Sculpted chrome and car-paint finish, scoped to the editorial home. */
+.symbol{color:#f8eee9;text-decoration:none;cursor:pointer;overflow:hidden;transition:box-shadow .25s,border-color .25s; background:radial-gradient(ellipse at 34% 13%,#ffffffb8 0%,#ffb7c760 8%,transparent 31%),linear-gradient(159deg,#edc8d360 0%,#a62b4e45 32%,#190819 51%,#480d27 72%,#ca638b66 100%),#140715;box-shadow:inset 0 2px 1px #ffe9f6c0,inset 0 -8px 20px #f12e6240,0 18px 40px #000b,0 0 38px #c3425a35}
+.symbol::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(116deg,transparent 25%,#fff0 35%,#fff5 48%,transparent 60%);transform:translateX(-125%);transition:transform .55s ease}
+.symbol:hover,.symbol:focus-visible{border-color:#f4c8a7;box-shadow:inset 0 2px 1px #fff,inset 0 -8px 25px #f12e6270,0 0 45px #f4557b55,0 20px 50px #000b;animation-play-state:paused}
+.symbol:hover::after,.symbol:focus-visible::after{transform:translateX(125%)}
+.symbol:focus-visible{outline:3px solid #f0c47b;outline-offset:5px}
+.routes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.routes a{min-height:126px;position:relative;background:linear-gradient(152deg,#241020,#0b0610 52%,#170a12);box-shadow:inset 0 1px #f9c6d721}
+.routes a:hover{background:linear-gradient(152deg,#462035,#1d0b18 52%,#290c1d)}
+@media(max-width:900px){.routes{grid-template-columns:repeat(2,minmax(0,1fr))}.routes a{min-height:100px}}
+@media(max-width:520px){.routes{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.symbol,.symbol::after{transition:none}.routes a:hover{transform:none}}
