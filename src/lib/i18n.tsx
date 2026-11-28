@@ -57,7 +57,7 @@ export const createI18n = (locales: Record<Lang, LocaleMap>) => {
         }
         return value;
       },
-      [lang, locales]
+      [lang]
     );
 
     const setLang = useCallback((next: Lang) => {
